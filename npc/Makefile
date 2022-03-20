@@ -14,6 +14,7 @@ sim:
 	@echo "Write this Makefile by your self."
 	gtkwave waveform.vcd
 
+
 rm :
 	@rm -rf obj_dir waveform.vcd
 include ../Makefile
