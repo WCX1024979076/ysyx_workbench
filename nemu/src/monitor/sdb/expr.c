@@ -27,10 +27,10 @@ static struct rule {
   {"\\d+", TK_NUM},     // number
   {"[(]",'('},            // (
   {"[)]",')'},            // )
-  {"*",'*'},            // mul
-  {"/",'/'},            // div
-  {"-",'-'},            // sub
-  {"=",'='}             // assign
+  {"[*]",'*'},            // mul
+  {"[/]",'/'},            // div
+  {"[-]",'-'},            // sub
+  {"[=]",'='}             // assign
 };
 
 #define NR_REGEX ARRLEN(rules)
