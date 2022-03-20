@@ -120,7 +120,7 @@ int check_parentheses(int p,int q)
     if(tokens[i].type=='(')
       sum++;
     if(tokens[i].type==')')
-      sum++;
+      sum--;
     if(sum<=0)
       return 0;
   }
