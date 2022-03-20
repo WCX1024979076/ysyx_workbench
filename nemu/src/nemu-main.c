@@ -13,7 +13,7 @@ int main(int argc, char *argv[]) {
 #else
   init_monitor(argc, argv);
 #endif
-  char str_expr[10]="1+2+3";
+  char str_expr[20]="1+2+3*(4+5*10)";
   bool success=true;
   expr(str_expr,&success);
 
