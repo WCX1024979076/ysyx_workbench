@@ -115,14 +115,13 @@ static bool make_token(char *e) {
 int check_parentheses(int p,int q)
 {
   int sum=0;
-  Log("%d %d %d %d\n",p,q,tokens[p].type,'(');
   for(int i=p;i<=q;i++)
   {
     if(tokens[i].type=='(')
       sum++;
     if(tokens[i].type==')')
       sum--;
-    if(sum<=0)
+    if(sum<=0&&i!=q)
       return 0;
   }
   if(sum==0)
