@@ -129,7 +129,7 @@ int check_parentheses(int p,int q)
 
 int eval(int p,int q)
 {
-  Log("eval_log %d %d\n",p,q);
+  Log("eval_log %d %d %d\n",p,q,check_parentheses(p,q));
   if(p>q)
     return -1;
   else if(p==q)
