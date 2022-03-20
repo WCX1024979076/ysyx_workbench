@@ -88,7 +88,7 @@ static bool make_token(char *e) {
 
         switch (rules[i].token_type) {
           case TK_NUM :
-            assert(substr_len>32);
+            assert(substr_len<32);
             for(int i=0;i<substr_len;i++)
               tokens[nr_token].str[i]=substr_start[i];
             tokens[nr_token].type=rules[i].token_type;
