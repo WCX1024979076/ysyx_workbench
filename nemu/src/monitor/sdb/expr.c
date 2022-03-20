@@ -129,8 +129,6 @@ int check_parentheses(int p,int q)
 
 int eval(int p,int q)
 {
-  Log("%d",nr_token);
-  assert(0);
   Log("eval_log %d %d\n",p,q);
   if(p>q)
     return -1;
