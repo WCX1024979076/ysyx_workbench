@@ -115,7 +115,7 @@ static bool make_token(char *e) {
 int check_parentheses(int p,int q)
 {
   int sum=0;
-  for(int i=0;i<nr_token;i++)
+  for(int i=p;i<=q;i++)
   {
     if(tokens[i].type=='(')
       sum++;
