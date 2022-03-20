@@ -6,7 +6,7 @@
 #include <regex.h>
 
 enum {
-  TK_NOTYPE = 256, TK_EQ,
+  TK_NOTYPE = 256, TK_EQ, TK_NUM
 
   /* TODO: Add more token types */
 
@@ -24,6 +24,13 @@ static struct rule {
   {" +", TK_NOTYPE},    // spaces
   {"\\+", '+'},         // plus
   {"==", TK_EQ},        // equal
+  {"\\d+", TK_NUM},     // number
+  {"(",'('},            // (
+  {")",')'},            // )
+  {"*",'*'},            // mul
+  {"/",'/'},            // div
+  {"-",'-'},            // sub
+  {"=",'='}             // assign
 };
 
 #define NR_REGEX ARRLEN(rules)
@@ -80,13 +87,21 @@ static bool make_token(char *e) {
          */
 
         switch (rules[i].token_type) {
-          default: TODO();
+          case TK_NUM :
+            assert(substr_len>32);
+            for(int i=0;i<substr_len;i++)
+              tokens[nr_token].str[i]=substr_start[i];
+            tokens[nr_token].type=rules[i].token_type;
+            nr_token++;
+            break;
+          default:
+            tokens[nr_token].type=rules[i].token_type;
+            nr_token++;
+            break;
         }
-
         break;
       }
     }
-
     if (i == NR_REGEX) {
       printf("no match at position %d\n%s\n%*.s^\n", position, e, position, "");
       return false;
@@ -97,6 +112,73 @@ static bool make_token(char *e) {
 }
 
 
+int check_parentheses(int p,int q)
+{
+  int sum=0;
+  for(int i=0;i<nr_token;i++)
+  {
+    if(tokens[i].type=='(')
+      sum++;
+    if(tokens[i].type==')')
+      sum++;
+    if(sum<=0)
+      return 0;
+  }
+  return sum==0;
+}
+
+int eval(int p,int q)
+{
+  if(p>q)
+    return -1;
+  else if(p==q)
+  {
+    if(tokens[p].type!=TK_NUM)
+      return -1;
+    int num=0;
+    for(int i=0;tokens[p].str[i];i++)
+      num=num*10+tokens[p].str[i]-'0';
+    return num;
+  }
+  else if(check_parentheses(p,q))
+  {
+    return eval(p+1,q-1);
+  }
+  else
+  {
+    int op=-1;
+    int sum=0;
+    for(int i=p;i<=q;i++)
+    {
+      if(tokens[i].type=='(')
+        sum++;
+      if(tokens[i].type==')')
+        sum--;
+      if(sum!=0)
+        continue;
+      if(tokens[i].type=='+'||tokens[i].type=='-'||tokens[i].type=='*'||tokens[i].type=='/')
+      {
+        if(op==-1)
+          op=i;
+        else if(tokens[i].type=='+'||tokens[i].type=='-')
+          op=i;
+        else if((tokens[i].type=='*'||tokens[i].type=='/')&&(tokens[op].type=='*'||tokens[op].type=='/'))
+          op=i;
+      }
+    }
+    int val1=eval(p,op-1);
+    int val2=eval(op+1,p);
+    int op_type=tokens[op].type;
+    switch(op_type)
+    {
+      case '+' : return val1+val2;
+      case '-' : return val1-val2;
+      case '*' : return val1*val2;
+      case '/' : return val1/val2;
+      default : assert(0);
+    }
+  }
+}
 word_t expr(char *e, bool *success) {
   if (!make_token(e)) {
     *success = false;
@@ -104,7 +186,8 @@ word_t expr(char *e, bool *success) {
   }
 
   /* TODO: Insert codes to evaluate the expression. */
-  TODO();
+  int ans=eval(0,nr_token-1);
+  printf("%d\n",ans);
 
   return 0;
 }
