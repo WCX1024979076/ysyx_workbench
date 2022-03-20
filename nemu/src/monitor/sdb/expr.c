@@ -168,7 +168,7 @@ int eval(int p,int q)
       }
     }
     int val1=eval(p,op-1);
-    int val2=eval(op+1,p);
+    int val2=eval(op+1,q);
     int op_type=tokens[op].type;
     switch(op_type)
     {
