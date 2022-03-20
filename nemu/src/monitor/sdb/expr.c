@@ -124,6 +124,7 @@ int check_parentheses(int p,int q)
     if(sum<=0)
       return 0;
   }
+  Log("eval_log1 %d\n",sum);
   return sum==0;
 }
 
