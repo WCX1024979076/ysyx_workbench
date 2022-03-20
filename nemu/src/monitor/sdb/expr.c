@@ -115,6 +115,7 @@ static bool make_token(char *e) {
 int check_parentheses(int p,int q)
 {
   int sum=0;
+  Log("%d\n",tokens[p].type);
   for(int i=p;i<=q;i++)
   {
     if(tokens[i].type=='(')
@@ -124,7 +125,6 @@ int check_parentheses(int p,int q)
     if(sum<=0)
       return 0;
   }
-  Log("eval_log1 %d\n",sum);
   if(sum==0)
     return 1;
   return 0;
