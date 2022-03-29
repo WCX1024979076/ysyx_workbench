@@ -1,0 +1,3 @@
+top=m_mux
+ledr (LD1, LD0)
+sw (SW9,SW8,SW7,SW6,SW5,SW4,SW3,SW2,SW1,SW0)
