@@ -31,10 +31,10 @@ WP* new_wp()
   WP* tmp=free_;
   free_=free_->next;
   if(head!=NULL)
-    tmp->next=head->next;
+    tmp->next=head;
   else
     tmp->next=NULL;
-  head=tmp;
+  head=tmp; 
   return tmp;
 }
 void free_wp(WP *wp)
@@ -54,7 +54,7 @@ void free_wp(WP *wp)
       WP* tmp1=tmp->next;
       tmp->next=tmp->next->next;
       if(free_==NULL)
-        tmp1->next=free_->next;
+        tmp1->next=free_;
       else
         tmp1->next=NULL;
       free_=tmp1;
@@ -62,6 +62,7 @@ void free_wp(WP *wp)
     }
     tmp=tmp->next;
   }
+  return ;
 }
 
 
