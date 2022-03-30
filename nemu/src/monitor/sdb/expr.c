@@ -140,7 +140,7 @@ int eval(int p,int q,bool *success)
   else if(p==q)
   {
     Log("%d\n",tokens[p].type);
-    if(tokens[p].type!=TK_NUM||tokens[p].type!=TK_HNUM||tokens[p].type!=TK_REG)
+    if(tokens[p].type!=TK_NUM&&tokens[p].type!=TK_HNUM&&tokens[p].type!=TK_REG)
       success=false;
     word_t num=0;
     Log("%s\n",tokens[p].str);
