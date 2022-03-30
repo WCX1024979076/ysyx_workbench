@@ -186,8 +186,7 @@ word_t eval(int p,int q,bool *success)
         else if((tokens[i].type=='+'||tokens[i].type=='-')&&(tokens[op].type=='+'||tokens[op].type=='-'||tokens[op].type=='*'||tokens[op].type=='/'))
           op=i;
       }
-    }
-    Log("%d\n",op);
+    } 
     int val1=eval(p,op-1,success);
     int val2=eval(op+1,q,success);
     int op_type=tokens[op].type;
