@@ -33,8 +33,8 @@ static struct rule {
   {"[/]",'/'},            // div
   {"[-]",'-'},            // sub
   {"[=]",'='},             // assign
-  {"[!=]",TK_NEQ},        //not equl
-  {"[&&]",TK_AND}        //and
+  {"!=",TK_NEQ},        //not equl
+  {"\\&\\&",TK_AND}        //and  
 };
 
 #define NR_REGEX ARRLEN(rules)
@@ -151,8 +151,6 @@ word_t eval(int p,int q,bool *success)
     {
         strcpy(tokens[p].str,tokens[p].str+1);
         num=isa_reg_str2val(tokens[p].str,success);
-        Log("%lx\n",num);
-        Log("%d\n",*success);
     }
     return num;
   }
