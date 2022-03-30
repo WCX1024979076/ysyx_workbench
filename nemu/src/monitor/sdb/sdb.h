@@ -7,4 +7,6 @@ word_t expr(char *e, bool *success);
 
 int add_point(char *str,bool* success);
 void del_point(int id);
+void show_point();
+
 #endif

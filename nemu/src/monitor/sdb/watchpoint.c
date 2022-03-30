@@ -76,7 +76,7 @@ void check_point_change()
       if(val!=tmp->point_data)
       {
         nemu_state.state=NEMU_STOP;
-        printf("Hardware watchpoint %s \n\n old_val=%lu \n now_val=%lu\n",tmp->point_expr,tmp->point_data,val);
+        printf("Hardware watchpoint %s \n\nold_val=%lu \nnow_val=%lu\n",tmp->point_expr,tmp->point_data,val);
         break;
       }
       tmp=tmp->next;
@@ -97,4 +97,15 @@ void del_point(int id)
   WP tmp;
   tmp.NO=id;
   free_wp(&tmp);
+}
+
+void show_point()
+{
+  WP* tmp=head;
+  while(tmp)
+  {
+    printf("Hardware watchpoint %d:%s \nval=%lu\n",tmp->NO,tmp->point_expr,tmp->point_data);
+    tmp=tmp->next;
+  }
+  return ;
 }

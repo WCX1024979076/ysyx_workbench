@@ -61,7 +61,7 @@ static int cmd_info(char *args)
   }
   else
   {
-    //TODO breakpoint
+    show_point();
   }
   return 0;
 }
