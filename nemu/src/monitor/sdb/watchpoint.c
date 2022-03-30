@@ -78,7 +78,7 @@ void check_point_change()
       {
         nemu_state.state=NEMU_STOP;
         printf("Hardware watchpoint %s \n\nold_val=%lu \nnow_val=%lu\n",tmp->point_expr,tmp->point_data,val);
-        break;
+        tmp->point_data=val;
       }
       tmp=tmp->next;
     }
