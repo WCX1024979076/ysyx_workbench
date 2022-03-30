@@ -105,6 +105,7 @@ static int cmd_d(char *args)
   int id;
   sscanf(args,"%d",&id);
   del_point(id);
+  printf("free successfully\n");
   return 0;
 }
 static int cmd_help(char *args);
