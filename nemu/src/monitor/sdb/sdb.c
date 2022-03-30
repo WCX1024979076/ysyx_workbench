@@ -87,7 +87,8 @@ static int cmd_x(char *args)
 static int cmd_p(char *args)
 {
   bool success;
-  expr(args,&success);
+  word_t ans=expr(args,&success);
+  printf("%lu\n",ans);
   return 0;
 }
 static int cmd_help(char *args);
