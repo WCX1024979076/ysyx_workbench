@@ -132,7 +132,7 @@ int check_parentheses(int p,int q)
   return 0;
 }
 
-int eval(int p,int q,bool *success)
+word_t eval(int p,int q,bool *success)
 {
   if(p>q)
     return -1;
