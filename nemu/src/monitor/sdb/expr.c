@@ -160,7 +160,7 @@ word_t eval(int p,int q,bool *success)
   }
   else if(tokens[p].type==TK_POT)
   {
-    word_t addr=eval(p+1,p+1,success);
+    word_t addr=eval(p+1,q,success);
     return vaddr_read(addr,4);
   }
   else
@@ -179,9 +179,11 @@ word_t eval(int p,int q,bool *success)
       {
         if(op==-1)
           op=i;
-        else if(tokens[i].type=='+'||tokens[i].type=='-')
-          op=i;
+        else if(tokens[i].type==TK_EQ||tokens[i].type==TK_NEQ||tokens[i].type==TK_AND)
+          op=i; 
         else if((tokens[i].type=='*'||tokens[i].type=='/')&&(tokens[op].type=='*'||tokens[op].type=='/'))
+          op=i;
+        else if((tokens[i].type=='+'||tokens[i].type=='-')&&(tokens[op].type=='+'||tokens[op].type=='-'||tokens[op].type=='*'||tokens[op].type=='/'))
           op=i;
       }
     }
