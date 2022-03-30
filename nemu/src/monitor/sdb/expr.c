@@ -90,20 +90,18 @@ static bool make_token(char *e) {
          * of tokens, some extra actions should be performed.
          */
 
-        switch (rules[i].token_type) {
-          case TK_NUM :
+         if(rules[i].token_type==TK_NUM||rules[i].token_type==TK_HNUM||rules[i].token_type==TK_REG){
             assert(substr_len<32);
             for(int i=0;i<substr_len;i++)
               tokens[nr_token].str[i]=substr_start[i];
             tokens[nr_token].type=rules[i].token_type;
             nr_token++;
-            break;
-          default:
+         }
+         else{
             tokens[nr_token].type=rules[i].token_type;
             nr_token++;
             break;
-        }
-        break;
+         }
       }
     }
     if (i == NR_REGEX) {
