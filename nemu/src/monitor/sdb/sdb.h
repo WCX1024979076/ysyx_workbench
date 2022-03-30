@@ -5,4 +5,5 @@
 
 word_t expr(char *e, bool *success);
 
+void add_point(char *str,bool* success);
 #endif

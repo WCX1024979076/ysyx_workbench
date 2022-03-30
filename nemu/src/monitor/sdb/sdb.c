@@ -91,6 +91,14 @@ static int cmd_p(char *args)
   printf("%lu\n",ans);
   return 0;
 }
+static int cmd_w(char *args)
+{
+  bool success;
+  add_point(args,&success);
+  if(success==false)
+    return -1;
+  return 0;
+}
 static int cmd_help(char *args);
 
 static struct {
@@ -104,7 +112,8 @@ static struct {
   { "si", "Single step", cmd_si},
   { "info", "Check the register or breakpoint status", cmd_info},
   { "x", "Check the memory content", cmd_x},
-  { "p", "Calculate the value of expression", cmd_p}
+  { "p", "Calculate the value of expression", cmd_p},
+  { "w", "Set checkpoint", cmd_w}
   /* TODO: Add more commands */
 
 };
