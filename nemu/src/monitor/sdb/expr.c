@@ -151,6 +151,7 @@ int eval(int p,int q,bool *success)
     else if(tokens[p].type==TK_REG)
     {
         strcpy(tokens[p].str,tokens[p].str+1);
+        Log("%s",tokens[p].str);
         num=isa_reg_str2val(tokens[p].str,success);
     }
     return num;
