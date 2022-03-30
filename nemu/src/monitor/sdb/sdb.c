@@ -94,9 +94,17 @@ static int cmd_p(char *args)
 static int cmd_w(char *args)
 {
   bool success;
-  add_point(args,&success);
+  int id=add_point(args,&success);
+  printf("Hardware watchpoint %d:%s\n\n",id,args);
   if(success==false)
     return -1;
+  return 0;
+}
+static int cmd_d(char *args)
+{
+  int id;
+  sscanf(args,"%d",&id);
+  del_point(id);
   return 0;
 }
 static int cmd_help(char *args);
@@ -113,7 +121,8 @@ static struct {
   { "info", "Check the register or breakpoint status", cmd_info},
   { "x", "Check the memory content", cmd_x},
   { "p", "Calculate the value of expression", cmd_p},
-  { "w", "Set checkpoint", cmd_w}
+  { "w", "Set watchpoint", cmd_w},
+  { "d", "Delete watchpoint",cmd_d}
   /* TODO: Add more commands */
 
 };
