@@ -139,6 +139,7 @@ int eval(int p,int q,bool *success)
     return -1;
   else if(p==q)
   {
+    Log("%d\n",tokens[p].type);
     if(tokens[p].type!=TK_NUM||tokens[p].type!=TK_HNUM||tokens[p].type!=TK_REG)
       return -1;
     word_t num=0;
