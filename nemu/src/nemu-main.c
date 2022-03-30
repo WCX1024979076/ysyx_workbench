@@ -13,9 +13,9 @@ int main(int argc, char *argv[]) {
 #else
   init_monitor(argc, argv);
 #endif
-  char str_expr[30]="1+2+3*(4+5*10)+9+1000";
-  bool success=true;
-  expr(str_expr,&success);
+  //char str_expr[30]="1+2+3*(4+5*10)+9+1000";
+  //bool success=true;
+  //expr(str_expr,&success);
 
   /* Start engine. */
   engine_start();

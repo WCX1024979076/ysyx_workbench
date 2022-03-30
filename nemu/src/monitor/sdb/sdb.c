@@ -10,6 +10,7 @@ void init_regex();
 void init_wp_pool();
 
 /* We use the `readline' library to provide more flexibility to read from stdin. */
+word_t vaddr_read(vaddr_t addr, int len);
 static char* rl_gets() {
   static char *line_read = NULL;
 
@@ -37,6 +38,58 @@ static int cmd_q(char *args) {
   return -1;
 }
 
+static int cmd_si(char *args)
+{
+  uint64_t num=0;
+  if(args==NULL)
+     num=1;
+  else{
+    sscanf(args,"%ld",&num);
+  }
+  if(num==0)
+    num=1;
+  cpu_exec(num);
+  return 0;
+
+}
+
+static int cmd_info(char *args)
+{
+  if(args[0]=='r')
+  {
+    isa_reg_display();
+  }
+  else
+  {
+    //TODO breakpoint
+  }
+  return 0;
+}
+ 
+static int cmd_x(char *args)
+{
+    if(args == NULL)
+    {
+        printf("missing args\n");
+        return 0;
+    }
+    char *token1=strtok(args," ");
+    char *token2=strtok(NULL," ");
+
+    int len=0;
+    paddr_t addr=0;
+    sscanf(token1,"%d",&len);
+    sscanf(token2,"%x",&addr);
+    for(int i=0;i<len;i++)
+        printf("%8x - %08lx\n",addr+i*4,vaddr_read(addr+i*4,4));
+    return 0;
+}
+static int cmd_p(char *args)
+{
+  bool success;
+  expr(args,&success);
+  return 0;
+}
 static int cmd_help(char *args);
 
 static struct {
@@ -47,7 +100,10 @@ static struct {
   { "help", "Display informations about all supported commands", cmd_help },
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
-
+  { "si", "Single step", cmd_si},
+  { "info", "Check the register or breakpoint status", cmd_info},
+  { "x", "Check the memory content", cmd_x},
+  { "p", "Calculate the value of expression", cmd_p}
   /* TODO: Add more commands */
 
 };

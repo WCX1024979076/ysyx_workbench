@@ -6,12 +6,13 @@
 #include <regex.h>
 
 enum {
-  TK_NOTYPE = 256, TK_EQ, TK_NUM
+  TK_NOTYPE = 256, TK_EQ, TK_NUM, TK_NEQ, TK_AND, TK_POT, TK_REG, TK_HNUM
 
   /* TODO: Add more token types */
 
 };
 
+word_t vaddr_read(vaddr_t addr, int len);
 static struct rule {
   const char *regex;
   int token_type;
@@ -20,7 +21,8 @@ static struct rule {
   /* TODO: Add more rules.
    * Pay attention to the precedence level of different rules.
    */
-
+  {"0x[0-9a-fA-F]+", TK_HNUM}, //Hex number
+  {"\\$[\\$a-zA-Z][0-9a-zA-Z]+",TK_REG}, //REG_NAME
   {" +", TK_NOTYPE},    // spaces
   {"\\+", '+'},         // plus
   {"==", TK_EQ},        // equal
@@ -30,7 +32,9 @@ static struct rule {
   {"[*]",'*'},            // mul
   {"[/]",'/'},            // div
   {"[-]",'-'},            // sub
-  {"[=]",'='}             // assign
+  {"[=]",'='},             // assign
+  {"[!=]",TK_NEQ},        //not equl
+  {"[&&]",TK_AND}        //and
 };
 
 #define NR_REGEX ARRLEN(rules)
@@ -129,22 +133,31 @@ int check_parentheses(int p,int q)
   return 0;
 }
 
-int eval(int p,int q)
+int eval(int p,int q,bool *success)
 {
   if(p>q)
     return -1;
   else if(p==q)
   {
-    if(tokens[p].type!=TK_NUM)
+    if(tokens[p].type!=TK_NUM||tokens[p].type!=TK_HNUM||tokens[p].type!=TK_REG)
       return -1;
-    int num=0;
-    for(int i=0;tokens[p].str[i];i++)
-      num=num*10+tokens[p].str[i]-'0';
+    word_t num=0;
+    if(tokens[p].type==TK_NUM)
+      sscanf(tokens[p].str,"%lu",&num);
+    else if(tokens[p].type==TK_HNUM)
+      sscanf(tokens[p].str,"%lx",&num);
+    else if(tokens[p].type==TK_REG)
+      num=isa_reg_str2val(tokens[p].str,success);
     return num;
   }
   else if(check_parentheses(p,q))
   {
-    return eval(p+1,q-1);
+    return eval(p+1,q-1,success);
+  }
+  else if(tokens[p].type==TK_POT)
+  {
+    word_t addr=eval(p+1,p+1,success);
+    return vaddr_read(addr,4);
   }
   else
   {
@@ -168,8 +181,8 @@ int eval(int p,int q)
           op=i;
       }
     }
-    int val1=eval(p,op-1);
-    int val2=eval(op+1,q);
+    int val1=eval(p,op-1,success);
+    int val2=eval(op+1,q,success);
     int op_type=tokens[op].type;
     switch(op_type)
     {
@@ -177,9 +190,13 @@ int eval(int p,int q)
       case '-' : return val1-val2;
       case '*' : return val1*val2;
       case '/' : return val1/val2;
-      default : assert(0);
+      case TK_EQ: return val1==val2;
+      case TK_NEQ: return val1!=val2;
+      case TK_AND: return val1&&val2;
+      default : *success=false;
     }
   }
+  return 0;
 }
 word_t expr(char *e, bool *success) {
   if (!make_token(e)) {
@@ -187,9 +204,15 @@ word_t expr(char *e, bool *success) {
     return 0;
   }
 
+  for(int i=0;i<nr_token;i++)
+  {
+      if (tokens[i].type == '*' && (i == 0 || tokens[i - 1].type == TK_NOTYPE || tokens[i-1].type=='*'||tokens[i-1].type=='/' || tokens[i-1].type=='*'||tokens[i-1].type=='/')) 
+         tokens[i].type = TK_POT;
+  }
   /* TODO: Insert codes to evaluate the expression. */
-  int ans=eval(0,nr_token-1);
-  printf("%d\n",ans);
-
-  return 0;
+  word_t ans=eval(0,nr_token-1,success);
+  printf("%lu\n",ans);
+  if(ans == -1)
+    *success = false;
+  return ans;
 }
