@@ -139,17 +139,20 @@ int eval(int p,int q,bool *success)
     return -1;
   else if(p==q)
   {
-    Log("%d\n",tokens[p].type);
+    //Log("%d\n",tokens[p].type);
     if(tokens[p].type!=TK_NUM&&tokens[p].type!=TK_HNUM&&tokens[p].type!=TK_REG)
       success=false;
     word_t num=0;
-    Log("%s\n",tokens[p].str);
+    //Log("%s\n",tokens[p].str);
     if(tokens[p].type==TK_NUM)
       sscanf(tokens[p].str,"%lu",&num);
     else if(tokens[p].type==TK_HNUM)
       sscanf(tokens[p].str,"%lx",&num);
     else if(tokens[p].type==TK_REG)
-      num=isa_reg_str2val(tokens[p].str,success);
+    {
+        strcpy(tokens[p].str,tokens[p].str+1);
+        num=isa_reg_str2val(tokens[p].str,success);
+    }
     return num;
   }
   else if(check_parentheses(p,q))
