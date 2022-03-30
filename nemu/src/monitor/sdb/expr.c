@@ -150,6 +150,7 @@ int eval(int p,int q,bool *success)
       sscanf(tokens[p].str,"%lx",&num);
     else if(tokens[p].type==TK_REG)
     {
+        Log("%s",tokens[p].str);
         strcpy(tokens[p].str,tokens[p].str+1);
         Log("%s",tokens[p].str);
         num=isa_reg_str2val(tokens[p].str,success);
