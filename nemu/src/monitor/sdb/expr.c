@@ -142,6 +142,7 @@ int eval(int p,int q,bool *success)
     if(tokens[p].type!=TK_NUM||tokens[p].type!=TK_HNUM||tokens[p].type!=TK_REG)
       return -1;
     word_t num=0;
+    Log("%s\n",tokens[p].str);
     if(tokens[p].type==TK_NUM)
       sscanf(tokens[p].str,"%lu",&num);
     else if(tokens[p].type==TK_HNUM)
