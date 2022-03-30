@@ -96,10 +96,12 @@ static bool make_token(char *e) {
               tokens[nr_token].str[i]=substr_start[i];
             tokens[nr_token].type=rules[i].token_type;
             nr_token++;
+            break;
          }
          else{
             tokens[nr_token].type=rules[i].token_type;
             nr_token++;
+            break;
          }
       }
     }
