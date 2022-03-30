@@ -142,17 +142,17 @@ int eval(int p,int q,bool *success)
     if(tokens[p].type!=TK_NUM&&tokens[p].type!=TK_HNUM&&tokens[p].type!=TK_REG)
       success=false;
     word_t num=0;
-    Log("%s\n",tokens[p].str);
+    //Log("%s\n",tokens[p].str);
     if(tokens[p].type==TK_NUM)
       sscanf(tokens[p].str,"%lu",&num);
     else if(tokens[p].type==TK_HNUM)
       sscanf(tokens[p].str,"%lx",&num);
     else if(tokens[p].type==TK_REG)
     {
-        Log("%s",tokens[p].str);
         strcpy(tokens[p].str,tokens[p].str+1);
-        Log("%s",tokens[p].str);
         num=isa_reg_str2val(tokens[p].str,success);
+        Log("%lx\n",num);
+        Log("%d\n",*success);
     }
     return num;
   }
