@@ -175,7 +175,7 @@ word_t eval(int p,int q,bool *success)
         sum--;
       if(sum!=0)
         continue;
-      if(tokens[i].type=='+'||tokens[i].type=='-'||tokens[i].type=='*'||tokens[i].type=='/')
+      if(tokens[i].type=='+'||tokens[i].type=='-'||tokens[i].type=='*'||tokens[i].type=='/'||tokens[i].type==TK_EQ||tokens[i].type==TK_NEQ||tokens[i].type==TK_AND)
       {
         if(op==-1)
           op=i;
