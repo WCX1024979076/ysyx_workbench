@@ -1,13 +1,15 @@
 export PRJ_PATH=$(shell pwd)
+top=example
+CFLAGS= -I /usr/share/verilator/include
 
 all:
 	@echo "Write this Makefile by your self."
 	
 cmp:
-	verilator --trace --cc --exe ./csrc/main.cpp ./vsrc/example.v 
-	make -j -C ./obj_dir/ -f Vexample.mk Vexample
+	verilator --trace --cc --exe ./csrc/$(top).cpp ./vsrc/$(top).v 
+	make -j -C ./obj_dir/ -f V$(top).mk V$(top)
 run:
-	./obj_dir/Vexample
+	./obj_dir/V$(top)
 
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
