@@ -23,8 +23,8 @@ enum {
 static word_t immI(uint32_t i) { return SEXT(BITS(i, 31, 20), 12); }
 static word_t immU(uint32_t i) { return SEXT(BITS(i, 31, 12), 20) << 12; }
 static word_t immS(uint32_t i) { return (SEXT(BITS(i, 31, 25), 7) << 5) | BITS(i, 11, 7); }
-static word_t immB(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 12) | BITS(i, 30, 25) << 5 | BITS(i,11,8) << 1 | BITS(i,7,7)<<11; }
-static word_t immJ(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 20) | BITS(i, 30, 21) << 1 | BITS(i,20,20) << 11 | BITS(i,19,12)<<12; }
+static word_t immB(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 12) | (BITS(i, 30, 25) << 5) | (BITS(i,11,8) << 1) | (BITS(i,7,7)<<11); }
+static word_t immJ(uint32_t i) { return (SEXT(BITS(i, 31, 31), 1) << 20) | (BITS(i, 30, 21) << 1) | (BITS(i,20,20) << 11) | (BITS(i,19,12)<<12); }
 
 static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, word_t *src3, int type) {
   uint32_t i = s->isa.inst.val;
@@ -105,7 +105,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("??????? ????? ????? 101 ????? 11000 11", bge    , B, s->pc += (long long)src1 >= (long long)src2 ? src3 : 0lu);
   INSTPAT("??????? ????? ????? 110 ????? 11000 11", bltu   , B, s->pc += src1 < src2 ? src3 : 0lu);
   INSTPAT("??????? ????? ????? 111 ????? 11000 11", bgeu   , B, s->pc += src1 >= src2 ? src3 : 0lu);
-  INSTPAT("??????? ????? ????? ??? ????? 11011 11", jal    , J, R(dest) = s->pc + 4lu,s->pc += SEXT(src1, 32));
+  INSTPAT("??????? ????? ????? ??? ????? 11011 11", jal    , J, R(dest) = s->pc + 4lu,s->pc = s->pc + SEXT(src1, 32));
   INSTPAT("??????? ????? ????? 010 ????? 11001 11", jalr   , I, word_t tmp = s->pc+4; s->pc = (src1 + SEXT(src2, 32))&(word_t)(-1),R(dest)=tmp);
 
   INSTPAT("0000000 00001 00000 000 00000 11100 11", ebreak , N, NEMUTRAP(s->pc, R(10))); // R(10) is $a0
