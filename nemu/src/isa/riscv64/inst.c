@@ -56,6 +56,7 @@ static void decode_operand(Decode *s, word_t *dest, word_t *src1, word_t *src2, 
       src3I(immB(i));
       break;
     case TYPE_J:
+      Log("1234 %x\n",i);
       src1I(immJ(i));
       Log("%lx",immJ(i));
       break;
