@@ -80,8 +80,8 @@ static bool make_token(char *e) {
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
 
-        //Log("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
-        // i, rules[i].regex, position, substr_len, substr_len, substr_start);
+        Log("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
+            i, rules[i].regex, position, substr_len, substr_len, substr_start);
 
         position += substr_len;
 
@@ -212,7 +212,7 @@ word_t expr(char *e, bool *success) {
 
   for(int i=0;i<nr_token;i++)
   {
-      if (tokens[i].type == '*' && (i == 0 || tokens[i - 1].type == TK_NOTYPE || tokens[i-1].type=='+'||tokens[i-1].type=='-'||tokens[i-1].type=='*'||tokens[i-1].type=='/')) 
+      if (tokens[i].type == '*' && (i == 0 || tokens[i - 1].type == TK_NOTYPE || tokens[i-1].type=='*'||tokens[i-1].type=='/' || tokens[i-1].type=='*'||tokens[i-1].type=='/')) 
          tokens[i].type = TK_POT;
   }
   /* TODO: Insert codes to evaluate the expression. */
