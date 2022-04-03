@@ -13,7 +13,7 @@ verilog:
 help:
 	$(mill)  -i __.test.runMain Elaborate --help
 
-compile:
+compile: 
 	$(mill)  -i __.compile
 
 bsp:
