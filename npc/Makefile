@@ -1,5 +1,6 @@
 BUILD_DIR = ./vsrc
 mill = ./mill/mill
+TOPNAME = top
 
 test:
 	$(mill) -i __.test
@@ -29,8 +30,13 @@ clean:
 
 .PHONY: test verilog help compile bsp reformat checkformat clean
 
+run:
+	verilator --trace --cc --exe ./csrc/$(TOPNAME).cpp ./vsrc/$(TOPNAME).v 
+	make -j -C ./obj_dir/ -f V$(TOPNAME).mk V$(TOPNAME)
+	./obj_dir/V$(TOPNAME)
+	
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
-	@echo "Write this Makefile by yourself."
+	gtkwave waveform.vcd
 
 include ../Makefile
