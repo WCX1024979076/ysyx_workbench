@@ -35,6 +35,6 @@ sim:
 	verilator --trace --cc --exe ./csrc/$(TOPNAME).cpp ./vsrc/$(TOPNAME).v 
 	make -j -C ./obj_dir/ -f V$(TOPNAME).mk V$(TOPNAME)
 	./obj_dir/V$(TOPNAME)	
-	gtkwave waveform.vcd
+	//gtkwave waveform.vcd
 
 include ../Makefile
