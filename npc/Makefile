@@ -30,13 +30,11 @@ clean:
 
 .PHONY: test verilog help compile bsp reformat checkformat clean
 
-run:
-	verilator --trace --cc --exe ./csrc/$(TOPNAME).cpp ./vsrc/$(TOPNAME).v 
-	make -j -C ./obj_dir/ -f V$(TOPNAME).mk V$(TOPNAME)
-	./obj_dir/V$(TOPNAME)
-	
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
+	verilator --trace --cc --exe ./csrc/$(TOPNAME).cpp ./vsrc/$(TOPNAME).v 
+	make -j -C ./obj_dir/ -f V$(TOPNAME).mk V$(TOPNAME)
+	./obj_dir/V$(TOPNAME)	
 	gtkwave waveform.vcd
 
 include ../Makefile
