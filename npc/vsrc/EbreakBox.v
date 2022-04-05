@@ -1,11 +1,8 @@
 
- import "DPI-C" function void ebreak();
- module EbreakBox (ebreak_in);
+ import "DPI-C" function int ebreak();
+ module Ebreak (ebreak_in);
  input ebreak_in;
- always @(*)
- begin
- if(ebreak_in==1'b1)
-   ebreak();
- end
+ wire [31:0] tmp;
+ assign tmp=ebreak_in ? 32'b0:ebreak();
  endmodule
     
