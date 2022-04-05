@@ -10,7 +10,7 @@ vluint64_t sim_time = 0;
 VMain* top=nullptr;
 VerilatedVcdC *m_trace=nullptr;
 VerilatedContext* contextp=nullptr;
-void ebreak()
+int ebreak()
 {
   puts("Meet ebreak;");
    m_trace->dump(sim_time);
@@ -18,6 +18,7 @@ void ebreak()
   delete top;
   delete contextp;
   exit(0);
+  return 0;
 }
 void cpu_sim()
 {
