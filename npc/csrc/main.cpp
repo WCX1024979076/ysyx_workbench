@@ -1,13 +1,13 @@
 #include <stdio.h>
-#include "Vmain.h"
+#include "VMain.h"
 #include "verilated.h"
 #include <verilated_vcd_c.h>
 #include <assert.h>
 #include <stdlib.h>
-#include "Vour__Dpi.h"
+#include "VMain__Dpi.h"
 #define MAX_SIM_TIME 20
 vluint64_t sim_time = 0;
-Vmain* top=nullptr;
+VMain* top=nullptr;
 VerilatedVcdC *m_trace=nullptr;
 void ebreak()
 {
@@ -25,7 +25,7 @@ int main(int argc, char** argv, char** env)
 	srand(time(0));
 	VerilatedContext* contextp = new VerilatedContext;
 	contextp->commandArgs(argc, argv);
-	top = new Vmain{contextp};
+	top = new VMain{contextp};
 
 	Verilated::traceEverOn(true);
 
