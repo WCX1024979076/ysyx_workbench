@@ -9,9 +9,13 @@
 vluint64_t sim_time = 0;
 VMain* top=nullptr;
 VerilatedVcdC *m_trace=nullptr;
+VerilatedContext* contextp=nullptr;
 void ebreak()
 {
   puts("Meet ebreak;");
+  m_trace->close();
+  delete top;
+  delete contextp;
   exit(0);
 }
 void cpu_sim()
@@ -23,7 +27,7 @@ void cpu_sim()
 int main(int argc, char** argv, char** env)
 {
 	srand(time(0));
-	VerilatedContext* contextp = new VerilatedContext;
+	contextp = new VerilatedContext;
 	contextp->commandArgs(argc, argv);
 	top = new VMain{contextp};
 
@@ -47,7 +51,7 @@ int main(int argc, char** argv, char** env)
 		m_trace->dump(sim_time++);
 	}
 
-    	m_trace->close();
+  m_trace->close();
 	delete top;
 	delete contextp;
 	return 0;
