@@ -1,6 +1,8 @@
 BUILD_DIR = ./vsrc
 mill = ./mill/mill
-TOPNAME = top
+TOPNAME = main
+CSRCNAME = main
+VSRCNAME = Main
 
 test:
 	$(mill) -i __.test
@@ -32,9 +34,9 @@ clean:
 
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
-	verilator --trace --cc --exe ./csrc/$(TOPNAME).cpp ./vsrc/$(TOPNAME).v 
+	verilator --trace --cc --exe ./csrc/$(CSRCNAME).cpp ./vsrc/$(VSRCNAME).v 
 	make -j -C ./obj_dir/ -f V$(TOPNAME).mk V$(TOPNAME)
 	./obj_dir/V$(TOPNAME)	
-	#gtkwave waveform.vcd
+	gtkwave waveform.vcd
 
 include ../Makefile
