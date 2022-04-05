@@ -1,6 +1,6 @@
 BUILD_DIR = ./vsrc
 mill = ./mill/mill
-TOPNAME = main
+TOPNAME = Main
 CSRCNAME = main
 VSRCNAME = Main
 
