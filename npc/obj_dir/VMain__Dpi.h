@@ -16,8 +16,8 @@ extern "C" {
 
 
     // DPI IMPORTS
-    // DPI import at vsrc/EbreakBox.v:2:31
-    extern void ebreak();
+    // DPI import at vsrc/EbreakBox.v:2:30
+    extern int ebreak();
 
 #ifdef __cplusplus
 }
