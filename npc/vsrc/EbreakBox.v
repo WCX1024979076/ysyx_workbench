@@ -3,6 +3,6 @@
  module EbreakBox ();
  function ebreak_fun;
  ebreak();
- end
+ endfunction
  endmodule
     
