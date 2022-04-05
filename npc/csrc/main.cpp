@@ -10,8 +10,8 @@ Vmain* top=nullptr;
 VerilatedVcdC *m_trace=nullptr;
 void cpu_sim()
 {
-	top->io_Inst=0x004a8a93,top->clock=0,top->eval(),m_trace->dump(sim_time++);
-	top->io_Inst=0x004a8a93,top->clock=1,top->eval(),m_trace->dump(sim_time++);
+	top->clock=0,top->eval();
+	top->clock=1,top->eval();
 }
 
 int main(int argc, char** argv, char** env)
@@ -33,7 +33,9 @@ int main(int argc, char** argv, char** env)
 	top->reset=0;
 	while (sim_time<MAX_SIM_TIME) 
 	{
+		top->io_Inst=0x004a8a93;
 		cpu_sim();	
+		m_trace->dump(sim_time++);
 	}
 
     	m_trace->close();
