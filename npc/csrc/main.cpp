@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #define MAX_SIM_TIME 20
 vluint64_t sim_time = 0;
+Vmain* top=nullptr;
 void cpu_sim()
 {
 	top->clock=0,top->eval();
@@ -17,7 +18,7 @@ int main(int argc, char** argv, char** env)
 	srand(time(0));
 	VerilatedContext* contextp = new VerilatedContext;
 	contextp->commandArgs(argc, argv);
-	Vmain* top = new Vmain{contextp};
+	top = new Vmain{contextp};
 
 	Verilated::traceEverOn(true);
 
