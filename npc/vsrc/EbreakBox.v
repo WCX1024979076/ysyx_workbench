@@ -1,5 +1,5 @@
-import "DPI-C" function void ebreak();
+import "DPI-C" function integer \$ebreak;
 module EbreakBox ();
-ebreak();
+$ebreak();
 endmodule
     
