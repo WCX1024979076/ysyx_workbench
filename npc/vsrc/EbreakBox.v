@@ -4,7 +4,7 @@
  input ebreak_in;
  always @(*)
  begin
- if(ebreak==1'b1)
+ if(ebreak_in==1'b1)
    ebreak();
  end
  endmodule
