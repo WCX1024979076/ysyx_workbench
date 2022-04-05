@@ -31,7 +31,7 @@ int main(int argc, char** argv, char** env)
 	top->reset=0;
 	while (sim_time<MAX_SIM_TIME) 
 	{
-		top->inst=0x004a8a93;
+		top->io_Inst=0x004a8a93;
 		cpu_sim();	
 		m_trace->dump(sim_time);
 		sim_time++;
