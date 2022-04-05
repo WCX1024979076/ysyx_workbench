@@ -165,9 +165,7 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
                                                             : vlSelf->Main__DOT__registers__DOT___GEN_53))))))))))))),64);
     tracep->chgQData(oldp+64,(((1U == (IData)(vlSelf->io_AluOp))
                                 ? (vlSelf->io_DataR1 
-                                   + ((IData)(vlSelf->io_AluSrc)
-                                       ? vlSelf->io_DataR2
-                                       : vlSelf->io_DataImmI))
+                                   + vlSelf->io_DataImmI)
                                 : 0ULL)),64);
     tracep->chgCData(oldp+66,((0x7fU & vlSelf->io_Inst)),7);
 }
