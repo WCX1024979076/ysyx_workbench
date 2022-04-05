@@ -167,7 +167,8 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
                                 ? (vlSelf->io_DataR1 
                                    + vlSelf->io_DataImmI)
                                 : 0ULL)),64);
-    tracep->chgCData(oldp+66,((0x7fU & vlSelf->io_Inst)),7);
+    tracep->chgBit(oldp+66,((0x100073U == vlSelf->io_Inst)));
+    tracep->chgCData(oldp+67,((0x7fU & vlSelf->io_Inst)),7);
 }
 
 void VMain___024root__trace_cleanup(void* voidSelf, VerilatedVcd* /*unused*/) {

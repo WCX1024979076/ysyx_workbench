@@ -64,24 +64,24 @@ VL_ATTR_COLD void VMain___024root__trace_init_sub__TOP__0(VMain___024root* vlSel
     tracep->declQuad(c+50,"alu_io_DataR2", false,-1, 63,0);
     tracep->declQuad(c+52,"alu_io_DataImm", false,-1, 63,0);
     tracep->declBus(c+41,"alu_io_AluOp", false,-1, 4,0);
-    tracep->declBit(c+68,"alu_io_AluSrc", false,-1);
+    tracep->declBit(c+69,"alu_io_AluSrc", false,-1);
     tracep->declQuad(c+65,"alu_io_AluOut", false,-1, 63,0);
     tracep->pushNamePrefix("alu ");
     tracep->declQuad(c+48,"io_DataR1", false,-1, 63,0);
     tracep->declQuad(c+50,"io_DataR2", false,-1, 63,0);
     tracep->declQuad(c+52,"io_DataImm", false,-1, 63,0);
     tracep->declBus(c+41,"io_AluOp", false,-1, 4,0);
-    tracep->declBit(c+68,"io_AluSrc", false,-1);
+    tracep->declBit(c+69,"io_AluSrc", false,-1);
     tracep->declQuad(c+65,"io_AluOut", false,-1, 63,0);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("contr ");
     tracep->declBus(c+37,"io_Inst", false,-1, 31,0);
     tracep->declBit(c+54,"io_RegWrite", false,-1);
     tracep->declBus(c+55,"io_AluOp", false,-1, 3,0);
-    tracep->declBit(c+68,"ebreakbox_ebreak_in", false,-1);
-    tracep->declBus(c+67,"opcode", false,-1, 6,0);
+    tracep->declBit(c+67,"ebreakbox_ebreak_in", false,-1);
+    tracep->declBus(c+68,"opcode", false,-1, 6,0);
     tracep->pushNamePrefix("ebreakbox ");
-    tracep->declBit(c+68,"ebreak_in", false,-1);
+    tracep->declBit(c+67,"ebreak_in", false,-1);
     tracep->popNamePrefix(2);
     tracep->pushNamePrefix("decode ");
     tracep->declBus(c+37,"io_Inst", false,-1, 31,0);
@@ -323,6 +323,7 @@ VL_ATTR_COLD void VMain___024root__trace_full_sub_0(VMain___024root* vlSelf, Ver
                                  ? (vlSelf->io_DataR1 
                                     + vlSelf->io_DataImmI)
                                  : 0ULL)),64);
-    tracep->fullCData(oldp+67,((0x7fU & vlSelf->io_Inst)),7);
-    tracep->fullBit(oldp+68,(0U));
+    tracep->fullBit(oldp+67,((0x100073U == vlSelf->io_Inst)));
+    tracep->fullCData(oldp+68,((0x7fU & vlSelf->io_Inst)),7);
+    tracep->fullBit(oldp+69,(0U));
 }
