@@ -1,8 +1,7 @@
 
  import "DPI-C" function void ebreak();
  module EbreakBox ();
- always@ (*)
- begin
+ function ebreak_fun;
  ebreak();
  end
  endmodule
