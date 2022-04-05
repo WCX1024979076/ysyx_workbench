@@ -44,7 +44,7 @@ int main(int argc, char** argv, char** env)
 	top->reset=0;
 	while (sim_time<MAX_SIM_TIME) 
 	{
-    if(sim_time==5)
+    if(sim_time==10)
       top->io_Inst=0x00100073;
     else
 		  top->io_Inst=0x004a8a93;
