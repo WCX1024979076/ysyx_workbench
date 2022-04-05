@@ -65,14 +65,12 @@ endmodule
 module Contr(
   input  [31:0] io_Inst,
   output        io_RegWrite,
-  output [3:0]  io_AluOp,
-  output        io_AluSrc
+  output [3:0]  io_AluOp
 );
   wire [6:0] opcode = io_Inst[6:0]; // @[Contr.scala 17:23]
   wire [4:0] _io_AluOp_T_1 = 7'h13 == opcode ? 5'h1 : 5'h0; // @[Mux.scala 80:57]
   assign io_RegWrite = 7'h13 == opcode; // @[Mux.scala 80:60]
   assign io_AluOp = _io_AluOp_T_1[3:0]; // @[Contr.scala 19:12]
-  assign io_AluSrc = 7'h13 == opcode; // @[Mux.scala 80:60]
 endmodule
 module Decode(
   input  [31:0] io_Inst,
@@ -595,7 +593,6 @@ module Main(
   wire [31:0] contr_io_Inst; // @[Main.scala 30:19]
   wire  contr_io_RegWrite; // @[Main.scala 30:19]
   wire [3:0] contr_io_AluOp; // @[Main.scala 30:19]
-  wire  contr_io_AluSrc; // @[Main.scala 30:19]
   wire [31:0] decode_io_Inst; // @[Main.scala 36:20]
   wire [4:0] decode_io_Rdest; // @[Main.scala 36:20]
   wire [4:0] decode_io_R1; // @[Main.scala 36:20]
@@ -624,8 +621,7 @@ module Main(
   Contr contr ( // @[Main.scala 30:19]
     .io_Inst(contr_io_Inst),
     .io_RegWrite(contr_io_RegWrite),
-    .io_AluOp(contr_io_AluOp),
-    .io_AluSrc(contr_io_AluSrc)
+    .io_AluOp(contr_io_AluOp)
   );
   Decode decode ( // @[Main.scala 36:20]
     .io_Inst(decode_io_Inst),
@@ -656,7 +652,7 @@ module Main(
   assign io_PcVal = pc_io_PcVal; // @[Main.scala 28:12]
   assign io_RegWrite = contr_io_RegWrite; // @[Main.scala 32:15]
   assign io_AluOp = {{1'd0}, contr_io_AluOp}; // @[Main.scala 33:12]
-  assign io_AluSrc = contr_io_AluSrc; // @[Main.scala 34:13]
+  assign io_AluSrc = 1'h0; // @[Main.scala 34:13]
   assign io_R1 = decode_io_R1; // @[Main.scala 38:9]
   assign io_R2 = decode_io_R2; // @[Main.scala 39:9]
   assign io_Rdest = decode_io_Rdest; // @[Main.scala 40:12]
