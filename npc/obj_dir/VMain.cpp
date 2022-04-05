@@ -4,6 +4,7 @@
 #include "VMain.h"
 #include "VMain__Syms.h"
 #include "verilated_vcd_c.h"
+#include "verilated_dpi.h"
 
 //============================================================
 // Constructors
@@ -24,6 +25,7 @@ VMain::VMain(VerilatedContext* _vcontextp__, const char* _vcname__)
     , io_DataR1{vlSymsp->TOP.io_DataR1}
     , io_DataR2{vlSymsp->TOP.io_DataR2}
     , io_DataImmI{vlSymsp->TOP.io_DataImmI}
+    , __PVT____024unit{vlSymsp->TOP.__PVT____024unit}
     , rootp{&(vlSymsp->TOP)}
 {
 }

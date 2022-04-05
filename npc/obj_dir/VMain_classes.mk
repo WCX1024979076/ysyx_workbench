@@ -27,14 +27,19 @@ VM_TRACE_FST_WRITER_THREAD = 0
 VM_CLASSES_FAST += \
 	VMain \
 	VMain___024root__DepSet_h3502859f__0 \
+	VMain___024unit__DepSet_ha798475c__0 \
 
 # Generated module classes, non-fast-path, compile with low/medium optimization
 VM_CLASSES_SLOW += \
 	VMain___024root__Slow \
+	VMain___024root__DepSet_hda8ec1d0__0__Slow \
 	VMain___024root__DepSet_h3502859f__0__Slow \
+	VMain___024unit__Slow \
+	VMain___024unit__DepSet_hca18071b__0__Slow \
 
 # Generated support classes, fast-path, compile with highest optimization
 VM_SUPPORT_FAST += \
+	VMain__Dpi \
 	VMain__Trace__0 \
 
 # Generated support classes, non-fast-path, compile with low/medium optimization
@@ -45,6 +50,7 @@ VM_SUPPORT_SLOW += \
 # Global classes, need linked once per executable, fast-path, compile with highest optimization
 VM_GLOBAL_FAST += \
 	verilated \
+	verilated_dpi \
 	verilated_vcd_c \
 
 # Global classes, need linked once per executable, non-fast-path, compile with low/medium optimization

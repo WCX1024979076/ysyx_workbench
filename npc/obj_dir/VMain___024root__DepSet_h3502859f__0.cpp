@@ -3,6 +3,7 @@
 // See VMain.h for the primary calling header
 
 #include "verilated.h"
+#include "verilated_dpi.h"
 
 #include "VMain___024root.h"
 

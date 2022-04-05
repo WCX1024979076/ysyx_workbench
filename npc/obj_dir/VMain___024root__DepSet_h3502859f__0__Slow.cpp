@@ -3,16 +3,9 @@
 // See VMain.h for the primary calling header
 
 #include "verilated.h"
+#include "verilated_dpi.h"
 
 #include "VMain___024root.h"
-
-VL_ATTR_COLD void VMain___024root___initial__TOP__0(VMain___024root* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VMain__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VMain___024root___initial__TOP__0\n"); );
-    // Body
-    vlSelf->io_AluSrc = 0U;
-}
 
 VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -275,6 +268,8 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                           ? (vlSelf->io_DataR1 + vlSelf->io_DataImmI)
                           : 0ULL);
 }
+
+VL_ATTR_COLD void VMain___024root___initial__TOP__0(VMain___024root* vlSelf);
 
 VL_ATTR_COLD void VMain___024root___eval_initial(VMain___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
