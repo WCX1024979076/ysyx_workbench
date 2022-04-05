@@ -13,6 +13,7 @@ VerilatedContext* contextp=nullptr;
 void ebreak()
 {
   puts("Meet ebreak;");
+   m_trace->dump(sim_time);
   m_trace->close();
   delete top;
   delete contextp;
