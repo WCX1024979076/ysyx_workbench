@@ -428,14 +428,11 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                           : 0ULL);
 }
 
-void VMain___024root___combo__TOP__0(VMain___024root* vlSelf);
-
 void VMain___024root___eval(VMain___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VMain__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VMain___024root___eval\n"); );
     // Body
-    VMain___024root___combo__TOP__0(vlSelf);
     if (((IData)(vlSelf->clock) & (~ (IData)(vlSelf->__Vclklast__TOP__clock)))) {
         VMain___024root___sequent__TOP__0(vlSelf);
         vlSelf->__Vm_traceActivity[1U] = 1U;
@@ -450,8 +447,6 @@ void VMain___024root___eval_debug_assertions(VMain___024root* vlSelf) {
     VMain__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VMain___024root___eval_debug_assertions\n"); );
     // Body
-    if (VL_UNLIKELY((vlSelf->MemWrite & 0xfeU))) {
-        Verilated::overWidthError("MemWrite");}
     if (VL_UNLIKELY((vlSelf->clock & 0xfeU))) {
         Verilated::overWidthError("clock");}
     if (VL_UNLIKELY((vlSelf->reset & 0xfeU))) {

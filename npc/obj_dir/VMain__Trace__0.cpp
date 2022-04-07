@@ -72,13 +72,7 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
     tracep->chgQData(oldp+47,(vlSelf->io_DataR1),64);
     tracep->chgQData(oldp+49,(vlSelf->io_DataR2),64);
     tracep->chgQData(oldp+51,(vlSelf->io_DataImmI),64);
-    tracep->chgQData(oldp+53,(vlSelf->Raddr),64);
-    tracep->chgQData(oldp+55,(vlSelf->Waddr),64);
-    tracep->chgQData(oldp+57,(vlSelf->Wdata),64);
-    tracep->chgCData(oldp+59,(vlSelf->Wmask),8);
-    tracep->chgBit(oldp+60,(vlSelf->MemWrite));
-    tracep->chgQData(oldp+61,(vlSelf->Rdata),64);
-    tracep->chgQData(oldp+63,((QData)((IData)(((0x1fU 
+    tracep->chgQData(oldp+53,((QData)((IData)(((0x1fU 
                                                 == (IData)(vlSelf->io_R1))
                                                 ? vlSelf->Main__DOT__registers__DOT__Regs_31
                                                 : (
@@ -118,7 +112,7 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
                                                             == (IData)(vlSelf->io_R1))
                                                             ? vlSelf->Main__DOT__registers__DOT__Regs_22
                                                             : vlSelf->Main__DOT__registers__DOT___GEN_21))))))))))))),64);
-    tracep->chgQData(oldp+65,((QData)((IData)(((0x1fU 
+    tracep->chgQData(oldp+55,((QData)((IData)(((0x1fU 
                                                 == (IData)(vlSelf->io_R2))
                                                 ? vlSelf->Main__DOT__registers__DOT__Regs_31
                                                 : (
@@ -158,7 +152,7 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
                                                             == (IData)(vlSelf->io_R2))
                                                             ? vlSelf->Main__DOT__registers__DOT__Regs_22
                                                             : vlSelf->Main__DOT__registers__DOT___GEN_53))))))))))))),64);
-    tracep->chgQData(oldp+67,(((1U == (IData)(vlSelf->io_AluOp))
+    tracep->chgQData(oldp+57,(((1U == (IData)(vlSelf->io_AluOp))
                                 ? (vlSelf->io_DataR1 
                                    + vlSelf->io_DataImmI)
                                 : 0ULL)),64);

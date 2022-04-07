@@ -17,8 +17,6 @@ VL_MODULE(VMain___024root) {
 
     // DESIGN SPECIFIC STATE
     VL_IN8(clock,0,0);
-    VL_IN8(Wmask,7,0);
-    VL_IN8(MemWrite,0,0);
     VL_IN8(reset,0,0);
     VL_OUT8(io_RegWrite,0,0);
     VL_OUT8(io_AluOp,4,0);
@@ -62,10 +60,6 @@ VL_MODULE(VMain___024root) {
     IData/*31:0*/ Main__DOT__registers__DOT__Regs_31;
     IData/*31:0*/ Main__DOT__registers__DOT___GEN_21;
     IData/*31:0*/ Main__DOT__registers__DOT___GEN_53;
-    VL_IN64(Raddr,63,0);
-    VL_IN64(Waddr,63,0);
-    VL_IN64(Wdata,63,0);
-    VL_OUT64(Rdata,63,0);
     VL_OUT64(io_PcVal,63,0);
     VL_OUT64(io_AluOut,63,0);
     VL_OUT64(io_DataR1,63,0);
@@ -73,7 +67,6 @@ VL_MODULE(VMain___024root) {
     VL_OUT64(io_DataImmI,63,0);
     QData/*63:0*/ Main__DOT__pc__DOT__pc;
     QData/*63:0*/ Main__DOT__pc__DOT___pc_T_1;
-    QData/*63:0*/ __Vtask_pmem_read__0__Rdata;
     VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
 
     // INTERNAL VARIABLES
