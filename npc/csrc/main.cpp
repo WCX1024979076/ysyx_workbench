@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include "VMain__Dpi.h"
 
-#define CONFIG_MSIZE 0x0000020
+#define CONFIG_MSIZE 0x0002000
 #define CONFIG_MBASE 0x80000000
 
 static uint8_t pmem[CONFIG_MSIZE]= {0};
@@ -31,8 +31,8 @@ void ebreak()
 }
 
 void pmem_read(long long Raddr, long long *Rdata) {
-    //(*Rdata) = *((uint32_t *)guest_to_host(Raddr));
-    printf("%lld\n",Raddr);
+    (*Rdata) = *((uint32_t *)guest_to_host(Raddr));
+    //printf("%lld\n",Raddr);
     (*Rdata)=0x00100073;
     return ;
 }
