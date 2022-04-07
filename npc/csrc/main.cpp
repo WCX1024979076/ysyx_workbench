@@ -60,10 +60,10 @@ int main(int argc, char** argv, char** env)
 	top->trace(m_trace, 5);
 	m_trace->open("waveform.vcd");
 	
-  pmem_write(0x80000000,0x00100073);
-  pmem_write(0x80000004,0x00100073);
-  pmem_write(0x80000008,0x00100073);
-  pmem_write(0x8000000c,0x004a8a93);
+  pmem_write(0x80000000,0x00100073,0);
+  pmem_write(0x80000004,0x00100073,0);
+  pmem_write(0x80000008,0x00100073,0);
+  pmem_write(0x8000000c,0x004a8a93,0);
   //pmem_write(0x80000000,0x00100073);
 	top->reset=1;
 	for(int i=1;i<=10;i++)
