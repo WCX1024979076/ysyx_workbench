@@ -76,9 +76,9 @@ int main(int argc, char** argv, char** env)
 		cpu_sim();
 	top->reset=0;
 	while (1) 
-	{
-		cpu_sim();	
+	{	
 		m_trace->dump(sim_time++);
+    cpu_sim();
 	}
 
   m_trace->close();
