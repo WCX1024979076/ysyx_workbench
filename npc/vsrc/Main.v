@@ -1,40 +1,19 @@
 module Pc(
   input         clock,
   input         reset,
-  output [63:0] io_PcVal,
-  output [31:0] io_Inst
+  output [63:0] io_PcVal
 );
 `ifdef RANDOMIZE_REG_INIT
   reg [63:0] _RAND_0;
 `endif // RANDOMIZE_REG_INIT
-  wire [63:0] mem_Raddr; // @[Pc.scala 16:17]
-  wire [63:0] mem_Rdata; // @[Pc.scala 16:17]
-  wire [63:0] mem_Waddr; // @[Pc.scala 16:17]
-  wire [63:0] mem_Wdata; // @[Pc.scala 16:17]
-  wire [7:0] mem_Wmask; // @[Pc.scala 16:17]
-  wire  mem_MemWrite; // @[Pc.scala 16:17]
   reg [63:0] pc; // @[Pc.scala 14:17]
-  wire [63:0] _pc_T_1 = pc + 64'h4; // @[Pc.scala 24:12]
-  Mem mem ( // @[Pc.scala 16:17]
-    .Raddr(mem_Raddr),
-    .Rdata(mem_Rdata),
-    .Waddr(mem_Waddr),
-    .Wdata(mem_Wdata),
-    .Wmask(mem_Wmask),
-    .MemWrite(mem_MemWrite)
-  );
-  assign io_PcVal = pc; // @[Pc.scala 25:12]
-  assign io_Inst = mem_Rdata[31:0]; // @[Pc.scala 18:11]
-  assign mem_Raddr = pc; // @[Pc.scala 17:16]
-  assign mem_Waddr = 64'h0; // @[Pc.scala 19:16]
-  assign mem_Wdata = 64'h0; // @[Pc.scala 21:16]
-  assign mem_Wmask = 8'h0; // @[Pc.scala 22:16]
-  assign mem_MemWrite = 1'h0; // @[Pc.scala 20:19]
+  wire [63:0] _pc_T_1 = pc + 64'h4; // @[Pc.scala 26:12]
+  assign io_PcVal = pc; // @[Pc.scala 27:12]
   always @(posedge clock) begin
     if (reset) begin // @[Pc.scala 14:17]
       pc <= 64'h80000000; // @[Pc.scala 14:17]
     end else begin
-      pc <= _pc_T_1; // @[Pc.scala 24:6]
+      pc <= _pc_T_1; // @[Pc.scala 26:6]
     end
   end
 // Register and memory initialization
@@ -616,7 +595,6 @@ module Main(
   wire  pc_clock; // @[Main.scala 27:16]
   wire  pc_reset; // @[Main.scala 27:16]
   wire [63:0] pc_io_PcVal; // @[Main.scala 27:16]
-  wire [31:0] pc_io_Inst; // @[Main.scala 27:16]
   wire [31:0] contr_io_Inst; // @[Main.scala 31:19]
   wire  contr_io_RegWrite; // @[Main.scala 31:19]
   wire [3:0] contr_io_AluOp; // @[Main.scala 31:19]
@@ -643,8 +621,7 @@ module Main(
   Pc pc ( // @[Main.scala 27:16]
     .clock(pc_clock),
     .reset(pc_reset),
-    .io_PcVal(pc_io_PcVal),
-    .io_Inst(pc_io_Inst)
+    .io_PcVal(pc_io_PcVal)
   );
   Contr contr ( // @[Main.scala 31:19]
     .io_Inst(contr_io_Inst),
@@ -677,7 +654,7 @@ module Main(
     .io_AluSrc(alu_io_AluSrc),
     .io_AluOut(alu_io_AluOut)
   );
-  assign io_Inst = pc_io_Inst; // @[Main.scala 29:11]
+  assign io_Inst = 32'h0; // @[Main.scala 29:11]
   assign io_PcVal = pc_io_PcVal; // @[Main.scala 28:12]
   assign io_RegWrite = contr_io_RegWrite; // @[Main.scala 33:15]
   assign io_AluOp = {{1'd0}, contr_io_AluOp}; // @[Main.scala 34:12]
