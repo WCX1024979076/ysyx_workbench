@@ -31,7 +31,6 @@ void ebreak()
 }
 
 void pmem_read(long long Raddr, long long *Rdata) {
-printf("123");
     (*Rdata) = *((uint32_t *)guest_to_host(Raddr));
     return ;
 }
@@ -48,6 +47,7 @@ void cpu_sim()
 
 int main(int argc, char** argv, char** env)
 {
+printf("123");
 	srand(time(0));
 	contextp = new VerilatedContext;
 	contextp->commandArgs(argc, argv);
