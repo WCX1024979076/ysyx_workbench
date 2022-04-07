@@ -12,7 +12,7 @@
 static uint8_t pmem[CONFIG_MSIZE]= {0};
 
 uint8_t* guest_to_host(long long paddr) { return pmem + paddr - CONFIG_MBASE; }
-paddr_t host_to_guest(uint8_t *haddr) { return haddr - pmem + CONFIG_MBASE; }
+long long host_to_guest(uint8_t *haddr) { return haddr - pmem + CONFIG_MBASE; }
 
 
 #define MAX_SIM_TIME 20
