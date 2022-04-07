@@ -14,8 +14,6 @@ static uint8_t pmem[CONFIG_MSIZE]= {0};
 uint8_t* guest_to_host(long long paddr) { return pmem + paddr - CONFIG_MBASE; }
 long long host_to_guest(uint8_t *haddr) { return haddr - pmem + CONFIG_MBASE; }
 
-
-#define MAX_SIM_TIME 20
 vluint64_t sim_time = 0;
 VMain* top=nullptr;
 VerilatedVcdC *m_trace=nullptr;
@@ -31,17 +29,16 @@ void ebreak()
 }
 
 void pmem_read(long long Raddr, long long *Rdata) {
-    if(Raddr<CONFIG_MBASE)
-      return ;
-    (*Rdata) = *((uint32_t *)guest_to_host(Raddr));
-    printf("%llx %llx \n",Raddr,(*Rdata));
-    //(*Rdata)=0x00100073;
+  if(Raddr<CONFIG_MBASE)
     return ;
+  (*Rdata) = *((uint32_t *)guest_to_host(Raddr));
+  printf("%llx %llx \n",Raddr,(*Rdata));
+  return ;
 }
 
 void pmem_write(long long Waddr, long long Wdata, char Wmask) {
-    *((long long *)guest_to_host(Waddr))=Wdata;
-    return ;
+  *((long long *)guest_to_host(Waddr))=Wdata;
+  return ;
 }
 
 void cpu_sim()
