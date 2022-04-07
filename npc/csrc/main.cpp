@@ -31,8 +31,8 @@ void ebreak()
 }
 
 void pmem_read(long long Raddr, long long *Rdata) {
-    (*Rdata) = *((uint32_t *)guest_to_host(Raddr));
-    //(*Rdata)=0x00100073;
+    //(*Rdata) = *((uint32_t *)guest_to_host(Raddr));
+    (*Rdata)=0x00100073;
     return ;
 }
 
