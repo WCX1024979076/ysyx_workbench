@@ -12,14 +12,7 @@ VL_ATTR_COLD void VMain___024root___initial__TOP__0(VMain___024root* vlSelf) {
     VMain__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VMain___024root___initial__TOP__0\n"); );
     // Body
-    vlSelf->io_Inst = 0U;
     vlSelf->io_AluSrc = 0U;
-    vlSelf->io_AluOp = 0U;
-    vlSelf->io_DataImmI = 0ULL;
-    vlSelf->io_R2 = 0U;
-    vlSelf->io_R1 = 0U;
-    vlSelf->io_RegWrite = 0U;
-    vlSelf->io_Rdest = 0U;
 }
 
 VL_ATTR_COLD void VMain___024root___eval_initial(VMain___024root* vlSelf) {
