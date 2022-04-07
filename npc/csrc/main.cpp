@@ -47,7 +47,6 @@ void cpu_sim()
 
 int main(int argc, char** argv, char** env)
 {
-printf("123");
 	srand(time(0));
 	contextp = new VerilatedContext;
 	contextp->commandArgs(argc, argv);
@@ -65,9 +64,9 @@ printf("123");
 	top->reset=0;
 	while (sim_time<MAX_SIM_TIME) 
 	{
-    if(sim_time==10)
-      top->io_Inst=0x00100073;
-    else
+	    if(sim_time==10)
+	      top->io_Inst=0x00100073;
+	    else
 		  top->io_Inst=0x004a8a93;
     //printf("%d\n",sim_time);
 		cpu_sim();	
