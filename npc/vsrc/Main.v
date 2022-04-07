@@ -6,9 +6,28 @@ module Pc(
 `ifdef RANDOMIZE_REG_INIT
   reg [63:0] _RAND_0;
 `endif // RANDOMIZE_REG_INIT
+  wire [63:0] mem_Raddr; // @[Pc.scala 17:17]
+  wire [63:0] mem_Rdata; // @[Pc.scala 17:17]
+  wire [63:0] mem_Waddr; // @[Pc.scala 17:17]
+  wire [63:0] mem_Wdata; // @[Pc.scala 17:17]
+  wire [7:0] mem_Wmask; // @[Pc.scala 17:17]
+  wire  mem_MemWrite; // @[Pc.scala 17:17]
   reg [63:0] pc; // @[Pc.scala 14:17]
   wire [63:0] _pc_T_1 = pc + 64'h4; // @[Pc.scala 26:12]
+  Mem mem ( // @[Pc.scala 17:17]
+    .Raddr(mem_Raddr),
+    .Rdata(mem_Rdata),
+    .Waddr(mem_Waddr),
+    .Wdata(mem_Wdata),
+    .Wmask(mem_Wmask),
+    .MemWrite(mem_MemWrite)
+  );
   assign io_PcVal = pc; // @[Pc.scala 27:12]
+  assign mem_Raddr = pc; // @[Pc.scala 18:16]
+  assign mem_Waddr = 64'h0; // @[Pc.scala 20:16]
+  assign mem_Wdata = 64'h0; // @[Pc.scala 22:16]
+  assign mem_Wmask = 8'h0; // @[Pc.scala 23:16]
+  assign mem_MemWrite = 1'h0; // @[Pc.scala 21:19]
   always @(posedge clock) begin
     if (reset) begin // @[Pc.scala 14:17]
       pc <= 64'h80000000; // @[Pc.scala 14:17]
