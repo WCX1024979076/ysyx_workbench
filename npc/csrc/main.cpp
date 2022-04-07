@@ -31,7 +31,7 @@ void ebreak()
 void pmem_read(long long Raddr, long long *Rdata) {
   if(Raddr<CONFIG_MBASE)
     return ;
-  (*Rdata) = *((uint32_t *)guest_to_host(Raddr));
+  (*Rdata) = *((long long *)guest_to_host(Raddr));
   printf("%llx %llx \n",Raddr,(*Rdata));
   return ;
 }
