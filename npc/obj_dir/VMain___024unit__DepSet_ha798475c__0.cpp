@@ -8,12 +8,36 @@
 #include "VMain__Syms.h"
 #include "VMain___024unit.h"
 
-extern "C" int ebreak();
+extern "C" void ebreak();
 
-VL_INLINE_OPT void VMain___024unit____Vdpiimwrap_ebreak_TOP____024unit(IData/*31:0*/ &ebreak__Vfuncrtn) {
+VL_INLINE_OPT void VMain___024unit____Vdpiimwrap_ebreak_TOP____024unit() {
     VL_DEBUG_IF(VL_DBG_MSGF("+        VMain___024unit____Vdpiimwrap_ebreak_TOP____024unit\n"); );
     // Body
-    int ebreak__Vfuncrtn__Vcvt;
-    ebreak__Vfuncrtn__Vcvt = ebreak();
-    ebreak__Vfuncrtn = ebreak__Vfuncrtn__Vcvt;
+    ebreak();
+}
+
+extern "C" void pmem_read(long long Raddr, long long* Rdata);
+
+VL_INLINE_OPT void VMain___024unit____Vdpiimwrap_pmem_read_TOP____024unit(QData/*63:0*/ Raddr, QData/*63:0*/ &Rdata) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+        VMain___024unit____Vdpiimwrap_pmem_read_TOP____024unit\n"); );
+    // Body
+    long long Raddr__Vcvt;
+    for (size_t Raddr__Vidx = 0; Raddr__Vidx < 1; ++Raddr__Vidx) Raddr__Vcvt = Raddr;
+    long long Rdata__Vcvt;
+    pmem_read(Raddr__Vcvt, &Rdata__Vcvt);
+    Rdata = Rdata__Vcvt;
+}
+
+extern "C" void pmem_write(long long Waddr, long long Wdata, char Wmask);
+
+VL_INLINE_OPT void VMain___024unit____Vdpiimwrap_pmem_write_TOP____024unit(QData/*63:0*/ Waddr, QData/*63:0*/ Wdata, CData/*7:0*/ Wmask) {
+    VL_DEBUG_IF(VL_DBG_MSGF("+        VMain___024unit____Vdpiimwrap_pmem_write_TOP____024unit\n"); );
+    // Body
+    long long Waddr__Vcvt;
+    for (size_t Waddr__Vidx = 0; Waddr__Vidx < 1; ++Waddr__Vidx) Waddr__Vcvt = Waddr;
+    long long Wdata__Vcvt;
+    for (size_t Wdata__Vidx = 0; Wdata__Vidx < 1; ++Wdata__Vidx) Wdata__Vcvt = Wdata;
+    char Wmask__Vcvt;
+    for (size_t Wmask__Vidx = 0; Wmask__Vidx < 1; ++Wmask__Vidx) Wmask__Vcvt = Wmask;
+    pmem_write(Waddr__Vcvt, Wdata__Vcvt, Wmask__Vcvt);
 }

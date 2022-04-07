@@ -25,8 +25,7 @@ VL_MODULE(VMain___024root) {
     VL_OUT8(io_R2,4,0);
     VL_OUT8(io_Rdest,4,0);
     CData/*0:0*/ __Vclklast__TOP__clock;
-    VL_IN(io_Inst,31,0);
-    IData/*31:0*/ Main__DOT__contr__DOT__ebreakbox__DOT__tmp;
+    VL_OUT(io_Inst,31,0);
     IData/*31:0*/ Main__DOT__registers__DOT__Regs_0;
     IData/*31:0*/ Main__DOT__registers__DOT__Regs_1;
     IData/*31:0*/ Main__DOT__registers__DOT__Regs_2;
@@ -61,14 +60,16 @@ VL_MODULE(VMain___024root) {
     IData/*31:0*/ Main__DOT__registers__DOT__Regs_31;
     IData/*31:0*/ Main__DOT__registers__DOT___GEN_21;
     IData/*31:0*/ Main__DOT__registers__DOT___GEN_53;
-    IData/*31:0*/ __Vfunc_ebreak__0__Vfuncout;
     VL_OUT64(io_PcVal,63,0);
     VL_OUT64(io_AluOut,63,0);
     VL_OUT64(io_DataR1,63,0);
     VL_OUT64(io_DataR2,63,0);
     VL_OUT64(io_DataImmI,63,0);
+    QData/*63:0*/ Main__DOT__mem_Rdata;
+    QData/*63:0*/ Main__DOT__pc__DOT__mem_Rdata;
     QData/*63:0*/ Main__DOT__pc__DOT__pc;
     QData/*63:0*/ Main__DOT__pc__DOT___pc_T_1;
+    QData/*63:0*/ __Vtask_pmem_read__0__Rdata;
     VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
 
     // INTERNAL VARIABLES

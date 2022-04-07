@@ -36,7 +36,7 @@ class VMain VL_NOT_FINAL {
     VL_OUT8(&io_R1,4,0);
     VL_OUT8(&io_R2,4,0);
     VL_OUT8(&io_Rdest,4,0);
-    VL_IN(&io_Inst,31,0);
+    VL_OUT(&io_Inst,31,0);
     VL_OUT64(&io_PcVal,63,0);
     VL_OUT64(&io_AluOut,63,0);
     VL_OUT64(&io_DataR1,63,0);
