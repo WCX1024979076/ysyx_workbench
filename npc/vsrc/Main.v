@@ -1,19 +1,40 @@
 module Pc(
   input         clock,
   input         reset,
-  output [63:0] io_PcVal
+  output [63:0] io_PcVal,
+  output [31:0] io_Inst
 );
 `ifdef RANDOMIZE_REG_INIT
   reg [63:0] _RAND_0;
 `endif // RANDOMIZE_REG_INIT
-  reg [63:0] pc; // @[Pc.scala 13:17]
-  wire [63:0] _pc_T_1 = pc + 64'h4; // @[Pc.scala 14:12]
-  assign io_PcVal = pc; // @[Pc.scala 15:12]
+  wire [63:0] mem_Raddr; // @[Pc.scala 16:17]
+  wire [63:0] mem_Rdata; // @[Pc.scala 16:17]
+  wire [63:0] mem_Waddr; // @[Pc.scala 16:17]
+  wire [63:0] mem_Wdata; // @[Pc.scala 16:17]
+  wire [7:0] mem_Wmask; // @[Pc.scala 16:17]
+  wire  mem_MemWrite; // @[Pc.scala 16:17]
+  reg [63:0] pc; // @[Pc.scala 14:17]
+  wire [63:0] _pc_T_1 = pc + 64'h4; // @[Pc.scala 24:12]
+  Mem mem ( // @[Pc.scala 16:17]
+    .Raddr(mem_Raddr),
+    .Rdata(mem_Rdata),
+    .Waddr(mem_Waddr),
+    .Wdata(mem_Wdata),
+    .Wmask(mem_Wmask),
+    .MemWrite(mem_MemWrite)
+  );
+  assign io_PcVal = pc; // @[Pc.scala 25:12]
+  assign io_Inst = mem_Rdata[31:0]; // @[Pc.scala 18:11]
+  assign mem_Raddr = pc; // @[Pc.scala 17:16]
+  assign mem_Waddr = 64'h0; // @[Pc.scala 19:16]
+  assign mem_Wdata = 64'h0; // @[Pc.scala 21:16]
+  assign mem_Wmask = 8'h0; // @[Pc.scala 22:16]
+  assign mem_MemWrite = 1'h0; // @[Pc.scala 20:19]
   always @(posedge clock) begin
-    if (reset) begin // @[Pc.scala 13:17]
-      pc <= 64'h80000000; // @[Pc.scala 13:17]
+    if (reset) begin // @[Pc.scala 14:17]
+      pc <= 64'h80000000; // @[Pc.scala 14:17]
     end else begin
-      pc <= _pc_T_1; // @[Pc.scala 14:6]
+      pc <= _pc_T_1; // @[Pc.scala 24:6]
     end
   end
 // Register and memory initialization
@@ -579,7 +600,7 @@ endmodule
 module Main(
   input         clock,
   input         reset,
-  input  [31:0] io_Inst,
+  output [31:0] io_Inst,
   output [63:0] io_PcVal,
   output        io_RegWrite,
   output [4:0]  io_AluOp,
@@ -595,47 +616,55 @@ module Main(
   wire  pc_clock; // @[Main.scala 27:16]
   wire  pc_reset; // @[Main.scala 27:16]
   wire [63:0] pc_io_PcVal; // @[Main.scala 27:16]
-  wire [31:0] contr_io_Inst; // @[Main.scala 30:19]
-  wire  contr_io_RegWrite; // @[Main.scala 30:19]
-  wire [3:0] contr_io_AluOp; // @[Main.scala 30:19]
-  wire [31:0] decode_io_Inst; // @[Main.scala 36:20]
-  wire [4:0] decode_io_Rdest; // @[Main.scala 36:20]
-  wire [4:0] decode_io_R1; // @[Main.scala 36:20]
-  wire [4:0] decode_io_R2; // @[Main.scala 36:20]
-  wire [63:0] decode_io_ImmI; // @[Main.scala 36:20]
-  wire  registers_clock; // @[Main.scala 43:25]
-  wire  registers_reset; // @[Main.scala 43:25]
-  wire [4:0] registers_io_Rdest; // @[Main.scala 43:25]
-  wire [4:0] registers_io_R1; // @[Main.scala 43:25]
-  wire [4:0] registers_io_R2; // @[Main.scala 43:25]
-  wire  registers_io_RegWrite; // @[Main.scala 43:25]
-  wire [63:0] registers_io_AluOut; // @[Main.scala 43:25]
-  wire [63:0] registers_io_DataR1; // @[Main.scala 43:25]
-  wire [63:0] registers_io_DataR2; // @[Main.scala 43:25]
-  wire [63:0] alu_io_DataR1; // @[Main.scala 53:19]
-  wire [63:0] alu_io_DataR2; // @[Main.scala 53:19]
-  wire [63:0] alu_io_DataImm; // @[Main.scala 53:19]
-  wire [4:0] alu_io_AluOp; // @[Main.scala 53:19]
-  wire  alu_io_AluSrc; // @[Main.scala 53:19]
-  wire [63:0] alu_io_AluOut; // @[Main.scala 53:19]
+  wire [31:0] pc_io_Inst; // @[Main.scala 27:16]
+  wire [31:0] contr_io_Inst; // @[Main.scala 31:19]
+  wire  contr_io_RegWrite; // @[Main.scala 31:19]
+  wire [3:0] contr_io_AluOp; // @[Main.scala 31:19]
+  wire [31:0] decode_io_Inst; // @[Main.scala 37:20]
+  wire [4:0] decode_io_Rdest; // @[Main.scala 37:20]
+  wire [4:0] decode_io_R1; // @[Main.scala 37:20]
+  wire [4:0] decode_io_R2; // @[Main.scala 37:20]
+  wire [63:0] decode_io_ImmI; // @[Main.scala 37:20]
+  wire  registers_clock; // @[Main.scala 44:25]
+  wire  registers_reset; // @[Main.scala 44:25]
+  wire [4:0] registers_io_Rdest; // @[Main.scala 44:25]
+  wire [4:0] registers_io_R1; // @[Main.scala 44:25]
+  wire [4:0] registers_io_R2; // @[Main.scala 44:25]
+  wire  registers_io_RegWrite; // @[Main.scala 44:25]
+  wire [63:0] registers_io_AluOut; // @[Main.scala 44:25]
+  wire [63:0] registers_io_DataR1; // @[Main.scala 44:25]
+  wire [63:0] registers_io_DataR2; // @[Main.scala 44:25]
+  wire [63:0] alu_io_DataR1; // @[Main.scala 54:19]
+  wire [63:0] alu_io_DataR2; // @[Main.scala 54:19]
+  wire [63:0] alu_io_DataImm; // @[Main.scala 54:19]
+  wire [4:0] alu_io_AluOp; // @[Main.scala 54:19]
+  wire  alu_io_AluSrc; // @[Main.scala 54:19]
+  wire [63:0] alu_io_AluOut; // @[Main.scala 54:19]
+  wire [63:0] mem_Raddr; // @[Main.scala 63:17]
+  wire [63:0] mem_Rdata; // @[Main.scala 63:17]
+  wire [63:0] mem_Waddr; // @[Main.scala 63:17]
+  wire [63:0] mem_Wdata; // @[Main.scala 63:17]
+  wire [7:0] mem_Wmask; // @[Main.scala 63:17]
+  wire  mem_MemWrite; // @[Main.scala 63:17]
   Pc pc ( // @[Main.scala 27:16]
     .clock(pc_clock),
     .reset(pc_reset),
-    .io_PcVal(pc_io_PcVal)
+    .io_PcVal(pc_io_PcVal),
+    .io_Inst(pc_io_Inst)
   );
-  Contr contr ( // @[Main.scala 30:19]
+  Contr contr ( // @[Main.scala 31:19]
     .io_Inst(contr_io_Inst),
     .io_RegWrite(contr_io_RegWrite),
     .io_AluOp(contr_io_AluOp)
   );
-  Decode decode ( // @[Main.scala 36:20]
+  Decode decode ( // @[Main.scala 37:20]
     .io_Inst(decode_io_Inst),
     .io_Rdest(decode_io_Rdest),
     .io_R1(decode_io_R1),
     .io_R2(decode_io_R2),
     .io_ImmI(decode_io_ImmI)
   );
-  Registers registers ( // @[Main.scala 43:25]
+  Registers registers ( // @[Main.scala 44:25]
     .clock(registers_clock),
     .reset(registers_reset),
     .io_Rdest(registers_io_Rdest),
@@ -646,7 +675,7 @@ module Main(
     .io_DataR1(registers_io_DataR1),
     .io_DataR2(registers_io_DataR2)
   );
-  Alu alu ( // @[Main.scala 53:19]
+  Alu alu ( // @[Main.scala 54:19]
     .io_DataR1(alu_io_DataR1),
     .io_DataR2(alu_io_DataR2),
     .io_DataImm(alu_io_DataImm),
@@ -654,31 +683,45 @@ module Main(
     .io_AluSrc(alu_io_AluSrc),
     .io_AluOut(alu_io_AluOut)
   );
+  Mem mem ( // @[Main.scala 63:17]
+    .Raddr(mem_Raddr),
+    .Rdata(mem_Rdata),
+    .Waddr(mem_Waddr),
+    .Wdata(mem_Wdata),
+    .Wmask(mem_Wmask),
+    .MemWrite(mem_MemWrite)
+  );
+  assign io_Inst = pc_io_Inst; // @[Main.scala 29:11]
   assign io_PcVal = pc_io_PcVal; // @[Main.scala 28:12]
-  assign io_RegWrite = contr_io_RegWrite; // @[Main.scala 32:15]
-  assign io_AluOp = {{1'd0}, contr_io_AluOp}; // @[Main.scala 33:12]
-  assign io_AluSrc = 1'h0; // @[Main.scala 34:13]
-  assign io_R1 = decode_io_R1; // @[Main.scala 38:9]
-  assign io_R2 = decode_io_R2; // @[Main.scala 39:9]
-  assign io_Rdest = decode_io_Rdest; // @[Main.scala 40:12]
-  assign io_AluOut = alu_io_AluOut; // @[Main.scala 59:13]
-  assign io_DataR1 = registers_io_DataR1; // @[Main.scala 50:13]
-  assign io_DataR2 = registers_io_DataR2; // @[Main.scala 51:13]
-  assign io_DataImmI = decode_io_ImmI; // @[Main.scala 41:15]
+  assign io_RegWrite = contr_io_RegWrite; // @[Main.scala 33:15]
+  assign io_AluOp = {{1'd0}, contr_io_AluOp}; // @[Main.scala 34:12]
+  assign io_AluSrc = 1'h0; // @[Main.scala 35:13]
+  assign io_R1 = decode_io_R1; // @[Main.scala 39:9]
+  assign io_R2 = decode_io_R2; // @[Main.scala 40:9]
+  assign io_Rdest = decode_io_Rdest; // @[Main.scala 41:12]
+  assign io_AluOut = alu_io_AluOut; // @[Main.scala 60:13]
+  assign io_DataR1 = registers_io_DataR1; // @[Main.scala 51:13]
+  assign io_DataR2 = registers_io_DataR2; // @[Main.scala 52:13]
+  assign io_DataImmI = decode_io_ImmI; // @[Main.scala 42:15]
   assign pc_clock = clock;
   assign pc_reset = reset;
-  assign contr_io_Inst = io_Inst; // @[Main.scala 31:17]
-  assign decode_io_Inst = io_Inst; // @[Main.scala 37:18]
+  assign contr_io_Inst = io_Inst; // @[Main.scala 32:17]
+  assign decode_io_Inst = io_Inst; // @[Main.scala 38:18]
   assign registers_clock = clock;
   assign registers_reset = reset;
-  assign registers_io_Rdest = io_Rdest; // @[Main.scala 46:22]
-  assign registers_io_R1 = io_R1; // @[Main.scala 44:19]
-  assign registers_io_R2 = io_R2; // @[Main.scala 45:19]
-  assign registers_io_RegWrite = io_RegWrite; // @[Main.scala 47:25]
-  assign registers_io_AluOut = io_AluOut; // @[Main.scala 48:23]
-  assign alu_io_DataR1 = io_DataR1; // @[Main.scala 54:17]
-  assign alu_io_DataR2 = io_DataR2; // @[Main.scala 55:17]
-  assign alu_io_DataImm = io_DataImmI; // @[Main.scala 57:18]
-  assign alu_io_AluOp = io_AluOp; // @[Main.scala 56:16]
-  assign alu_io_AluSrc = io_AluSrc; // @[Main.scala 58:17]
+  assign registers_io_Rdest = io_Rdest; // @[Main.scala 47:22]
+  assign registers_io_R1 = io_R1; // @[Main.scala 45:19]
+  assign registers_io_R2 = io_R2; // @[Main.scala 46:19]
+  assign registers_io_RegWrite = io_RegWrite; // @[Main.scala 48:25]
+  assign registers_io_AluOut = io_AluOut; // @[Main.scala 49:23]
+  assign alu_io_DataR1 = io_DataR1; // @[Main.scala 55:17]
+  assign alu_io_DataR2 = io_DataR2; // @[Main.scala 56:17]
+  assign alu_io_DataImm = io_DataImmI; // @[Main.scala 58:18]
+  assign alu_io_AluOp = io_AluOp; // @[Main.scala 57:16]
+  assign alu_io_AluSrc = io_AluSrc; // @[Main.scala 59:17]
+  assign mem_Raddr = 64'h0; // @[Main.scala 64:16]
+  assign mem_Waddr = 64'h0; // @[Main.scala 65:16]
+  assign mem_Wdata = 64'h0; // @[Main.scala 67:16]
+  assign mem_Wmask = 8'h0; // @[Main.scala 68:16]
+  assign mem_MemWrite = 1'h0; // @[Main.scala 66:19]
 endmodule
