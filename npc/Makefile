@@ -39,4 +39,7 @@ sim:
 	./obj_dir/V$(TOPNAME)	
 	gtkwave waveform.vcd
 
+run:
+	./obj_dir/V$(TOPNAME)
+
 include ../Makefile
