@@ -39,7 +39,7 @@ void pmem_read(long long Raddr, long long *Rdata) {
 void pmem_write(long long Waddr, long long Wdata, char Wmask) {
   for(int i=0;i<7;i++)
   {
-    long long *Vaddr=guest_to_host(Waddr);
+    Uint8_t *Vaddr=guest_to_host(Waddr);
     if((Wmask>>i)&1)
       *((uint8_t*)(Vaddr+i))=((Wdata)>>(i*8))&(0xFF);
   }
