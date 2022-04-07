@@ -65,7 +65,6 @@ VL_MODULE(VMain___024root) {
     VL_OUT64(io_DataR1,63,0);
     VL_OUT64(io_DataR2,63,0);
     VL_OUT64(io_DataImmI,63,0);
-    QData/*63:0*/ Main__DOT__mem_Rdata;
     QData/*63:0*/ Main__DOT__pc__DOT__mem_Rdata;
     QData/*63:0*/ Main__DOT__pc__DOT__pc;
     QData/*63:0*/ Main__DOT__pc__DOT___pc_T_1;

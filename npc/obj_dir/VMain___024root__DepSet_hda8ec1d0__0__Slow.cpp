@@ -15,11 +15,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VMain__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VMain___024root___settle__TOP__0\n"); );
-    // Init
-    QData/*63:0*/ __Vtask_pmem_read__2__Rdata;
     // Body
-    VMain___024unit____Vdpiimwrap_pmem_read_TOP____024unit(0ULL, __Vtask_pmem_read__2__Rdata);
-    vlSelf->Main__DOT__mem_Rdata = __Vtask_pmem_read__2__Rdata;
     vlSelf->io_PcVal = vlSelf->Main__DOT__pc__DOT__pc;
     vlSelf->Main__DOT__pc__DOT___pc_T_1 = (4ULL + vlSelf->Main__DOT__pc__DOT__pc);
     VMain___024unit____Vdpiimwrap_pmem_read_TOP____024unit(vlSelf->Main__DOT__pc__DOT__pc, vlSelf->__Vtask_pmem_read__0__Rdata);

@@ -61,7 +61,6 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     vlSelf->io_DataR1 = VL_RAND_RESET_Q(64);
     vlSelf->io_DataR2 = VL_RAND_RESET_Q(64);
     vlSelf->io_DataImmI = VL_RAND_RESET_Q(64);
-    vlSelf->Main__DOT__mem_Rdata = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__pc__DOT__mem_Rdata = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__pc__DOT__pc = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__pc__DOT___pc_T_1 = VL_RAND_RESET_Q(64);
