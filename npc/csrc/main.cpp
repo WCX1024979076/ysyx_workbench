@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include "VMain__Dpi.h"
 
-#define CONFIG_MSIZE 0x0000200
+#define CONFIG_MSIZE 0x0000020
 #define CONFIG_MBASE 0x80000000
 
 static uint8_t pmem[CONFIG_MSIZE]= {0};
