@@ -52,16 +52,16 @@ void cpu_sim()
 
 int main(int argc, char** argv, char** env)
 {
-	srand(time(0));
-	contextp = new VerilatedContext;
-	contextp->commandArgs(argc, argv);
-	top = new VMain{contextp};
+  srand(time(0));
+  contextp = new VerilatedContext;
+  contextp->commandArgs(argc, argv);
+  top = new VMain{contextp};
 
-	Verilated::traceEverOn(true);
+  Verilated::traceEverOn(true);
 
-	m_trace = new VerilatedVcdC;
-	top->trace(m_trace, 5);
-	m_trace->open("waveform.vcd");
+  m_trace = new VerilatedVcdC;
+  top->trace(m_trace, 5);
+  m_trace->open("waveform.vcd");
 	
   pmem_write(0x80000000,0x004a8a93,0);
   pmem_write(0x80000004,0x004a8a93,0);
@@ -73,13 +73,8 @@ int main(int argc, char** argv, char** env)
 	for(int i=1;i<=10;i++)
 		cpu_sim();
 	top->reset=0;
-	while (sim_time<MAX_SIM_TIME) 
+	while (1) 
 	{
-	    //if(sim_time==10)
-	    //  top->io_Inst=0x00100073;
-	    //else
-		  //top->io_Inst=0x004a8a93;
-    //printf("%d\n",sim_time);
 		cpu_sim();	
 		m_trace->dump(sim_time++);
 	}
