@@ -33,14 +33,14 @@ void ebreak()
 void pmem_read(long long Raddr, long long *Rdata) {
     if(Raddr<CONFIG_MBASE)
       return ;
-    //(*Rdata) = *((uint32_t *)guest_to_host(Raddr));
-    //printf("%lld\n",Raddr);
-    (*Rdata)=0x00100073;
+    (*Rdata) = *((uint32_t *)guest_to_host(Raddr));
+    printf("%llx %llx \n",Raddr,(*Rdata));
+    //(*Rdata)=0x00100073;
     return ;
 }
 
 void pmem_write(long long Waddr, long long Wdata, char Wmask) {
-    *(guest_to_host(Waddr))=Wdata;
+    *((long long *)guest_to_host(Waddr))=Wdata;
     return ;
 }
 
