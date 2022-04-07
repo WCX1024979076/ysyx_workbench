@@ -88,15 +88,15 @@ module Contr(
   output        io_RegWrite,
   output [3:0]  io_AluOp
 );
-  wire  ebreakbox_ebreak_in; // @[Contr.scala 18:23]
+  wire  ebreak_ebreak_in; // @[Contr.scala 18:20]
   wire [6:0] opcode = io_Inst[6:0]; // @[Contr.scala 22:23]
   wire [4:0] _io_AluOp_T_1 = 7'h13 == opcode ? 5'h1 : 5'h0; // @[Mux.scala 80:57]
-  EbreakBox ebreakbox ( // @[Contr.scala 18:23]
-    .ebreak_in(ebreakbox_ebreak_in)
+  Ebreak ebreak ( // @[Contr.scala 18:20]
+    .ebreak_in(ebreak_ebreak_in)
   );
   assign io_RegWrite = 7'h13 == opcode; // @[Mux.scala 80:60]
   assign io_AluOp = _io_AluOp_T_1[3:0]; // @[Contr.scala 24:12]
-  assign ebreakbox_ebreak_in = 32'h100073 == io_Inst; // @[Mux.scala 80:60]
+  assign ebreak_ebreak_in = 32'h100073 == io_Inst; // @[Mux.scala 80:60]
 endmodule
 module Decode(
   input  [31:0] io_Inst,
