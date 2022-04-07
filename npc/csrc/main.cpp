@@ -33,7 +33,7 @@ void ebreak()
 void pmem_read(long long Raddr, long long *Rdata) {
     (*Rdata) = *((uint32_t *)guest_to_host(Raddr));
     //printf("%lld\n",Raddr);
-    (*Rdata)=0x00100073;
+    //(*Rdata)=0x00100073;
     return ;
 }
 
