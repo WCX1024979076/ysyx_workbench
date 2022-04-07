@@ -12,7 +12,14 @@ VL_ATTR_COLD void VMain___024root___initial__TOP__0(VMain___024root* vlSelf) {
     VMain__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VMain___024root___initial__TOP__0\n"); );
     // Body
+    vlSelf->io_Inst = 0U;
     vlSelf->io_AluSrc = 0U;
+    vlSelf->io_AluOp = 0U;
+    vlSelf->io_DataImmI = 0ULL;
+    vlSelf->io_R2 = 0U;
+    vlSelf->io_R1 = 0U;
+    vlSelf->io_RegWrite = 0U;
+    vlSelf->io_Rdest = 0U;
 }
 
 VL_ATTR_COLD void VMain___024root___eval_initial(VMain___024root* vlSelf) {
@@ -32,8 +39,6 @@ VL_ATTR_COLD void VMain___024root___eval_settle(VMain___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    VMain___024root___eval_settle\n"); );
     // Body
     VMain___024root___settle__TOP__0(vlSelf);
-    vlSelf->__Vm_traceActivity[1U] = 1U;
-    vlSelf->__Vm_traceActivity[0U] = 1U;
 }
 
 VL_ATTR_COLD void VMain___024root___final(VMain___024root* vlSelf) {
@@ -47,6 +52,12 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     VMain__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VMain___024root___ctor_var_reset\n"); );
     // Body
+    vlSelf->Raddr = VL_RAND_RESET_Q(64);
+    vlSelf->Waddr = VL_RAND_RESET_Q(64);
+    vlSelf->Wdata = VL_RAND_RESET_Q(64);
+    vlSelf->Wmask = VL_RAND_RESET_I(8);
+    vlSelf->MemWrite = VL_RAND_RESET_I(1);
+    vlSelf->Rdata = VL_RAND_RESET_Q(64);
     vlSelf->clock = VL_RAND_RESET_I(1);
     vlSelf->reset = VL_RAND_RESET_I(1);
     vlSelf->io_Inst = VL_RAND_RESET_I(32);
@@ -61,7 +72,6 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     vlSelf->io_DataR1 = VL_RAND_RESET_Q(64);
     vlSelf->io_DataR2 = VL_RAND_RESET_Q(64);
     vlSelf->io_DataImmI = VL_RAND_RESET_Q(64);
-    vlSelf->Main__DOT__pc__DOT__mem_Rdata = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__pc__DOT__pc = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__pc__DOT___pc_T_1 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__registers__DOT__Regs_0 = VL_RAND_RESET_I(32);

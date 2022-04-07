@@ -29,6 +29,8 @@ class VMain VL_NOT_FINAL {
     // The application code writes and reads these signals to
     // propagate new values into/out from the Verilated model.
     VL_IN8(&clock,0,0);
+    VL_IN8(&Wmask,7,0);
+    VL_IN8(&MemWrite,0,0);
     VL_IN8(&reset,0,0);
     VL_OUT8(&io_RegWrite,0,0);
     VL_OUT8(&io_AluOp,4,0);
@@ -37,6 +39,10 @@ class VMain VL_NOT_FINAL {
     VL_OUT8(&io_R2,4,0);
     VL_OUT8(&io_Rdest,4,0);
     VL_OUT(&io_Inst,31,0);
+    VL_IN64(&Raddr,63,0);
+    VL_IN64(&Waddr,63,0);
+    VL_IN64(&Wdata,63,0);
+    VL_OUT64(&Rdata,63,0);
     VL_OUT64(&io_PcVal,63,0);
     VL_OUT64(&io_AluOut,63,0);
     VL_OUT64(&io_DataR1,63,0);

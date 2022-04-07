@@ -9,29 +9,20 @@
 #include "VMain___024root.h"
 
 void VMain___024unit____Vdpiimwrap_pmem_read_TOP____024unit(QData/*63:0*/ Raddr, QData/*63:0*/ &Rdata);
-void VMain___024unit____Vdpiimwrap_ebreak_TOP____024unit();
+void VMain___024unit____Vdpiimwrap_pmem_write_TOP____024unit(QData/*63:0*/ Waddr, QData/*63:0*/ Wdata, CData/*7:0*/ Wmask);
 
 VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VMain__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VMain___024root___settle__TOP__0\n"); );
     // Body
+    VMain___024unit____Vdpiimwrap_pmem_read_TOP____024unit(vlSelf->Raddr, vlSelf->__Vtask_pmem_read__0__Rdata);
+    vlSelf->Rdata = vlSelf->__Vtask_pmem_read__0__Rdata;
+    if (vlSelf->MemWrite) {
+        VMain___024unit____Vdpiimwrap_pmem_write_TOP____024unit(vlSelf->Waddr, vlSelf->Wdata, (IData)(vlSelf->Wmask));
+    }
     vlSelf->io_PcVal = vlSelf->Main__DOT__pc__DOT__pc;
     vlSelf->Main__DOT__pc__DOT___pc_T_1 = (4ULL + vlSelf->Main__DOT__pc__DOT__pc);
-    VMain___024unit____Vdpiimwrap_pmem_read_TOP____024unit(vlSelf->Main__DOT__pc__DOT__pc, vlSelf->__Vtask_pmem_read__0__Rdata);
-    vlSelf->Main__DOT__pc__DOT__mem_Rdata = vlSelf->__Vtask_pmem_read__0__Rdata;
-    vlSelf->io_Inst = (IData)(vlSelf->Main__DOT__pc__DOT__mem_Rdata);
-    if ((0x100073U == vlSelf->io_Inst)) {
-        VMain___024unit____Vdpiimwrap_ebreak_TOP____024unit();
-    }
-    vlSelf->io_RegWrite = (0x13U == (0x7fU & vlSelf->io_Inst));
-    vlSelf->io_Rdest = (0x1fU & (vlSelf->io_Inst >> 7U));
-    vlSelf->io_AluOp = ((0x13U == (0x7fU & vlSelf->io_Inst))
-                         ? 1U : 0U);
-    vlSelf->io_DataImmI = (QData)((IData)((vlSelf->io_Inst 
-                                           >> 0x14U)));
-    vlSelf->io_R2 = (0x1fU & (vlSelf->io_Inst >> 0x14U));
-    vlSelf->io_R1 = (0x1fU & (vlSelf->io_Inst >> 0xfU));
     vlSelf->Main__DOT__registers__DOT___GEN_53 = ((0x15U 
                                                    == (IData)(vlSelf->io_R2))
                                                    ? vlSelf->Main__DOT__registers__DOT__Regs_21

@@ -12,6 +12,8 @@
 VMain::VMain(VerilatedContext* _vcontextp__, const char* _vcname__)
     : vlSymsp{new VMain__Syms(_vcontextp__, _vcname__, this)}
     , clock{vlSymsp->TOP.clock}
+    , Wmask{vlSymsp->TOP.Wmask}
+    , MemWrite{vlSymsp->TOP.MemWrite}
     , reset{vlSymsp->TOP.reset}
     , io_RegWrite{vlSymsp->TOP.io_RegWrite}
     , io_AluOp{vlSymsp->TOP.io_AluOp}
@@ -20,6 +22,10 @@ VMain::VMain(VerilatedContext* _vcontextp__, const char* _vcname__)
     , io_R2{vlSymsp->TOP.io_R2}
     , io_Rdest{vlSymsp->TOP.io_Rdest}
     , io_Inst{vlSymsp->TOP.io_Inst}
+    , Raddr{vlSymsp->TOP.Raddr}
+    , Waddr{vlSymsp->TOP.Waddr}
+    , Wdata{vlSymsp->TOP.Wdata}
+    , Rdata{vlSymsp->TOP.Rdata}
     , io_PcVal{vlSymsp->TOP.io_PcVal}
     , io_AluOut{vlSymsp->TOP.io_AluOut}
     , io_DataR1{vlSymsp->TOP.io_DataR1}
