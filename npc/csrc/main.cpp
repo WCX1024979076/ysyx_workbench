@@ -22,12 +22,12 @@ void ebreak()
   exit(0);
 }
 
-void pmem_read(unsigned long long raddr, unsigned long long *rdata) {
-    (*rdata) = host_read(guest_to_host(raddr), 4);
+void pmem_read(long long Raddr, long long *Rdata) {
+    (*Rdata) = host_read(guest_to_host(Raddr), 4);
     return ;
 }
 
-void pmem_write(long long waddr, long long wdata, char wmask) {
+void pmem_write(long long Waddr, long long Wdata, char Wmask) {
     return ;
 }
 
