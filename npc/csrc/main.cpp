@@ -32,11 +32,12 @@ void ebreak()
 
 void pmem_read(long long Raddr, long long *Rdata) {
     //(*Rdata) = *((uint32_t *)guest_to_host(Raddr));
-    (*Rdata)=0x00100073;
+    //(*Rdata)=0x00100073;
     return ;
 }
 
 void pmem_write(long long Waddr, long long Wdata, char Wmask) {
+    *(guest_to_host(Waddr))=Wdata;
     return ;
 }
 
@@ -59,6 +60,7 @@ int main(int argc, char** argv, char** env)
 	top->trace(m_trace, 5);
 	m_trace->open("waveform.vcd");
 	
+  pmem_write(0x80000000)
 	top->reset=1;
 	for(int i=1;i<=10;i++)
 		cpu_sim();
