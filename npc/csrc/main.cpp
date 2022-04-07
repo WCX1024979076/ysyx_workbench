@@ -5,6 +5,8 @@
 #include <assert.h>
 #include <stdlib.h>
 #include "VMain__Dpi.h"
+#include "paddr.cpp"
+
 #define MAX_SIM_TIME 20
 vluint64_t sim_time = 0;
 VMain* top=nullptr;
@@ -19,6 +21,16 @@ void ebreak()
   delete contextp;
   exit(0);
 }
+
+void pmem_read(unsigned long long raddr, unsigned long long *rdata) {
+    (*rdata) = host_read(guest_to_host(raddr), 4);
+    return ;
+}
+
+void pmem_write(long long waddr, long long wdata, char wmask) {
+    return ;
+}
+
 void cpu_sim()
 {
 	top->clock=0,top->eval();
