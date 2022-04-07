@@ -79,9 +79,9 @@ VL_ATTR_COLD void VMain___024root__trace_init_sub__TOP__0(VMain___024root* vlSel
     tracep->declBus(c+40,"io_Inst", false,-1, 31,0);
     tracep->declBit(c+57,"io_RegWrite", false,-1);
     tracep->declBus(c+58,"io_AluOp", false,-1, 3,0);
-    tracep->declBit(c+70,"ebreakbox_ebreak_in", false,-1);
+    tracep->declBit(c+70,"ebreak_ebreak_in", false,-1);
     tracep->declBus(c+71,"opcode", false,-1, 6,0);
-    tracep->pushNamePrefix("ebreakbox ");
+    tracep->pushNamePrefix("ebreak ");
     tracep->declBit(c+70,"ebreak_in", false,-1);
     tracep->popNamePrefix(2);
     tracep->pushNamePrefix("decode ");

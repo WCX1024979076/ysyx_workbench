@@ -16,7 +16,7 @@ extern "C" {
 
 
     // DPI IMPORTS
-    // DPI import at vsrc/EbreakBox.v:2:31
+    // DPI import at vsrc/Ebreak.v:2:31
     extern void ebreak();
     // DPI import at vsrc/Mem.v:2:30
     extern void pmem_read(long long Raddr, long long* Rdata);

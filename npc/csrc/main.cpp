@@ -37,7 +37,12 @@ void pmem_read(long long Raddr, long long *Rdata) {
 }
 
 void pmem_write(long long Waddr, long long Wdata, char Wmask) {
-  *((long long *)guest_to_host(Waddr))=Wdata;
+  for(int i=0;i<7;i++)
+  {
+    long long Vaddr=guest_to_host(Waddr);
+    if((Wmask>>i)&1)
+      *((uint8_t*)(Vaddr+i))=((Wdata)>>(i*8))&(0xFF);
+  }
   return ;
 }
 
@@ -60,12 +65,12 @@ int main(int argc, char** argv, char** env)
   top->trace(m_trace, 5);
   m_trace->open("waveform.vcd");
 	
-  pmem_write(0x80000000,0x004a8a93,0);
-  pmem_write(0x80000004,0x004a8a93,0);
-  pmem_write(0x80000008,0x004a8a93,0);
-  pmem_write(0x8000000c,0x004a8a93,0);
-  pmem_write(0x80000010,0x00100073,0);
-  pmem_write(0x80000014,0x004a8a93,0);
+  pmem_write(0x80000000,0x004a8a93,127);
+  pmem_write(0x80000004,0x004a8a93,127);
+  pmem_write(0x80000008,0x004a8a93,127);
+  pmem_write(0x8000000c,0x004a8a93,127);
+  pmem_write(0x80000010,0x00100073,127);
+  pmem_write(0x80000014,0x004a8a93,127);
 	top->reset=1;
 	for(int i=1;i<=10;i++)
 		cpu_sim();
