@@ -108,14 +108,14 @@ module Contr(
   wire  ebreak_ebreak_in; // @[Contr.scala 18:20]
   wire [6:0] opcode = io_Inst[6:0]; // @[Contr.scala 22:23]
   wire [4:0] _io_AluOp_T_1 = 7'h13 == opcode ? 5'h1 : 5'h0; // @[Mux.scala 80:57]
-  wire [4:0] _io_AluOp_T_3 = 7'h27 == opcode ? 5'h2 : _io_AluOp_T_1; // @[Mux.scala 80:57]
+  wire [4:0] _io_AluOp_T_3 = 7'h17 == opcode ? 5'h2 : _io_AluOp_T_1; // @[Mux.scala 80:57]
   wire [4:0] _io_AluOp_T_5 = 7'h6f == opcode ? 5'h3 : _io_AluOp_T_3; // @[Mux.scala 80:57]
   wire [4:0] _io_AluOp_T_7 = 7'h67 == opcode ? 5'h3 : _io_AluOp_T_5; // @[Mux.scala 80:57]
   wire [1:0] _io_PcSrc_T_3 = 7'h67 == opcode ? 2'h2 : {{1'd0}, 7'h6f == opcode}; // @[Mux.scala 80:57]
   Ebreak ebreak ( // @[Contr.scala 18:20]
     .ebreak_in(ebreak_ebreak_in)
   );
-  assign io_RegWrite = 7'h23 == opcode | (7'h27 == opcode | 7'h13 == opcode); // @[Mux.scala 80:57]
+  assign io_RegWrite = 7'h23 == opcode | (7'h17 == opcode | 7'h13 == opcode); // @[Mux.scala 80:57]
   assign io_MemWrite = 7'h23 == opcode; // @[Mux.scala 80:60]
   assign io_AluOp = 7'h23 == opcode ? 5'h4 : _io_AluOp_T_7; // @[Mux.scala 80:57]
   assign io_PcSrc = {{3'd0}, _io_PcSrc_T_3}; // @[Mux.scala 80:57]
