@@ -60,7 +60,9 @@ void ld(char *file)
   fread(pmem,sizeof(uint8_t),1000,infile);
   for(long long i=0x80000000;i<=0x80000114;i+=4)
   {
-    printf("%llx %llx\n",pmem_read(i));
+    long long tmp;
+    pmem_read(i,&tmp);
+    printf("%llx %llx\n",i,tmp);
   }
 }
 int main(int argc, char **argv, char **env)
