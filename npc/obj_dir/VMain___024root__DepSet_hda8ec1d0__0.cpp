@@ -133,6 +133,13 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                                                           ? vlSelf->Main__DOT__registers__DOT__Regs_22
                                                           : vlSelf->Main__DOT__registers__DOT___GEN_53)))))))))))));
     }
+    if (VL_UNLIKELY((1U & (~ (IData)(vlSelf->reset))))) {
+        VL_FWRITEF(0x80000002U,"PC=AnonymousBundle(PcSrc -> %2#, DataImmI -> %20#, DataImmJ -> %20#, DataR1 -> %20#, PcVal -> %20#, Inst -> %10#)\n",
+                   5,vlSelf->io_PcSrc,64,vlSelf->io_DataImmI,
+                   64,vlSelf->io_DataImmJ,64,vlSelf->io_DataR1,
+                   64,vlSelf->Main__DOT__pc__DOT__pc,
+                   32,(IData)(vlSelf->Main__DOT__pc__DOT__mem_Rdata));
+    }
     if (vlSelf->reset) {
         vlSelf->Main__DOT__registers__DOT__Regs_11 = 0U;
         vlSelf->Main__DOT__registers__DOT__Regs_10 = 0U;
@@ -156,7 +163,6 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
         vlSelf->Main__DOT__registers__DOT__Regs_19 = 0U;
         vlSelf->Main__DOT__registers__DOT__Regs_20 = 0U;
         vlSelf->Main__DOT__registers__DOT__Regs_21 = 0U;
-        vlSelf->Main__DOT__pc__DOT__pc = 0x80000000ULL;
         vlSelf->Main__DOT__registers__DOT__Regs_31 = 0U;
         vlSelf->Main__DOT__registers__DOT__Regs_30 = 0U;
         vlSelf->Main__DOT__registers__DOT__Regs_29 = 0U;
@@ -167,6 +173,7 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
         vlSelf->Main__DOT__registers__DOT__Regs_24 = 0U;
         vlSelf->Main__DOT__registers__DOT__Regs_23 = 0U;
         vlSelf->Main__DOT__registers__DOT__Regs_22 = 0U;
+        vlSelf->Main__DOT__pc__DOT__pc = 0x80000000ULL;
     } else {
         if (vlSelf->io_RegWrite) {
             if ((0xbU == (IData)(vlSelf->io_Rdest))) {
@@ -257,15 +264,6 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                 vlSelf->Main__DOT__registers__DOT__Regs_21 
                     = (IData)(vlSelf->Main__DOT__registers__DOT___Regs_T_1);
             }
-        }
-        vlSelf->Main__DOT__pc__DOT__pc = ((2U == (IData)(vlSelf->io_PcSrc))
-                                           ? (0xfffffffffffffffeULL 
-                                              & (vlSelf->io_DataR1 
-                                                 + vlSelf->io_DataImmI))
-                                           : ((1U == (IData)(vlSelf->io_PcSrc))
-                                               ? vlSelf->Main__DOT__pc__DOT___pc_T_8
-                                               : vlSelf->Main__DOT__pc__DOT___pc_T_1));
-        if (vlSelf->io_RegWrite) {
             if ((0x1fU == (IData)(vlSelf->io_Rdest))) {
                 vlSelf->Main__DOT__registers__DOT__Regs_31 
                     = (IData)(vlSelf->Main__DOT__registers__DOT___Regs_T_1);
@@ -307,6 +305,13 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                     = (IData)(vlSelf->Main__DOT__registers__DOT___Regs_T_1);
             }
         }
+        vlSelf->Main__DOT__pc__DOT__pc = ((2U == (IData)(vlSelf->io_PcSrc))
+                                           ? (0xfffffffffffffffeULL 
+                                              & (vlSelf->io_DataR1 
+                                                 + vlSelf->io_DataImmI))
+                                           : ((1U == (IData)(vlSelf->io_PcSrc))
+                                               ? vlSelf->Main__DOT__pc__DOT___pc_T_8
+                                               : vlSelf->Main__DOT__pc__DOT___pc_T_1));
     }
     vlSelf->Main__DOT__pc__DOT___pc_T_1 = (4ULL + vlSelf->Main__DOT__pc__DOT__pc);
     vlSelf->io_PcVal = vlSelf->Main__DOT__pc__DOT__pc;
