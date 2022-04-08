@@ -708,19 +708,19 @@ module Main(
   wire [63:0] registers_io_MemOut; // @[Main.scala 58:25]
   wire [63:0] registers_io_DataR1; // @[Main.scala 58:25]
   wire [63:0] registers_io_DataR2; // @[Main.scala 58:25]
-  wire [63:0] alu_io_DataR1; // @[Main.scala 70:19]
-  wire [63:0] alu_io_DataImmI; // @[Main.scala 70:19]
-  wire [63:0] alu_io_DataImmS; // @[Main.scala 70:19]
-  wire [63:0] alu_io_DataImmU; // @[Main.scala 70:19]
-  wire [63:0] alu_io_PcVal; // @[Main.scala 70:19]
-  wire [4:0] alu_io_AluOp; // @[Main.scala 70:19]
-  wire [63:0] alu_io_AluOut; // @[Main.scala 70:19]
-  wire [63:0] mem_Raddr; // @[Main.scala 80:19]
-  wire [63:0] mem_Rdata; // @[Main.scala 80:19]
-  wire [63:0] mem_Waddr; // @[Main.scala 80:19]
-  wire [63:0] mem_Wdata; // @[Main.scala 80:19]
-  wire [7:0] mem_Wmask; // @[Main.scala 80:19]
-  wire  mem_MemWrite; // @[Main.scala 80:19]
+  wire [63:0] alu_io_DataR1; // @[Main.scala 69:19]
+  wire [63:0] alu_io_DataImmI; // @[Main.scala 69:19]
+  wire [63:0] alu_io_DataImmS; // @[Main.scala 69:19]
+  wire [63:0] alu_io_DataImmU; // @[Main.scala 69:19]
+  wire [63:0] alu_io_PcVal; // @[Main.scala 69:19]
+  wire [4:0] alu_io_AluOp; // @[Main.scala 69:19]
+  wire [63:0] alu_io_AluOut; // @[Main.scala 69:19]
+  wire [63:0] mem_Raddr; // @[Main.scala 79:19]
+  wire [63:0] mem_Rdata; // @[Main.scala 79:19]
+  wire [63:0] mem_Waddr; // @[Main.scala 79:19]
+  wire [63:0] mem_Wdata; // @[Main.scala 79:19]
+  wire [7:0] mem_Wmask; // @[Main.scala 79:19]
+  wire  mem_MemWrite; // @[Main.scala 79:19]
   Pc pc ( // @[Main.scala 31:16]
     .clock(pc_clock),
     .reset(pc_reset),
@@ -763,7 +763,7 @@ module Main(
     .io_DataR1(registers_io_DataR1),
     .io_DataR2(registers_io_DataR2)
   );
-  Alu alu ( // @[Main.scala 70:19]
+  Alu alu ( // @[Main.scala 69:19]
     .io_DataR1(alu_io_DataR1),
     .io_DataImmI(alu_io_DataImmI),
     .io_DataImmS(alu_io_DataImmS),
@@ -772,7 +772,7 @@ module Main(
     .io_AluOp(alu_io_AluOp),
     .io_AluOut(alu_io_AluOut)
   );
-  Mem mem ( // @[Main.scala 80:19]
+  Mem mem ( // @[Main.scala 79:19]
     .Raddr(mem_Raddr),
     .Rdata(mem_Rdata),
     .Waddr(mem_Waddr),
@@ -787,9 +787,9 @@ module Main(
   assign io_R1 = decode_io_R1; // @[Main.scala 50:9]
   assign io_R2 = decode_io_R2; // @[Main.scala 51:9]
   assign io_Rdest = decode_io_Rdest; // @[Main.scala 52:12]
-  assign io_AluOut = alu_io_AluOut; // @[Main.scala 78:13]
-  assign io_DataR1 = registers_io_DataR1; // @[Main.scala 67:13]
-  assign io_DataR2 = registers_io_DataR2; // @[Main.scala 68:13]
+  assign io_AluOut = alu_io_AluOut; // @[Main.scala 77:13]
+  assign io_DataR1 = registers_io_DataR1; // @[Main.scala 66:13]
+  assign io_DataR2 = registers_io_DataR2; // @[Main.scala 67:13]
   assign io_DataImmI = decode_io_ImmI; // @[Main.scala 53:15]
   assign io_DataImmJ = decode_io_ImmJ; // @[Main.scala 56:15]
   assign io_DataImmU = decode_io_ImmU; // @[Main.scala 54:15]
@@ -797,7 +797,7 @@ module Main(
   assign io_PcSrc = contr_io_PcSrc; // @[Main.scala 44:12]
   assign io_MemWrite = contr_io_MemWrite; // @[Main.scala 42:15]
   assign io_MemToReg = contr_io_MemToReg; // @[Main.scala 45:15]
-  assign io_MemOut = mem_Rdata; // @[Main.scala 82:13]
+  assign io_MemOut = mem_Rdata; // @[Main.scala 81:13]
   assign io_MemMask = contr_io_MemMask; // @[Main.scala 46:14]
   assign pc_clock = clock;
   assign pc_reset = reset;
@@ -816,15 +816,15 @@ module Main(
   assign registers_io_MemToReg = io_MemToReg; // @[Main.scala 63:25]
   assign registers_io_AluOut = io_AluOut; // @[Main.scala 64:23]
   assign registers_io_MemOut = io_MemOut; // @[Main.scala 65:23]
-  assign alu_io_DataR1 = io_DataR1; // @[Main.scala 71:17]
-  assign alu_io_DataImmI = io_DataImmI; // @[Main.scala 74:19]
-  assign alu_io_DataImmS = io_DataImmS; // @[Main.scala 75:19]
-  assign alu_io_DataImmU = io_DataImmU; // @[Main.scala 76:19]
-  assign alu_io_PcVal = io_PcVal; // @[Main.scala 77:16]
-  assign alu_io_AluOp = io_AluOp; // @[Main.scala 73:16]
-  assign mem_Raddr = io_AluOut; // @[Main.scala 81:16]
-  assign mem_Waddr = io_AluOut; // @[Main.scala 83:16]
-  assign mem_Wdata = io_DataR2; // @[Main.scala 84:16]
-  assign mem_Wmask = io_MemMask; // @[Main.scala 86:16]
-  assign mem_MemWrite = io_MemWrite; // @[Main.scala 85:19]
+  assign alu_io_DataR1 = io_DataR1; // @[Main.scala 70:17]
+  assign alu_io_DataImmI = io_DataImmI; // @[Main.scala 73:19]
+  assign alu_io_DataImmS = io_DataImmS; // @[Main.scala 74:19]
+  assign alu_io_DataImmU = io_DataImmU; // @[Main.scala 75:19]
+  assign alu_io_PcVal = io_PcVal; // @[Main.scala 76:16]
+  assign alu_io_AluOp = io_AluOp; // @[Main.scala 72:16]
+  assign mem_Raddr = io_AluOut; // @[Main.scala 80:16]
+  assign mem_Waddr = io_AluOut; // @[Main.scala 82:16]
+  assign mem_Wdata = io_DataR2; // @[Main.scala 83:16]
+  assign mem_Wmask = io_MemMask; // @[Main.scala 85:16]
+  assign mem_MemWrite = io_MemWrite; // @[Main.scala 84:19]
 endmodule
