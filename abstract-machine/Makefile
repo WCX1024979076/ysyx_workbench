@@ -20,11 +20,13 @@ ifeq ($(findstring $(MAKECMDGOALS),clean|clean-all|html),)
 $(info # Building $(NAME)-$(MAKECMDGOALS) [$(ARCH)])
 
 ### Check: environment variable `$AM_HOME` looks sane
+### wildcard 在Makefile规则中，通配符会被自动展开。但在变量的定义和函数引用时，通配符将失效。这种情况下如果需要通配符有效，就需要使用函数“wildcard”
 ifeq ($(wildcard $(AM_HOME)/am/include/am.h),)
   $(error $$AM_HOME must be an AbstractMachine repo)
 endif
 
 ### Check: environment variable `$ARCH` must be in the supported list
+### 函数名称：过滤函数—filter。 函数功能：过滤掉字串“TEXT”中所有不符合模式“PATTERN”的单词，保留所有符合此模式的单词。可以使用多个模式。
 ARCHS = $(basename $(notdir $(shell ls $(AM_HOME)/scripts/*.mk)))
 ifeq ($(filter $(ARCHS), $(ARCH)), )
   $(error Expected $$ARCH in {$(ARCHS)}, Got "$(ARCH)")
@@ -63,6 +65,7 @@ LINKAGE   = $(OBJS) \
     $(addsuffix /build/, $(addprefix $(AM_HOME)/, $(LIBS))), \
     $(LIBS) ))
 
+$(echo $(LINKAGE))
 ## 3. General Compilation Flags
 
 ### (Cross) compilers, e.g., mips-linux-gnu-g++
