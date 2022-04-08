@@ -49,19 +49,6 @@ module Pc(
     end else begin
       pc <= _pc_T_1;
     end
-    `ifndef SYNTHESIS
-    `ifdef PRINTF_COND
-      if (`PRINTF_COND) begin
-    `endif
-        if (~reset) begin
-          $fwrite(32'h80000002,
-            "PC=AnonymousBundle(PcSrc -> %d, DataImmI -> %d, DataImmJ -> %d, DataR1 -> %d, PcVal -> %d, Inst -> %d)\n",
-            io_PcSrc,io_DataImmI,io_DataImmJ,io_DataR1,io_PcVal,io_Inst); // @[Pc.scala 35:9]
-        end
-    `ifdef PRINTF_COND
-      end
-    `endif
-    `endif // SYNTHESIS
   end
 // Register and memory initialization
 `ifdef RANDOMIZE_GARBAGE_ASSIGN
@@ -876,4 +863,20 @@ module Main(
   assign mem_Wdata = io_DataR2; // @[Main.scala 83:16]
   assign mem_Wmask = io_MemMask; // @[Main.scala 85:16]
   assign mem_MemWrite = io_MemWrite; // @[Main.scala 84:19]
+  always @(posedge clock) begin
+    `ifndef SYNTHESIS
+    `ifdef PRINTF_COND
+      if (`PRINTF_COND) begin
+    `endif
+        if (~reset) begin
+          $fwrite(32'h80000002,
+            "Main=AnonymousBundle(Inst -> %d, PcVal -> %d, RegWrite -> %d, AluOp -> %d, R1 -> %d, R2 -> %d, Rdest -> %d, AluOut -> %d, DataR1 -> %d, DataR2 -> %d, DataImmI -> %d, DataImmJ -> %d, DataImmU -> %d, DataImmS -> %d, PcSrc -> %d, MemWrite -> %d, MemToReg -> %d, MemOut -> %d, MemMask -> %d)"
+            ,io_Inst,io_PcVal,io_RegWrite,io_AluOp,io_R1,io_R2,io_Rdest,io_AluOut,io_DataR1,io_DataR2,io_DataImmI,
+            io_DataImmJ,io_DataImmU,io_DataImmS,io_PcSrc,io_MemWrite,io_MemToReg,io_MemOut,io_MemMask); // @[Main.scala 87:9]
+        end
+    `ifdef PRINTF_COND
+      end
+    `endif
+    `endif // SYNTHESIS
+  end
 endmodule
