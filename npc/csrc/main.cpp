@@ -39,6 +39,7 @@ void pmem_read(long long Raddr, long long *Rdata)
 
 void pmem_write(long long Waddr, long long Wdata, char Wmask)
 {
+  printf("%llx %llx %x", Waddr, Wdata, Wmask);
   for (int i = 0; i < 7; i++)
   {
     uint8_t *Vaddr = guest_to_host(Waddr);
@@ -56,8 +57,8 @@ void cpu_sim()
 
 void ld(char *file)
 {
-  FILE *infile=fopen(file,"rt");
-  int siz=fread(pmem,sizeof(uint8_t),1000,infile);
+  FILE *infile = fopen(file, "rt");
+  int siz = fread(pmem, sizeof(uint8_t), 1000, infile);
   /*
   for(long long i=0x80000000;i<=0x80000114;i+=4)
   {
@@ -69,10 +70,11 @@ void ld(char *file)
 }
 int main(int argc, char **argv, char **env)
 {
-  if(argc==2){
-    if(strlen(argv[1])!=0)
+  if (argc == 2)
+  {
+    if (strlen(argv[1]) != 0)
     {
-      printf("ld:%s\n",argv[1]);
+      printf("ld:%s\n", argv[1]);
       ld(argv[1]);
     }
   }
@@ -86,7 +88,7 @@ int main(int argc, char **argv, char **env)
   m_trace = new VerilatedVcdC;
   top->trace(m_trace, 5);
   m_trace->open("waveform.vcd");
-  
+
   top->reset = 1;
   for (int i = 1; i <= 10; i++)
     cpu_sim();

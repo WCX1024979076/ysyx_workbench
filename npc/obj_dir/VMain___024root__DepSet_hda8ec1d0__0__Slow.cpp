@@ -348,6 +348,6 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
     }
     vlSelf->io_MemOut = vlSelf->Main__DOT__mem_Rdata;
     vlSelf->Main__DOT__registers__DOT___Regs_T_1 = 
-        ((IData)(vlSelf->io_MemToReg) ? vlSelf->io_AluOut
-          : vlSelf->io_MemOut);
+        ((IData)(vlSelf->io_MemToReg) ? vlSelf->io_MemOut
+          : vlSelf->io_AluOut);
 }
