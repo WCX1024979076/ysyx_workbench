@@ -524,6 +524,19 @@ module Registers(
         Regs_31 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
+    `ifndef SYNTHESIS
+    `ifdef PRINTF_COND
+      if (`PRINTF_COND) begin
+    `endif
+        if (~reset) begin
+          $fwrite(32'h80000002,
+            "registers = AnonymousBundle(Rdest -> %d, R1 -> %d, R2 -> %d, RegWrite -> %d, MemToReg -> %d, AluOut -> %d, MemOut -> %d, DataR1 -> %d, DataR2 -> %d)\n"
+            ,io_Rdest,io_R1,io_R2,io_RegWrite,io_MemToReg,io_AluOut,io_MemOut,io_DataR1,io_DataR2); // @[Registers.scala 30:9]
+        end
+    `ifdef PRINTF_COND
+      end
+    `endif
+    `endif // SYNTHESIS
   end
 // Register and memory initialization
 `ifdef RANDOMIZE_GARBAGE_ASSIGN
