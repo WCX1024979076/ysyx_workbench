@@ -33,7 +33,7 @@ void pmem_read(long long Raddr, long long *Rdata)
   if (Raddr < CONFIG_MBASE)
     return;
   (*Rdata) = *((long long *)guest_to_host(Raddr));
-  printf("%llx %llx \n", Raddr, (*Rdata));
+  printf("%llx %llx 1232\n", Raddr, (*Rdata));
   return;
 }
 
