@@ -58,19 +58,21 @@ void ld(char *file)
 {
   FILE *infile=fopen(file,"rt");
   int siz=fread(pmem,sizeof(uint8_t),1000,infile);
+  /*
   for(long long i=0x80000000;i<=0x80000114;i+=4)
   {
     long long tmp;
     pmem_read(i,&tmp);
     printf("%llx %016llx\n",i,tmp);
   }
+  */
 }
 int main(int argc, char **argv, char **env)
 {
   if(argc==2){
     if(strlen(argv[1])!=0)
     {
-      printf("%s\n",argv[1]);
+      printf("ld:%s\n",argv[1]);
       ld(argv[1]);
     }
   }
@@ -84,13 +86,6 @@ int main(int argc, char **argv, char **env)
   m_trace = new VerilatedVcdC;
   top->trace(m_trace, 5);
   m_trace->open("waveform.vcd");
-
-  //pmem_write(0x80000000, 0x004a8a93, 127);
-  //pmem_write(0x80000004, 0x004a8a93, 127);
-  //pmem_write(0x80000008, 0x004a8a93, 127);
-  //pmem_write(0x8000000c, 0x004a8a93, 127);
-  //pmem_write(0x80000010, 0x00100073, 127);
-  //pmem_write(0x80000014, 0x004a8a93, 127);
   
   top->reset = 1;
   for (int i = 1; i <= 10; i++)
