@@ -9,8 +9,7 @@ module Mem (Raddr,Rdata,Waddr,Wdata,Wmask,MemWrite);
  input MemWrite;
  output [63:0] Rdata;
  always @(*) begin
- if(MemRead)
-  pmem_read(Raddr, Rdata);
+ pmem_read(Raddr, Rdata);
  if(MemWrite)
   pmem_write(Waddr, Wdata, Wmask);
  end
