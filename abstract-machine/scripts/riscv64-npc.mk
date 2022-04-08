@@ -20,3 +20,7 @@ image: $(IMAGE).elf
 	@$(OBJDUMP) -d $(IMAGE).elf > $(IMAGE).txt
 	@echo + OBJCOPY "->" $(IMAGE_REL).bin
 	@$(OBJCOPY) -S --set-section-flags .bss=alloc,contents -O binary $(IMAGE).elf $(IMAGE).bin
+
+run: image
+		$(MAKE) -C $(NPC_HOME) ISA=$(ISA) sim ARGS="$(NEMUFLAGS)" IMG=$(IMAGE).bin
+
