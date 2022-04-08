@@ -7,20 +7,11 @@
 
 #include "VMain___024root.h"
 
-VL_ATTR_COLD void VMain___024root___initial__TOP__0(VMain___024root* vlSelf) {
-    if (false && vlSelf) {}  // Prevent unused
-    VMain__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
-    VL_DEBUG_IF(VL_DBG_MSGF("+    VMain___024root___initial__TOP__0\n"); );
-    // Body
-    vlSelf->io_AluSrc = 0U;
-}
-
 VL_ATTR_COLD void VMain___024root___eval_initial(VMain___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VMain__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VMain___024root___eval_initial\n"); );
     // Body
-    VMain___024root___initial__TOP__0(vlSelf);
     vlSelf->__Vclklast__TOP__clock = vlSelf->clock;
 }
 
@@ -53,7 +44,6 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     vlSelf->io_PcVal = VL_RAND_RESET_Q(64);
     vlSelf->io_RegWrite = VL_RAND_RESET_I(1);
     vlSelf->io_AluOp = VL_RAND_RESET_I(5);
-    vlSelf->io_AluSrc = VL_RAND_RESET_I(1);
     vlSelf->io_R1 = VL_RAND_RESET_I(5);
     vlSelf->io_R2 = VL_RAND_RESET_I(5);
     vlSelf->io_Rdest = VL_RAND_RESET_I(5);
@@ -61,9 +51,19 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     vlSelf->io_DataR1 = VL_RAND_RESET_Q(64);
     vlSelf->io_DataR2 = VL_RAND_RESET_Q(64);
     vlSelf->io_DataImmI = VL_RAND_RESET_Q(64);
+    vlSelf->io_DataImmJ = VL_RAND_RESET_Q(64);
+    vlSelf->io_DataImmU = VL_RAND_RESET_Q(64);
+    vlSelf->io_DataImmS = VL_RAND_RESET_Q(64);
+    vlSelf->io_PcSrc = VL_RAND_RESET_I(5);
+    vlSelf->io_MemWrite = VL_RAND_RESET_I(1);
+    vlSelf->io_MemToReg = VL_RAND_RESET_I(1);
+    vlSelf->io_MemOut = VL_RAND_RESET_Q(64);
+    vlSelf->io_MemMask = VL_RAND_RESET_I(8);
+    vlSelf->Main__DOT__mem_Rdata = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__pc__DOT__mem_Rdata = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__pc__DOT__pc = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__pc__DOT___pc_T_1 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__pc__DOT___pc_T_8 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__registers__DOT__Regs_0 = VL_RAND_RESET_I(32);
     vlSelf->Main__DOT__registers__DOT__Regs_1 = VL_RAND_RESET_I(32);
     vlSelf->Main__DOT__registers__DOT__Regs_2 = VL_RAND_RESET_I(32);
@@ -98,7 +98,9 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     vlSelf->Main__DOT__registers__DOT__Regs_31 = VL_RAND_RESET_I(32);
     vlSelf->Main__DOT__registers__DOT___GEN_21 = VL_RAND_RESET_I(32);
     vlSelf->Main__DOT__registers__DOT___GEN_53 = VL_RAND_RESET_I(32);
+    vlSelf->Main__DOT__registers__DOT___Regs_T_1 = VL_RAND_RESET_Q(64);
     vlSelf->__Vtask_pmem_read__0__Rdata = 0;
+    vlSelf->__Vtask_pmem_read__2__Rdata = 0;
     for (int __Vi0=0; __Vi0<2; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = VL_RAND_RESET_I(1);
     }
