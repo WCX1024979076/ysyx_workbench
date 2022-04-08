@@ -49,19 +49,6 @@ module Pc(
     end else begin
       pc <= _pc_T_1;
     end
-    `ifndef SYNTHESIS
-    `ifdef PRINTF_COND
-      if (`PRINTF_COND) begin
-    `endif
-        if (~reset) begin
-          $fwrite(32'h80000002,
-            "Pc:AnonymousBundle(PcSrc -> %d, DataImmI -> %d, DataImmJ -> %d, DataR1 -> %d, PcVal -> %d, Inst -> %d)\n",
-            io_PcSrc,io_DataImmI,io_DataImmJ,io_DataR1,io_PcVal,io_Inst); // @[Pc.scala 35:9]
-        end
-    `ifdef PRINTF_COND
-      end
-    `endif
-    `endif // SYNTHESIS
   end
 // Register and memory initialization
 `ifdef RANDOMIZE_GARBAGE_ASSIGN
