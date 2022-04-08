@@ -128,7 +128,7 @@ module Contr(
   Ebreak ebreak ( // @[Contr.scala 18:20]
     .ebreak_in(ebreak_ebreak_in)
   );
-  assign io_RegWrite = 7'h23 == opcode | (7'h17 == opcode | 7'h13 == opcode); // @[Mux.scala 80:57]
+  assign io_RegWrite = 7'h23 == opcode | (7'h67 == opcode | (7'h6f == opcode | (7'h17 == opcode | 7'h13 == opcode))); // @[Mux.scala 80:57]
   assign io_MemWrite = 7'h23 == opcode; // @[Mux.scala 80:60]
   assign io_AluOp = 7'h23 == opcode ? 5'h4 : _io_AluOp_T_7; // @[Mux.scala 80:57]
   assign io_PcSrc = {{3'd0}, _io_PcSrc_T_3}; // @[Mux.scala 80:57]
