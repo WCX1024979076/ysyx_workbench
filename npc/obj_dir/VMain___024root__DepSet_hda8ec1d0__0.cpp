@@ -17,9 +17,8 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
     VMain__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VMain___024root___sequent__TOP__0\n"); );
     // Body
-    if (VL_UNLIKELY(((IData)(vlSelf->io_RegWrite) & 
-                     (~ (IData)(vlSelf->reset))))) {
-        VL_FWRITEF(0x80000002U,"io.Rdest=AnonymousBundle(Rdest -> %2#, R1 -> %2#, R2 -> %2#, RegWrite -> %1#, MemToReg -> %1#, AluOut -> %20#, MemOut -> %20#, DataR1 -> %20#, DataR2 -> %20#).Rdest\n",
+    if (VL_UNLIKELY((1U & (~ (IData)(vlSelf->reset))))) {
+        VL_FWRITEF(0x80000002U,"registers = AnonymousBundle(Rdest -> %2#, R1 -> %2#, R2 -> %2#, RegWrite -> %1#, MemToReg -> %1#, AluOut -> %20#, MemOut -> %20#, DataR1 -> %20#, DataR2 -> %20#)\n",
                    5,vlSelf->io_Rdest,5,(IData)(vlSelf->io_R1),
                    5,vlSelf->io_R2,1,(IData)(vlSelf->io_RegWrite),
                    1,vlSelf->io_MemToReg,64,vlSelf->io_AluOut,
