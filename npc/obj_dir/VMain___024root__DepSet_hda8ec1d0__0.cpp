@@ -285,7 +285,8 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
         VMain___024unit____Vdpiimwrap_ebreak_TOP____024unit();
     }
     vlSelf->io_RegWrite = ((0x23U == (0x7fU & vlSelf->io_Inst)) 
-                           | (0x13U == (0x7fU & vlSelf->io_Inst)));
+                           | ((0x37U == (0x7fU & vlSelf->io_Inst)) 
+                              | (0x13U == (0x7fU & vlSelf->io_Inst))));
     vlSelf->io_Rdest = (0x1fU & (vlSelf->io_Inst >> 7U));
     vlSelf->io_PcSrc = ((0x67U == (0x7fU & vlSelf->io_Inst))
                          ? 2U : (0x6fU == (0x7fU & vlSelf->io_Inst)));

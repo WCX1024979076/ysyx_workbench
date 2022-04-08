@@ -310,7 +310,9 @@ VL_ATTR_COLD void VMain___024root__trace_full_sub_0(VMain___024root* vlSelf, Ver
     tracep->fullQData(oldp+67,(vlSelf->io_MemOut),64);
     tracep->fullCData(oldp+69,(vlSelf->io_MemMask),8);
     tracep->fullBit(oldp+70,(((0x23U == (0x7fU & vlSelf->io_Inst)) 
-                              | (0x13U == (0x7fU & vlSelf->io_Inst)))));
+                              | ((0x37U == (0x7fU & vlSelf->io_Inst)) 
+                                 | (0x13U == (0x7fU 
+                                              & vlSelf->io_Inst))))));
     tracep->fullBit(oldp+71,((0x23U == (0x7fU & vlSelf->io_Inst))));
     tracep->fullCData(oldp+72,(((0x23U == (0x7fU & vlSelf->io_Inst))
                                  ? 4U : ((0x67U == 
