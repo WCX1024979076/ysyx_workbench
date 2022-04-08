@@ -58,7 +58,7 @@ void ld(char *file)
 {
   FILE *infile=fopen(file,"rt");
   int siz=fread(pmem,sizeof(uint8_t),1000,infile);
-  for(long long i=0x80000000;i<=0x80000000c;i+=4)
+  for(long long i=0x80000000;i<=0x80000010;i+=4)
   {
     long long tmp;
     pmem_read(i,&tmp);
