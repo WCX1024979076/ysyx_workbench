@@ -296,7 +296,7 @@ module Registers(
   wire [31:0] _GEN_61 = 5'h1d == io_R2 ? Regs_29 : _GEN_60; // @[Registers.scala 22:13 Registers.scala 22:13]
   wire [31:0] _GEN_62 = 5'h1e == io_R2 ? Regs_30 : _GEN_61; // @[Registers.scala 22:13 Registers.scala 22:13]
   wire [31:0] _GEN_63 = 5'h1f == io_R2 ? Regs_31 : _GEN_62; // @[Registers.scala 22:13 Registers.scala 22:13]
-  wire [63:0] _Regs_T_1 = io_MemToReg ? io_AluOut : io_MemOut; // @[Mux.scala 80:57]
+  wire [63:0] _Regs_T_1 = ~io_MemToReg ? io_AluOut : io_MemOut; // @[Mux.scala 80:57]
   assign io_DataR1 = {{32'd0}, _GEN_31}; // @[Registers.scala 21:13 Registers.scala 21:13]
   assign io_DataR2 = {{32'd0}, _GEN_63}; // @[Registers.scala 22:13 Registers.scala 22:13]
   always @(posedge clock) begin
