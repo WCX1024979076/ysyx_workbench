@@ -68,8 +68,11 @@ void ld(char *file)
 int main(int argc, char **argv, char **env)
 {
   if(argc==2){
-    printf("%s\n",argv[1]);
-    ld(argv[1]);
+    if(strlen(argv[1])!=0)
+    {
+      printf("%s\n",argv[1]);
+      ld(argv[1]);
+    }
   }
   srand(time(0));
   contextp = new VerilatedContext;
