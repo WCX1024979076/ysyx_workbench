@@ -530,7 +530,7 @@ module Registers(
     `endif
         if (io_RegWrite & ~reset) begin
           $fwrite(32'h80000002,
-            "io.Rdest=AnonymousBundle(Rdest -> %d, R1 -> %d, R2 -> %d, RegWrite -> %d, MemToReg -> %d, AluOut -> %d, MemOut -> %d, DataR1 -> %d, DataR2 -> %d).Rdest"
+            "io.Rdest=AnonymousBundle(Rdest -> %d, R1 -> %d, R2 -> %d, RegWrite -> %d, MemToReg -> %d, AluOut -> %d, MemOut -> %d, DataR1 -> %d, DataR2 -> %d).Rdest\n"
             ,io_Rdest,io_R1,io_R2,io_RegWrite,io_MemToReg,io_AluOut,io_MemOut,io_DataR1,io_DataR2); // @[Registers.scala 26:11]
         end
     `ifdef PRINTF_COND
