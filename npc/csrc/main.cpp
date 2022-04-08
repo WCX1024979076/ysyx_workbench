@@ -62,7 +62,7 @@ void ld(char *file)
   {
     long long tmp;
     pmem_read(i,&tmp);
-    printf("%llx %llx\n",i,tmp);
+    printf("%llx %16llx\n",i,tmp);
   }
 }
 int main(int argc, char **argv, char **env)
