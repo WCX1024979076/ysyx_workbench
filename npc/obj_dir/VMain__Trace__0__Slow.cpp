@@ -62,6 +62,8 @@ VL_ATTR_COLD void VMain___024root__trace_init_sub__TOP__0(VMain___024root* vlSel
     tracep->declQuad(c+52,"pc_io_DataR1", false,-1, 63,0);
     tracep->declQuad(c+1,"pc_io_PcVal", false,-1, 63,0);
     tracep->declBus(c+3,"pc_io_Inst", false,-1, 31,0);
+    tracep->declBit(c+40,"contr_clock", false,-1);
+    tracep->declBit(c+41,"contr_reset", false,-1);
     tracep->declBus(c+42,"contr_io_Inst", false,-1, 31,0);
     tracep->declBit(c+70,"contr_io_RegWrite", false,-1);
     tracep->declBit(c+71,"contr_io_MemWrite", false,-1);
@@ -111,6 +113,8 @@ VL_ATTR_COLD void VMain___024root__trace_init_sub__TOP__0(VMain___024root* vlSel
     tracep->declQuad(c+90,"io_AluOut", false,-1, 63,0);
     tracep->popNamePrefix(1);
     tracep->pushNamePrefix("contr ");
+    tracep->declBit(c+40,"clock", false,-1);
+    tracep->declBit(c+41,"reset", false,-1);
     tracep->declBus(c+42,"io_Inst", false,-1, 31,0);
     tracep->declBit(c+70,"io_RegWrite", false,-1);
     tracep->declBit(c+71,"io_MemWrite", false,-1);
