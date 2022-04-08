@@ -55,7 +55,7 @@ module Pc(
     `endif
         if (~reset) begin
           $fwrite(32'h80000002,
-            "Pc:AnonymousBundle(PcSrc -> %d, DataImmI -> %d, DataImmJ -> %d, DataR1 -> %d, PcVal -> %d, Inst -> %d)",
+            "Pc:AnonymousBundle(PcSrc -> %d, DataImmI -> %d, DataImmJ -> %d, DataR1 -> %d, PcVal -> %d, Inst -> %d)\n",
             io_PcSrc,io_DataImmI,io_DataImmJ,io_DataR1,io_PcVal,io_Inst); // @[Pc.scala 35:9]
         end
     `ifdef PRINTF_COND
