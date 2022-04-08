@@ -56,6 +56,8 @@ void cpu_sim()
 
 int main(int argc, char **argv, char **env)
 {
+  printf("%s\n",argv[0]);
+
   srand(time(0));
   contextp = new VerilatedContext;
   contextp->commandArgs(argc, argv);
