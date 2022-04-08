@@ -83,9 +83,13 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
     tracep->chgQData(oldp+66,(vlSelf->io_MemOut),64);
     tracep->chgCData(oldp+68,(vlSelf->io_MemMask),8);
     tracep->chgBit(oldp+69,(((0x23U == (0x7fU & vlSelf->io_Inst)) 
-                             | ((0x17U == (0x7fU & vlSelf->io_Inst)) 
-                                | (0x13U == (0x7fU 
-                                             & vlSelf->io_Inst))))));
+                             | ((0x67U == (0x7fU & vlSelf->io_Inst)) 
+                                | ((0x6fU == (0x7fU 
+                                              & vlSelf->io_Inst)) 
+                                   | ((0x17U == (0x7fU 
+                                                 & vlSelf->io_Inst)) 
+                                      | (0x13U == (0x7fU 
+                                                   & vlSelf->io_Inst))))))));
     tracep->chgBit(oldp+70,((0x23U == (0x7fU & vlSelf->io_Inst))));
     tracep->chgCData(oldp+71,(((0x23U == (0x7fU & vlSelf->io_Inst))
                                 ? 4U : ((0x67U == (0x7fU 
