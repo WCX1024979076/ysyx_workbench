@@ -62,7 +62,7 @@ void ld(char *file)
   {
     long long tmp;
     pmem_read(i,&tmp);
-    printf("%llx %llx\n",i,tmp);
+    //printf("%llx %llx\n",i,tmp);
     break;
   }
 }
