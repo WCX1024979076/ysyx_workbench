@@ -97,6 +97,8 @@ end // initial
 `endif // SYNTHESIS
 endmodule
 module Contr(
+  input         clock,
+  input         reset,
   input  [31:0] io_Inst,
   output        io_RegWrite,
   output        io_MemWrite,
@@ -122,6 +124,21 @@ module Contr(
   assign io_MemToReg = 7'h23 == opcode; // @[Mux.scala 80:60]
   assign io_MemMask = 7'h23 == opcode ? 8'hff : 8'h0; // @[Mux.scala 80:57]
   assign ebreak_ebreak_in = 32'h100073 == io_Inst; // @[Mux.scala 80:60]
+  always @(posedge clock) begin
+    `ifndef SYNTHESIS
+    `ifdef PRINTF_COND
+      if (`PRINTF_COND) begin
+    `endif
+        if (~reset) begin
+          $fwrite(32'h80000002,
+            "Contr:AnonymousBundle(Inst -> %d, RegWrite -> %d, MemWrite -> %d, AluOp -> %d, PcSrc -> %d, MemToReg -> %d, MemMask -> %d)"
+            ,io_Inst,io_RegWrite,io_MemWrite,io_AluOp,io_PcSrc,io_MemToReg,io_MemMask); // @[Contr.scala 48:9]
+        end
+    `ifdef PRINTF_COND
+      end
+    `endif
+    `endif // SYNTHESIS
+  end
 endmodule
 module Decode(
   input  [31:0] io_Inst,
@@ -695,6 +712,8 @@ module Main(
   wire [63:0] pc_io_DataR1; // @[Main.scala 31:16]
   wire [63:0] pc_io_PcVal; // @[Main.scala 31:16]
   wire [31:0] pc_io_Inst; // @[Main.scala 31:16]
+  wire  contr_clock; // @[Main.scala 39:19]
+  wire  contr_reset; // @[Main.scala 39:19]
   wire [31:0] contr_io_Inst; // @[Main.scala 39:19]
   wire  contr_io_RegWrite; // @[Main.scala 39:19]
   wire  contr_io_MemWrite; // @[Main.scala 39:19]
@@ -745,6 +764,8 @@ module Main(
     .io_Inst(pc_io_Inst)
   );
   Contr contr ( // @[Main.scala 39:19]
+    .clock(contr_clock),
+    .reset(contr_reset),
     .io_Inst(contr_io_Inst),
     .io_RegWrite(contr_io_RegWrite),
     .io_MemWrite(contr_io_MemWrite),
@@ -818,6 +839,8 @@ module Main(
   assign pc_io_DataImmI = io_DataImmI; // @[Main.scala 35:18]
   assign pc_io_DataImmJ = io_DataImmJ; // @[Main.scala 36:18]
   assign pc_io_DataR1 = io_DataR1; // @[Main.scala 34:16]
+  assign contr_clock = clock;
+  assign contr_reset = reset;
   assign contr_io_Inst = io_Inst; // @[Main.scala 40:17]
   assign decode_io_Inst = io_Inst; // @[Main.scala 49:18]
   assign registers_clock = clock;
