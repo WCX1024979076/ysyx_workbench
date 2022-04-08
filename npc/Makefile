@@ -3,6 +3,8 @@ mill = ./mill/mill
 TOPNAME = Main
 CSRCNAME = main
 VSRCNAME = Main
+IMG = ""
+
 
 test:
 	$(mill) -i __.test
@@ -40,6 +42,6 @@ sim:
 	gtkwave waveform.vcd
 
 run:
-	./obj_dir/V$(TOPNAME)
+	./obj_dir/V$(TOPNAME) $(IMG)
 
 include ../Makefile
