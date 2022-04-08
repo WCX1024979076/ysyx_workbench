@@ -303,227 +303,240 @@ module Registers(
     if (reset) begin // @[Registers.scala 19:21]
       Regs_0 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h0 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_0 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h0 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_0 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_1 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h1 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_1 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h1 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_1 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_2 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h2 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_2 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h2 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_2 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_3 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h3 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_3 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h3 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_3 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_4 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h4 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_4 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h4 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_4 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_5 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h5 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_5 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h5 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_5 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_6 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h6 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_6 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h6 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_6 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_7 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h7 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_7 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h7 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_7 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_8 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h8 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_8 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h8 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_8 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_9 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h9 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_9 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h9 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_9 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_10 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'ha == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_10 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'ha == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_10 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_11 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'hb == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_11 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'hb == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_11 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_12 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'hc == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_12 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'hc == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_12 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_13 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'hd == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_13 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'hd == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_13 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_14 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'he == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_14 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'he == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_14 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_15 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'hf == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_15 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'hf == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_15 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_16 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h10 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_16 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h10 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_16 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_17 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h11 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_17 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h11 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_17 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_18 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h12 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_18 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h12 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_18 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_19 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h13 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_19 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h13 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_19 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_20 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h14 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_20 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h14 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_20 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_21 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h15 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_21 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h15 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_21 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_22 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h16 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_22 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h16 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_22 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_23 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h17 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_23 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h17 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_23 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_24 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h18 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_24 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h18 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_24 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_25 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h19 == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_25 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h19 == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_25 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_26 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h1a == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_26 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h1a == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_26 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_27 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h1b == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_27 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h1b == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_27 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_28 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h1c == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_28 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h1c == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_28 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_29 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h1d == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_29 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h1d == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_29 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_30 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h1e == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_30 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h1e == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_30 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
     if (reset) begin // @[Registers.scala 19:21]
       Regs_31 <= 32'h0; // @[Registers.scala 19:21]
     end else if (io_RegWrite) begin // @[Registers.scala 25:3]
-      if (5'h1f == io_Rdest) begin // @[Registers.scala 26:20]
-        Regs_31 <= _Regs_T_1[31:0]; // @[Registers.scala 26:20]
+      if (5'h1f == io_Rdest) begin // @[Registers.scala 27:20]
+        Regs_31 <= _Regs_T_1[31:0]; // @[Registers.scala 27:20]
       end
     end
+    `ifndef SYNTHESIS
+    `ifdef PRINTF_COND
+      if (`PRINTF_COND) begin
+    `endif
+        if (io_RegWrite & ~reset) begin
+          $fwrite(32'h80000002,
+            "io.Rdest=AnonymousBundle(Rdest -> %d, R1 -> %d, R2 -> %d, RegWrite -> %d, MemToReg -> %d, AluOut -> %d, MemOut -> %d, DataR1 -> %d, DataR2 -> %d).Rdest"
+            ,io_Rdest,io_R1,io_R2,io_RegWrite,io_MemToReg,io_AluOut,io_MemOut,io_DataR1,io_DataR2); // @[Registers.scala 26:11]
+        end
+    `ifdef PRINTF_COND
+      end
+    `endif
+    `endif // SYNTHESIS
   end
 // Register and memory initialization
 `ifdef RANDOMIZE_GARBAGE_ASSIGN
