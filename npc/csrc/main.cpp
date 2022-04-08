@@ -56,7 +56,7 @@ void cpu_sim()
 
 void ld(char *file)
 {
-  File *infile=fopen(file,"rt");
+  FILE *infile=fopen(file,"rt");
   fread(pmem,sizeof(uint8_t),1000,infile);
   for(long long i=0x80000000;i<=0x80000114;i+=4)
   {
