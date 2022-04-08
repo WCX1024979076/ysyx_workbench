@@ -56,7 +56,7 @@ void cpu_sim()
 
 int main(int argc, char **argv, char **env)
 {
-  if(argc==1)
+  if(argc==2)
   printf("%s\n",argv[1]);
   srand(time(0));
   contextp = new VerilatedContext;
