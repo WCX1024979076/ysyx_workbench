@@ -40,6 +40,7 @@ void pmem_read(long long Raddr, long long *Rdata)
 void pmem_write(long long Waddr, long long Wdata, char Wmask)
 {
   printf("%llx %llx %x", Waddr, Wdata, Wmask);
+  printf("`112");
   for (int i = 0; i < 7; i++)
   {
     uint8_t *Vaddr = guest_to_host(Waddr);
