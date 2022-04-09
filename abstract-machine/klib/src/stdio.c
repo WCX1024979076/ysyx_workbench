@@ -30,6 +30,7 @@ int sprintf(char *out, const char *fmt, ...) {
     switch(fmt[i+1])
     {
       case 'd' :
+        num_b_cnt=0;
         num=va_arg(va_ptr,int);
         while(num!=0)
         {
