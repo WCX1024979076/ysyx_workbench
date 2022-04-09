@@ -45,6 +45,7 @@ int sprintf(char *out, const char *fmt, ...) {
           out[cnt++]=str[i];
         break;
     }
+    i++;
   }
   return 0;
   //panic("Not implemented");
