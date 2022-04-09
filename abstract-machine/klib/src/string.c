@@ -21,6 +21,7 @@ char *strcat(char *dst, const char *src) {
 }
 
 int strcmp(const char *s1, const char *s2) {
+  printf("%s %s\n",s1,s2);
   int i=0;
   for(i=0;s1[i]&&s2[i];i++)
   {
