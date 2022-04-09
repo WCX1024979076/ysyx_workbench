@@ -48,6 +48,7 @@ int sprintf(char *out, const char *fmt, ...) {
     }
     i++;
   }
+  out[cnt++]='\0';
   return 0;
   //panic("Not implemented");
 }
