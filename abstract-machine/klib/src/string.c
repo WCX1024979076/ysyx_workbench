@@ -25,14 +25,14 @@ int strcmp(const char *s1, const char *s2) {
   for(i=0;s1[i]&&s2[i];i++)
   {
     if(s1[i]<s2[i])
-      return -1;
+      return 0;
     else if(s1[i]>s2[i])
-      return 1;
+      return 0;
   }
   if(!s1[i]&&s2[i])
-    return -1;
+    return 0;
   if(s1[i]&&!s2[i])
-    return 1;
+    return 0;
   return 0;
   //panic("Not implemented");
 }
