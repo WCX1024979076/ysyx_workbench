@@ -38,7 +38,7 @@ int sprintf(char *out, const char *fmt, ...) {
           num/=10;
         }
         for(int i=num_b_cnt;i>=1;i--)
-          out[cnt++]=(char)(num_b[num_b_cnt]+'0');
+          out[cnt++]=(char)(num_b[i]+'0');
         break;
       case 's' :
         str=va_arg(va_ptr,char *);
