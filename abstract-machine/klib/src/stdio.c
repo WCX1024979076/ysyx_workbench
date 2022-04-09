@@ -13,12 +13,9 @@ int vsprintf(char *out, const char *fmt, va_list ap) {
   panic("Not implemented");
 }
 
-int sprintf(char *out, const char *fmt, ...) {
-  
+int sprintf(char *out, const char *fmt, ...) { 
   va_list va_ptr;
-
   va_start(va_ptr,fmt);
-  
   int cnt=0;
   for(int i=0;fmt[i];i++)
   {
