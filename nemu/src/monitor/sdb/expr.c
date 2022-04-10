@@ -94,6 +94,7 @@ static bool make_token(char *e) {
             assert(substr_len<32);
             for(int i=0;i<substr_len;i++)
               tokens[nr_token].str[i]=substr_start[i];
+            tokens[nr_token].str[substr_len]='\0';
             tokens[nr_token].type=rules[i].token_type;
             nr_token++;
             break;
@@ -143,8 +144,10 @@ word_t eval(int p,int q,bool *success)
       success=false;
     word_t num=0;
     //Log("%s\n",tokens[p].str);
-    if(tokens[p].type==TK_NUM)
+    if(tokens[p].type==TK_NUM){
       sscanf(tokens[p].str,"%lu",&num);
+      ///Log("%lu\n",num);
+    }
     else if(tokens[p].type==TK_HNUM)
       sscanf(tokens[p].str,"%lx",&num);
     else if(tokens[p].type==TK_REG)
