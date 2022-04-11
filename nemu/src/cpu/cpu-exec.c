@@ -117,6 +117,8 @@ void cpu_exec(uint64_t n) {
           printf("-->");
         else
           printf("   ");
+        if(strlen(iringbuf[i])==0)
+          break;
         printf("%s\n",iringbuf[i]);
       }
       // fall through
