@@ -21,7 +21,6 @@ static llvm::MCSubtargetInfo *gSTI = nullptr;
 static llvm::MCInstPrinter *gIP = nullptr;
 
 extern "C" void init_disasm(const char *triple) {
-  printf("%s\n",triple);
   llvm::InitializeAllTargetInfos();
   llvm::InitializeAllTargetMCs();
   llvm::InitializeAllAsmParsers();
@@ -41,7 +40,6 @@ extern "C" void init_disasm(const char *triple) {
   MCTargetOptions MCOptions;
   gSTI = target->createMCSubtargetInfo(gTriple, "", "");
   std::string isa = target->getName();
-  //printf("%s\n",isa.c_str());
   if (isa == "riscv32" || isa == "riscv64") {
     gSTI->ApplyFeatureFlag("+m");
     gSTI->ApplyFeatureFlag("+a");
@@ -53,6 +51,7 @@ extern "C" void init_disasm(const char *triple) {
   gMRI = target->createMCRegInfo(gTriple);
   auto AsmInfo = target->createMCAsmInfo(*gMRI, gTriple, MCOptions);
 #if LLVM_VERSION_MAJOR >= 13
+  puts("13");
    auto llvmTripleTwine = Twine(triple);
    auto llvmtriple = llvm::Triple(llvmTripleTwine);
    auto Ctx = new llvm::MCContext(llvmtriple,AsmInfo, gMRI, nullptr);
@@ -64,14 +63,13 @@ extern "C" void init_disasm(const char *triple) {
       AsmInfo->getAssemblerDialect(), *AsmInfo, *gMII, *gMRI);
   gIP->setPrintImmHex(true);
 #if LLVM_VERSION_MAJOR >= 11
+  puts("11");
   gIP->setPrintBranchImmAsAddress(true);
 #endif
 }
 
 extern "C" void disassemble(char *str, int size, uint64_t pc, uint8_t *code, int nbyte) {
   MCInst inst;
-  for(int i=0;i<nbyte;i++)
-    printf("%x\n",*(code+i));
   llvm::ArrayRef<uint8_t> arr(code, nbyte);
   uint64_t dummy_size = 0;
   gDisassembler->getInstruction(inst, dummy_size, arr, pc, llvm::nulls());
