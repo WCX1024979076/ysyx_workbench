@@ -50,8 +50,8 @@ extern "C" void init_disasm(const char *triple) {
   gMII = target->createMCInstrInfo();
   gMRI = target->createMCRegInfo(gTriple);
   auto AsmInfo = target->createMCAsmInfo(*gMRI, gTriple, MCOptions);
+  printf("%d\n",LLVM_VERSION_MAJOR);
 #if LLVM_VERSION_MAJOR >= 13
-  puts("13");
    auto llvmTripleTwine = Twine(triple);
    auto llvmtriple = llvm::Triple(llvmTripleTwine);
    auto Ctx = new llvm::MCContext(llvmtriple,AsmInfo, gMRI, nullptr);
@@ -63,7 +63,6 @@ extern "C" void init_disasm(const char *triple) {
       AsmInfo->getAssemblerDialect(), *AsmInfo, *gMII, *gMRI);
   gIP->setPrintImmHex(true);
 #if LLVM_VERSION_MAJOR >= 11
-  puts("11");
   gIP->setPrintBranchImmAsAddress(true);
 #endif
 }
