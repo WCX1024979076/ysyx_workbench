@@ -110,6 +110,7 @@ void cpu_exec(uint64_t n) {
            (nemu_state.halt_ret == 0 ? ASNI_FMT("HIT GOOD TRAP", ASNI_FG_GREEN) :
             ASNI_FMT("HIT BAD TRAP", ASNI_FG_RED))),
           nemu_state.halt_pc);
+      puts("iringbuf:");
       for(int i=0;i<16;i++)
       {
         if((i+1)%16==iringbuf_count)
