@@ -41,7 +41,7 @@ extern "C" void init_disasm(const char *triple) {
   MCTargetOptions MCOptions;
   gSTI = target->createMCSubtargetInfo(gTriple, "", "");
   std::string isa = target->getName();
-  printf("%s\n",isa.c_str());
+  //printf("%s\n",isa.c_str());
   if (isa == "riscv32" || isa == "riscv64") {
     gSTI->ApplyFeatureFlag("+m");
     gSTI->ApplyFeatureFlag("+a");
@@ -70,6 +70,7 @@ extern "C" void init_disasm(const char *triple) {
 
 extern "C" void disassemble(char *str, int size, uint64_t pc, uint8_t *code, int nbyte) {
   MCInst inst;
+  printf("%x\n",*code);
   llvm::ArrayRef<uint8_t> arr(code, nbyte);
   uint64_t dummy_size = 0;
   gDisassembler->getInstruction(inst, dummy_size, arr, pc, llvm::nulls());
