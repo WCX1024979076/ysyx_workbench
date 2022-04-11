@@ -112,7 +112,7 @@ void cpu_exec(uint64_t n) {
           nemu_state.halt_pc);
       for(int i=0;i<16;i++)
       {
-        if(i==iringbuf_count)
+        if((i+1)%16==iringbuf_count)
           printf("-->");
         else
           printf("   ");
