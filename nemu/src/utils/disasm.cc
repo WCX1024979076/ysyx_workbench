@@ -50,7 +50,7 @@ extern "C" void init_disasm(const char *triple) {
   gMII = target->createMCInstrInfo();
   gMRI = target->createMCRegInfo(gTriple);
   auto AsmInfo = target->createMCAsmInfo(*gMRI, gTriple, MCOptions);
-  printf("%d\n",LLVM_VERSION_MAJOR);
+  printf("123%d\n",LLVM_VERSION_MAJOR);
 #if LLVM_VERSION_MAJOR >= 13
    auto llvmTripleTwine = Twine(triple);
    auto llvmtriple = llvm::Triple(llvmTripleTwine);
