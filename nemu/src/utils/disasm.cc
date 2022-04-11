@@ -50,6 +50,7 @@ extern "C" void init_disasm(const char *triple) {
   gMII = target->createMCInstrInfo();
   gMRI = target->createMCRegInfo(gTriple);
   auto AsmInfo = target->createMCAsmInfo(*gMRI, gTriple, MCOptions);
+  printf("%d\n",LLVM_VERSION_MAJOR);
 #if LLVM_VERSION_MAJOR >= 13
    auto llvmTripleTwine = Twine(triple);
    auto llvmtriple = llvm::Triple(llvmTripleTwine);
@@ -75,7 +76,7 @@ extern "C" void disassemble(char *str, int size, uint64_t pc, uint8_t *code, int
   std::string s;
   raw_string_ostream os(s);
   gIP->printInst(&inst, pc, "", *gSTI, os);
-  printf("%ld\n",s.size());
+
   int skip = s.find_first_not_of('\t');
   const char *p = s.c_str() + skip;
   assert((int)s.length() - skip < size);
