@@ -18,9 +18,14 @@ static bool g_print_step = false;
 void device_update();
 
 void check_point_change();
+
+char iringbuf[16][100]={0};
+int iringbuf_count=0;
 static void trace_and_difftest(Decode *_this, vaddr_t dnpc) {
 #ifdef CONFIG_ITRACE_COND
   if (ITRACE_COND) { log_write("%s\n", _this->logbuf); }
+  strcpy(iringbuf[iringbuf_count],_this->logbuf);
+  iringbuf_count=(iringbuf_count+1)%16;
 #endif
   if (g_print_step) { IFDEF(CONFIG_ITRACE, puts(_this->logbuf)); }
   IFDEF(CONFIG_DIFFTEST, difftest_step(_this->pc, dnpc));
@@ -105,6 +110,14 @@ void cpu_exec(uint64_t n) {
            (nemu_state.halt_ret == 0 ? ASNI_FMT("HIT GOOD TRAP", ASNI_FG_GREEN) :
             ASNI_FMT("HIT BAD TRAP", ASNI_FG_RED))),
           nemu_state.halt_pc);
+      for(int i=0;i<16;i++)
+      {
+        if(i==iringbuf_count)
+          printf("-->");
+        else
+          printf("   ");
+        printf("%s\n",iringbuf[i]);
+      }
       // fall through
     case NEMU_QUIT: statistic();
   }
