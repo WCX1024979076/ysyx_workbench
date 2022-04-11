@@ -41,6 +41,7 @@ extern "C" void init_disasm(const char *triple) {
   MCTargetOptions MCOptions;
   gSTI = target->createMCSubtargetInfo(gTriple, "", "");
   std::string isa = target->getName();
+  printf("%s\n",isa.c_str());
   if (isa == "riscv32" || isa == "riscv64") {
     gSTI->ApplyFeatureFlag("+m");
     gSTI->ApplyFeatureFlag("+a");
