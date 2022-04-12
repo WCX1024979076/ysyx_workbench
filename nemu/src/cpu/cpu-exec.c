@@ -21,6 +21,24 @@ void check_point_change();
 
 char iringbuf[16][100]={0};
 int iringbuf_count=0;
+
+#ifdef CONFIG_ITRACE_COND
+static void print_itrace()
+{
+  puts("itrace");
+  for(int i=0;i<16;i++)
+  {
+    if((i+1)%16==iringbuf_count)
+      printf("-->");
+     else
+      printf("   ");
+    if(strlen(iringbuf[i])==0)
+      break;
+    printf("%s\n",iringbuf[i]);
+  }
+}
+#endif
+
 static void trace_and_difftest(Decode *_this, vaddr_t dnpc) {
 #ifdef CONFIG_ITRACE_COND
   if (ITRACE_COND) { log_write("%s\n", _this->logbuf); }
@@ -109,17 +127,15 @@ void cpu_exec(uint64_t n) {
           (nemu_state.state == NEMU_ABORT ? ASNI_FMT("ABORT", ASNI_FG_RED) :
            (nemu_state.halt_ret == 0 ? ASNI_FMT("HIT GOOD TRAP", ASNI_FG_GREEN) :
             ASNI_FMT("HIT BAD TRAP", ASNI_FG_RED))),
-          nemu_state.halt_pc);
-      puts("iringbuf:");
-      for(int i=0;i<16;i++)
-      {
-        if((i+1)%16==iringbuf_count)
-          printf("-->");
-        else
-          printf("   ");
-        if(strlen(iringbuf[i])==0)
-          break;
-        printf("%s\n",iringbuf[i]);
+          nemu_state.halt_pc);      
+      if(nemu_state.state==NEMU_ABORT){
+#ifdef CONFIG_ITRACE_COND 
+        print_itrace();
+#endif
+#ifdef CONFIG_MTRACE_COND
+        void print_mtrace();
+        print_mtrace();
+#endif
       }
       // fall through
     case NEMU_QUIT: statistic();

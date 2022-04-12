@@ -108,6 +108,25 @@ static int cmd_d(char *args)
   printf("free successfully\n");
   return 0;
 }
+static int cmd_print(char *args)
+{
+  if(strcmp(args,"itrace")==0)
+  {
+#ifdef CONFIG_ITRACE_COND
+    void print_itrace();
+    print_itrace();
+#endif
+  }
+  else
+  {
+#ifdef CONFIG_MTRACE_COND
+    void print_mtrace();
+    print_mtrace();
+#endif
+  }
+  return 1;
+}
+
 static int cmd_help(char *args);
 
 static struct {
@@ -123,7 +142,8 @@ static struct {
   { "x", "Check the memory content", cmd_x},
   { "p", "Calculate the value of expression", cmd_p},
   { "w", "Set watchpoint", cmd_w},
-  { "d", "Delete watchpoint",cmd_d}
+  { "d", "Delete watchpoint",cmd_d},
+  { "print", "print itrace and mtrace",cmd_print}
   /* TODO: Add more commands */
 
 };
