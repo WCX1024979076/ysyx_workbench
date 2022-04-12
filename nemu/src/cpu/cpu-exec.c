@@ -23,7 +23,7 @@ char iringbuf[16][100]={0};
 int iringbuf_count=0;
 
 #ifdef CONFIG_ITRACE_COND
-static void print_itrace()
+void print_itrace()
 {
   puts("itrace");
   for(int i=0;i<16;i++)
