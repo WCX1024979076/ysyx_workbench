@@ -132,7 +132,7 @@ void cpu_exec(uint64_t n) {
 #ifdef CONFIG_ITRACE_COND 
         print_itrace();
 #endif
-#ifdef CONFIG_MTRACE_COND
+#ifdef CONFIG_MTRACE_COND 
         void print_mtrace();
         print_mtrace();
 #endif
