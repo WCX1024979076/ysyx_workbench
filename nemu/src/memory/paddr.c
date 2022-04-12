@@ -35,7 +35,7 @@ void print_mtrace()
 static word_t pmem_read(paddr_t addr, int len) {
   word_t ret = host_read(guest_to_host(addr), len);
 #ifdef CONFIG_MTRACE_COND
-  sprintf(mtrace_buf[mtrace_count],"read:  addr:%16x len:%d content:%16lx\n",addr,len,ret);
+  sprintf(mtrace_buf[mtrace_count],"read:  addr:%016x len:%02d content:%016lx",addr,len,ret);
   mtrace_count=(mtrace_count+1)%16;
 #endif
   return ret;
@@ -44,7 +44,7 @@ static word_t pmem_read(paddr_t addr, int len) {
 static void pmem_write(paddr_t addr, int len, word_t data) {
   host_write(guest_to_host(addr), len, data);
 #ifdef CONFIG_MTRACE_COND
-  sprintf(mtrace_buf[mtrace_count],"write: addr:%16x len:%d content:%16lx\n",addr,len,data);
+  sprintf(mtrace_buf[mtrace_count],"write: addr:%016x len:%02d content:%016lx",addr,len,data);
   mtrace_count=(mtrace_count+1)%16;
 #endif
 }
