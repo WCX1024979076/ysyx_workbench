@@ -25,7 +25,7 @@ int iringbuf_count=0;
 #ifdef CONFIG_ITRACE_COND
 void print_itrace()
 {
-  puts("itrace");
+  puts("itrace:");
   for(int i=0;i<16;i++)
   {
     if((i+1)%16==iringbuf_count)
