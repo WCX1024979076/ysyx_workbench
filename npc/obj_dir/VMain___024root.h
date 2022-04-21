@@ -64,7 +64,7 @@ VL_MODULE(VMain___024root) {
     QData/*63:0*/ Main__DOT__exu__DOT__pc;
     QData/*63:0*/ Main__DOT__exu__DOT___AluOut_T_16;
     QData/*63:0*/ Main__DOT__exu__DOT___AluOut_T_26;
-    QData/*63:0*/ Main__DOT__exu__DOT___pc_T_8;
+    QData/*63:0*/ Main__DOT__exu__DOT___pc_T_10;
     QData/*63:0*/ __Vtask_pmem_read__0__Rdata;
     QData/*63:0*/ __Vtask_pmem_read__2__Rdata;
     VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;

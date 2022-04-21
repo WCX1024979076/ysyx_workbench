@@ -51,7 +51,7 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     vlSelf->Main__DOT__exu__DOT__pc = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___AluOut_T_16 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___AluOut_T_26 = VL_RAND_RESET_Q(64);
-    vlSelf->Main__DOT__exu__DOT___pc_T_8 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___pc_T_10 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT__registers__DOT__Regs_0 = VL_RAND_RESET_I(32);
     vlSelf->Main__DOT__exu__DOT__registers__DOT__Regs_1 = VL_RAND_RESET_I(32);
     vlSelf->Main__DOT__exu__DOT__registers__DOT__Regs_2 = VL_RAND_RESET_I(32);
