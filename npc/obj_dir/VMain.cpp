@@ -13,25 +13,6 @@ VMain::VMain(VerilatedContext* _vcontextp__, const char* _vcname__)
     : vlSymsp{new VMain__Syms(_vcontextp__, _vcname__, this)}
     , clock{vlSymsp->TOP.clock}
     , reset{vlSymsp->TOP.reset}
-    , io_RegWrite{vlSymsp->TOP.io_RegWrite}
-    , io_AluOp{vlSymsp->TOP.io_AluOp}
-    , io_R1{vlSymsp->TOP.io_R1}
-    , io_R2{vlSymsp->TOP.io_R2}
-    , io_Rdest{vlSymsp->TOP.io_Rdest}
-    , io_PcSrc{vlSymsp->TOP.io_PcSrc}
-    , io_MemWrite{vlSymsp->TOP.io_MemWrite}
-    , io_MemToReg{vlSymsp->TOP.io_MemToReg}
-    , io_MemMask{vlSymsp->TOP.io_MemMask}
-    , io_Inst{vlSymsp->TOP.io_Inst}
-    , io_PcVal{vlSymsp->TOP.io_PcVal}
-    , io_AluOut{vlSymsp->TOP.io_AluOut}
-    , io_DataR1{vlSymsp->TOP.io_DataR1}
-    , io_DataR2{vlSymsp->TOP.io_DataR2}
-    , io_DataImmI{vlSymsp->TOP.io_DataImmI}
-    , io_DataImmJ{vlSymsp->TOP.io_DataImmJ}
-    , io_DataImmU{vlSymsp->TOP.io_DataImmU}
-    , io_DataImmS{vlSymsp->TOP.io_DataImmS}
-    , io_MemOut{vlSymsp->TOP.io_MemOut}
     , __PVT____024unit{vlSymsp->TOP.__PVT____024unit}
     , rootp{&(vlSymsp->TOP)}
 {

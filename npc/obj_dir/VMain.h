@@ -30,25 +30,6 @@ class VMain VL_NOT_FINAL {
     // propagate new values into/out from the Verilated model.
     VL_IN8(&clock,0,0);
     VL_IN8(&reset,0,0);
-    VL_OUT8(&io_RegWrite,0,0);
-    VL_OUT8(&io_AluOp,4,0);
-    VL_OUT8(&io_R1,4,0);
-    VL_OUT8(&io_R2,4,0);
-    VL_OUT8(&io_Rdest,4,0);
-    VL_OUT8(&io_PcSrc,4,0);
-    VL_OUT8(&io_MemWrite,0,0);
-    VL_OUT8(&io_MemToReg,0,0);
-    VL_OUT8(&io_MemMask,7,0);
-    VL_OUT(&io_Inst,31,0);
-    VL_OUT64(&io_PcVal,63,0);
-    VL_OUT64(&io_AluOut,63,0);
-    VL_OUT64(&io_DataR1,63,0);
-    VL_OUT64(&io_DataR2,63,0);
-    VL_OUT64(&io_DataImmI,63,0);
-    VL_OUT64(&io_DataImmJ,63,0);
-    VL_OUT64(&io_DataImmU,63,0);
-    VL_OUT64(&io_DataImmS,63,0);
-    VL_OUT64(&io_MemOut,63,0);
 
     // CELLS
     // Public to allow access to /* verilator public */ items.
