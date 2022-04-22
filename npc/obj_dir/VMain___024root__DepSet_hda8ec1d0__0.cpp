@@ -373,24 +373,30 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                                                                 >> 0xfU))))
                                                     ? vlSelf->Main__DOT__exu__DOT__registers__DOT__Regs_1
                                                     : vlSelf->Main__DOT__exu__DOT__registers__DOT__Regs_0)))))))))))));
-    vlSelf->Main__DOT__idu__DOT__inst_type = ((0x6fU 
+    vlSelf->Main__DOT__idu__DOT__inst_type = ((0x67U 
                                                == (0x7fU 
                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                               ? 5U
-                                               : ((0x17U 
+                                               ? 1U
+                                               : ((0x6fU 
                                                    == 
                                                    (0x7fU 
                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                   ? 4U
+                                                   ? 5U
                                                    : 
-                                                  ((0x33U 
-                                                    != 
+                                                  ((0x17U 
+                                                    == 
                                                     (0x7fU 
-                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                   & (0x13U 
-                                                      == 
-                                                      (0x7fU 
-                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))))));
+                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                    ? 4U
+                                                    : 
+                                                   ((0x33U 
+                                                     != 
+                                                     (0x7fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                    & (0x13U 
+                                                       == 
+                                                       (0x7fU 
+                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))))));
     Main__DOT__exu__DOT__registers__DOT___GEN_58 = 
         ((0x1aU == (0x1fU & (IData)((vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
                                      >> 0x14U)))) ? vlSelf->Main__DOT__exu__DOT__registers__DOT__Regs_26
@@ -657,22 +663,26 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                                                 | (QData)((IData)(
                                                                   (0x1fffffU 
                                                                    & (IData)(vlSelf->Main__DOT__idu_io_Imm))))));
-    vlSelf->Main__DOT__idu__DOT__contr_code = ((0x6fU 
+    vlSelf->Main__DOT__idu__DOT__contr_code = ((0x67U 
                                                 == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                ? 0x110200U
+                                                ? 0x110400U
                                                 : (
-                                                   (0x17U 
+                                                   (0x6fU 
                                                     == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                    ? 0x10c000U
+                                                    ? 0x110200U
                                                     : 
-                                                   ((0x13U 
+                                                   ((0x17U 
                                                      == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                     ? 0x108000U
+                                                     ? 0x10c000U
                                                      : 
                                                     ((0x13U 
                                                       == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                      ? 0x104000U
-                                                      : 0U))));
+                                                      ? 0x108000U
+                                                      : 
+                                                     ((0x13U 
+                                                       == vlSelf->Main__DOT__idu__DOT__inst_flag)
+                                                       ? 0x104000U
+                                                       : 0U)))));
     vlSelf->Main__DOT__exu__DOT___AluOut_T_18 = ((QData)((IData)(vlSelf->Main__DOT__exu__DOT__registers__DOT___GEN_31)) 
                                                  + vlSelf->Main__DOT__idu_io_Imm);
     vlSelf->Main__DOT__exu__DOT___AluOut_T_26 = ((4U 
