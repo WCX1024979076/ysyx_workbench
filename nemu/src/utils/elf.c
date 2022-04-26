@@ -23,12 +23,10 @@ void read_elf(char *elf_name)
     FILE *stream;
     stream = fopen(elf_name, "rb");
     Assert(stream, "Can not open '%s'", elf_name);
-    // Log("The image is %s", elf_name);
 
     unsigned char *buffer;
     buffer = (unsigned char *)malloc(100500 * sizeof(unsigned char));
     int ret = fread(buffer, sizeof(unsigned char), 100500, stream);
-    // Log("%d\n",ret);
     assert(ret != 0);
 
     Elf64_Ehdr *ehdr = (Elf64_Ehdr *)buffer;
