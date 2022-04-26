@@ -22,8 +22,8 @@ char *strcpy(char *dst, const char *src)
 
 char *strncpy(char *dst, const char *src, size_t n)
 {
-  for(int i=0;i<n;i++)
-    dst[i]=src[i];
+  for (int i = 0; i < n; i++)
+    dst[i] = src[i];
   return dst;
 }
 
@@ -59,7 +59,12 @@ int strncmp(const char *s1, const char *s2, size_t n)
 
 void *memset(void *s, int c, size_t n)
 {
-  panic("Not implemented");
+  if (s == NULL || n < 0)
+    return NULL;
+  unsigned char *str = s;
+  for (int i = 0; i < n; i++)
+    str[i] = c;
+  return (void *)str;
 }
 
 void *memmove(void *dst, const void *src, size_t n)
