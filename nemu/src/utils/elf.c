@@ -33,11 +33,16 @@ void ftrace_judge(uint64_t pc, uint64_t dnpc, int is_call)
     if (elf_func[dnpc_fun].fun_addr == dnpc)
     {
         if (is_call)
+        {
             sprintf(ftrace_buf[ftrace_cnt], "%lx: call [%s@%lx]", pc, elf_func[dnpc_fun].fun_name, elf_func[dnpc_fun].fun_addr);
+            ftrace_cnt++;
+        }
     }
     else
+    {
         sprintf(ftrace_buf[ftrace_cnt], "%lx: ret [%s]", pc, elf_func[pc_fun].fun_name);
-    ftrace_cnt++;
+        ftrace_cnt++;
+    }
 }
 
 void print_ftrace()
