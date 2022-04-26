@@ -35,7 +35,6 @@ void ftrace_judge(uint64_t pc, uint64_t dnpc)
     else
         sprintf(ftrace_buf[ftrace_cnt], "%lx: ret [%s]", pc, elf_func[pc_fun].fun_name);
     ftrace_cnt++;
-    ftrace_cnt %= 300;
 }
 
 void print_ftrace()
