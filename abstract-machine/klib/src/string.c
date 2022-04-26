@@ -73,8 +73,23 @@ void *memmove(void *dst, const void *src, size_t n)
     return NULL;
   unsigned char *str_dst = dst;
   const unsigned char *str_src = src;
-  for (int i = 0; i < n; i++)
-    str_dst[i] = str_src[i];
+
+  if (str_dst > str_src && str_src + n > str_dst)
+  {
+    str_dst = str_dst + n - 1;
+    str_src = str_src + n - 1;
+    while (n--)
+    {
+      *str_dst = *str_src;
+    }
+  }
+  else
+  {
+    while (n--)
+    {
+      *str_dst++ = *str_src++;
+    }
+  }
   return (void *)str_dst;
 }
 
@@ -86,11 +101,24 @@ void *memcpy(void *out, const void *in, size_t n)
   const unsigned char *str_src = in;
   for (int i = 0; i < n; i++)
     str_dst[i] = str_src[i];
-  return (void *)str_dst;}
+  return (void *)str_dst;
+}
 
 int memcmp(const void *s1, const void *s2, size_t n)
 {
-  panic("Not implemented");
+  if (s1 == NULL || n < 0 || s2 == NULL)
+    return -1;
+  const unsigned char *str_dst = s1;
+  const unsigned char *str_src = s2;
+
+  for (int i = 0; i < n; i++)
+  {
+    if (str_dst[i] > str_src[i])
+      return 1;
+    else if (str_dst[i] < str_src[i])
+      return -1;
+  }
+  return 0;
 }
 
 #endif
