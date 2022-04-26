@@ -80,8 +80,13 @@ void *memmove(void *dst, const void *src, size_t n)
 
 void *memcpy(void *out, const void *in, size_t n)
 {
-  panic("Not implemented");
-}
+  if (out == NULL || n < 0 || in == NULL)
+    return NULL;
+  unsigned char *str_dst = out;
+  const unsigned char *str_src = in;
+  for (int i = 0; i < n; i++)
+    str_dst[i] = str_src[i];
+  return (void *)str_dst;}
 
 int memcmp(const void *s1, const void *s2, size_t n)
 {
