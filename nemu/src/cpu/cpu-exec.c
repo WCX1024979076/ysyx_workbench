@@ -65,11 +65,9 @@ static void exec_once(Decode *s, vaddr_t pc)
   cpu.pc = s->dnpc;
 
 #ifdef CONFIG_FTRACE_COND
-  void ftrace_judge(uint64_t pc, uint64_t dnpc);
-  if ((BITS(s->isa.inst.val, 6, 0) == 0x6F || BITS(s->isa.inst.val, 6, 0) == 0x67))
-    printf("%d\n", (int)(BITS(s->isa.inst.val, 11, 7)));
-  if (s->dnpc != s->pc && (BITS(s->isa.inst.val, 6, 0) == 0x6F || BITS(s->isa.inst.val, 6, 0) == 0x67) && BITS(s->isa.inst.val, 11, 7) == 0X1)
-    ftrace_judge(s->pc, s->dnpc);
+  void ftrace_judge(uint64_t pc, uint64_t dnpc, int is_call);
+  if (s->dnpc != s->pc)
+    ftrace_judge(s->pc, s->dnpc, ((BITS(s->isa.inst.val, 6, 0) == 0x6F || BITS(s->isa.inst.val, 6, 0) == 0x67) && BITS(s->isa.inst.val, 11, 7) == 0X1));
 #endif
 
 #ifdef CONFIG_ITRACE

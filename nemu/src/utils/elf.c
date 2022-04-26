@@ -18,7 +18,7 @@ int elf_cnt = 0;
 int ftrace_cnt = 0;
 char ftrace_buf[400][100];
 
-void ftrace_judge(uint64_t pc, uint64_t dnpc)
+void ftrace_judge(uint64_t pc, uint64_t dnpc, int is_call)
 {
     int pc_fun = -1, dnpc_fun = -1;
     for (int i = 0; i < elf_cnt; i++)
@@ -31,7 +31,10 @@ void ftrace_judge(uint64_t pc, uint64_t dnpc)
     if (pc_fun == dnpc_fun)
         return;
     if (elf_func[dnpc_fun].fun_addr == dnpc)
-        sprintf(ftrace_buf[ftrace_cnt], "%lx: call [%s@%lx]", pc, elf_func[dnpc_fun].fun_name, elf_func[dnpc_fun].fun_addr);
+    {
+        if (is_call)
+            sprintf(ftrace_buf[ftrace_cnt], "%lx: call [%s@%lx]", pc, elf_func[dnpc_fun].fun_name, elf_func[dnpc_fun].fun_addr);
+    }
     else
         sprintf(ftrace_buf[ftrace_cnt], "%lx: ret [%s]", pc, elf_func[pc_fun].fun_name);
     ftrace_cnt++;
