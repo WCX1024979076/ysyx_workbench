@@ -66,8 +66,7 @@ static void exec_once(Decode *s, vaddr_t pc)
 
 #ifdef CONFIG_FTRACE_COND
   void ftrace_judge(uint64_t pc, uint64_t dnpc);
-  printf("%x\n",s->isa.inst.val);
-  if (s->dnpc != s->pc)
+  if (s->dnpc != s->pc && (BITS(s->isa.inst.val, 6, 0) == 0x6F || BITS(s->isa.inst.val, 6, 0) == 0x67) && BITS(s->isa.inst.val, 11, 7) == 0X5)
     ftrace_judge(s->pc, s->dnpc);
 #endif
 
@@ -160,8 +159,8 @@ void cpu_exec(uint64_t n)
         (nemu_state.state == NEMU_ABORT ? ASNI_FMT("ABORT", ASNI_FG_RED) : (nemu_state.halt_ret == 0 ? ASNI_FMT("HIT GOOD TRAP", ASNI_FG_GREEN) : ASNI_FMT("HIT BAD TRAP", ASNI_FG_RED))),
         nemu_state.halt_pc);
 #ifdef CONFIG_FTRACE_COND
-      void print_ftrace();
-      print_ftrace();
+    void print_ftrace();
+    print_ftrace();
 #endif
     if (nemu_state.state == NEMU_ABORT)
     {
