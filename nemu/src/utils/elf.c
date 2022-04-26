@@ -22,11 +22,13 @@ void read_elf(char *elf_name)
     }
     FILE *stream;
     stream = fopen(elf_name, "rb");
-    assert(stream);
+    Assert(stream, "Can not open '%s'", elf_name);
+
     unsigned char *buffer;
     buffer = (unsigned char *)malloc(100500 * sizeof(unsigned char));
     int ret = fread(buffer, sizeof(unsigned char), 100500, stream);
     assert(ret == 1);
+
     Elf64_Ehdr *ehdr = (Elf64_Ehdr *)buffer;
     Elf64_Shdr *shdr = (Elf64_Shdr *)(buffer + ehdr->e_shoff);
     Elf64_Shdr *shdr_strtab = NULL;
