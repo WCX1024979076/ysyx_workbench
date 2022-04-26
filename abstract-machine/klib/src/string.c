@@ -54,7 +54,14 @@ int strcmp(const char *s1, const char *s2)
 
 int strncmp(const char *s1, const char *s2, size_t n)
 {
-  panic("Not implemented");
+  for (int i = 0; i < n; i++)
+  {
+    if (s1[i] > s2[i])
+      return 1;
+    else if (s1[i] < s2[i])
+      return -1;
+  }
+  return 0;
 }
 
 void *memset(void *s, int c, size_t n)
@@ -97,25 +104,25 @@ void *memcpy(void *out, const void *in, size_t n)
 {
   if (out == NULL || n < 0 || in == NULL)
     return NULL;
-  unsigned char *str_dst = out;
-  const unsigned char *str_src = in;
+  unsigned char *str_out = out;
+  const unsigned char *str_in = in;
   for (int i = 0; i < n; i++)
-    str_dst[i] = str_src[i];
-  return (void *)str_dst;
+    str_out[i] = str_in[i];
+  return (void *)str_out;
 }
 
 int memcmp(const void *s1, const void *s2, size_t n)
 {
   if (s1 == NULL || n < 0 || s2 == NULL)
     return -1;
-  const unsigned char *str_dst = s1;
-  const unsigned char *str_src = s2;
+  const unsigned char *str_s1 = s1;
+  const unsigned char *str_s2 = s2;
 
   for (int i = 0; i < n; i++)
   {
-    if (str_dst[i] > str_src[i])
+    if (str_s1[i] > str_s2[i])
       return 1;
-    else if (str_dst[i] < str_src[i])
+    else if (str_s1[i] < str_s2[i])
       return -1;
   }
   return 0;
