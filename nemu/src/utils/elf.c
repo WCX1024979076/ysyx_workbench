@@ -31,7 +31,7 @@ void ftrace_judge(uint64_t pc, uint64_t dnpc)
     if (pc_fun == dnpc_fun)
         return;
     if (elf_func[dnpc_fun].fun_addr == dnpc)
-        sprintf(ftrace_buf[ftrace_cnt], "%lx: call [%s@%lx]", pc, elf_func[dnpc_fun].fun_name, elf_func[dnpc_fun].fun_addr);
+        sprintf(ftrace_buf[ftrace_cnt], "%lx: call [%s@%lx]", pc, elf_func[pc_fun].fun_name, elf_func[dnpc_fun].fun_addr);
     else
         sprintf(ftrace_buf[ftrace_cnt], "%lx: ret [%s]", pc, elf_func[pc_fun].fun_name);
     ftrace_cnt++;
@@ -42,6 +42,7 @@ void print_ftrace()
     for (int i = 0; i < ftrace_cnt; i++)
         printf("%s\n", ftrace_buf[i]);
 }
+
 void read_elf(char *elf_name)
 {
     if (elf_name == NULL)
