@@ -52,6 +52,8 @@ static void pmem_write(paddr_t addr, int len, word_t data) {
 static void out_of_bound(paddr_t addr) {
   void print_itrace();
   print_itrace();
+  void print_ftrace();
+  print_ftrace();
   panic("address = " FMT_PADDR " is out of bound of pmem [" FMT_PADDR ", " FMT_PADDR ") at pc = " FMT_WORD,
       addr, CONFIG_MBASE, CONFIG_MBASE + CONFIG_MSIZE, cpu.pc);
 }
