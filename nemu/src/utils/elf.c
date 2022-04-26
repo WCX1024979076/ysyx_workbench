@@ -29,7 +29,7 @@ void read_elf(char *elf_name)
     buffer = (unsigned char *)malloc(100500 * sizeof(unsigned char));
     int ret = fread(buffer, sizeof(unsigned char), 100500, stream);
     // Log("%d\n",ret);
-    assert(ret == 0);
+    assert(ret != 0);
 
     Elf64_Ehdr *ehdr = (Elf64_Ehdr *)buffer;
     Elf64_Shdr *shdr = (Elf64_Shdr *)(buffer + ehdr->e_shoff);
