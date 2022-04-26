@@ -150,6 +150,10 @@ config MTRACE_COND
   bool "Weather open mtrace"
   default y
 
+config FTRACE_COND
+  bool "Weather open ftrace"
+  default y
+
 config DIFFTEST
   depends on TARGET_NATIVE_ELF
   bool "Enable differential testing"

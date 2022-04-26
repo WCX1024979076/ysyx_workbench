@@ -4,6 +4,8 @@
 #include <assert.h>
 #include <common.h>
 
+#ifdef CONFIG_FTRACE_COND
+
 typedef struct
 {
     uint64_t fun_addr;
@@ -64,3 +66,4 @@ void read_elf(char *elf_name)
         Log("%lx %lx %s", elf_func[i].fun_addr, elf_func[i].func_size, elf_func[i].fun_name);
     return;
 }
+#endif
