@@ -54,7 +54,7 @@ void ftrace_judge(uint64_t pc, uint64_t dnpc, int is_call)
 void print_ftrace()
 {
     for (int i = 0; i < ftrace_cnt; i++)
-        printf("%s\n", ftrace_buf[i]);
+        printf("   %s\n", ftrace_buf[i]);
 }
 
 void read_elf(char *elf_name)
