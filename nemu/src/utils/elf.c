@@ -23,6 +23,7 @@ void read_elf(char *elf_name)
     FILE *stream;
     stream = fopen(elf_name, "rb");
     Assert(stream, "Can not open '%s'", elf_name);
+    Log("The image is %s", elf_name);
 
     unsigned char *buffer;
     buffer = (unsigned char *)malloc(100500 * sizeof(unsigned char));
