@@ -8,7 +8,6 @@ void init_difftest(char *ref_so_file, long img_size, int port);
 void init_device();
 void init_sdb();
 void init_disasm(const char *triple);
-void read_elf(char *elf_name);
 
 static void welcome() {
   Log("Trace: %s", MUXDEF(CONFIG_TRACE, ASNI_FMT("ON", ASNI_FG_GREEN), ASNI_FMT("OFF", ASNI_FG_RED)));
@@ -114,6 +113,7 @@ void init_monitor(int argc, char *argv[]) {
 
 #ifdef CONFIG_FTRACE_COND
   /* read elf file*/
+  void read_elf(char *elf_name);
   read_elf(elf_file);
 #endif
 
