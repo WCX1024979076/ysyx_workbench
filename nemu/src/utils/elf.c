@@ -59,7 +59,6 @@ void print_ftrace()
             printf("-->%s\n", ftrace_buf[i]);
         else
             printf("   %s\n", ftrace_buf[i]);
-
     }
 }
 
