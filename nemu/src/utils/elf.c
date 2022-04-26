@@ -16,7 +16,7 @@ elf_info elf_func[1000];
 int elf_cnt = 0;
 
 int ftrace_cnt = 0;
-char ftrace_buf[400][100];
+char ftrace_buf[100][100];
 int fun_dep = 0;
 void ftrace_judge(uint64_t pc, uint64_t dnpc, int is_call)
 {
@@ -48,6 +48,7 @@ void ftrace_judge(uint64_t pc, uint64_t dnpc, int is_call)
         ftrace_cnt++;
         fun_dep--;
     }
+    ftrace_cnt %= 100;
 }
 
 void print_ftrace()
