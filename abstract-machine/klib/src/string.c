@@ -90,7 +90,8 @@ void *memmove(void *dst, const void *src, size_t n)
   }
   else
   {
-    memcpy(dst, src, n);
+    for (int i = 0; i < n; i++)
+      str_dst[i] = str_src[i];
   }
   return dst;
 }
