@@ -68,16 +68,20 @@ void *memset(void *s, int c, size_t n)
 {
   if (s == NULL || n < 0)
     return NULL;
+
+  void *tmp = s;
   unsigned char *str = s;
   for (int i = 0; i < n; i++)
     str[i] = c;
-  return s;
+  return tmp;
 }
 
 void *memmove(void *dst, const void *src, size_t n)
 {
   if (dst == NULL || n < 0 || src == NULL)
     return NULL;
+
+  void *tmp = dst;
   unsigned char *str_dst = dst;
   const unsigned char *str_src = src;
 
@@ -95,13 +99,15 @@ void *memmove(void *dst, const void *src, size_t n)
   {
     memcpy(dst, src, n);
   }
-  return dst;
+  return tmp;
 }
 
 void *memcpy(void *out, const void *in, size_t n)
 {
   if (out == NULL || n < 0 || in == NULL)
     return NULL;
+
+  void *tmp = out;
   unsigned char *str_out = out;
   const unsigned char *str_in = in;
   while (n--)
@@ -109,7 +115,7 @@ void *memcpy(void *out, const void *in, size_t n)
     *str_out = *str_in;
     str_out++, str_in++;
   }
-  return out;
+  return tmp;
 }
 
 int memcmp(const void *s1, const void *s2, size_t n)
