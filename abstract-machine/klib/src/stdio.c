@@ -53,7 +53,6 @@ int sprintf(char *out, const char *fmt, ...)
   }
   out[cnt++] = '\0';
   return 0;
-  // panic("Not implemented");
 }
 
 int snprintf(char *out, size_t n, const char *fmt, ...)
