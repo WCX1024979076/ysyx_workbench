@@ -84,7 +84,6 @@ void *memmove(void *dst, const void *src, size_t n)
   void *tmp = dst;
   unsigned char *str_dst = dst;
   const unsigned char *str_src = src;
-
   if (str_dst > str_src && str_src + n > str_dst)
   {
     str_dst = str_dst + n - 1;
