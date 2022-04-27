@@ -115,7 +115,7 @@ void *memcpy(void *out, const void *in, size_t n)
 int memcmp(const void *s1, const void *s2, size_t n)
 {
   if (s1 == NULL || n < 0 || s2 == NULL)
-    return -1;
+    return 0;
   const unsigned char *str_s1 = s1;
   const unsigned char *str_s2 = s2;
 
