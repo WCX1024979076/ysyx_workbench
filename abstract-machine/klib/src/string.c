@@ -107,8 +107,11 @@ void *memcpy(void *out, const void *in, size_t n)
     return NULL;
   unsigned char *str_out = out;
   const unsigned char *str_in = in;
-  for (int i = 0; i < n; i++)
-    str_out[i] = str_in[i];
+  while (n--)
+  {
+    *str_out = *str_in;
+    str_out++, str_in++;
+  }
   return (void *)str_out;
 }
 
