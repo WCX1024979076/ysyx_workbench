@@ -116,11 +116,10 @@ int memcmp(const void *s1, const void *s2, size_t n)
 
   for (int i = 0; i < n; i++)
   {
-    if (*str_s1 > *str_s2)
+    if (str_s1[i] > str_s2[i])
       return 1;
-    else if (*str_s1 < *str_s2)
+    else if (str_s1[i] < str_s2[i])
       return -1;
-    str_s1++, str_s2++;
   }
   return 0;
 }
