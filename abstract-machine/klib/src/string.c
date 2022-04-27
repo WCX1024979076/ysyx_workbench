@@ -93,10 +93,7 @@ void *memmove(void *dst, const void *src, size_t n)
   }
   else
   {
-    while (n--)
-    {
-      *str_dst++ = *str_src++;
-    }
+    memcpy(dst, src, n);
   }
   return (void *)str_dst;
 }
