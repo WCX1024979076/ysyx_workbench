@@ -26,7 +26,7 @@ typedef struct
 } CPU_state;
 
 CPU_state cpu;
-CPU_state ref_cpu;
+CPU_state* ref_cpu;
 
 uint64_t *cpu_gpr = NULL;
 
@@ -68,7 +68,6 @@ extern "C" void set_gpr_ptr(const svOpenArrayHandle r)
   for (int i = 0; i < 32; i++)
     cpu.gpr[i] = cpu_gpr[i];
   cpu.pc = cpu_gpr[32];
-  printf("123");
 }
 
 void pmem_read(long long Raddr, long long *Rdata)
@@ -157,15 +156,15 @@ void check_regs()
 {
   for (int i = 0; i < 32; i++)
   {
-    if (cpu.gpr[i] != ref_cpu.gpr[i])
+    if (cpu.gpr[i] != ref_cpu->gpr[i])
     {
-      printf("Missing match at reg%d, npc_val=%lx,nemu_val=%lx", i, cpu.gpr[i], ref_cpu.gpr[i]);
+      printf("Missing match at reg%d, npc_val=%lx,nemu_val=%lx", i, cpu.gpr[i], ref_cpu->gpr[i]);
       exit(0);
     }
   }
-  if (cpu.pc != ref_cpu.pc)
+  if (cpu.pc != ref_cpu->pc)
   {
-    printf("Missing match at pc, npc_val=%lx,nemu_val=%lx", cpu.pc, ref_cpu.pc);
+    printf("Missing match at pc, npc_val=%lx,nemu_val=%lx", cpu.pc, ref_cpu->pc);
     exit(0);
   }
 }
@@ -207,8 +206,8 @@ int main(int argc, char **argv, char **env)
     m_trace->dump(sim_time++);
     cpu_sim();
     ref_difftest_exec(1);
-    ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
-    printf("%lx\n",ref_cpu.pc);
+    ref_difftest_regcpy(ref_cpu, DIFFTEST_TO_DUT);
+    printf("%lx\n",ref_cpu->pc);
     check_regs();
   }
 
