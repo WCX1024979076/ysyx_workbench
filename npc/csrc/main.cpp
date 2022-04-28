@@ -58,7 +58,7 @@ void ebreak()
   m_trace->close();
   delete top;
   delete contextp;
-  exit(0);
+  assert(0);
 }
 
 extern "C" void set_gpr_ptr(const svOpenArrayHandle r)
