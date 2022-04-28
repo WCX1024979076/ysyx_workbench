@@ -71,7 +71,7 @@ void pmem_read(long long Raddr, long long *Rdata)
   if (Raddr < CONFIG_MBASE || Raddr >= CONFIG_MSIZE + CONFIG_MBASE)
     return;
   printf("read data:%lx\n", *((long long *)guest_to_host(Raddr)));
-  (*Rdata) = *((long long *)guest_to_host(Raddr));
+  (*Rdata) = *((uint64_t *)guest_to_host(Raddr));
   return;
 }
 
