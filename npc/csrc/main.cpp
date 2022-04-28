@@ -158,14 +158,15 @@ void check_regs_npc(CPU_state ref_cpu)
     if (cpu_npc.gpr[i] != ref_cpu.gpr[i])
     {
       printf("Missing match reg%d, nemu=%lx, ref=%lx", i, cpu_npc.gpr[i], ref_cpu.gpr[i]);
-      assert(0);
+      return 0;
     }
   }
   if (cpu_npc.pc != ref_cpu.pc)
   {
     printf("Missing match at pc, npc_val=%lx,nemu_val=%lx", cpu_npc.pc, ref_cpu.pc);
-    assert(0);
+    return 0;
   }
+  return 1;
 }
 
 void init_npc()
@@ -208,7 +209,8 @@ int main(int argc, char **argv, char **env)
     ref_difftest_exec(1);
     CPU_state ref_cpu;
     ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
-    check_regs_npc(ref_cpu);
+    int flag = check_regs_npc(ref_cpu);
+    assert(flag);
   }
 
   m_trace->close();
