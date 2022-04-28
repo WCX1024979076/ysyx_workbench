@@ -36,6 +36,8 @@ VM_MODPREFIX = VMain
 # User CFLAGS (from -CFLAGS on Verilator command line)
 VM_USER_CFLAGS = \
 	-fpermissive \
+	-I \
+	/home/wcx/Desktop/ysyx-workbench/nemu/include/ \
 
 # User LDLIBS (from -LDFLAGS on Verilator command line)
 VM_USER_LDLIBS = \
