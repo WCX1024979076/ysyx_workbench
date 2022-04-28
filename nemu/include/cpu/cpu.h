@@ -11,8 +11,8 @@ void invalid_inst(vaddr_t thispc);
 #define NEMUTRAP(thispc, code) set_nemu_state(NEMU_END, thispc, code)
 #define INV(thispc) invalid_inst(thispc)
 
-#ifdef CONFIG_ITRACE_COND
-void print_itrace();
-#endif
+//#ifdef CONFIG_ITRACE_COND
+//void print_itrace();
+//#endif
 
 #endif
