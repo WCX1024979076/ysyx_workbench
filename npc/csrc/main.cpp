@@ -206,7 +206,6 @@ int main(int argc, char **argv, char **env)
     m_trace->dump(sim_time++);
     cpu_sim();
     ref_difftest_exec(1);
-    printf("123123");
     ref_difftest_regcpy(ref_cpu, DIFFTEST_TO_DUT);
     printf("123123");
     printf("%lx\n",ref_cpu->pc);

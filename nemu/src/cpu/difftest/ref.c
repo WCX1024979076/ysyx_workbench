@@ -26,13 +26,12 @@ void difftest_regcpy(void *dut, bool direction)
   {
     dut = &cpu;
     Log("nemu pc %lx", ((CPU_state *)dut)->pc);
-    Log("123");
-    return ;
   }
   else if (direction == DIFFTEST_TO_REF)
   {
     cpu = *(CPU_state *)dut;
   }
+  Log("123");
 }
 
 void difftest_exec(uint64_t n)
