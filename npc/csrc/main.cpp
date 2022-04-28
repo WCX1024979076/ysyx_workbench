@@ -150,7 +150,7 @@ void init_so(char *ref_so_file, long img_size)
 
   printf("The result of every instruction will be compared with %s. "
          "This will help you a lot for debugging, but also significantly reduce the performance. "
-         "If it is not necessary, you can turn it off in menuconfig.",
+         "If it is not necessary, you can turn it off in menuconfig.\n",
          ref_so_file);
 
   ref_difftest_init();
