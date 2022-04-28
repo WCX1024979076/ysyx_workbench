@@ -68,7 +68,6 @@ extern "C" void set_gpr_ptr(const svOpenArrayHandle r)
   for (int i = 0; i < 32; i++)
     cpu.gpr[i] = cpu_gpr[i];
   cpu.pc = cpu_gpr[32];
-  printf("123123 %lx\n",cpu.pc);
 }
 
 void pmem_read(long long Raddr, long long *Rdata)
@@ -178,6 +177,7 @@ void init_npc()
   for (int i = 1; i <= 10; i++)
     cpu_sim();
   top->reset = 0;
+  printf("123");
 }
 
 int main(int argc, char **argv, char **env)
