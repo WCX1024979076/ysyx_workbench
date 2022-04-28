@@ -33,6 +33,12 @@ void ebreak()
   exit(0);
 }
 
+uint64_t *cpu_gpr = NULL;
+extern "C" void set_gpr_ptr(const svOpenArrayHandle r)
+{
+  cpu_gpr = (uint64_t *)(((VerilatedDpiOpenVar *)r)->datap());
+}
+
 void pmem_read(long long Raddr, long long *Rdata)
 {
   if (Raddr < CONFIG_MBASE || Raddr >= CONFIG_MSIZE + CONFIG_MBASE)
