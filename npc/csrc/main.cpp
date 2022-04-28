@@ -164,7 +164,7 @@ void check_regs_npc(CPU_state *ref_cpu)
   }
   if (cpu_npc.pc != ref_cpu->pc)
   {
-    printf("Missing match at pc, npc_val=%lx,nemu_val=%lx", cpu.pc, ref_cpu->pc);
+    printf("Missing match at pc, npc_val=%lx,nemu_val=%lx", cpu_npc.pc, ref_cpu->pc);
     exit(0);
   }
 }
