@@ -6,16 +6,12 @@
 #include <stdlib.h>
 #include "VMain__Dpi.h"
 #include "verilated_dpi.h"
-#include <isa.h>
-#include <cpu/cpu.h>
-#include <difftest-def.h>
-#include <memory/paddr.h>
 
-void difftest_init();
-void difftest_memcpy(paddr_t addr, void *buf, size_t n, bool direction);
-void difftest_regcpy(void *dut, bool direction);
-void difftest_exec(uint64_t n);
-void difftest_raise_intr(word_t NO);
+// void difftest_init();
+// void difftest_memcpy(paddr_t addr, void *buf, size_t n, bool direction);
+// void difftest_regcpy(void *dut, bool direction);
+// void difftest_exec(uint64_t n);
+// void difftest_raise_intr(word_t NO);
 
 #define CONFIG_MSIZE 0x0020000
 #define CONFIG_MBASE 0x80000000
