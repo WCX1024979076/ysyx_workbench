@@ -1,4 +1,4 @@
-#pragma comment(include, "$NEMU_HOME/include/")
+#pragma comment(include, "/home/wcx/Desktop/ysyx-workbench/nemu/include/")
 #include <stdio.h>
 #include "VMain.h"
 #include "verilated.h"
