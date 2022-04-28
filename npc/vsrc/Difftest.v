@@ -68,6 +68,7 @@ module Difftest (gpr_0,gpr_1,gpr_2,gpr_3,gpr_4,gpr_5,gpr_6,gpr_7,gpr_8,gpr_9,gpr
  assign rf[30]=gpr_30;
  assign rf[31]=gpr_31;
  assign rf[32]=gpr_32;
- initial set_gpr_ptr(rf);
+ always@(*)
+  set_gpr_ptr(rf);
 endmodule
     
