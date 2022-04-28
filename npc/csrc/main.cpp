@@ -199,8 +199,9 @@ int main(int argc, char **argv, char **env)
     printf("123");
     for (int i = 0; i < 32; i++)
     {
-      if (cpu.gpr[i] == ref_cpu->gpr[i])
+      if (cpu.gpr[i] != ref_cpu->gpr[i])
       {
+        assert(0);
         // printf("%d", i);
         // exit(0);
       }
