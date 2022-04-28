@@ -11,7 +11,7 @@
 typedef struct {
   word_t gpr[32];
   vaddr_t pc;
-} CPU_state
+} CPU_state;
 
 CPU_state cpu;
 typedef uint32_t paddr_t;
