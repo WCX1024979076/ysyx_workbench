@@ -177,15 +177,6 @@ void init_npc()
     cpu_sim();
   top->reset = 0;
   cpu_sim();
-  cpu_sim();
-  cpu_sim();
-  cpu_sim();
-  cpu_sim();
-  cpu_sim();
-  cpu_sim();
-  cpu_sim();
-  cpu_sim();
-  cpu_sim();
 }
 
 int main(int argc, char **argv, char **env)
@@ -216,9 +207,9 @@ int main(int argc, char **argv, char **env)
   {
     m_trace->dump(sim_time++);
     cpu_sim();
-    ref_difftest_exec(1);
-    ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
-    check_regs();
+    // ref_difftest_exec(1);
+    // ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
+    // check_regs();
   }
 
   m_trace->close();
