@@ -1,6 +1,6 @@
 
 import "DPI-C" function void set_gpr_ptr(input logic [63:0] a []);
-module Difftest (gpr_0,gpr_1,gpr_2,gpr_3,gpr_4,gpr_5,gpr_6,gpr_7,gpr_8,gpr_9,gpr_10,gpr_11,gpr_12,gpr_13,gpr_14,gpr_15,gpr_16,gpr_17,gpr_18,gpr_19,gpr_20,gpr_21,gpr_22,gpr_23,gpr_24,gpr_25,gpr_26,gpr_27,gpr_28,gpr_29,gpr_30,gpr_31,gpr_32);
+module Difftest (gpr_0,gpr_1,gpr_2,gpr_3,gpr_4,gpr_5,gpr_6,gpr_7,gpr_8,gpr_9,gpr_10,gpr_11,gpr_12,gpr_13,gpr_14,gpr_15,gpr_16,gpr_17,gpr_18,gpr_19,gpr_20,gpr_21,gpr_22,gpr_23,gpr_24,gpr_25,gpr_26,gpr_27,gpr_28,gpr_29,gpr_30,gpr_31,PcVal);
  input [63:0] gpr_0;
  input [63:0] gpr_1;
  input [63:0] gpr_2;
@@ -33,7 +33,7 @@ module Difftest (gpr_0,gpr_1,gpr_2,gpr_3,gpr_4,gpr_5,gpr_6,gpr_7,gpr_8,gpr_9,gpr
  input [63:0] gpr_29;
  input [63:0] gpr_30;
  input [63:0] gpr_31;
- input [63:0] gpr_32;
+ input [63:0] PcVal;
  wire [63:0] rf[32:0];
  assign rf[0]=gpr_0;
  assign rf[1]=gpr_1;
@@ -67,7 +67,7 @@ module Difftest (gpr_0,gpr_1,gpr_2,gpr_3,gpr_4,gpr_5,gpr_6,gpr_7,gpr_8,gpr_9,gpr
  assign rf[29]=gpr_29;
  assign rf[30]=gpr_30;
  assign rf[31]=gpr_31;
- assign rf[32]=gpr_32;
+ assign rf[32]=PcVal;
  always@(*)
   set_gpr_ptr(rf);
 endmodule
