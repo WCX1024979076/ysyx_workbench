@@ -27,7 +27,6 @@ void difftest_regcpy(void *dut, bool direction)
     for (int i = 0; i < 32; i++)
       ((CPU_state *)dut)->gpr[i] = cpu.gpr[i];
     ((CPU_state *)dut)->pc = cpu.pc;
-    Log("nemu pc %lx", ((CPU_state *)dut)->pc);
   }
   else if (direction == DIFFTEST_TO_REF)
   {
