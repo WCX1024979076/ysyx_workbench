@@ -9,6 +9,7 @@
 #include <dlfcn.h>
 
 typedef uint32_t paddr_t;
+CPU_state tmp;
 void (*ref_difftest_memcpy)(paddr_t addr, void *buf, size_t n, bool direction) = NULL;
 void (*ref_difftest_regcpy)(void *dut, bool direction) = NULL;
 void (*ref_difftest_exec)(uint64_t n) = NULL;
