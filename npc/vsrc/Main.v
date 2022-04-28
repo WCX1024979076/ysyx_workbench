@@ -111,12 +111,12 @@ module IDU(
   Ebreak ebreak ( // @[IDU.scala 40:20]
     .ebreak_in(ebreak_ebreak_in)
   );
-  assign io_RegWrite = contr_code[22]; // @[IDU.scala 98:28]
-  assign io_MemWrite = contr_code[21]; // @[IDU.scala 99:28]
-  assign io_AluOp = contr_code[20:16]; // @[IDU.scala 100:25]
-  assign io_PcSrc = contr_code[15:11]; // @[IDU.scala 101:25]
-  assign io_RinCtl = contr_code[10:8]; // @[IDU.scala 102:26]
-  assign io_MemMask = contr_code[7:0]; // @[IDU.scala 103:27]
+  assign io_RegWrite = contr_code[22]; // @[IDU.scala 97:28]
+  assign io_MemWrite = contr_code[21]; // @[IDU.scala 98:28]
+  assign io_AluOp = contr_code[20:16]; // @[IDU.scala 99:25]
+  assign io_PcSrc = contr_code[15:11]; // @[IDU.scala 100:25]
+  assign io_RinCtl = contr_code[10:8]; // @[IDU.scala 101:26]
+  assign io_MemMask = contr_code[7:0]; // @[IDU.scala 102:27]
   assign io_Rdest = io_Inst[11:7]; // @[IDU.scala 23:22]
   assign io_R1 = io_Inst[19:15]; // @[IDU.scala 24:19]
   assign io_R2 = io_Inst[24:20]; // @[IDU.scala 25:19]
@@ -171,7 +171,6 @@ module EXU(
   reg [63:0] _RAND_29;
   reg [63:0] _RAND_30;
   reg [63:0] _RAND_31;
-  reg [63:0] _RAND_32;
 `endif // RANDOMIZE_REG_INIT
   wire [63:0] mem_Raddr; // @[EXU.scala 28:19]
   wire [63:0] mem_Rdata; // @[EXU.scala 28:19]
@@ -212,7 +211,6 @@ module EXU(
   wire [63:0] difftest_gpr_30; // @[EXU.scala 29:24]
   wire [63:0] difftest_gpr_31; // @[EXU.scala 29:24]
   wire [63:0] difftest_PcVal; // @[EXU.scala 29:24]
-  reg [63:0] Regs_0; // @[EXU.scala 27:21]
   reg [63:0] Regs_1; // @[EXU.scala 27:21]
   reg [63:0] Regs_2; // @[EXU.scala 27:21]
   reg [63:0] Regs_3; // @[EXU.scala 27:21]
@@ -245,7 +243,7 @@ module EXU(
   reg [63:0] Regs_30; // @[EXU.scala 27:21]
   reg [63:0] Regs_31; // @[EXU.scala 27:21]
   reg [63:0] pc; // @[EXU.scala 30:19]
-  wire [63:0] _GEN_1 = 5'h1 == io_R1 ? Regs_1 : Regs_0; // @[EXU.scala 35:10 EXU.scala 35:10]
+  wire [63:0] _GEN_1 = 5'h1 == io_R1 ? Regs_1 : 64'h0; // @[EXU.scala 35:10 EXU.scala 35:10]
   wire [63:0] _GEN_2 = 5'h2 == io_R1 ? Regs_2 : _GEN_1; // @[EXU.scala 35:10 EXU.scala 35:10]
   wire [63:0] _GEN_3 = 5'h3 == io_R1 ? Regs_3 : _GEN_2; // @[EXU.scala 35:10 EXU.scala 35:10]
   wire [63:0] _GEN_4 = 5'h4 == io_R1 ? Regs_4 : _GEN_3; // @[EXU.scala 35:10 EXU.scala 35:10]
@@ -276,7 +274,7 @@ module EXU(
   wire [63:0] _GEN_29 = 5'h1d == io_R1 ? Regs_29 : _GEN_28; // @[EXU.scala 35:10 EXU.scala 35:10]
   wire [63:0] _GEN_30 = 5'h1e == io_R1 ? Regs_30 : _GEN_29; // @[EXU.scala 35:10 EXU.scala 35:10]
   wire [63:0] DataR1 = 5'h1f == io_R1 ? Regs_31 : _GEN_30; // @[EXU.scala 35:10 EXU.scala 35:10]
-  wire [63:0] _GEN_33 = 5'h1 == io_R2 ? Regs_1 : Regs_0; // @[EXU.scala 36:10 EXU.scala 36:10]
+  wire [63:0] _GEN_33 = 5'h1 == io_R2 ? Regs_1 : 64'h0; // @[EXU.scala 36:10 EXU.scala 36:10]
   wire [63:0] _GEN_34 = 5'h2 == io_R2 ? Regs_2 : _GEN_33; // @[EXU.scala 36:10 EXU.scala 36:10]
   wire [63:0] _GEN_35 = 5'h3 == io_R2 ? Regs_3 : _GEN_34; // @[EXU.scala 36:10 EXU.scala 36:10]
   wire [63:0] _GEN_36 = 5'h4 == io_R2 ? Regs_4 : _GEN_35; // @[EXU.scala 36:10 EXU.scala 36:10]
@@ -395,7 +393,7 @@ module EXU(
   assign mem_Wdata = 5'h1f == io_R2 ? Regs_31 : _GEN_62; // @[EXU.scala 36:10 EXU.scala 36:10]
   assign mem_Wmask = io_MemMask; // @[EXU.scala 52:16]
   assign mem_MemWrite = io_MemWrite; // @[EXU.scala 53:19]
-  assign difftest_gpr_0 = Regs_0; // @[EXU.scala 32:19]
+  assign difftest_gpr_0 = 64'h0; // @[EXU.scala 32:19]
   assign difftest_gpr_1 = Regs_1; // @[EXU.scala 32:19]
   assign difftest_gpr_2 = Regs_2; // @[EXU.scala 32:19]
   assign difftest_gpr_3 = Regs_3; // @[EXU.scala 32:19]
@@ -429,17 +427,6 @@ module EXU(
   assign difftest_gpr_31 = Regs_31; // @[EXU.scala 32:19]
   assign difftest_PcVal = pc; // @[EXU.scala 33:21]
   always @(posedge clock) begin
-    if (reset) begin // @[EXU.scala 27:21]
-      Regs_0 <= 64'h0; // @[EXU.scala 27:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 44:3]
-      if (5'h0 == io_Rdest) begin // @[EXU.scala 45:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_0 <= {{32'd0}, _DataIn_T_5};
-        end else begin
-          Regs_0 <= _DataIn_T_11;
-        end
-      end
-    end
     if (reset) begin // @[EXU.scala 27:21]
       Regs_1 <= 64'h0; // @[EXU.scala 27:21]
     end else if (io_RegWrite) begin // @[EXU.scala 44:3]
@@ -834,71 +821,69 @@ initial begin
     `endif
 `ifdef RANDOMIZE_REG_INIT
   _RAND_0 = {2{`RANDOM}};
-  Regs_0 = _RAND_0[63:0];
+  Regs_1 = _RAND_0[63:0];
   _RAND_1 = {2{`RANDOM}};
-  Regs_1 = _RAND_1[63:0];
+  Regs_2 = _RAND_1[63:0];
   _RAND_2 = {2{`RANDOM}};
-  Regs_2 = _RAND_2[63:0];
+  Regs_3 = _RAND_2[63:0];
   _RAND_3 = {2{`RANDOM}};
-  Regs_3 = _RAND_3[63:0];
+  Regs_4 = _RAND_3[63:0];
   _RAND_4 = {2{`RANDOM}};
-  Regs_4 = _RAND_4[63:0];
+  Regs_5 = _RAND_4[63:0];
   _RAND_5 = {2{`RANDOM}};
-  Regs_5 = _RAND_5[63:0];
+  Regs_6 = _RAND_5[63:0];
   _RAND_6 = {2{`RANDOM}};
-  Regs_6 = _RAND_6[63:0];
+  Regs_7 = _RAND_6[63:0];
   _RAND_7 = {2{`RANDOM}};
-  Regs_7 = _RAND_7[63:0];
+  Regs_8 = _RAND_7[63:0];
   _RAND_8 = {2{`RANDOM}};
-  Regs_8 = _RAND_8[63:0];
+  Regs_9 = _RAND_8[63:0];
   _RAND_9 = {2{`RANDOM}};
-  Regs_9 = _RAND_9[63:0];
+  Regs_10 = _RAND_9[63:0];
   _RAND_10 = {2{`RANDOM}};
-  Regs_10 = _RAND_10[63:0];
+  Regs_11 = _RAND_10[63:0];
   _RAND_11 = {2{`RANDOM}};
-  Regs_11 = _RAND_11[63:0];
+  Regs_12 = _RAND_11[63:0];
   _RAND_12 = {2{`RANDOM}};
-  Regs_12 = _RAND_12[63:0];
+  Regs_13 = _RAND_12[63:0];
   _RAND_13 = {2{`RANDOM}};
-  Regs_13 = _RAND_13[63:0];
+  Regs_14 = _RAND_13[63:0];
   _RAND_14 = {2{`RANDOM}};
-  Regs_14 = _RAND_14[63:0];
+  Regs_15 = _RAND_14[63:0];
   _RAND_15 = {2{`RANDOM}};
-  Regs_15 = _RAND_15[63:0];
+  Regs_16 = _RAND_15[63:0];
   _RAND_16 = {2{`RANDOM}};
-  Regs_16 = _RAND_16[63:0];
+  Regs_17 = _RAND_16[63:0];
   _RAND_17 = {2{`RANDOM}};
-  Regs_17 = _RAND_17[63:0];
+  Regs_18 = _RAND_17[63:0];
   _RAND_18 = {2{`RANDOM}};
-  Regs_18 = _RAND_18[63:0];
+  Regs_19 = _RAND_18[63:0];
   _RAND_19 = {2{`RANDOM}};
-  Regs_19 = _RAND_19[63:0];
+  Regs_20 = _RAND_19[63:0];
   _RAND_20 = {2{`RANDOM}};
-  Regs_20 = _RAND_20[63:0];
+  Regs_21 = _RAND_20[63:0];
   _RAND_21 = {2{`RANDOM}};
-  Regs_21 = _RAND_21[63:0];
+  Regs_22 = _RAND_21[63:0];
   _RAND_22 = {2{`RANDOM}};
-  Regs_22 = _RAND_22[63:0];
+  Regs_23 = _RAND_22[63:0];
   _RAND_23 = {2{`RANDOM}};
-  Regs_23 = _RAND_23[63:0];
+  Regs_24 = _RAND_23[63:0];
   _RAND_24 = {2{`RANDOM}};
-  Regs_24 = _RAND_24[63:0];
+  Regs_25 = _RAND_24[63:0];
   _RAND_25 = {2{`RANDOM}};
-  Regs_25 = _RAND_25[63:0];
+  Regs_26 = _RAND_25[63:0];
   _RAND_26 = {2{`RANDOM}};
-  Regs_26 = _RAND_26[63:0];
+  Regs_27 = _RAND_26[63:0];
   _RAND_27 = {2{`RANDOM}};
-  Regs_27 = _RAND_27[63:0];
+  Regs_28 = _RAND_27[63:0];
   _RAND_28 = {2{`RANDOM}};
-  Regs_28 = _RAND_28[63:0];
+  Regs_29 = _RAND_28[63:0];
   _RAND_29 = {2{`RANDOM}};
-  Regs_29 = _RAND_29[63:0];
+  Regs_30 = _RAND_29[63:0];
   _RAND_30 = {2{`RANDOM}};
-  Regs_30 = _RAND_30[63:0];
+  Regs_31 = _RAND_30[63:0];
   _RAND_31 = {2{`RANDOM}};
-  Regs_31 = _RAND_31[63:0];
-  _RAND_32 = {2{`RANDOM}};
-  pc = _RAND_32[63:0];
+  pc = _RAND_31[63:0];
 `endif // RANDOMIZE_REG_INIT
   `endif // RANDOMIZE
 end // initial
