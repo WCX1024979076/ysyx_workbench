@@ -178,6 +178,14 @@ void init_npc()
   top->reset = 0;
   cpu_sim();
   cpu_sim();
+  cpu_sim();
+  cpu_sim();
+  cpu_sim();
+  cpu_sim();
+  cpu_sim();
+  cpu_sim();
+  cpu_sim();
+  cpu_sim();
 }
 
 int main(int argc, char **argv, char **env)
