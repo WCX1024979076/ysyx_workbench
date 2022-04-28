@@ -50,8 +50,8 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
         tracep->chgQData(oldp+16,(((5U == (0x1fU & 
                                            (vlSelf->Main__DOT__idu__DOT__contr_code 
                                             >> 0x10U)))
-                                    ? (QData)((IData)(vlSelf->Main__DOT__exu__DOT___AluOut_T_17))
-                                    : vlSelf->Main__DOT__exu__DOT___AluOut_T_25)),64);
+                                    ? (QData)((IData)(vlSelf->Main__DOT__exu__DOT___AluOut_T_22))
+                                    : vlSelf->Main__DOT__exu__DOT___AluOut_T_30)),64);
         tracep->chgQData(oldp+18,(vlSelf->Main__DOT__exu__DOT__mem_Rdata),64);
         tracep->chgQData(oldp+20,(vlSelf->Main__DOT__exu__DOT___GEN_64),64);
         tracep->chgQData(oldp+22,(vlSelf->Main__DOT__exu__DOT__Regs_0),64);

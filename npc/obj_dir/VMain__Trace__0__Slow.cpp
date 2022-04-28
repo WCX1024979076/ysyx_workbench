@@ -286,8 +286,8 @@ VL_ATTR_COLD void VMain___024root__trace_full_sub_0(VMain___024root* vlSelf, Ver
     tracep->fullQData(oldp+15,(vlSelf->Main__DOT__exu__DOT__Regs_10),64);
     tracep->fullQData(oldp+17,(((5U == (0x1fU & (vlSelf->Main__DOT__idu__DOT__contr_code 
                                                  >> 0x10U)))
-                                 ? (QData)((IData)(vlSelf->Main__DOT__exu__DOT___AluOut_T_17))
-                                 : vlSelf->Main__DOT__exu__DOT___AluOut_T_25)),64);
+                                 ? (QData)((IData)(vlSelf->Main__DOT__exu__DOT___AluOut_T_22))
+                                 : vlSelf->Main__DOT__exu__DOT___AluOut_T_30)),64);
     tracep->fullQData(oldp+19,(vlSelf->Main__DOT__exu__DOT__mem_Rdata),64);
     tracep->fullQData(oldp+21,(vlSelf->Main__DOT__exu__DOT___GEN_64),64);
     tracep->fullQData(oldp+23,(vlSelf->Main__DOT__exu__DOT__Regs_0),64);

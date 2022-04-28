@@ -25,7 +25,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
     QData/*63:0*/ Main__DOT__exu__DOT___GEN_59;
     // Body
     vlSelf->io_A0Val = vlSelf->Main__DOT__exu__DOT__Regs_10;
-    vlSelf->Main__DOT__exu__DOT___AluOut_T_16 = (4ULL 
+    vlSelf->Main__DOT__exu__DOT___AluOut_T_21 = (4ULL 
                                                  + vlSelf->Main__DOT__exu__DOT__Regs_32);
     vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0U] 
         = vlSelf->Main__DOT__exu__DOT__Regs_0;
@@ -727,7 +727,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                          : 
                                                         ((0x17U 
                                                           == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                          ? 0x431800U
+                                                          ? 0x430000U
                                                           : 
                                                          ((0x13U 
                                                            == vlSelf->Main__DOT__idu__DOT__inst_flag)
@@ -775,9 +775,9 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                 >> 0x14U))))
                                                     ? vlSelf->Main__DOT__exu__DOT__Regs_27
                                                     : Main__DOT__exu__DOT___GEN_59)))));
-    vlSelf->Main__DOT__exu__DOT___AluOut_T_17 = (vlSelf->Main__DOT__exu__DOT___GEN_31 
+    vlSelf->Main__DOT__exu__DOT___AluOut_T_22 = (vlSelf->Main__DOT__exu__DOT___GEN_31 
                                                  == vlSelf->Main__DOT__exu__DOT___GEN_64);
-    vlSelf->Main__DOT__exu__DOT___AluOut_T_25 = ((4U 
+    vlSelf->Main__DOT__exu__DOT___AluOut_T_30 = ((4U 
                                                   == 
                                                   (0x1fU 
                                                    & (vlSelf->Main__DOT__idu__DOT__contr_code 
@@ -793,7 +793,16 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                        >> 0x10U)))
                                                    ? 
                                                   (vlSelf->Main__DOT__exu__DOT__Regs_32 
-                                                   + vlSelf->Main__DOT__idu_io_Imm)
+                                                   + 
+                                                   (((- (QData)((IData)(
+                                                                        (1U 
+                                                                         & (IData)(
+                                                                                (vlSelf->Main__DOT__idu_io_Imm 
+                                                                                >> 0x13U)))))) 
+                                                     << 0x14U) 
+                                                    | (QData)((IData)(
+                                                                      (0xfffffU 
+                                                                       & (IData)(vlSelf->Main__DOT__idu_io_Imm))))))
                                                    : 
                                                   ((2U 
                                                     == 
@@ -825,16 +834,16 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
     vlSelf->Main__DOT__exu__DOT__AluOut = ((5U == (0x1fU 
                                                    & (vlSelf->Main__DOT__idu__DOT__contr_code 
                                                       >> 0x10U)))
-                                            ? (QData)((IData)(vlSelf->Main__DOT__exu__DOT___AluOut_T_17))
-                                            : vlSelf->Main__DOT__exu__DOT___AluOut_T_25);
+                                            ? (QData)((IData)(vlSelf->Main__DOT__exu__DOT___AluOut_T_22))
+                                            : vlSelf->Main__DOT__exu__DOT___AluOut_T_30);
     VMain___024unit____Vdpiimwrap_pmem_read_TOP____024unit(
                                                            ((5U 
                                                              == 
                                                              (0x1fU 
                                                               & (vlSelf->Main__DOT__idu__DOT__contr_code 
                                                                  >> 0x10U)))
-                                                             ? (QData)((IData)(vlSelf->Main__DOT__exu__DOT___AluOut_T_17))
-                                                             : vlSelf->Main__DOT__exu__DOT___AluOut_T_25), vlSelf->__Vtask_pmem_read__2__Rdata);
+                                                             ? (QData)((IData)(vlSelf->Main__DOT__exu__DOT___AluOut_T_22))
+                                                             : vlSelf->Main__DOT__exu__DOT___AluOut_T_30), vlSelf->__Vtask_pmem_read__2__Rdata);
     vlSelf->Main__DOT__exu__DOT__mem_Rdata = vlSelf->__Vtask_pmem_read__2__Rdata;
     if ((0x200000U & vlSelf->Main__DOT__idu__DOT__contr_code)) {
         VMain___024unit____Vdpiimwrap_pmem_write_TOP____024unit(
@@ -843,8 +852,8 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                   (0x1fU 
                                                                    & (vlSelf->Main__DOT__idu__DOT__contr_code 
                                                                       >> 0x10U)))
-                                                                  ? (QData)((IData)(vlSelf->Main__DOT__exu__DOT___AluOut_T_17))
-                                                                  : vlSelf->Main__DOT__exu__DOT___AluOut_T_25), vlSelf->Main__DOT__exu__DOT___GEN_64, 
+                                                                  ? (QData)((IData)(vlSelf->Main__DOT__exu__DOT___AluOut_T_22))
+                                                                  : vlSelf->Main__DOT__exu__DOT___AluOut_T_30), vlSelf->Main__DOT__exu__DOT___GEN_64, 
                                                                 (0xffU 
                                                                  & vlSelf->Main__DOT__idu__DOT__contr_code));
     }
