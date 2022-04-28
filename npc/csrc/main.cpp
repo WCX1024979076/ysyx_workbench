@@ -207,7 +207,8 @@ int main(int argc, char **argv, char **env)
     cpu_sim();
     ref_difftest_exec(1);
     ref_difftest_regcpy(ref_cpu, DIFFTEST_TO_DUT);
-    // printf("%lx\n",ref_cpu->pc);
+    printf("123");
+    printf("%lx\n",ref_cpu->pc);
     check_regs();
   }
 
