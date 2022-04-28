@@ -175,6 +175,8 @@ void init_npc()
   for (int i = 1; i <= 10; i++)
     cpu_sim();
   top->reset = 0;
+  cpu_sim();
+  cpu_sim();
 }
 
 int main(int argc, char **argv, char **env)
