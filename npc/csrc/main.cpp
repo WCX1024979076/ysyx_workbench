@@ -52,11 +52,14 @@ long long host_to_guest(uint8_t *haddr) { return haddr - pmem + CONFIG_MBASE; }
 void ebreak()
 {
   puts("Meet ebreak;");
-  printf("%lx\n",cpu_npc.gpr[10]);
+  printf("%lx\n", cpu_npc.gpr[10]);
+  int flag = 0;
   if (cpu_npc.gpr[10] == 1)
-    exit(-1);
-  else
-    exit(0);
+    flag = -1;
+  m_trace->close();
+  delete top;
+  delete contextp;
+  exit(flag);
 }
 
 extern "C" void set_gpr_ptr(const svOpenArrayHandle r)
