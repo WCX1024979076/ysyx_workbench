@@ -46,7 +46,7 @@ void difftest_init(/*int port*/)
   void init_rand();
   void init_mem();
   void init_isa();
-  init_isa();
   init_rand();
   init_mem();
+  init_isa();
 }
