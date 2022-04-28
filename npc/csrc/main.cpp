@@ -152,6 +152,7 @@ void init_so(char *ref_so_file, long img_size)
 
   ref_difftest_init();
   ref_difftest_memcpy(RESET_VECTOR, guest_to_host(RESET_VECTOR), img_size, DIFFTEST_TO_REF);
+  printf("init reg%lx\n", cpu.pc);
   ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
 }
 
