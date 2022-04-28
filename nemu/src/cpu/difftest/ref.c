@@ -54,10 +54,3 @@ void difftest_init(/*int port*/)
   init_mem();
   init_isa();
 }
-
-void difftest_exit()
-{
-  print_mtrace();
-  print_itrace();
-  print_ftrace();
-}
