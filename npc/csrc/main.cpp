@@ -177,6 +177,7 @@ void init_npc()
   for (int i = 1; i <= 10; i++)
     cpu_sim();
   top->reset = 0;
+  printf("%lx\n",cpu.pc);
   printf("123");
 }
 
