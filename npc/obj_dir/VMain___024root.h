@@ -23,7 +23,6 @@ VL_MODULE(VMain___024root) {
     CData/*0:0*/ __Vclklast__TOP__clock;
     IData/*16:0*/ Main__DOT__idu__DOT__inst_flag;
     IData/*22:0*/ Main__DOT__idu__DOT__contr_code;
-    VL_OUT64(io_A0Val,63,0);
     QData/*63:0*/ Main__DOT__idu_io_Imm;
     QData/*63:0*/ Main__DOT__ifu__DOT__mem_Rdata;
     QData/*63:0*/ Main__DOT__exu__DOT__mem_Rdata;
@@ -68,6 +67,7 @@ VL_MODULE(VMain___024root) {
     QData/*63:0*/ Main__DOT__exu__DOT___DataIn_T_11;
     QData/*63:0*/ Main__DOT__exu__DOT___pc_T_10;
     QData/*63:0*/ Main__DOT__exu__DOT___pc_T_23;
+    QData/*63:0*/ Main__DOT__exu__DOT___pc_T_27;
     QData/*63:0*/ __Vtask_pmem_read__0__Rdata;
     QData/*63:0*/ __Vtask_pmem_read__2__Rdata;
     VlUnpacked<QData/*63:0*/, 33> Main__DOT__exu__DOT__difftest__DOT__rf;

@@ -40,7 +40,6 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     // Body
     vlSelf->clock = VL_RAND_RESET_I(1);
     vlSelf->reset = VL_RAND_RESET_I(1);
-    vlSelf->io_A0Val = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__idu_io_Imm = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__ifu__DOT__mem_Rdata = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__idu__DOT__inst_type = VL_RAND_RESET_I(3);
@@ -89,6 +88,7 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     vlSelf->Main__DOT__exu__DOT___DataIn_T_11 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___pc_T_10 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___pc_T_23 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___pc_T_27 = VL_RAND_RESET_Q(64);
     for (int __Vi0=0; __Vi0<33; ++__Vi0) {
         vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[__Vi0] = VL_RAND_RESET_Q(64);
     }
