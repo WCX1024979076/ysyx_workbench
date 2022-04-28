@@ -36,7 +36,7 @@ clean:
 
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
-	verilator --trace --cc --exe ./csrc/$(CSRCNAME).cpp ./vsrc/$(VSRCNAME).v -I ./vsrc/Mem.v ./vsrc/Difftest.v ./vsrc/Ebreak.v -LDFLAGS  $$NEMU_HOME/build/riscv64-nemu-interpreter-so -CFLAGS -fpermissive -CFLAGS -I -CFLAGS $$NEMU_HOME/include/ -CFLAGS -I -CFLAGS $$NEMU_HOME/src/isa/riscv64/include
+	verilator --trace --cc --exe ./csrc/$(CSRCNAME).cpp ./vsrc/$(VSRCNAME).v -I ./vsrc/Mem.v ./vsrc/Difftest.v ./vsrc/Ebreak.v -LDFLAGS  $$NEMU_HOME/build/riscv64-nemu-interpreter-so
 	make -j -C ./obj_dir/ -f V$(TOPNAME).mk V$(TOPNAME)
 	./obj_dir/V$(TOPNAME)	$(IMG)
 	gtkwave waveform.vcd
