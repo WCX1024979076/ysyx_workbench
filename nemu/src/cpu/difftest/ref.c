@@ -12,7 +12,9 @@ void difftest_memcpy(paddr_t addr, void *buf, size_t n, bool direction)
   else if (direction == DIFFTEST_TO_REF)
   {
     Log("%x,%lx", addr, n);
-    paddr_write(addr, n, *(word_t *)buf);
+    char *buf_char = (char *)buf;
+    for (int i = 0; i < n; i++)
+      paddr_write(addr, 1, buf_char[i]);
   }
 }
 
