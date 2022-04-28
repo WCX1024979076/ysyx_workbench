@@ -169,7 +169,7 @@ int main(int argc, char **argv, char **env)
       size = ld(argv[1]);
     }
   }
-  init_so("$NEMU_HOME/build/riscv64-nemu-interpreter-so", size);
+  init_so("/home/wcx/Desktop/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so", size);
   return 0;
   srand(time(0));
   contextp = new VerilatedContext;
