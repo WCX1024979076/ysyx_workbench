@@ -201,7 +201,7 @@ int main(int argc, char **argv, char **env)
     {
       if (cpu.gpr[i] != ref_cpu->gpr[i])
       {
-        assert(0);
+        assert(1);
         // printf("%d", i);
         // exit(0);
       }
