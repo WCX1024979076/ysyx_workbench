@@ -26,7 +26,6 @@ VL_MODULE(VMain___024root) {
     QData/*63:0*/ Main__DOT__idu_io_Imm;
     QData/*63:0*/ Main__DOT__ifu__DOT__mem_Rdata;
     QData/*63:0*/ Main__DOT__exu__DOT__mem_Rdata;
-    QData/*63:0*/ Main__DOT__exu__DOT__Regs_0;
     QData/*63:0*/ Main__DOT__exu__DOT__Regs_1;
     QData/*63:0*/ Main__DOT__exu__DOT__Regs_2;
     QData/*63:0*/ Main__DOT__exu__DOT__Regs_3;

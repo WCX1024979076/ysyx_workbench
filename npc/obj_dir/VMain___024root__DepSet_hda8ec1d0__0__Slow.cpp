@@ -26,11 +26,10 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
     QData/*63:0*/ Main__DOT__exu__DOT___GEN_58;
     QData/*63:0*/ Main__DOT__exu__DOT___AluOut_T_7;
     // Body
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0U] = 0ULL;
     vlSelf->Main__DOT__exu__DOT___AluOut_T_21 = (4ULL 
                                                  + vlSelf->Main__DOT__exu__DOT__pc);
     vlSelf->Main__DOT__exu__DOT___pc_T_27 = (4ULL + vlSelf->Main__DOT__exu__DOT__pc);
-    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0U] 
-        = vlSelf->Main__DOT__exu__DOT__Regs_0;
     vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[1U] 
         = vlSelf->Main__DOT__exu__DOT__Regs_1;
     vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[2U] 
@@ -269,7 +268,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                      (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
                                                                       >> 0x14U))))
                                                           ? vlSelf->Main__DOT__exu__DOT__Regs_1
-                                                          : vlSelf->Main__DOT__exu__DOT__Regs_0)))))))))))));
+                                                          : 0ULL)))))))))))));
     Main__DOT__exu__DOT___GEN_13 = ((0xdU == (0x1fU 
                                               & (IData)(
                                                         (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
@@ -365,7 +364,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                      (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
                                                                       >> 0xfU))))
                                                           ? vlSelf->Main__DOT__exu__DOT__Regs_1
-                                                          : vlSelf->Main__DOT__exu__DOT__Regs_0)))))))))))));
+                                                          : 0ULL)))))))))))));
     if ((5U == (IData)(vlSelf->Main__DOT__idu__DOT__inst_type))) {
         vlSelf->Main__DOT__idu_io_Imm = (QData)((IData)(
                                                         ((((0x100000U 
