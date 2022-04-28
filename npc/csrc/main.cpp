@@ -1,3 +1,4 @@
+#pragma comment(include, "$NEMU_HOME/include/")
 #include <stdio.h>
 #include "VMain.h"
 #include "verilated.h"
@@ -7,6 +8,12 @@
 #include "VMain__Dpi.h"
 #include "verilated_dpi.h"
 #include <dlfcn.h>
+
+#include <isa.h>
+#include <cpu/cpu.h>
+#include <memory/paddr.h>
+#include <utils.h>
+#include <difftest-def.h>
 
 typedef uint32_t paddr_t;
 CPU_state tmp;
