@@ -7,7 +7,6 @@
 #include "VMain__Dpi.h"
 #include "verilated_dpi.h"
 
-void difftest_init();
 // void difftest_memcpy(paddr_t addr, void *buf, size_t n, bool direction);
 // void difftest_regcpy(void *dut, bool direction);
 // void difftest_exec(uint64_t n);
@@ -117,15 +116,16 @@ long ld(char *img_file)
 }
 int main(int argc, char **argv, char **env)
 {
-  long size=0;
+  long size = 0;
   if (argc == 2)
   {
     if (strlen(argv[1]) != 0)
     {
       printf("ld:%s\n", argv[1]);
-      size=ld(argv[1]);
+      size = ld(argv[1]);
     }
   }
+  void difftest_init();
   difftest_init();
   srand(time(0));
   contextp = new VerilatedContext;
