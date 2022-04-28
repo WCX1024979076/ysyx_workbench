@@ -34,7 +34,7 @@ module Difftest (difftest_gpr_0,difftest_gpr_1,difftest_gpr_2,difftest_gpr_3,dif
  input [63:0] difftest_gpr_30;
  input [63:0] difftest_gpr_31;
  input [63:0] difftest_gpr_32;
- Wire [63:0] rf[32:0];
+ wire [63:0] rf[32:0];
  assign rf[0]=difftest_gpr_0;
  assign rf[1]=difftest_gpr_1;
  assign rf[2]=difftest_gpr_2;
