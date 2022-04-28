@@ -107,14 +107,6 @@ long ld(char *img_file)
   fclose(fp);
 
   return size;
-  /*
-  for(long long i=0x80000000;i<=0x80000114;i+=4)
-  {
-    long long tmp;
-    pmem_read(i,&tmp);
-    printf("%llx %016llx\n",i,tmp);
-  }
-  */
 }
 
 void init_so(char *ref_so_file, long img_size)
@@ -140,16 +132,17 @@ void init_so(char *ref_so_file, long img_size)
   void (*ref_difftest_init)(int) = dlsym(handle, "difftest_init");
   assert(ref_difftest_init);
 
-  
   printf("Differential testing: %s", ASNI_FMT("ON", ASNI_FG_GREEN));
   printf("The result of every instruction will be compared with %s. "
-      "This will help you a lot for debugging, but also significantly reduce the performance. "
-      "If it is not necessary, you can turn it off in menuconfig.", ref_so_file);
+         "This will help you a lot for debugging, but also significantly reduce the performance. "
+         "If it is not necessary, you can turn it off in menuconfig.",
+         ref_so_file);
 
   ref_difftest_init();
   ref_difftest_memcpy(RESET_VECTOR, guest_to_host(RESET_VECTOR), img_size, DIFFTEST_TO_REF);
   ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
 }
+
 int main(int argc, char **argv, char **env)
 {
   long size = 0;
@@ -161,7 +154,7 @@ int main(int argc, char **argv, char **env)
       size = ld(argv[1]);
     }
   }
-  difftest_init();
+  
   srand(time(0));
   contextp = new VerilatedContext;
   contextp->commandArgs(argc, argv);
