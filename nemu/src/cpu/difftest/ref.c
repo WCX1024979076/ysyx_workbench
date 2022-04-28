@@ -25,7 +25,6 @@ void difftest_regcpy(void *dut, bool direction)
   if (direction == DIFFTEST_TO_DUT)
   {
     dut = &cpu;
-    printf("nemu pc %lx\n", ((CPU_state *)dut)->pc);
   }
   else if (direction == DIFFTEST_TO_REF)
   {
