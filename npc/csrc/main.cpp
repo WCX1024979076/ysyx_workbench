@@ -26,7 +26,6 @@ typedef struct
 } CPU_state;
 
 CPU_state cpu;
-CPU_state* ref_cpu;
 
 uint64_t *cpu_gpr = NULL;
 
@@ -152,7 +151,7 @@ void init_so(char *ref_so_file, long img_size)
   ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
 }
 
-void check_regs()
+void check_regs(CPU_state *ref_cpu)
 {
   for (int i = 0; i < 32; i++)
   {
@@ -206,10 +205,11 @@ int main(int argc, char **argv, char **env)
     m_trace->dump(sim_time++);
     cpu_sim();
     ref_difftest_exec(1);
+    CPU_state *ref_cpu;
     ref_difftest_regcpy(ref_cpu, DIFFTEST_TO_DUT);
     printf("123123");
-    printf("%lx\n",ref_cpu->pc);
-    check_regs();
+    printf("%lx\n", ref_cpu->pc);
+    check_regs(ref_cpu);
   }
 
   m_trace->close();
