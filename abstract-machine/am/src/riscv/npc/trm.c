@@ -20,7 +20,7 @@ void putch(char ch)
 
 void halt(int code)
 {
-  code = !code;
+  code = ~code;
   asm volatile(
       "mv a7,%0\n"
       "ebreak"
