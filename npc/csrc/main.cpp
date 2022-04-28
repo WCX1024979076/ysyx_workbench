@@ -204,8 +204,6 @@ int main(int argc, char **argv, char **env)
   while (1)
   {
     m_trace->dump(sim_time++);
-    printf("123123");
-
     cpu_sim();
     ref_difftest_exec(1);
     printf("123123");
