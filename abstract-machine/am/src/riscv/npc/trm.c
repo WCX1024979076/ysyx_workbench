@@ -20,11 +20,9 @@ void putch(char ch)
 
 void halt(int code)
 {
-  code = ~code;
-  asm volatile(
-      "mv a7,%0\n"
-      "ebreak"
-      : "=r"(code));
+  asm volatile("mv a0, %0; ebreak"
+               :
+               : "r"(code));
   while (1)
     ;
 }
