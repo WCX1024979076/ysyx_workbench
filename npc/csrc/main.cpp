@@ -1,4 +1,3 @@
-#pragma GCC optimize "fpermissive"
 #include <stdio.h>
 #include "VMain.h"
 #include "verilated.h"
