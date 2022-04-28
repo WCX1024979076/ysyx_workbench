@@ -14,7 +14,9 @@ void difftest_memcpy(paddr_t addr, void *buf, size_t n, bool direction)
     Log("%x,%lx", addr, n);
     char *buf_char = (char *)buf;
     for (int i = 0; i < n; i++)
-      paddr_write(addr, 1, buf_char[i]);
+    {
+      paddr_write(addr + i, 1, buf_char[i]);
+    }
   }
 }
 
