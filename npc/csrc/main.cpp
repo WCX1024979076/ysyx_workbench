@@ -98,7 +98,6 @@ void cpu_sim()
   top->clock = 1, top->eval();
 }
 
-#ifdef CONFIG_DIFFTEST
 long ld(char *img_file)
 {
   if (img_file == NULL)
@@ -124,6 +123,7 @@ long ld(char *img_file)
   return size;
 }
 
+#ifdef CONFIG_DIFFTEST
 void init_so(char *ref_so_file, long img_size)
 {
   assert(ref_so_file != NULL);
