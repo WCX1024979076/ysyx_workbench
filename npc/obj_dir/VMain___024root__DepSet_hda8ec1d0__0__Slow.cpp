@@ -727,7 +727,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                          : 
                                                         ((0x17U 
                                                           == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                          ? 0x430000U
+                                                          ? 0x431800U
                                                           : 
                                                          ((0x13U 
                                                            == vlSelf->Main__DOT__idu__DOT__inst_flag)
