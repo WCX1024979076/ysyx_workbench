@@ -68,6 +68,7 @@ extern "C" void set_gpr_ptr(const svOpenArrayHandle r)
   for (int i = 0; i < 32; i++)
     cpu.gpr[i] = cpu_gpr[i];
   cpu.pc = cpu_gpr[32];
+  printf("%lx\n",cpu.pc);
 }
 
 void pmem_read(long long Raddr, long long *Rdata)
@@ -152,7 +153,6 @@ void init_so(char *ref_so_file, long img_size)
 
   ref_difftest_init();
   ref_difftest_memcpy(RESET_VECTOR, guest_to_host(RESET_VECTOR), img_size, DIFFTEST_TO_REF);
-  printf("init reg%lx\n", cpu.pc);
   ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
 }
 
