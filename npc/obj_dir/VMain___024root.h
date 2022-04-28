@@ -70,6 +70,7 @@ VL_MODULE(VMain___024root) {
     QData/*63:0*/ Main__DOT__exu__DOT___Regs_32_T_23;
     QData/*63:0*/ __Vtask_pmem_read__0__Rdata;
     QData/*63:0*/ __Vtask_pmem_read__2__Rdata;
+    VlUnpacked<QData/*63:0*/, 33> Main__DOT__exu__DOT__difftest__DOT__rf;
     VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
 
     // INTERNAL VARIABLES

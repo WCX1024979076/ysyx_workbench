@@ -313,9 +313,75 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                                                    ? vlSelf->Main__DOT__exu__DOT___Regs_32_T_10
                                                    : vlSelf->Main__DOT__exu__DOT___AluOut_T_16)));
     }
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x1dU] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_29;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x1cU] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_28;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x1bU] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_27;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x1eU] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_30;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x1fU] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_31;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x1aU] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_26;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x19U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_25;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x18U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_24;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0xeU] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_14;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0xfU] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_15;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x10U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_16;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x11U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_17;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x12U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_18;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x13U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_19;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x14U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_20;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x15U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_21;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x16U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_22;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x17U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_23;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0xbU] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_11;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[9U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_9;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[8U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_8;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[7U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_7;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[2U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_2;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[1U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_1;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[3U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_3;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[6U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_6;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_0;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[4U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_4;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[5U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_5;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0xcU] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_12;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0xdU] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_13;
     vlSelf->io_A0Val = vlSelf->Main__DOT__exu__DOT__Regs_10;
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0xaU] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_10;
     vlSelf->Main__DOT__exu__DOT___AluOut_T_16 = (4ULL 
                                                  + vlSelf->Main__DOT__exu__DOT__Regs_32);
+    vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[0x20U] 
+        = vlSelf->Main__DOT__exu__DOT__Regs_32;
     VMain___024unit____Vdpiimwrap_pmem_read_TOP____024unit(vlSelf->Main__DOT__exu__DOT__Regs_32, vlSelf->__Vtask_pmem_read__0__Rdata);
     vlSelf->Main__DOT__ifu__DOT__mem_Rdata = vlSelf->__Vtask_pmem_read__0__Rdata;
     if ((0x100073U == (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) {

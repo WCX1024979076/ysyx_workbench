@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include "VMain__Dpi.h"
+#include "verilated_dpi.h"
 
 #define CONFIG_MSIZE 0x0020000
 #define CONFIG_MBASE 0x80000000
@@ -21,7 +22,7 @@ VerilatedContext *contextp = nullptr;
 void ebreak()
 {
   puts("Meet ebreak;");
-  printf("%x\n", top->io_A0Val);
+  printf("%lx\n", top->io_A0Val);
   if (top->io_A0Val == 1)
     puts("NOT PASS");
   else

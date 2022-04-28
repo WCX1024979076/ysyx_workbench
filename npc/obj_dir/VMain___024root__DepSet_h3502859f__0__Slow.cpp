@@ -7,12 +7,15 @@
 
 #include "VMain___024root.h"
 
+VL_ATTR_COLD void VMain___024root___initial__TOP__0(VMain___024root* vlSelf);
+
 VL_ATTR_COLD void VMain___024root___eval_initial(VMain___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VMain__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VMain___024root___eval_initial\n"); );
     // Body
     vlSelf->__Vclklast__TOP__clock = vlSelf->clock;
+    VMain___024root___initial__TOP__0(vlSelf);
 }
 
 VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf);
@@ -89,6 +92,9 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     vlSelf->Main__DOT__exu__DOT___DataIn_T_11 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___Regs_32_T_10 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___Regs_32_T_23 = VL_RAND_RESET_Q(64);
+    for (int __Vi0=0; __Vi0<33; ++__Vi0) {
+        vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[__Vi0] = VL_RAND_RESET_Q(64);
+    }
     vlSelf->__Vtask_pmem_read__0__Rdata = 0;
     vlSelf->__Vtask_pmem_read__2__Rdata = 0;
     for (int __Vi0=0; __Vi0<2; ++__Vi0) {
