@@ -1,4 +1,4 @@
-#pragma GCC fpermissive
+#pragma GCC optimize "permissive"
 #include <stdio.h>
 #include "VMain.h"
 #include "verilated.h"
