@@ -58,7 +58,7 @@ void ebreak()
   m_trace->close();
   delete top;
   delete contextp;
-  assert(0);
+  exit(0);
 }
 
 extern "C" void set_gpr_ptr(const svOpenArrayHandle r)
@@ -151,22 +151,22 @@ void init_so(char *ref_so_file, long img_size)
   ref_difftest_regcpy(&cpu_npc, DIFFTEST_TO_REF);
 }
 
-int check_regs_npc(CPU_state ref_cpu)
+void check_regs_npc(CPU_state ref_cpu)
 {
   for (int i = 0; i < 32; i++)
   {
     if (cpu_npc.gpr[i] != ref_cpu.gpr[i])
     {
       printf("Missing match reg%d, nemu=%lx, ref=%lx", i, cpu_npc.gpr[i], ref_cpu.gpr[i]);
-      return 1;
+      printf("%d", i);
+      exit(0);
     }
   }
   if (cpu_npc.pc != ref_cpu.pc)
   {
     printf("Missing match at pc, npc_val=%lx,nemu_val=%lx", cpu_npc.pc, ref_cpu.pc);
-    return 1;
+    exit(0);
   }
-  return 0;
 }
 
 void init_npc()
@@ -209,7 +209,7 @@ int main(int argc, char **argv, char **env)
     ref_difftest_exec(1);
     CPU_state ref_cpu;
     ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
-    assert(check_regs_npc(ref_cpu));
+    check_regs_npc(ref_cpu);
   }
 
   m_trace->close();
