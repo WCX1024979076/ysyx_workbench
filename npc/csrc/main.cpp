@@ -95,7 +95,6 @@ void cpu_sim()
 {
   top->clock = 0, top->eval();
   top->clock = 1, top->eval();
-  dump_gpr();
 }
 
 long ld(char *img_file)
