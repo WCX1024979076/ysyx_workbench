@@ -212,7 +212,7 @@ int main(int argc, char **argv, char **env)
     int flag = check_regs_npc(ref_cpu);
     if(flag==0)
       exit(0);
-    assert(!flag);
+    // assert(!flag);
   }
 
   m_trace->close();
