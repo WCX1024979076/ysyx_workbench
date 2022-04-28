@@ -151,9 +151,8 @@ void init_so(char *ref_so_file, long img_size)
   ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
 }
 
-void check_regs(CPU_state *ref_cpu)
+void check_regs_npc(CPU_state *ref_cpu)
 {
-  printf("123");
   for (int i = 0; i < 32; i++)
   {
     if (cpu.gpr[i] != ref_cpu->gpr[i])
@@ -208,7 +207,7 @@ int main(int argc, char **argv, char **env)
     ref_difftest_exec(1);
     CPU_state *ref_cpu;
     ref_difftest_regcpy(ref_cpu, DIFFTEST_TO_DUT);
-    check_regs(ref_cpu);
+    check_regs_npc(ref_cpu);
   }
 
   m_trace->close();
