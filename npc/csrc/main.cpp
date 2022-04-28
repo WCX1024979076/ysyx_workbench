@@ -210,8 +210,10 @@ int main(int argc, char **argv, char **env)
     CPU_state ref_cpu;
     ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
     int flag = check_regs_npc(ref_cpu);
-    if(flag==0)
-      exit(0);
+    if (flag == 0)
+    {
+      exit(-1);
+    }
     // assert(!flag);
   }
 
