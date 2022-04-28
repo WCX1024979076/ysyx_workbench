@@ -167,7 +167,7 @@ void check_regs()
   }
   if (cpu.pc != ref_cpu.pc)
   {
-    printf("Missing match at pc, npc_val=%lx,nemu_val=%lx", cpu.gpr[i], ref_cpu.gpr[i]);
+    printf("Missing match at pc, npc_val=%lx,nemu_val=%lx", cpu.pc, ref_cpu.pc);
     exit(0);
   }
 }
@@ -190,7 +190,7 @@ int main(int argc, char **argv, char **env)
       size = ld(argv[1]);
     }
   }
-  
+
   contextp = new VerilatedContext;
   contextp->commandArgs(argc, argv);
   top = new VMain{contextp};
