@@ -19,9 +19,11 @@ VL_MODULE(VMain___024root) {
     VL_IN8(clock,0,0);
     VL_IN8(reset,0,0);
     CData/*2:0*/ Main__DOT__idu__DOT__inst_type;
+    CData/*0:0*/ Main__DOT__exu__DOT___AluOut_T_17;
     CData/*0:0*/ __Vclklast__TOP__clock;
     IData/*16:0*/ Main__DOT__idu__DOT__inst_flag;
-    IData/*20:0*/ Main__DOT__idu__DOT__contr_code;
+    IData/*22:0*/ Main__DOT__idu__DOT__contr_code;
+    VL_OUT64(io_A0Val,63,0);
     QData/*63:0*/ Main__DOT__idu_io_Imm;
     QData/*63:0*/ Main__DOT__ifu__DOT__mem_Rdata;
     QData/*63:0*/ Main__DOT__exu__DOT__mem_Rdata;
@@ -60,11 +62,12 @@ VL_MODULE(VMain___024root) {
     QData/*63:0*/ Main__DOT__exu__DOT__Regs_32;
     QData/*63:0*/ Main__DOT__exu__DOT___GEN_31;
     QData/*63:0*/ Main__DOT__exu__DOT___GEN_64;
-    QData/*63:0*/ Main__DOT__exu__DOT___AluOut_T_18;
     QData/*63:0*/ Main__DOT__exu__DOT___AluOut_T_16;
-    QData/*63:0*/ Main__DOT__exu__DOT___AluOut_T_26;
+    QData/*63:0*/ Main__DOT__exu__DOT___AluOut_T_25;
     QData/*63:0*/ Main__DOT__exu__DOT__AluOut;
+    QData/*63:0*/ Main__DOT__exu__DOT___DataIn_T_11;
     QData/*63:0*/ Main__DOT__exu__DOT___Regs_32_T_10;
+    QData/*63:0*/ Main__DOT__exu__DOT___Regs_32_T_23;
     QData/*63:0*/ __Vtask_pmem_read__0__Rdata;
     QData/*63:0*/ __Vtask_pmem_read__2__Rdata;
     VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;

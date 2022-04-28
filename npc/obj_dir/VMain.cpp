@@ -13,6 +13,7 @@ VMain::VMain(VerilatedContext* _vcontextp__, const char* _vcname__)
     : vlSymsp{new VMain__Syms(_vcontextp__, _vcname__, this)}
     , clock{vlSymsp->TOP.clock}
     , reset{vlSymsp->TOP.reset}
+    , io_A0Val{vlSymsp->TOP.io_A0Val}
     , __PVT____024unit{vlSymsp->TOP.__PVT____024unit}
     , rootp{&(vlSymsp->TOP)}
 {

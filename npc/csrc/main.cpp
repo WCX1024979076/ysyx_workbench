@@ -21,7 +21,7 @@ VerilatedContext *contextp = nullptr;
 void ebreak()
 {
   puts("Meet ebreak;");
-  if (top->A0Val == 1)
+  if (top->io_A0Val == 1)
     puts("NOT PASS");
   else
     puts("PASS");

@@ -40,11 +40,12 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     // Body
     vlSelf->clock = VL_RAND_RESET_I(1);
     vlSelf->reset = VL_RAND_RESET_I(1);
+    vlSelf->io_A0Val = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__idu_io_Imm = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__ifu__DOT__mem_Rdata = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__idu__DOT__inst_type = VL_RAND_RESET_I(3);
     vlSelf->Main__DOT__idu__DOT__inst_flag = VL_RAND_RESET_I(17);
-    vlSelf->Main__DOT__idu__DOT__contr_code = VL_RAND_RESET_I(21);
+    vlSelf->Main__DOT__idu__DOT__contr_code = VL_RAND_RESET_I(23);
     vlSelf->Main__DOT__exu__DOT__mem_Rdata = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT__Regs_0 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT__Regs_1 = VL_RAND_RESET_Q(64);
@@ -81,11 +82,13 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     vlSelf->Main__DOT__exu__DOT__Regs_32 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___GEN_31 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___GEN_64 = VL_RAND_RESET_Q(64);
-    vlSelf->Main__DOT__exu__DOT___AluOut_T_18 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___AluOut_T_17 = VL_RAND_RESET_I(1);
     vlSelf->Main__DOT__exu__DOT___AluOut_T_16 = VL_RAND_RESET_Q(64);
-    vlSelf->Main__DOT__exu__DOT___AluOut_T_26 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___AluOut_T_25 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT__AluOut = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___DataIn_T_11 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___Regs_32_T_10 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___Regs_32_T_23 = VL_RAND_RESET_Q(64);
     vlSelf->__Vtask_pmem_read__0__Rdata = 0;
     vlSelf->__Vtask_pmem_read__2__Rdata = 0;
     for (int __Vi0=0; __Vi0<2; ++__Vi0) {
