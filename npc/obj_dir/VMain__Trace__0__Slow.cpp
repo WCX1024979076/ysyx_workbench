@@ -280,9 +280,9 @@ VL_ATTR_COLD void VMain___024root__trace_full_sub_0(VMain___024root* vlSelf, Ver
     tracep->fullCData(oldp+12,((0x1fU & (IData)((vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
                                                  >> 0x14U)))),5);
     tracep->fullQData(oldp+13,(vlSelf->Main__DOT__idu_io_Imm),64);
-    tracep->fullQData(oldp+15,(((7U == (0x1fU & (vlSelf->Main__DOT__idu__DOT__contr_code 
+    tracep->fullQData(oldp+15,(((8U == (0x1fU & (vlSelf->Main__DOT__idu__DOT__contr_code 
                                                  >> 0x10U)))
-                                 ? (QData)((IData)(vlSelf->Main__DOT__exu__DOT___AluOut_T_27))
+                                 ? vlSelf->Main__DOT__exu__DOT___AluOut_T_25
                                  : vlSelf->Main__DOT__exu__DOT___AluOut_T_39)),64);
     tracep->fullQData(oldp+17,(vlSelf->Main__DOT__exu__DOT__mem_Rdata),64);
     tracep->fullQData(oldp+19,(((0x1fU == (0x1fU & (IData)(

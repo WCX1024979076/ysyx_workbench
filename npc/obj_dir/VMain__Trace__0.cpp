@@ -46,10 +46,10 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
                                                    (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
                                                     >> 0x14U)))),5);
         tracep->chgQData(oldp+12,(vlSelf->Main__DOT__idu_io_Imm),64);
-        tracep->chgQData(oldp+14,(((7U == (0x1fU & 
+        tracep->chgQData(oldp+14,(((8U == (0x1fU & 
                                            (vlSelf->Main__DOT__idu__DOT__contr_code 
                                             >> 0x10U)))
-                                    ? (QData)((IData)(vlSelf->Main__DOT__exu__DOT___AluOut_T_27))
+                                    ? vlSelf->Main__DOT__exu__DOT___AluOut_T_25
                                     : vlSelf->Main__DOT__exu__DOT___AluOut_T_39)),64);
         tracep->chgQData(oldp+16,(vlSelf->Main__DOT__exu__DOT__mem_Rdata),64);
         tracep->chgQData(oldp+18,(((0x1fU == (0x1fU 

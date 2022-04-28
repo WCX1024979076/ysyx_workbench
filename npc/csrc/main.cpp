@@ -44,7 +44,6 @@ VMain *top = nullptr;
 VerilatedVcdC *m_trace = nullptr;
 VerilatedContext *contextp = nullptr;
 
-
 static uint8_t pmem[CONFIG_MSIZE] = {0};
 
 uint8_t *guest_to_host(long long paddr) { return pmem + paddr - CONFIG_MBASE; }
@@ -71,6 +70,7 @@ void pmem_read(long long Raddr, long long *Rdata)
 {
   if (Raddr < CONFIG_MBASE || Raddr >= CONFIG_MSIZE + CONFIG_MBASE)
     return;
+  printf("read data:%lx", *((long long *)guest_to_host(Raddr)));
   (*Rdata) = *((long long *)guest_to_host(Raddr));
   return;
 }
@@ -217,7 +217,6 @@ int main(int argc, char **argv, char **env)
     printf("check at nemu_pc=%lx, npc_pc=%lx\n", cpu_npc.pc, ref_cpu.pc);
     check_regs_npc(ref_cpu);
 #endif
-
   }
 
   m_trace->close();
