@@ -7,8 +7,9 @@
 #include "VMain__Dpi.h"
 #include "verilated_dpi.h"
 #include <dlfcn.h>
-typedef uint64_t vaddr_t;
+typedef uint64_t word_t;
 typedef word_t vaddr_t;
+
 enum { DIFFTEST_TO_DUT, DIFFTEST_TO_REF };
 typedef struct {
   word_t gpr[32];
