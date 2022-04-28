@@ -36,6 +36,7 @@ VM_MODPREFIX = VMain
 # User CFLAGS (from -CFLAGS on Verilator command line)
 VM_USER_CFLAGS = \
 	-fpermissive \
+	-ldl \
 
 # User LDLIBS (from -LDFLAGS on Verilator command line)
 VM_USER_LDLIBS = \
