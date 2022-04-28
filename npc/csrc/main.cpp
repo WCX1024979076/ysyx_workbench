@@ -201,7 +201,7 @@ int main(int argc, char **argv, char **env)
     {
       if (cpu.gpr[i] != ref_cpu->gpr[i])
       {
-        // printf("Missing match at reg%d, npc_val=%lx,nemu_val=%lx", i, cpu.gpr[i], ref_cpu->gpr[i]);
+        printf("Missing match at reg %d, npc_val=%lx,nemu_val=%lx", i, cpu.gpr[i], ref_cpu->gpr[i]);
         // exit(0);
       }
     }
