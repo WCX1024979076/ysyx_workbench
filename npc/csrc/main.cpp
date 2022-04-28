@@ -12,6 +12,7 @@
 // void difftest_exec(uint64_t n);
 // void difftest_raise_intr(word_t NO);
 void difftest_init();
+
 #define CONFIG_MSIZE 0x0020000
 #define CONFIG_MBASE 0x80000000
 
