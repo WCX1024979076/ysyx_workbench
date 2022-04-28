@@ -131,7 +131,7 @@ void init_so(char *ref_so_file, long img_size)
   ref_difftest_raise_intr = dlsym(handle, "difftest_raise_intr");
   assert(ref_difftest_raise_intr);
 
-  void (*ref_difftest_init)(int) = dlsym(handle, "difftest_init");
+  void (*ref_difftest_init)() = dlsym(handle, "difftest_init");
   assert(ref_difftest_init);
 
   printf("The result of every instruction will be compared with %s. "
