@@ -178,7 +178,8 @@ void init_npc()
     cpu_sim();
   top->reset = 0;
   printf("%lx\n",cpu.pc);
-  printf("123");
+  cpu_sim();
+  printf("%lx\n",cpu.pc);
 }
 
 int main(int argc, char **argv, char **env)
