@@ -8,8 +8,6 @@
 #ifndef VERILATED_VMAIN_H_
 #define VERILATED_VMAIN_H_  // guard
 
-#include "/home/wcx/Desktop/ysyx-workbench/nemu/include/"
-#include "/home/wcx/Desktop/ysyx-workbench/npc/obj_dir/"
 #include "verilated.h"
 #include "svdpi.h"
 
