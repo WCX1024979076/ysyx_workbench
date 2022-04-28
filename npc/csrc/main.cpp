@@ -48,6 +48,7 @@ void dump_gpr()
     printf("gpr[%d] = 0x%lx\n", i, cpu_gpr[i]);
   }
 }
+
 void pmem_read(long long Raddr, long long *Rdata)
 {
   if (Raddr < CONFIG_MBASE || Raddr >= CONFIG_MSIZE + CONFIG_MBASE)
@@ -76,10 +77,29 @@ void cpu_sim()
   dump_gpr();
 }
 
-void ld(char *file)
+long ld(char *img_file)
 {
-  FILE *infile = fopen(file, "rt");
-  int siz = fread(pmem, sizeof(uint8_t), 1000, infile);
+  if (img_file == NULL)
+  {
+    Log("No image is given. Use the default build-in image.");
+    return 4096; // built-in image size
+  }
+
+  FILE *fp = fopen(img_file, "rb");
+  Assert(fp, "Can not open '%s'", img_file);
+
+  fseek(fp, 0, SEEK_END);
+  long size = ftell(fp);
+
+  Log("The image is %s, size = %ld", img_file, size);
+
+  fseek(fp, 0, SEEK_SET);
+  int ret = fread(pmem, size, 1, fp);
+  assert(ret == 1);
+
+  fclose(fp);
+
+  return size;
   /*
   for(long long i=0x80000000;i<=0x80000114;i+=4)
   {
@@ -91,12 +111,13 @@ void ld(char *file)
 }
 int main(int argc, char **argv, char **env)
 {
+  long size=0;
   if (argc == 2)
   {
     if (strlen(argv[1]) != 0)
     {
       printf("ld:%s\n", argv[1]);
-      ld(argv[1]);
+      size=ld(argv[1]);
     }
   }
   srand(time(0));
