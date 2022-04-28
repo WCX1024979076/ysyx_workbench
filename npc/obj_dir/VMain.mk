@@ -38,6 +38,8 @@ VM_USER_CFLAGS = \
 	-fpermissive \
 	-I \
 	/home/wcx/Desktop/ysyx-workbench/nemu/include/ \
+	-I \
+	/home/wcx/Desktop/ysyx-workbench/nemu/src/isa/riscv64/include \
 
 # User LDLIBS (from -LDFLAGS on Verilator command line)
 VM_USER_LDLIBS = \
