@@ -25,7 +25,7 @@ typedef struct
   vaddr_t pc;
 } CPU_state;
 
-CPU_state cpu;
+CPU_state cpu_npc;
 
 uint64_t *cpu_gpr = NULL;
 
@@ -65,8 +65,8 @@ extern "C" void set_gpr_ptr(const svOpenArrayHandle r)
 {
   cpu_gpr = (uint64_t *)(((VerilatedDpiOpenVar *)r)->datap());
   for (int i = 0; i < 32; i++)
-    cpu.gpr[i] = cpu_gpr[i];
-  cpu.pc = cpu_gpr[32];
+    cpu_npc.gpr[i] = cpu_gpr[i];
+  cpu_npc.pc = cpu_gpr[32];
 }
 
 void pmem_read(long long Raddr, long long *Rdata)
@@ -199,7 +199,7 @@ int main(int argc, char **argv, char **env)
     printf("123");
     for (int i = 0; i < 32; i++)
     {
-      if (cpu.gpr[i] != ref_cpu->gpr[i])
+      if (cpu_npc.gpr[i] != ref_cpu->gpr[i])
       {
         assert(0);
         // printf("%d", i);
