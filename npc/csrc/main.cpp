@@ -208,7 +208,7 @@ int main(int argc, char **argv, char **env)
     ref_difftest_exec(1);
     CPU_state ref_cpu;
     ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
-    printf("check at nemu_pc=%lx,npc_pc=%lx\n", cpu_npc.pc, ref_cpu.pc);
+    printf("check at nemu_pc=%lx, npc_pc=%lx\n", cpu_npc.pc, ref_cpu.pc);
     check_regs_npc(ref_cpu);
   }
 
