@@ -151,20 +151,20 @@ void init_so(char *ref_so_file, long img_size)
   ref_difftest_regcpy(&cpu_npc, DIFFTEST_TO_REF);
 }
 
-void check_regs_npc(CPU_state *ref_cpu)
+void check_regs_npc(CPU_state ref_cpu)
 {
   for (int i = 0; i < 32; i++)
   {
-    if (cpu_npc.gpr[i] != ref_cpu->gpr[i])
+    if (cpu_npc.gpr[i] != ref_cpu.gpr[i])
     {
-      printf("Missing match reg%d, nemu=%lx, ref=%lx", i, cpu_npc.gpr[i], ref_cpu->gpr[i]);
+      printf("Missing match reg%d, nemu=%lx, ref=%lx", i, cpu_npc.gpr[i], ref_cpu.gpr[i]);
       printf("%d", i);
       exit(0);
     }
   }
-  if (cpu_npc.pc != ref_cpu->pc)
+  if (cpu_npc.pc != ref_cpu.pc)
   {
-    printf("Missing match at pc, npc_val=%lx,nemu_val=%lx", cpu_npc.pc, ref_cpu->pc);
+    printf("Missing match at pc, npc_val=%lx,nemu_val=%lx", cpu_npc.pc, ref_cpu.pc);
     exit(0);
   }
 }
@@ -207,9 +207,9 @@ int main(int argc, char **argv, char **env)
     m_trace->dump(sim_time++);
     cpu_sim();
     ref_difftest_exec(1);
-    CPU_state *ref_cpu;
-    ref_difftest_regcpy(ref_cpu, DIFFTEST_TO_DUT);
-    // check_regs_npc(ref_cpu);
+    CPU_state ref_cpu;
+    ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
+    check_regs_npc(ref_cpu);
   }
 
   m_trace->close();
