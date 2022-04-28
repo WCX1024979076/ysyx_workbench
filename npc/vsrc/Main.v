@@ -106,7 +106,7 @@ module IDU(
   wire [22:0] _contr_code_T_13 = 17'h1a3 == inst_flag ? 23'h2100ff : _contr_code_T_11; // @[Mux.scala 80:57]
   wire [22:0] _contr_code_T_15 = 17'h1e3 == inst_flag ? 23'h51800 : _contr_code_T_13; // @[Mux.scala 80:57]
   wire [22:0] _contr_code_T_17 = 17'h103 == inst_flag ? 23'h410200 : _contr_code_T_15; // @[Mux.scala 80:57]
-  wire [22:0] _contr_code_T_19 = 17'h11b == inst_flag ? 23'h410300 : _contr_code_T_17; // @[Mux.scala 80:57]
+  wire [22:0] _contr_code_T_19 = 17'h1b == inst_flag ? 23'h410300 : _contr_code_T_17; // @[Mux.scala 80:57]
   wire [22:0] _contr_code_T_21 = 17'h193 == inst_flag ? 23'h460000 : _contr_code_T_19; // @[Mux.scala 80:57]
   wire [22:0] _contr_code_T_23 = 17'he3 == inst_flag ? 23'h71800 : _contr_code_T_21; // @[Mux.scala 80:57]
   wire [22:0] contr_code = 17'h8033 == inst_flag ? 23'h480000 : _contr_code_T_23; // @[Mux.scala 80:57]
