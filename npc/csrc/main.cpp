@@ -173,16 +173,6 @@ void check_regs()
 }
 void init_npc()
 {
-  contextp = new VerilatedContext;
-  contextp->commandArgs(argc, argv);
-  top = new VMain{contextp};
-
-  Verilated::traceEverOn(true);
-
-  m_trace = new VerilatedVcdC;
-  top->trace(m_trace, 5);
-  m_trace->open("waveform.vcd");
-
   top->reset = 1;
   for (int i = 1; i <= 10; i++)
     cpu_sim();
@@ -200,6 +190,17 @@ int main(int argc, char **argv, char **env)
       size = ld(argv[1]);
     }
   }
+  
+  contextp = new VerilatedContext;
+  contextp->commandArgs(argc, argv);
+  top = new VMain{contextp};
+
+  Verilated::traceEverOn(true);
+
+  m_trace = new VerilatedVcdC;
+  top->trace(m_trace, 5);
+  m_trace->open("waveform.vcd");
+
   init_npc();
   init_so("/home/wcx/Desktop/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so", size);
   while (1)
