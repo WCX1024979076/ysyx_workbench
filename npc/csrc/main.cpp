@@ -21,6 +21,10 @@ VerilatedContext *contextp = nullptr;
 void ebreak()
 {
   puts("Meet ebreak;");
+  if (top->A0Val == 1)
+    puts("NOT PASS");
+  else
+    puts("PASS");
   m_trace->dump(sim_time);
   m_trace->close();
   delete top;
