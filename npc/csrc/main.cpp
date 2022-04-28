@@ -10,8 +10,13 @@
 typedef uint64_t word_t;
 typedef word_t vaddr_t;
 
-enum { DIFFTEST_TO_DUT, DIFFTEST_TO_REF };
-typedef struct {
+enum
+{
+  DIFFTEST_TO_DUT,
+  DIFFTEST_TO_REF
+};
+typedef struct
+{
   word_t gpr[32];
   vaddr_t pc;
 } CPU_state;
@@ -164,7 +169,8 @@ int main(int argc, char **argv, char **env)
       size = ld(argv[1]);
     }
   }
-
+  init_so("$$NEMU_HOME/build/riscv64-nemu-interpreter-so", size);
+  return 0;
   srand(time(0));
   contextp = new VerilatedContext;
   contextp->commandArgs(argc, argv);
