@@ -39,7 +39,7 @@ sim:
 	verilator --trace --cc --exe ./csrc/$(CSRCNAME).cpp ./vsrc/$(VSRCNAME).v -I ./vsrc/Mem.v ./vsrc/Difftest.v ./vsrc/Ebreak.v   -CFLAGS -fpermissive -LDFLAGS -ldl
 	make -j -C ./obj_dir/ -f V$(TOPNAME).mk V$(TOPNAME)
 	./obj_dir/V$(TOPNAME)	$(IMG)
-	# gtkwave waveform.vcd
+	gtkwave waveform.vcd
 
 run:
 	./obj_dir/V$(TOPNAME) $(IMG)
