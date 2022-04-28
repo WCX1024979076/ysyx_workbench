@@ -31,7 +31,6 @@ void difftest_regcpy(void *dut, bool direction)
   {
     cpu = *(CPU_state *)dut;
   }
-  Log("123");
 }
 
 void difftest_exec(uint64_t n)
