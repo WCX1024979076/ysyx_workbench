@@ -22,9 +22,9 @@ void check_point_change();
 char iringbuf[16][100] = {0};
 int iringbuf_count = 0;
 
-#ifdef CONFIG_ITRACE_COND
 void print_itrace()
 {
+#ifdef CONFIG_ITRACE_COND
   puts("itrace:");
   for (int i = 0; i < 16; i++)
   {
@@ -36,8 +36,8 @@ void print_itrace()
       break;
     printf("%s\n", iringbuf[i]);
   }
-}
 #endif
+}
 
 static void trace_and_difftest(Decode *_this, vaddr_t dnpc)
 {
