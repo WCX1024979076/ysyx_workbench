@@ -75,13 +75,11 @@ void pmem_read(long long Raddr, long long *Rdata)
   if (Raddr < CONFIG_MBASE || Raddr >= CONFIG_MSIZE + CONFIG_MBASE)
     return;
   (*Rdata) = *((long long *)guest_to_host(Raddr));
-  printf("%llx %llx \n", Raddr, (*Rdata));
   return;
 }
 
 void pmem_write(long long Waddr, long long Wdata, char Wmask)
 {
-  printf("%llx %llx %x\n", Waddr, Wdata, Wmask);
   for (int i = 0; i < 7; i++)
   {
     uint8_t *Vaddr = guest_to_host(Waddr);
@@ -177,9 +175,6 @@ void init_npc()
   for (int i = 1; i <= 10; i++)
     cpu_sim();
   top->reset = 0;
-  printf("123%lx\n",cpu.pc);
-  cpu_sim();
-  printf("123%lx\n",cpu.pc);
 }
 
 int main(int argc, char **argv, char **env)
