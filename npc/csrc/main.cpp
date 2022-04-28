@@ -159,13 +159,13 @@ void check_regs_npc(CPU_state ref_cpu)
     {
       printf("Missing match reg%d, nemu=%lx, ref=%lx", i, cpu_npc.gpr[i], ref_cpu.gpr[i]);
       printf("%d", i);
-      exit(0);
+      assert(0);
     }
   }
   if (cpu_npc.pc != ref_cpu.pc)
   {
     printf("Missing match at pc, npc_val=%lx,nemu_val=%lx", cpu_npc.pc, ref_cpu.pc);
-    exit(0);
+    assert(0);
   }
 }
 
