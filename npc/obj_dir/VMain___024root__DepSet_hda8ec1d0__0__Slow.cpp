@@ -675,46 +675,50 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                 == vlSelf->Main__DOT__idu__DOT__inst_flag)
                                                 ? 0x71800U
                                                 : (
-                                                   (0x11bU 
+                                                   (0x193U 
                                                     == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                    ? 0x410300U
+                                                    ? 0x460000U
                                                     : 
-                                                   ((0x103U 
+                                                   ((0x11bU 
                                                      == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                     ? 0x410200U
+                                                     ? 0x410300U
                                                      : 
-                                                    ((0x1e3U 
+                                                    ((0x103U 
                                                       == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                      ? 0x51800U
+                                                      ? 0x410200U
                                                       : 
-                                                     ((0x1a3U 
+                                                     ((0x1e3U 
                                                        == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                       ? 0x2100ffU
+                                                       ? 0x51800U
                                                        : 
-                                                      ((0x183U 
+                                                      ((0x1a3U 
                                                         == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                        ? 0x410100U
+                                                        ? 0x2100ffU
                                                         : 
-                                                       ((0x67U 
+                                                       ((0x183U 
                                                          == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                         ? 0x441000U
+                                                         ? 0x410100U
                                                          : 
-                                                        ((0x6fU 
+                                                        ((0x67U 
                                                           == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                          ? 0x440800U
+                                                          ? 0x441000U
                                                           : 
-                                                         ((0x17U 
+                                                         ((0x6fU 
                                                            == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                           ? 0x430000U
+                                                           ? 0x440800U
                                                            : 
-                                                          ((0x33U 
+                                                          ((0x17U 
                                                             == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                            ? 0x420000U
+                                                            ? 0x430000U
                                                             : 
-                                                           ((0x13U 
+                                                           ((0x33U 
                                                              == vlSelf->Main__DOT__idu__DOT__inst_flag)
-                                                             ? 0x410000U
-                                                             : 0U)))))))))));
+                                                             ? 0x420000U
+                                                             : 
+                                                            ((0x13U 
+                                                              == vlSelf->Main__DOT__idu__DOT__inst_flag)
+                                                              ? 0x410000U
+                                                              : 0U))))))))))));
     vlSelf->Main__DOT__exu__DOT___GEN_62 = ((0x1eU 
                                              == (0x1fU 
                                                  & (IData)(
