@@ -11,7 +11,7 @@
 // void difftest_regcpy(void *dut, bool direction);
 // void difftest_exec(uint64_t n);
 // void difftest_raise_intr(word_t NO);
-
+void difftest_init();
 #define CONFIG_MSIZE 0x0020000
 #define CONFIG_MBASE 0x80000000
 
@@ -125,7 +125,6 @@ int main(int argc, char **argv, char **env)
       size = ld(argv[1]);
     }
   }
-  void difftest_init();
   difftest_init();
   srand(time(0));
   contextp = new VerilatedContext;
