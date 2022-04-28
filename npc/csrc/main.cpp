@@ -7,7 +7,7 @@
 #include "VMain__Dpi.h"
 #include "verilated_dpi.h"
 
-// void difftest_init();
+void difftest_init();
 // void difftest_memcpy(paddr_t addr, void *buf, size_t n, bool direction);
 // void difftest_regcpy(void *dut, bool direction);
 // void difftest_exec(uint64_t n);
