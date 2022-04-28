@@ -196,7 +196,6 @@ int main(int argc, char **argv, char **env)
     CPU_state *ref_cpu;
     ref_difftest_regcpy(ref_cpu, DIFFTEST_TO_DUT);
     // printf("123");
-    printf("123");
     for (int i = 0; i < 32; i++)
     {
       if (cpu_npc.gpr[i] != ref_cpu->gpr[i])
