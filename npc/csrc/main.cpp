@@ -151,7 +151,7 @@ void init_so(char *ref_so_file, long img_size)
   ref_difftest_regcpy(&cpu_npc, DIFFTEST_TO_REF);
 }
 
-void check_regs_npc(CPU_state ref_cpu)
+int check_regs_npc(CPU_state ref_cpu)
 {
   for (int i = 0; i < 32; i++)
   {
