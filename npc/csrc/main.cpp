@@ -158,15 +158,15 @@ int check_regs_npc(CPU_state ref_cpu)
     if (cpu_npc.gpr[i] != ref_cpu.gpr[i])
     {
       printf("Missing match reg%d, nemu=%lx, ref=%lx", i, cpu_npc.gpr[i], ref_cpu.gpr[i]);
-      return 0;
+      return 1;
     }
   }
   if (cpu_npc.pc != ref_cpu.pc)
   {
     printf("Missing match at pc, npc_val=%lx,nemu_val=%lx", cpu_npc.pc, ref_cpu.pc);
-    return 0;
+    return 1;
   }
-  return 1;
+  return 0;
 }
 
 void init_npc()
