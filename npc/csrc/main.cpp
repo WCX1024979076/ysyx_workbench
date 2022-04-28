@@ -1,4 +1,3 @@
-#pragma include_alias( <isa.h>, "$NEMU_HOME/include/isa.h" )
 #include <stdio.h>
 #include "VMain.h"
 #include "verilated.h"
