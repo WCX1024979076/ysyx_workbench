@@ -1,3 +1,4 @@
+#pragma GCC fpermissive
 #include <stdio.h>
 #include "VMain.h"
 #include "verilated.h"
