@@ -5,6 +5,7 @@
 #ifndef VERILATED_VMAIN___024ROOT_H_
 #define VERILATED_VMAIN___024ROOT_H_  // guard
 
+#include "/home/wcx/Desktop/ysyx-workbench/nemu/include/"
 #include "verilated.h"
 
 class VMain__Syms;
