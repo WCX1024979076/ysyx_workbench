@@ -7,6 +7,12 @@
 #include "VMain__Dpi.h"
 #include "verilated_dpi.h"
 
+void difftest_init();
+void difftest_memcpy(paddr_t addr, void *buf, size_t n, bool direction);
+void difftest_regcpy(void *dut, bool direction);
+void difftest_exec(uint64_t n);
+void difftest_raise_intr(word_t NO);
+
 #define CONFIG_MSIZE 0x0020000
 #define CONFIG_MBASE 0x80000000
 
@@ -120,6 +126,7 @@ int main(int argc, char **argv, char **env)
       size=ld(argv[1]);
     }
   }
+  difftest_init();
   srand(time(0));
   contextp = new VerilatedContext;
   contextp->commandArgs(argc, argv);
