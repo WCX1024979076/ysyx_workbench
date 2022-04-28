@@ -43,9 +43,6 @@ void difftest_raise_intr(word_t NO)
 void difftest_init(/*int port*/)
 {
   /* Perform ISA dependent initialization. */
-  void init_rand();
-  void init_mem();
-  void init_isa();
   init_rand();
   init_mem();
   init_isa();
