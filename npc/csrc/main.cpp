@@ -40,6 +40,14 @@ extern "C" void set_gpr_ptr(const svOpenArrayHandle r)
   cpu_gpr = (uint64_t *)(((VerilatedDpiOpenVar *)r)->datap());
 }
 
+void dump_gpr()
+{
+  int i;
+  for (i = 0; i < 33; i++)
+  {
+    printf("gpr[%d] = 0x%lx\n", i, cpu_gpr[i]);
+  }
+}
 void pmem_read(long long Raddr, long long *Rdata)
 {
   if (Raddr < CONFIG_MBASE || Raddr >= CONFIG_MSIZE + CONFIG_MBASE)
@@ -65,6 +73,7 @@ void cpu_sim()
 {
   top->clock = 0, top->eval();
   top->clock = 1, top->eval();
+  dump_gpr();
 }
 
 void ld(char *file)
