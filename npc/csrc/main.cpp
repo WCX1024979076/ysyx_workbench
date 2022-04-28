@@ -52,7 +52,6 @@ long long host_to_guest(uint8_t *haddr) { return haddr - pmem + CONFIG_MBASE; }
 void ebreak()
 {
   puts("Meet ebreak;");
-  printf("%lx\n",cpu_npc.gpr[10]);
   if (cpu_npc.gpr[10] == 1)
     exit(-1);
   else
