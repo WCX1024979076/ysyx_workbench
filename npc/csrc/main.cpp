@@ -13,12 +13,22 @@ typedef word_t vaddr_t;
 #define CONFIG_MBASE 0x80000000
 #define CONFIG_PC_RESET_OFFSET 0x0
 #define RESET_VECTOR (CONFIG_MBASE + CONFIG_PC_RESET_OFFSET)
+// #define CONFIG_DIFFTEST 1
 
+#ifdef CONFIG_DIFFTEST
 enum
 {
   DIFFTEST_TO_DUT,
   DIFFTEST_TO_REF
 };
+typedef uint32_t paddr_t;
+void (*ref_difftest_memcpy)(paddr_t addr, void *buf, size_t n, bool direction) = NULL;
+void (*ref_difftest_regcpy)(void *dut, bool direction) = NULL;
+void (*ref_difftest_exec)(uint64_t n) = NULL;
+void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
+void (*ref_difftest_init)() = NULL;
+#endif
+
 typedef struct
 {
   word_t gpr[32];
@@ -34,12 +44,6 @@ VMain *top = nullptr;
 VerilatedVcdC *m_trace = nullptr;
 VerilatedContext *contextp = nullptr;
 
-typedef uint32_t paddr_t;
-void (*ref_difftest_memcpy)(paddr_t addr, void *buf, size_t n, bool direction) = NULL;
-void (*ref_difftest_regcpy)(void *dut, bool direction) = NULL;
-void (*ref_difftest_exec)(uint64_t n) = NULL;
-void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
-void (*ref_difftest_init)() = NULL;
 
 static uint8_t pmem[CONFIG_MSIZE] = {0};
 
@@ -51,9 +55,9 @@ void ebreak()
   puts("Meet ebreak;");
   printf("%lx\n", top->io_A0Val);
   if (top->io_A0Val == 1)
-    puts("NOT PASS");
+    exit(-1);
   else
-    puts("PASS");
+    exit(0);
   m_trace->dump(sim_time);
   m_trace->close();
   delete top;
@@ -94,6 +98,7 @@ void cpu_sim()
   top->clock = 1, top->eval();
 }
 
+#ifdef CONFIG_DIFFTEST
 long ld(char *img_file)
 {
   if (img_file == NULL)
@@ -167,6 +172,7 @@ void check_regs_npc(CPU_state ref_cpu)
     exit(-1);
   }
 }
+#endif
 
 void init_npc()
 {
@@ -200,16 +206,24 @@ int main(int argc, char **argv, char **env)
   m_trace->open("waveform.vcd");
 
   init_npc();
+
+#ifdef CONFIG_DIFFTEST
   init_so("/home/wcx/Desktop/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so", size);
+#endif
+
   while (1)
   {
     m_trace->dump(sim_time++);
     cpu_sim();
+
+#ifdef CONFIG_DIFFTEST
     ref_difftest_exec(1);
     CPU_state ref_cpu;
     ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
     printf("check at nemu_pc=%lx, npc_pc=%lx\n", cpu_npc.pc, ref_cpu.pc);
     check_regs_npc(ref_cpu);
+#endif
+
   }
 
   m_trace->close();
