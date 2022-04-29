@@ -152,12 +152,12 @@ class IDU extends Module {
     BitPat("b???????_?????_?????_001_?????_11000_11") -> List(0.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.bne, PcSrccode.branch, RinCtlcode.memoutw,"b00000000".U), //lw
   ))
 
-  io.RegWrite := contr_code(7);
-  io.MemWrite := contr_code(6);
-  io.AluSrc1Op := contr_code(5);
-  io.AluSrc2Op := contr_code(4);
-  io.AluOp := contr_code(3);
-  io.PcSrc := contr_code(2);
-  io.RinCtl := contr_code(1);
-  io.MemMask := contr_code(0);
+  io.RegWrite := contr_code(0);
+  io.MemWrite := contr_code(1);
+  io.AluSrc1Op := contr_code(2);
+  io.AluSrc2Op := contr_code(3);
+  io.AluOp := contr_code(4);
+  io.PcSrc := contr_code(5);
+  io.RinCtl := contr_code(6);
+  io.MemMask := contr_code(7);
 }
