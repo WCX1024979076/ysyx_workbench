@@ -192,8 +192,8 @@ int main(int argc, char **argv, char **env)
     }
   }
 
-  contextp = new VerilatedContext;
-  contextp->commandArgs(argc, argv);
+  // contextp = new VerilatedContext;
+  // contextp->commandArgs(argc, argv);
   // top = new VMain{contextp};
 
   // Verilated::traceEverOn(true);
