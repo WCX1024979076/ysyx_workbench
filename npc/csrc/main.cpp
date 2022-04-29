@@ -199,7 +199,7 @@ int main(int argc, char **argv, char **env)
   Verilated::traceEverOn(true);
 
   m_trace = new VerilatedVcdC;
-  top->trace(m_trace, 5);
+  // top->trace(m_trace, 5);
   // m_trace->open("waveform.vcd");
 
   init_npc();
