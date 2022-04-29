@@ -71,7 +71,7 @@ class EXU extends Module {
     "b00000".U -> DataR1,
     "b00001".U -> pc,
     "b00010".U -> io.Imm(31,12),
-  ))
+  ));
 
   var AluSrc2 := MuxLookup(io.AluSrc2Op,DataR2,Array(
     "b00000".U -> DataR2,
@@ -81,7 +81,7 @@ class EXU extends Module {
     "b00100".U -> io.Imm,
     "b00110".U -> "h4".U(64.W),
     "b00111".U -> pc,
-  ))
+  ));
 
   AluOut := MuxLookup(io.AluOp,0.U, Array(
     "b00001".U -> (AluSrc1 + AluSrc2).asUInt(),                   //addi,ld,sd,add,auipc,jal,jalr
