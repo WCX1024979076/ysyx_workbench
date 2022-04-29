@@ -20,8 +20,8 @@ VL_MODULE(VMain___024root) {
     VL_IN8(reset,0,0);
     CData/*2:0*/ Main__DOT__idu__DOT__inst_type;
     CData/*0:0*/ __Vclklast__TOP__clock;
-    IData/*16:0*/ Main__DOT__idu__DOT__inst_flag;
     IData/*22:0*/ Main__DOT__idu__DOT__contr_code;
+    VlWide<4>/*126:0*/ Main__DOT__exu__DOT___AluOut_T_45;
     QData/*63:0*/ Main__DOT__idu_io_Imm;
     QData/*63:0*/ Main__DOT__ifu__DOT__mem_Rdata;
     QData/*63:0*/ Main__DOT__exu__DOT__mem_Rdata;
@@ -60,10 +60,7 @@ VL_MODULE(VMain___024root) {
     QData/*63:0*/ Main__DOT__exu__DOT__DataR1;
     QData/*63:0*/ Main__DOT__exu__DOT___GEN_62;
     QData/*63:0*/ Main__DOT__exu__DOT__DataR2;
-    QData/*63:0*/ Main__DOT__exu__DOT___AluOut_T_21;
     QData/*63:0*/ Main__DOT__exu__DOT___AluOut_T_13;
-    QData/*63:0*/ Main__DOT__exu__DOT___AluOut_T_35;
-    QData/*63:0*/ Main__DOT__exu__DOT__AluOut;
     QData/*63:0*/ Main__DOT__exu__DOT___DataIn_T_5;
     QData/*63:0*/ Main__DOT__exu__DOT___DataIn_T_11;
     QData/*63:0*/ Main__DOT__exu__DOT___pc_T_8;
