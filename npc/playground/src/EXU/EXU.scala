@@ -97,7 +97,7 @@ class EXU extends Module {
     "b01100".U -> (AluSrc1.asSInt() < AluSrc2.asSInt()).asUInt(),      //slt,sli,blt
     "b01101".U -> (AluSrc1.asSInt() >= AluSrc2.asSInt()).asUInt(),     //bge
     "b01110".U -> (AluSrc1 << AluSrc2(5,0)).asUInt(),                  //sll,slli,lui
-    "b01111".U -> (AluSrc1 >> AluSrc2(5,0)).asUInt(),                  //srl,srli
+    "b01111".U -> (AluSrc1 >> AluSrc2(4,0)).asUInt(),                  //srl,srli
     "b10000".U -> (AluSrc1.asSInt() >> AluSrc2(5,0)).asUInt(),         //sra,srai
     "b10001".U -> (AluSrc1 ^ AluSrc2).asUInt(),                        //xor,xori
     "b10010".U -> (AluSrc1 | AluSrc2).asUInt(),                        //or,ori
