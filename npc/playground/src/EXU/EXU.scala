@@ -72,7 +72,7 @@ class EXU extends Module {
     0x8.U -> (DataR1 - DataR2),                                             //sub
     0x9.U -> (DataR1 << DataR2(5,0)),                                       //sll,slli
     0xa.U -> (DataR1 >> DataR2(5,0)),                                       //srl,srli
-    //0xb.U -> (DataR1.asSInt() >> DataR2(5,0)),                              //sra,srai
+    0xb.U -> (DataR1.asSInt() >> DataR2(5,0)),                              //sra,srai
     //0xc.U -> (io.Imm(31,12) << 12.U),                                       //lui
     //0xd.U -> (DataR1 ^ DataR2),                                             //xor
     //0xe.U -> (DataR1 ^ Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //xori
