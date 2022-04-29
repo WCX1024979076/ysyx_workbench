@@ -13,7 +13,7 @@ class Main extends Module {
   var Inst=Wire(UInt(32.W))
   val RegWrite=Wire(UInt(1.W))
   val MemWrite=Wire(UInt(1.W))
-  val AluOp=Wire(UInt(6.W))
+  val AluOp=Wire(UInt(32.W))
   val PcSrc=Wire(UInt(5.W))
   val RinCtl=Wire(UInt(3.W))
   val MemMask=Wire(UInt(8.W))
