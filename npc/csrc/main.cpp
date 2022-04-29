@@ -191,6 +191,7 @@ int main(int argc, char **argv, char **env)
       size = ld(argv[1]);
     }
   }
+  puts("123");
 
   contextp = new VerilatedContext;
   contextp->commandArgs(argc, argv);
@@ -203,7 +204,6 @@ int main(int argc, char **argv, char **env)
   m_trace->open("waveform.vcd");
 
   init_npc();
-  puts("123");
 #ifdef CONFIG_DIFFTEST
   init_so("/home/wcx/Desktop/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so", size);
 #endif
