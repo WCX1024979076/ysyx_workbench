@@ -19,7 +19,6 @@ class EXU extends Module {
     val RinCtl=Input(UInt(3.W))
     val MemMask=Input(UInt(8.W))
 
-
     val PcVal=Output(UInt(64.W))
   })
   var AluOut = Wire(UInt(64.W));
@@ -96,8 +95,8 @@ class EXU extends Module {
     "b01001".U -> (AluSrc1 =/= AluSrc2).asUInt(),                 //bne
     "b01010".U -> (AluSrc1 < AluSrc2).asUInt(),                   //sltiu,bltu
     "b01011".U -> (AluSrc1 >= AluSrc2).asUInt(),                   //bgeu
-    "b01100".U -> (AluSrc1.asSint() < AluSrc2.asSInt()).asUInt(), //slt,sli,blt
-    "b01101".U -> (AluSrc1.asSint() >= AluSrc2.asSint()).asUInt(),//bge
+    "b01100".U -> (AluSrc1.asSInt() < AluSrc2.asSInt()).asUInt(), //slt,sli,blt
+    "b01101".U -> (AluSrc1.asSInt() >= AluSrc2.asSInt()).asUInt(),//bge
     "b01110".U -> (AluSrc1 << AluSrc2).asUInt(),                  //sll,slli,lui
     "b01111".U -> (AluSrc1 >> AluSrc2).asUInt(),                  //srl,srli
     "b10000".U -> (AluSrc1.asSInt() >> AluSrc2).asUInt(),         //sra,srai
