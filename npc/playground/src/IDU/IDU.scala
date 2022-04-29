@@ -28,7 +28,7 @@ class IDU extends Module {
   io.R1 := io.Inst(19,15);
   io.R2 := io.Inst(24,20);
 
-  def SETX(a:UInt, b:Int):UInt = Cat(Fill(64,a(b-1)) ,a)(63,0);
+  def SETX(a:UInt, b:Int):UInt = Cat(Fill(64,a(b-1)) ,a(b-1,0))(63,0);
 
   def R(): UInt = "h0".U(64.W);
   def I(): UInt = SETX(io.Inst(31,20), 12);
