@@ -177,6 +177,8 @@ void init_npc()
   puts("123");
   for (int i = 1; i <= 10; i++)
     cpu_sim();
+  puts("123");
+  
   top->reset = 0;
   // cpu_sim();
 }
