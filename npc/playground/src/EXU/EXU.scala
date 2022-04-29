@@ -70,7 +70,7 @@ class EXU extends Module {
     "b00110".U -> (DataR1 < Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),            //sltiu
     "b00111".U -> (DataR1 =/= DataR2).asUInt(),                                           //bne
     "b01000".U -> (DataR1 - DataR2).asUInt(),                                             //sub
-    "b01001".U -> (DataR1 << DataR2(5,0)).asUInt(),                                       //sll,slli
+    "b01001".U -> (DataR1 << DataR2(5,0)).asUInt(),                                       //sll,slli  ///TODO : WRONG WRONG
     "b01010".U -> (DataR1 >> DataR2(5,0)).asUInt(),                                       //srl,srli
     "b01011".U -> (DataR1.asSInt() >> DataR2(5,0)).asUInt(),                              //sra,srai
     "b01100".U -> (io.Imm(31,12) << 12.U).asUInt(),                                       //lui
