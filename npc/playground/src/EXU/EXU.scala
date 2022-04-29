@@ -77,7 +77,11 @@ class EXU extends Module {
     "b01101".U -> (DataR1 ^ DataR2).asUInt(),                                             //xor
     "b01110".U -> (DataR1 ^ Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),            //xori
     "b01111".U -> (DataR1 | DataR2).asUInt(),                                             //or
-    "b10000".U -> (DataR1 | Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),           //ori
+    "b10000".U -> (DataR1 | Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),            //ori
+    "b10001".U -> (DataR1 & DataR2).asUInt(),                                             //and
+    "b10010".U -> (DataR1 & Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),            //andi
+    "b10011".U -> (DataR1.asSInt() < DataR2.asSInt()).asUInt(),                                             //slt
+    "b10100".U -> (DataR1.asSInt() < Cat(Fill(52, io.Imm(11)), io.Imm(11,0)).asSInt()).asUInt(),            //slti
   ));
 
   io.PcVal := pc;
