@@ -119,8 +119,6 @@ long ld(char *img_file)
 
   fclose(fp);
 
-  printf("pmem[0] %lx",(long long*) pmem);
-  puts("123");
   return size;
 }
 
