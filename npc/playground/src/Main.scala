@@ -16,7 +16,6 @@ class Main extends Module {
   val AluOp=Wire(UInt(5.W))
   val AluSrc1Op=Wire(UInt(5.W))
   val AluSrc2Op=Wire(UInt(5.W))
-  val AluOp=Wire(UInt(5.W))
   val PcSrc=Wire(UInt(5.W))
   val RinCtl=Wire(UInt(3.W))
   val MemMask=Wire(UInt(8.W))
@@ -57,6 +56,6 @@ class Main extends Module {
   exu.io.MemMask := MemMask;
   exu.io.AluSrc1Op := AluSrc1Op;
   exu.io.AluSrc2Op := AluSrc2Op;
-  
+
   Pc := exu.io.PcVal;
 }
