@@ -106,6 +106,7 @@ long ld(char *img_file)
 
   FILE *fp = fopen(img_file, "rb");
   assert(fp);
+      puts("123");
 
   fseek(fp, 0, SEEK_END);
   long size = ftell(fp);
