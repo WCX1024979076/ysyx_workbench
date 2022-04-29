@@ -18,19 +18,18 @@ VL_MODULE(VMain___024root) {
     // DESIGN SPECIFIC STATE
     VL_IN8(clock,0,0);
     VL_IN8(reset,0,0);
-    CData/*4:0*/ Main__DOT__idu_io_AluSrc2Op;
-    CData/*0:0*/ Main__DOT__idu__DOT___contr_code_T_87;
-    CData/*0:0*/ Main__DOT__idu__DOT__contr_code_1;
-    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_144;
+    CData/*0:0*/ Main__DOT__idu_io_RegWrite;
+    CData/*4:0*/ Main__DOT__idu_io_AluOp;
+    CData/*1:0*/ Main__DOT__idu__DOT__contr_code_2;
     CData/*2:0*/ Main__DOT__idu__DOT__contr_code_3;
-    CData/*1:0*/ Main__DOT__idu__DOT__contr_code_5;
-    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_258;
-    CData/*7:0*/ Main__DOT__idu__DOT__contr_code_7;
+    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_229;
+    CData/*1:0*/ Main__DOT__idu__DOT__contr_code_6;
     CData/*0:0*/ __Vclklast__TOP__clock;
     SData/*11:0*/ Main__DOT__idu__DOT__io_Imm_lo_2;
     SData/*12:0*/ Main__DOT__idu__DOT__io_Imm_lo_8;
     IData/*20:0*/ Main__DOT__idu__DOT__io_Imm_lo_6;
-    VlWide<4>/*127:0*/ Main__DOT__exu__DOT___AluOut_T_40;
+    VlWide<4>/*127:0*/ Main__DOT__exu__DOT___AluOut_T_64;
+    VlWide<3>/*95:0*/ Main__DOT__exu__DOT___DataIn_T_6;
     QData/*63:0*/ Main__DOT__idu_io_Imm;
     QData/*63:0*/ Main__DOT__ifu__DOT__mem_Rdata;
     QData/*63:0*/ Main__DOT__exu__DOT__mem_Rdata;
@@ -71,7 +70,7 @@ VL_MODULE(VMain___024root) {
     QData/*63:0*/ Main__DOT__exu__DOT__DataR2;
     QData/*63:0*/ Main__DOT__exu__DOT__AluSrc1;
     QData/*63:0*/ Main__DOT__exu__DOT__AluSrc2;
-    QData/*63:0*/ Main__DOT__exu__DOT___DataIn_T_11;
+    QData/*63:0*/ Main__DOT__exu__DOT___DataIn_T_13;
     QData/*63:0*/ Main__DOT__exu__DOT___pc_T_1;
     QData/*63:0*/ Main__DOT__exu__DOT___pc_T_8;
     QData/*63:0*/ Main__DOT__exu__DOT___pc_T_19;

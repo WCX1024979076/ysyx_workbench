@@ -26,34 +26,15 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
     if (VL_UNLIKELY(vlSelf->__Vm_traceActivity[1U])) {
         tracep->chgQData(oldp+0,(vlSelf->Main__DOT__exu__DOT__pc),64);
         tracep->chgIData(oldp+2,((IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)),32);
-        tracep->chgBit(oldp+3,((1U & (IData)(vlSelf->Main__DOT__idu__DOT__contr_code_7))));
-        tracep->chgBit(oldp+4,(((0x17U == (0x7fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                 ? 0U : ((0x3003U == 
-                                          (0x707fU 
-                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                          ? 1U : ((0x3023U 
-                                                   == 
-                                                   (0x707fU 
-                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                   ? 0U
-                                                   : 
-                                                  ((0x13U 
-                                                    == 
-                                                    (0x707fU 
-                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                    ? 0U
-                                                    : 
-                                                   ((0x33U 
-                                                     == 
-                                                     (0xfe00707fU 
-                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                     ? 0U
-                                                     : 
-                                                    (1U 
-                                                     & (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_258)))))))));
-        tracep->chgCData(oldp+5,(vlSelf->Main__DOT__idu__DOT__contr_code_3),5);
-        tracep->chgCData(oldp+6,(vlSelf->Main__DOT__idu__DOT__contr_code_5),5);
-        tracep->chgCData(oldp+7,(vlSelf->Main__DOT__idu_io_AluSrc2Op),5);
+        tracep->chgBit(oldp+3,(vlSelf->Main__DOT__idu_io_RegWrite));
+        tracep->chgBit(oldp+4,(((0x17U != (0x7fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                & ((0x3003U != (0x707fU 
+                                                & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                   & (0x3023U == (0x707fU 
+                                                  & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))))));
+        tracep->chgCData(oldp+5,(vlSelf->Main__DOT__idu_io_AluOp),5);
+        tracep->chgCData(oldp+6,(vlSelf->Main__DOT__idu__DOT__contr_code_2),5);
+        tracep->chgCData(oldp+7,(vlSelf->Main__DOT__idu__DOT__contr_code_3),5);
         tracep->chgCData(oldp+8,(((0x17U == (0x7fU 
                                              & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                    ? 0U : ((0x3003U 
@@ -63,13 +44,28 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
                                            ((0x3023U 
                                              == (0x707fU 
                                                  & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                             ? 0U : (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_144))))),5);
-        tracep->chgCData(oldp+9,(vlSelf->Main__DOT__idu__DOT__contr_code_1),3);
+                                             ? 0U : 
+                                            ((0x13U 
+                                              == (0x707fU 
+                                                  & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                              ? 0U : 
+                                             ((0x33U 
+                                               == (0xfe00707fU 
+                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                               ? 0U
+                                               : (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_229))))))),5);
+        tracep->chgCData(oldp+9,(vlSelf->Main__DOT__idu__DOT__contr_code_6),3);
         tracep->chgCData(oldp+10,(((0x17U == (0x7fU 
-                                              & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                   | ((0x3003U == (0x707fU 
-                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                      | (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_87)))),8);
+                                              & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                    ? 0U : ((0x3003U 
+                                             == (0x707fU 
+                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                             ? 0U : 
+                                            ((0x3023U 
+                                              == (0x707fU 
+                                                  & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                              ? 0xffU
+                                              : 0U)))),8);
         tracep->chgCData(oldp+11,((0x1fU & (IData)(
                                                    (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
                                                     >> 7U)))),5);
@@ -81,9 +77,9 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
                                                     >> 0x14U)))),5);
         tracep->chgQData(oldp+14,(vlSelf->Main__DOT__idu_io_Imm),64);
         tracep->chgQData(oldp+16,((((QData)((IData)(
-                                                    vlSelf->Main__DOT__exu__DOT___AluOut_T_40[1U])) 
+                                                    vlSelf->Main__DOT__exu__DOT___AluOut_T_64[1U])) 
                                     << 0x20U) | (QData)((IData)(
-                                                                vlSelf->Main__DOT__exu__DOT___AluOut_T_40[0U])))),64);
+                                                                vlSelf->Main__DOT__exu__DOT___AluOut_T_64[0U])))),64);
         tracep->chgQData(oldp+18,(vlSelf->Main__DOT__exu__DOT__mem_Rdata),64);
         tracep->chgQData(oldp+20,(((0x1fU == (0x1fU 
                                               & (IData)(
@@ -126,8 +122,8 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
         tracep->chgQData(oldp+86,(vlSelf->Main__DOT__exu__DOT__DataR2),64);
         tracep->chgQData(oldp+88,(vlSelf->Main__DOT__exu__DOT__AluSrc1),64);
         tracep->chgQData(oldp+90,(vlSelf->Main__DOT__exu__DOT__AluSrc2),64);
-        tracep->chgIData(oldp+92,(vlSelf->Main__DOT__exu__DOT___AluOut_T_40[0U]),32);
-        tracep->chgQData(oldp+93,(((vlSelf->Main__DOT__exu__DOT___AluOut_T_40[0U] 
+        tracep->chgIData(oldp+92,(vlSelf->Main__DOT__exu__DOT___AluOut_T_64[0U]),32);
+        tracep->chgQData(oldp+93,(((vlSelf->Main__DOT__exu__DOT___AluOut_T_64[0U] 
                                     >> 0x1fU) ? 0xffffffffffffffffULL
                                     : 0ULL)),64);
         tracep->chgIData(oldp+95,((IData)(vlSelf->Main__DOT__exu__DOT__mem_Rdata)),32);
@@ -169,31 +165,14 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
         tracep->chgQData(oldp+117,(((0x1000U & (IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_8))
                                      ? 0xffffffffffffffffULL
                                      : 0ULL)),64);
-        tracep->chgBit(oldp+119,(((0x17U == (0x7fU 
-                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                  | ((0x3003U == (0x707fU 
-                                                  & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                     | (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_87)))));
-        tracep->chgBit(oldp+120,(vlSelf->Main__DOT__idu__DOT__contr_code_1));
+        tracep->chgCData(oldp+119,(vlSelf->Main__DOT__idu__DOT__contr_code_2),2);
+        tracep->chgCData(oldp+120,(vlSelf->Main__DOT__idu__DOT__contr_code_3),3);
         tracep->chgCData(oldp+121,(((0x17U == (0x7fU 
                                                & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                      ? 0U : ((0x3003U 
                                               == (0x707fU 
                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                               ? 0U : 
-                                             ((0x3023U 
-                                               == (0x707fU 
-                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                               ? 0U
-                                               : (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_144))))),2);
-        tracep->chgCData(oldp+122,(vlSelf->Main__DOT__idu__DOT__contr_code_3),3);
-        tracep->chgCData(oldp+123,(vlSelf->Main__DOT__idu__DOT__contr_code_5),2);
-        tracep->chgCData(oldp+124,(((0x17U == (0x7fU 
-                                               & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                     ? 0U : ((0x3003U 
-                                              == (0x707fU 
-                                                  & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                              ? 1U : 
                                              ((0x3023U 
                                                == (0x707fU 
                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
@@ -209,12 +188,12 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
                                                     (0xfe00707fU 
                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                     ? 0U
-                                                    : (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_258))))))),2);
-        tracep->chgCData(oldp+125,(vlSelf->Main__DOT__idu__DOT__contr_code_7),8);
-        tracep->chgQData(oldp+126,(vlSelf->Main__DOT__ifu__DOT__mem_Rdata),64);
+                                                    : (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_229))))))),2);
+        tracep->chgCData(oldp+122,(vlSelf->Main__DOT__idu__DOT__contr_code_6),2);
+        tracep->chgQData(oldp+123,(vlSelf->Main__DOT__ifu__DOT__mem_Rdata),64);
     }
-    tracep->chgBit(oldp+128,(vlSelf->clock));
-    tracep->chgBit(oldp+129,(vlSelf->reset));
+    tracep->chgBit(oldp+125,(vlSelf->clock));
+    tracep->chgBit(oldp+126,(vlSelf->reset));
 }
 
 void VMain___024root__trace_cleanup(void* voidSelf, VerilatedVcd* /*unused*/) {

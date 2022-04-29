@@ -81,7 +81,6 @@ class IDU extends Module {
     val imm_12    = 3.U
     val imm       = 4.U
     val imm_4     = 6.U
-    val pc        = 7.U
   }
 
   object PcSrccode extends ChiselEnum{
@@ -119,7 +118,7 @@ class IDU extends Module {
 
   //RegWrite 1 MemWrite 1 AluSrc1Op 5 AluSrc2Op 5 AluOp 5 PcSrc 5 RinCtl 3 MemMask 8
   var contr_code  = ListLookup(io.Inst,List(0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U),Array(
-    BitPat("b???????_?????_?????_???_?????_00101_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.pc,      AluOpcode.add, PcSrccode.add4,   RinCtlcode.aluout, "b00000000".U), //auipc
+    BitPat("b???????_?????_?????_???_?????_00101_11") -> List(1.U, 0.U, AluSrc1Opcode.pc,        AluSrc2Opcode.imm,     AluOpcode.add, PcSrccode.add4,   RinCtlcode.aluout, "b00000000".U), //auipc
     BitPat("b???????_?????_?????_011_?????_00000_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.add, PcSrccode.add4,   RinCtlcode.memout, "b00000000".U), //ld
     BitPat("b???????_?????_?????_011_?????_01000_11") -> List(0.U, 1.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.add, PcSrccode.add4,   RinCtlcode.aluout, "b11111111".U), //sd
     BitPat("b???????_?????_?????_000_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.add, PcSrccode.add4,   RinCtlcode.aluout, "b00000000".U), //addi
