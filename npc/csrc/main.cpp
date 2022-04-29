@@ -123,8 +123,6 @@ long ld(char *img_file)
 #ifdef CONFIG_DIFFTEST
 void init_so(char *ref_so_file, long img_size)
 {
-  printf("123");
-
   assert(ref_so_file != NULL);
 
   void *handle;
@@ -189,7 +187,8 @@ int main(int argc, char **argv, char **env)
   {
     if (strlen(argv[1]) != 0)
     {
-      printf("ld:%s\n", argv[1]);
+      printf("ld1:%s\n", argv[1]);
+      printf("123");
       size = ld(argv[1]);
     }
   }
