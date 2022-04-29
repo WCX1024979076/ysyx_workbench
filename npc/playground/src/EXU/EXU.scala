@@ -16,6 +16,8 @@ class EXU extends Module {
     val PcSrc=Input(UInt(5.W))
     val RinCtl=Input(UInt(3.W))
     val MemMask=Input(UInt(8.W))
+    val AluSrc1Op=Input(UInt(5.W))
+    val AluSrc2Op=Input(UInt(5.W))
 
     val PcVal=Output(UInt(64.W))
   })
@@ -32,13 +34,15 @@ class EXU extends Module {
   difftest.io.gpr := Regs;
   difftest.io.PcVal := pc;
 
+  def SETX(a:UInt, b:Int):UInt = Cat(File(64,a(b-1)) ,a)(63,0);
+
   DataR1 := Regs(io.R1);
   DataR2 := Regs(io.R2);
   DataIn := MuxLookup(io.RinCtl,0.U,Array(
     0x0.U -> AluOut,
     0x1.U -> MemOut,
-    0x2.U -> Cat(Fill(32, MemOut(31)), MemOut(31,0)),
-    0x3.U -> Cat(Fill(32, AluOut(31)), AluOut(31,0))
+    0x2.U -> SETX(AluOut(31,0),32),
+    0x3.U -> SETX(MemOut(31,0),32)
   ));
   when(io.RegWrite.asBool)
   {
@@ -72,9 +76,9 @@ class EXU extends Module {
     "b00001".U -> DataR2(5,0),
     "b00010".U -> io.Imm(5,0),
     "b00011".U -> 12.U,
-    "b00100".U -> Cat(Fill(52, io.Imm(11)), io.Imm(11,0)),
-    "b00101".U -> Cat(Fill(44, io.Imm(19)), io.Imm(19,0)),
+    "b00100".U -> io.Imm,
     "b00110".U -> "h4".U(64.W),
+    "b00111".U -> pc,
   ))
 
   AluOut := MuxLookup(io.AluOp,0.U, Array(
