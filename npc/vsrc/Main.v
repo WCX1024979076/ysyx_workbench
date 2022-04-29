@@ -85,8 +85,7 @@ module IDU(
   wire [63:0] ImmU = {{32'd0}, _ImmU_T_1}; // @[IDU.scala 30:16 IDU.scala 36:8]
   wire [63:0] _io_Imm_T_7 = 3'h4 == inst_type ? ImmU : _io_Imm_T_5; // @[Mux.scala 80:57]
   wire [63:0] ImmJ = {{43'd0}, _ImmJ_T_10}; // @[IDU.scala 29:16 IDU.scala 37:8]
-  wire [31:0] _contr_code_T = io_Inst & 32'h707f; // @[Lookup.scala 31:38]
-  wire  _contr_code_T_1 = 32'h13 == _contr_code_T; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_1 = 32'h413 == io_Inst; // @[Lookup.scala 31:38]
   wire [22:0] contr_code = _contr_code_T_1 ? 23'h410000 : 23'h0; // @[Lookup.scala 33:37]
   Ebreak ebreak ( // @[IDU.scala 40:20]
     .ebreak_in(ebreak_ebreak_in)
