@@ -13,6 +13,8 @@ class EXU extends Module {
     val RegWrite=Input(UInt(1.W))
     val MemWrite=Input(UInt(1.W))
     val AluOp=Input(UInt(5.W))
+    val AluSrc1Op=Input(UInt(5.W))
+    val AluSrc2Op=Input(UInt(5.W))
     val PcSrc=Input(UInt(5.W))
     val RinCtl=Input(UInt(3.W))
     val MemMask=Input(UInt(8.W))
