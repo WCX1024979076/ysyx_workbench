@@ -31,9 +31,6 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
     VlWide<4>/*127:0*/ __Vtemp_h3456d128__0;
     VlWide<4>/*127:0*/ __Vtemp_hd8739c38__0;
     // Body
-    if (VL_UNLIKELY((1U & (~ (IData)(vlSelf->reset))))) {
-        VL_FWRITEF(0x80000002U,"reg");
-    }
     if (vlSelf->reset) {
         vlSelf->Main__DOT__exu__DOT__Regs_31 = 0ULL;
         vlSelf->Main__DOT__exu__DOT__Regs_30 = 0ULL;
