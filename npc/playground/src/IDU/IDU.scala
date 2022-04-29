@@ -118,7 +118,7 @@ class IDU extends Module {
   
 
   //RegWrite 1 MemWrite 1 AluSrc1Op 5 AluSrc2Op 5 AluOp 5 PcSrc 5 RinCtl 3 MemMask 8
-  var contr_code = List();
+  var contr_code = List(0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U);
   contr_code := ListLookup(io.Inst,List(0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U),Array("b1_0_00001_00101_00001_00000_000_".U
     BitPat("b???????_?????_?????_???_?????_00101_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.pc,     AluOpcode.add, PcSrccode.add4,   RinCtlcode.aluout, "b00000000".U), //auipc
     BitPat("b???????_?????_?????_011_?????_00000_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,    AluOpcode.add, PcSrccode.add4,   RinCtlcode.memout, "b00000000".U), //ld
