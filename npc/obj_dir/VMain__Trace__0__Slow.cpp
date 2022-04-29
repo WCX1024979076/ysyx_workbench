@@ -313,7 +313,13 @@ VL_ATTR_COLD void VMain___024root__trace_full_sub_0(VMain___024root* vlSelf, Ver
                                                     (0xfe00707fU 
                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                     ? 0U
-                                                    : (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_229))))))),5);
+                                                    : 
+                                                   ((0x1bU 
+                                                     == 
+                                                     (0x707fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                     ? 0U
+                                                     : (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_228)))))))),5);
     tracep->fullCData(oldp+10,(vlSelf->Main__DOT__idu__DOT__contr_code_6),3);
     tracep->fullCData(oldp+11,(((0x17U == (0x7fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                  ? 0U : ((0x3003U == 
@@ -442,7 +448,13 @@ VL_ATTR_COLD void VMain___024root__trace_full_sub_0(VMain___024root* vlSelf, Ver
                                                       (0xfe00707fU 
                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                       ? 0U
-                                                      : (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_229))))))),2);
+                                                      : 
+                                                     ((0x1bU 
+                                                       == 
+                                                       (0x707fU 
+                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                       ? 0U
+                                                       : (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_228)))))))),2);
     tracep->fullCData(oldp+123,(vlSelf->Main__DOT__idu__DOT__contr_code_6),2);
     tracep->fullQData(oldp+124,(vlSelf->Main__DOT__ifu__DOT__mem_Rdata),64);
     tracep->fullBit(oldp+126,(vlSelf->clock));

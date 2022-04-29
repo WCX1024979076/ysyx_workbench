@@ -29,10 +29,10 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
     CData/*2:0*/ Main__DOT__idu__DOT___contr_code_T_168;
     CData/*3:0*/ Main__DOT__idu__DOT___contr_code_T_185;
     CData/*4:0*/ Main__DOT__idu__DOT___contr_code_T_195;
-    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_207;
-    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_218;
-    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_247;
-    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_258;
+    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_206;
+    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_217;
+    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_246;
+    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_257;
     QData/*63:0*/ Main__DOT__exu__DOT___GEN_13;
     QData/*63:0*/ Main__DOT__exu__DOT___GEN_26;
     QData/*63:0*/ Main__DOT__exu__DOT___GEN_45;
@@ -244,22 +244,16 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                                 == 
                                                                                 (0x707fU 
                                                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))))))))))))))))))))))))))));
-    Main__DOT__idu__DOT___contr_code_T_207 = ((0x2003U 
+    Main__DOT__idu__DOT___contr_code_T_206 = ((0x3013U 
                                                == (0x707fU 
                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                               ? 3U
-                                               : ((0x3013U 
+                                               ? 0U
+                                               : ((0x1063U 
                                                    == 
                                                    (0x707fU 
                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                    ? 3U
-                                                   : 
-                                                  ((0x1063U 
-                                                    == 
-                                                    (0x707fU 
-                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                    ? 3U
-                                                    : 0U)));
+                                                   : 0U));
     Main__DOT__idu__DOT___contr_code_T_185 = ((0x7033U 
                                                == (0xfe00707fU 
                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
@@ -304,7 +298,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                          == 
                                                          (0x707fU 
                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                         ? 8U
+                                                         ? 1U
                                                          : 
                                                         ((0x3013U 
                                                           == 
@@ -730,42 +724,42 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                               == (0x707fU 
                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
                                              | (IData)(Main__DOT__idu__DOT___contr_code_T_87)));
-    if ((0x4033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_218 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_247 = 0U;
-    } else if ((0x4013U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_218 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_247 = 0U;
+    if ((0x4013U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
+        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
     } else if ((0x6033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_218 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_247 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
     } else if ((0x6013U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_218 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_247 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
     } else if ((0x7033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_218 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_247 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
     } else if ((0x7013U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_218 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_247 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
     } else if ((0x2033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_218 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_247 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
     } else if ((0x2013U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_218 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_247 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
     } else if ((0x6fU == (0x7fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_218 = 1U;
-        Main__DOT__idu__DOT___contr_code_T_247 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_217 = 1U;
+        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
     } else if ((0x67U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_218 = 2U;
-        Main__DOT__idu__DOT___contr_code_T_247 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_217 = 2U;
+        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
     } else if ((0x63U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_218 = 3U;
-        Main__DOT__idu__DOT___contr_code_T_247 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_217 = 3U;
+        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
+    } else if ((0x2003U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
+        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_246 = 3U;
     } else {
-        Main__DOT__idu__DOT___contr_code_T_218 = Main__DOT__idu__DOT___contr_code_T_207;
-        Main__DOT__idu__DOT___contr_code_T_247 = Main__DOT__idu__DOT___contr_code_T_207;
+        Main__DOT__idu__DOT___contr_code_T_217 = Main__DOT__idu__DOT___contr_code_T_206;
+        Main__DOT__idu__DOT___contr_code_T_246 = Main__DOT__idu__DOT___contr_code_T_206;
     }
     Main__DOT__idu__DOT___contr_code_T_195 = ((0x5013U 
                                                == (0xfc00707fU 
@@ -1256,43 +1250,43 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                          | (QData)((IData)(
                                                                            Main__DOT__idu__DOT___io_Imm_T_3[0U])))
                                                          : 0ULL)))))))));
-    if ((0x1bU == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_229 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_258 = 2U;
-    } else if ((0x3bU == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_229 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_258 = 0U;
+    if ((0x3bU == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
+        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
     } else if ((0x1033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_229 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_258 = 0U;
+        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
     } else if ((0x1013U == (0xfc00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_229 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_258 = 0U;
+        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
     } else if ((0x5033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_229 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_258 = 0U;
+        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
     } else if ((0x5013U == (0xfc00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_229 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_258 = 0U;
+        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
     } else if ((0x40005033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_229 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_258 = 0U;
+        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
     } else if ((0x40005013U == (0xfc00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_229 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_258 = 0U;
+        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
     } else if ((0x40000033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_229 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_258 = 0U;
+        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
     } else if ((0x4000003bU == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_229 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_258 = 2U;
+        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_257 = 2U;
     } else if ((0x37U == (0x7fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_229 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_258 = 2U;
+        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_257 = 2U;
+    } else if ((0x4033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
+        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
     } else {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_229 
-            = Main__DOT__idu__DOT___contr_code_T_218;
-        Main__DOT__idu__DOT___contr_code_T_258 = Main__DOT__idu__DOT___contr_code_T_247;
+        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 
+            = Main__DOT__idu__DOT___contr_code_T_217;
+        Main__DOT__idu__DOT___contr_code_T_257 = Main__DOT__idu__DOT___contr_code_T_246;
     }
     vlSelf->Main__DOT__idu_io_AluOp = ((0x17U == (0x7fU 
                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
@@ -1515,7 +1509,13 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                       (0xfe00707fU 
                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                       ? 0U
-                                                      : (IData)(Main__DOT__idu__DOT___contr_code_T_258))))));
+                                                      : 
+                                                     ((0x1bU 
+                                                       == 
+                                                       (0x707fU 
+                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                       ? 2U
+                                                       : (IData)(Main__DOT__idu__DOT___contr_code_T_257)))))));
     Main__DOT__exu__DOT___AluSrc1_T_4 = ((1U == (IData)(vlSelf->Main__DOT__idu__DOT__contr_code_2))
                                           ? vlSelf->Main__DOT__exu__DOT__pc
                                           : vlSelf->Main__DOT__exu__DOT__DataR1);
