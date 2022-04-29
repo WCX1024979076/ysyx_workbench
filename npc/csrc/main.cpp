@@ -76,6 +76,7 @@ void pmem_read(long long Raddr, long long *Rdata)
     return;
   (*Rdata) = *((long long *)guest_to_host(Raddr));
   printf("READ DATA %lx %lx", Raddr, Rdata);
+  puts("123");
   return;
 }
 
