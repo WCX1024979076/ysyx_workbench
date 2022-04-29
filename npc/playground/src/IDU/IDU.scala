@@ -30,7 +30,7 @@ class IDU extends Module {
 
   def SETX(a:UInt, b:Int):UInt = Cat(Fill(64,a(b-1)) ,a)(63,0);
 
-  def R(): UInt = 0.U(64.W);
+  def R(): UInt = "h0".U(64.W);
   def I(): UInt = SETX(io.Inst(31,20), 12);
   def S(): UInt = SETX(((io.Inst(31,25)<<5) | (io.Inst(11,7))), 12);
   def B(): UInt = SETX(((io.Inst(31,31)<<12) | (io.Inst(30,25)<<5) | (io.Inst(11,8)<<1) | (io.Inst(7,7)<<11)), 13);
@@ -118,7 +118,6 @@ class IDU extends Module {
   
 
   //RegWrite 1 MemWrite 1 AluSrc1Op 5 AluSrc2Op 5 AluOp 5 PcSrc 5 RinCtl 3 MemMask 8
- /// var contr_code = List(0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U);
   var contr_code  = ListLookup(io.Inst,List(0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U),Array(
     BitPat("b???????_?????_?????_???_?????_00101_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.pc,      AluOpcode.add, PcSrccode.add4,   RinCtlcode.aluout, "b00000000".U), //auipc
     BitPat("b???????_?????_?????_011_?????_00000_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.add, PcSrccode.add4,   RinCtlcode.memout, "b00000000".U), //ld
