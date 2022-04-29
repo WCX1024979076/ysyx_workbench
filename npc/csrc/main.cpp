@@ -200,8 +200,7 @@ int main(int argc, char **argv, char **env)
 
   m_trace = new VerilatedVcdC;
   top->trace(m_trace, 5);
-  m_trace->open("waveform.vcd");
-  puts("123");
+  // m_trace->open("waveform.vcd");
 
   init_npc();
 
