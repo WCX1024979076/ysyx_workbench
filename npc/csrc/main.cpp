@@ -95,10 +95,7 @@ void pmem_write(long long Waddr, long long Wdata, char Wmask)
 void cpu_sim()
 {
   top->clock = 0, top->eval();
-  puts("1234");
-
-  top->clock = 1, top->eval();
-  puts("1234");
+  // top->clock = 1, top->eval();
 
 }
 
@@ -184,6 +181,11 @@ void init_npc()
   for (int i = 1; i <= 10; i++)
     cpu_sim();
   top->reset = 0;
+  
+  m_trace->close();
+  delete top;
+  delete contextp;
+  exit(0);
   // cpu_sim();
 }
 
