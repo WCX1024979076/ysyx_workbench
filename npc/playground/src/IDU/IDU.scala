@@ -31,11 +31,13 @@ class IDU extends Module {
   var ImmU=Wire(UInt(64.W));
   var ImmB=Wire(UInt(64.W));
 
-  ImmI := io.Inst(31,20);
-  ImmS := (io.Inst(31,25)<<5) | io.Inst(11,7);
-  ImmB := (io.Inst(31,31)<<12) | (io.Inst(30,25)<<5) | (io.Inst(11,8)<<1) | (io.Inst(7,7)<<11);
-  ImmU := (io.Inst(31,12)<<12);
-  ImmJ := (io.Inst(31,31)<<20) | (io.Inst(30,21)<<1) | (io.Inst(20,20)<<11) | (io.Inst(19,12)<<12);
+  def SETX(a:UInt, b:Int):UInt = Cat(File(64,a(b-1)),a).(63,0);
+  
+  def I() := SETX(io.Inst(31,20), 12);
+  def S() := SETX(((io.Inst(31,25)<<5) | (io.Inst(11,7))), 12);
+  def B() := SETX(((io.Inst(31,31)<<12) | (io.Inst(30,25)<<5) | (io.Inst(11,8)<<1) | (io.Inst(7,7)<<11)), 13);
+  def U() := SETX((io.Inst(31,12)<<12), 32);
+  def J() := SETX(((io.Inst(31,31)<<20) | (io.Inst(30,21)<<1) | (io.Inst(20,20)<<11) | (io.Inst(19,12)<<12)), 21);
 
   val ebreak_in=Wire(UInt(1.W));
   var ebreak=Module(new Ebreak);
@@ -45,15 +47,6 @@ class IDU extends Module {
   var opcode = io.Inst(6,0);
   var inst_type = Wire(UInt(3.W)); //0 -> R, 1 -> I, 2 -> S, 3 -> B, 4 -> U, 5 -> J
   var contr_code = Wire(UInt(23.W));
-
-  object OpcodeType extends ChiselEnum{
-    val R = 0.U
-    val I = 1.U
-    val S = 2.U
-    val B = 3.U
-    val U = 4.U
-    val J = 5.U
-  }
 
   object AluOpcode extends ChiselEnum {
       val add   = "b00001".U 
@@ -77,30 +70,36 @@ class IDU extends Module {
       val and   = "b10011".U 
   }
 
-  inst_type := MuxLookup(opcode,0.U,Array(
-    "b00101_11".U -> OpcodeType.U //auipc
-    "b00000_11".U -> OpcodeType.I, //ld
-    "b01000_11".U -> OpcodeType.S, //sd
-    "b00100_11".U -> OpcodeType.I, //addi,slli,srli,srai,xori,ori,andi
-    "b01100_11".U -> OpcodeType.R, //add,sll,srl,sra,sub,xor,or,and
-    "b00110_11".U -> OpcodeType.I, //addiw
-    "b01110_11".U -> OpcodeType.R, //addw,subw
-    "b01101_11".U -> OpcodeType.U, //lui
+  object AluSrc1Opcode extends ChiselEnum{
+    val r1 = 0.U
+    val pc = 1.U
+    val imm = 3.U
+  }
 
-    "b11011_11".U -> OpcodeType.J, //jal
-    "b11001_11".U -> OpcodeType.I, //jalr
-    "b11000_11".U -> OpcodeType.B, //beq
-    "b00000_11".U -> OpcodeType.I, //lw
-    "b00100_11".U -> OpcodeType.I, //sltiu
-    "b11000_11".U -> OpcodeType.B, //bne
-  ))
+  object AluSrc2Opcode extends ChiselEnum{
+    val r2      = 0.U
+    val r2_5_0  = 1.U
+    val imm_5_0 = 2.U
+    val imm_12  = 3.U
+    val imm_5_0 = 2.U
+  }
 
-  io.Imm := MuxLookup(inst_type,0.U,Array(
-    1.U -> ImmI,
-    2.U -> ImmS,
-    3.U -> ImmB,
-    4.U -> ImmU,
-    5.U -> ImmJ
+  io.Imm := MuxLookup(opcode,0.U,Array(
+    "b00101_11".U -> U() //auipc
+    "b00000_11".U -> I(), //ld
+    "b01000_11".U -> S(), //sd
+    "b00100_11".U -> I(), //addi,slli,srli,srai,xori,ori,andi
+    "b01100_11".U -> R(), //add,sll,srl,sra,sub,xor,or,and
+    "b00110_11".U -> I(), //addiw
+    "b01110_11".U -> R(), //addw,subw
+    "b01101_11".U -> U(), //lui
+
+    "b11011_11".U -> J(), //jal
+    "b11001_11".U -> I(), //jalr
+    "b11000_11".U -> B(), //beq
+    "b00000_11".U -> I(), //lw
+    "b00100_11".U -> I(), //sltiu
+    "b11000_11".U -> B(), //bne
   ))
   
 
