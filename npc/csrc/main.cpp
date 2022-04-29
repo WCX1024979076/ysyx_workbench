@@ -72,12 +72,11 @@ extern "C" void set_gpr_ptr(const svOpenArrayHandle r)
 
 void pmem_read(long long Raddr, long long *Rdata)
 {
-  puts("123");
-  printf("READ DATA %lx", Raddr);
   if (Raddr < CONFIG_MBASE || Raddr >= CONFIG_MSIZE + CONFIG_MBASE)
     return;
-  printf("READ DATA %lx %lx", Raddr, Rdata);
   (*Rdata) = *((long long *)guest_to_host(Raddr));
+  printf("READ DATA %lx %lx", Raddr, Rdata);
+  puts("123");
   return;
 }
 
@@ -176,17 +175,10 @@ void check_regs_npc(CPU_state ref_cpu)
 
 void init_npc()
 {
-  m_trace->dump(sim_time++);
   top->reset = 1;
   for (int i = 1; i <= 10; i++)
     cpu_sim();
   top->reset = 0;
-  m_trace->dump(sim_time++);
-
-  m_trace->close();
-  delete top;
-  delete contextp;
-  exit(0);
   // cpu_sim();
 }
 
