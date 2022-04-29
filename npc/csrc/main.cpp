@@ -94,6 +94,7 @@ void cpu_sim()
 {
   puts("123");
   top->clock = 0, top->eval();
+  puts("123");
   top->clock = 1, top->eval();
 }
 
