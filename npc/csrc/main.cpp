@@ -238,7 +238,10 @@ int main(int argc, char **argv, char **env)
 #endif
   }
 
+#ifdef CONFIG_VCD
   m_trace->close();
+#endif
+
   delete top;
   delete contextp;
   return 0;
