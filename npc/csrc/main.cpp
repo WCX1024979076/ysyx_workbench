@@ -108,17 +108,15 @@ long ld(char *img_file)
   fseek(fp, 0, SEEK_END);
   long size = ftell(fp);
 
-  puts("123");
   printf("The image is %s, size = %ld", img_file, size);
-  puts("123");
 
   fseek(fp, 0, SEEK_SET);
-  puts("123");
 
   int ret = fread(pmem, size, 1, fp);
   assert(ret == 1);
 
   fclose(fp);
+  puts("123");
 
   return size;
 }
