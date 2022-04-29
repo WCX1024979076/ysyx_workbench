@@ -62,21 +62,22 @@ class EXU extends Module {
   ));
 
   AluOut := MuxLookup(io.AluOp,0.U, Array(
-    "h1".asUInt(8.W)  -> (DataR1 + Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //addi,ld,sd
-    "h2".asUInt(8.W) -> (DataR1 + DataR2),                                             //add
-    "h3".asUInt(8.W)  -> (pc + Cat(Fill(44, io.Imm(19)), io.Imm(19,0))),                //auipc
-    "h4".asUInt(8.W)  -> (pc + "h4".U(64.W)),                                           //jal,jalr
-    "h5".asUInt(8.W)  -> (DataR1 === DataR2),                                           //beq
-    "h6".asUInt(8.W)  -> (DataR1 < Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //sltiu
-    "h7".asUInt(8.W)  -> (DataR1 =/= DataR2),                                           //bne
-    "h8".asUInt(8.W)  -> (DataR1 - DataR2),                                             //sub
-    "h9".asUInt(8.W)  -> (DataR1 << DataR2(5,0)),                                       //sll,slli
-    "ha".asUInt(8.W)  -> (DataR1 >> DataR2(5,0)),                                       //srl,srli
-    "hb".asUInt(8.W)  -> (DataR1.asSInt() >> DataR2(5,0)),                              //sra,srai
-    "hc".asUInt(8.W)  -> (io.Imm(31,12) << 12.U),                                       //lui
-    "hd".asUInt(8.W)  -> (DataR1 ^ DataR2),                                             //xor
-    "he".asUInt(8.W)  -> (DataR1 ^ Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //xori
-    "hf".asUInt(8.W) -> (DataR1 | DataR2),                                             //or
+    0x1.U -> (DataR1 + Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //addi,ld,sd
+    0x2.U -> (DataR1 + DataR2),                                             //add
+    0x3.U -> (pc + Cat(Fill(44, io.Imm(19)), io.Imm(19,0))),                //auipc
+    0x4.U -> (pc + "h4".U(64.W)),                                           //jal,jalr
+    0x5.U -> (DataR1 === DataR2),                                           //beq
+    0x6.U -> (DataR1 < Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //sltiu
+    0x7.U -> (DataR1 =/= DataR2),                                           //bne
+    0x8.U -> (DataR1 - DataR2),                                             //sub
+    0x9.U -> (DataR1 << DataR2(5,0)),                                       //sll,slli
+    0xa.U -> (DataR1 >> DataR2(5,0)),                                       //srl,srli
+    0xb.U -> (DataR1.asSInt() >> DataR2(5,0)),                              //sra,srai
+    0xc.U -> (io.Imm(31,12) << 12.U),                                       //lui
+    0xd.U -> (DataR1 ^ DataR2),                                             //xor
+    0xe.U -> (DataR1 ^ Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //xori
+    0xf.U -> (DataR1 | DataR2),                                             //or
+    0x10.U -> (DataR1 | Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),           //ori
   ));
 
   io.PcVal := pc;
