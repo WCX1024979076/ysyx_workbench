@@ -187,7 +187,7 @@ int main(int argc, char **argv, char **env)
   {
     if (strlen(argv[1]) != 0)
     {
-      printf("ld1:%s\n", argv[1]);
+      printf("ld:%s\n", argv[1]);
       printf("123");
       size = ld(argv[1]);
     }
