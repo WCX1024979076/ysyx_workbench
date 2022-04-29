@@ -85,7 +85,7 @@ class IDU extends Module {
   }
 
   io.Imm := MuxLookup(opcode,0.U,Array(
-    "b00101_11".U -> U() //auipc
+    "b00101_11".U -> U(), //auipc
     "b00000_11".U -> I(), //ld
     "b01000_11".U -> S(), //sd
     "b00100_11".U -> I(), //addi,slli,srli,srai,xori,ori,andi
