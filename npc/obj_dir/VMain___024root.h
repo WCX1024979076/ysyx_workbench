@@ -29,7 +29,7 @@ VL_MODULE(VMain___024root) {
     SData/*12:0*/ Main__DOT__idu__DOT__io_Imm_lo_8;
     IData/*20:0*/ Main__DOT__idu__DOT__io_Imm_lo_6;
     VlWide<4>/*127:0*/ Main__DOT__exu__DOT___AluOut_T_64;
-    VlWide<3>/*95:0*/ Main__DOT__exu__DOT___DataIn_T_6;
+    VlWide<3>/*95:0*/ Main__DOT__exu__DOT___DataIn_T_8;
     QData/*63:0*/ Main__DOT__idu_io_Imm;
     QData/*63:0*/ Main__DOT__ifu__DOT__mem_Rdata;
     QData/*63:0*/ Main__DOT__exu__DOT__mem_Rdata;
@@ -70,7 +70,7 @@ VL_MODULE(VMain___024root) {
     QData/*63:0*/ Main__DOT__exu__DOT__DataR2;
     QData/*63:0*/ Main__DOT__exu__DOT__AluSrc1;
     QData/*63:0*/ Main__DOT__exu__DOT__AluSrc2;
-    QData/*63:0*/ Main__DOT__exu__DOT___DataIn_T_13;
+    QData/*63:0*/ Main__DOT__exu__DOT___DataIn_T_15;
     QData/*63:0*/ Main__DOT__exu__DOT___pc_T_1;
     QData/*63:0*/ Main__DOT__exu__DOT___pc_T_8;
     QData/*63:0*/ Main__DOT__exu__DOT___pc_T_19;
