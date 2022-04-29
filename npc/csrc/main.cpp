@@ -92,6 +92,7 @@ void pmem_write(long long Waddr, long long Wdata, char Wmask)
 
 void cpu_sim()
 {
+  puts("123");
   top->clock = 0, top->eval();
   top->clock = 1, top->eval();
 }
