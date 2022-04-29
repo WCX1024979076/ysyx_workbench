@@ -14,6 +14,7 @@ typedef word_t vaddr_t;
 #define CONFIG_PC_RESET_OFFSET 0x0
 #define RESET_VECTOR (CONFIG_MBASE + CONFIG_PC_RESET_OFFSET)
 #define CONFIG_DIFFTEST 1
+// #define CONFIG_VCD 1
 
 #ifdef CONFIG_DIFFTEST
 enum
@@ -41,7 +42,9 @@ uint64_t *cpu_gpr = NULL;
 
 vluint64_t sim_time = 0;
 VMain *top = nullptr;
+#ifdef CONFIG_VCD
 VerilatedVcdC *m_trace = nullptr;
+#endif
 VerilatedContext *contextp = nullptr;
 
 static uint8_t pmem[CONFIG_MSIZE] = {0};
@@ -56,7 +59,11 @@ void ebreak()
   int flag = 0;
   if (cpu_npc.gpr[10] == 1)
     flag = -1;
+
+#ifdef CONFIG_VCD
   m_trace->close();
+#endif
+
   delete top;
   delete contextp;
   exit(flag);
@@ -203,11 +210,12 @@ int main(int argc, char **argv, char **env)
   contextp->commandArgs(argc, argv);
   top = new VMain{contextp};
 
+#ifdef CONFIG_VCD
   Verilated::traceEverOn(true);
-
   m_trace = new VerilatedVcdC;
   top->trace(m_trace, 5);
   m_trace->open("waveform.vcd");
+#endif
 
   init_npc();
 
@@ -218,8 +226,9 @@ int main(int argc, char **argv, char **env)
   while (1)
   {
     cpu_sim();
+#ifdef CONFIG_VCD
     m_trace->dump(sim_time++);
-
+#endif
 #ifdef CONFIG_DIFFTEST
     ref_difftest_exec(1);
     CPU_state ref_cpu;
