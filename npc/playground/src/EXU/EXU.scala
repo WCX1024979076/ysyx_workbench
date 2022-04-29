@@ -71,6 +71,7 @@ class EXU extends Module {
     "b00000".U -> DataR1,
     "b00001".U -> pc,
     "b00010".U -> io.Imm(31,12),
+    "b00011".U -> Datar1(31,0)
   ));
 
   AluSrc2 := MuxLookup(io.AluSrc2Op,DataR2,Array(

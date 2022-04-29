@@ -63,7 +63,7 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
     VlWide<4>/*127:0*/ __Vtemp_hecd1af0b__0;
     VlWide<4>/*127:0*/ __Vtemp_heca35210__0;
     VlWide<4>/*127:0*/ __Vtemp_hdf553ce0__0;
-    VlWide<4>/*127:0*/ __Vtemp_h098107e6__0;
+    VlWide<4>/*127:0*/ __Vtemp_h0963fab0__0;
     // Body
     if (vlSelf->reset) {
         vlSelf->Main__DOT__exu__DOT__Regs_31 = 0ULL;
@@ -2303,9 +2303,9 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
     VL_EXTEND_WQ(128,64, __Vtemp_hdf553ce0__0, VL_SHIFTRS_QQI(64,64,6, Main__DOT__exu__DOT___AluOut_T_24, 
                                                               (0x3fU 
                                                                & (IData)(vlSelf->Main__DOT__exu__DOT__AluSrc2))));
-    VL_EXTEND_WQ(128,64, __Vtemp_h098107e6__0, (vlSelf->Main__DOT__exu__DOT__AluSrc1 
+    VL_EXTEND_WQ(128,64, __Vtemp_h0963fab0__0, (vlSelf->Main__DOT__exu__DOT__AluSrc1 
                                                 >> 
-                                                (0x1fU 
+                                                (0x3fU 
                                                  & (IData)(vlSelf->Main__DOT__exu__DOT__AluSrc2))));
     if ((0x13U == (IData)(vlSelf->Main__DOT__idu_io_AluOp))) {
         vlSelf->Main__DOT__exu__DOT___AluOut_T_64[0U] 
@@ -2345,13 +2345,13 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
             = __Vtemp_hdf553ce0__0[3U];
     } else if ((0xfU == (IData)(vlSelf->Main__DOT__idu_io_AluOp))) {
         vlSelf->Main__DOT__exu__DOT___AluOut_T_64[0U] 
-            = __Vtemp_h098107e6__0[0U];
+            = __Vtemp_h0963fab0__0[0U];
         vlSelf->Main__DOT__exu__DOT___AluOut_T_64[1U] 
-            = __Vtemp_h098107e6__0[1U];
+            = __Vtemp_h0963fab0__0[1U];
         vlSelf->Main__DOT__exu__DOT___AluOut_T_64[2U] 
-            = __Vtemp_h098107e6__0[2U];
+            = __Vtemp_h0963fab0__0[2U];
         vlSelf->Main__DOT__exu__DOT___AluOut_T_64[3U] 
-            = __Vtemp_h098107e6__0[3U];
+            = __Vtemp_h0963fab0__0[3U];
     } else {
         vlSelf->Main__DOT__exu__DOT___AluOut_T_64[0U] 
             = Main__DOT__exu__DOT___AluOut_T_54[0U];
