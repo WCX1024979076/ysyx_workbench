@@ -182,6 +182,7 @@ void init_npc()
 
 int main(int argc, char **argv, char **env)
 {
+  printf("123");
   long size = 0;
   if (argc == 2)
   {
