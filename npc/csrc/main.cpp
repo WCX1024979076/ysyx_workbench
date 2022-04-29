@@ -116,7 +116,6 @@ long ld(char *img_file)
   assert(ret == 1);
 
   fclose(fp);
-  puts("123");
 
   return size;
 }
@@ -189,7 +188,6 @@ int main(int argc, char **argv, char **env)
     if (strlen(argv[1]) != 0)
     {
       printf("ld:%s\n", argv[1]);
-      puts("123");
       size = ld(argv[1]);
     }
   }
@@ -205,7 +203,7 @@ int main(int argc, char **argv, char **env)
   m_trace->open("waveform.vcd");
 
   init_npc();
-
+  puts("123");
 #ifdef CONFIG_DIFFTEST
   init_so("/home/wcx/Desktop/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so", size);
 #endif
