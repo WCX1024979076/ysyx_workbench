@@ -10,7 +10,7 @@ class IDU extends Module {
     val Inst= Input(UInt(32.W))
     val RegWrite=Output(UInt(1.W))
     val MemWrite=Output(UInt(1.W))
-    val AluOp=Output(UInt(32.W))
+    val AluOp=Output(UInt(5.W))
     val PcSrc=Output(UInt(5.W))
     val RinCtl=Output(UInt(3.W))
     val MemMask=Output(UInt(8.W))

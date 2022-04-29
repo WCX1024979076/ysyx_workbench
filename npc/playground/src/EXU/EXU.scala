@@ -12,7 +12,7 @@ class EXU extends Module {
     val Imm=Input(UInt(64.W))
     val RegWrite=Input(UInt(1.W))
     val MemWrite=Input(UInt(1.W))
-    val AluOp=Input(UInt(32.W))
+    val AluOp=Input(UInt(5.W))
     val PcSrc=Input(UInt(5.W))
     val RinCtl=Input(UInt(3.W))
     val MemMask=Input(UInt(8.W))
@@ -62,22 +62,22 @@ class EXU extends Module {
   ));
 
   AluOut := MuxLookup(io.AluOp,0.U, Array(
-    "b000001".asUInt(32.W) -> (DataR1 + Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //addi,ld,sd
-    "b000010".asUInt(32.W) -> (DataR1 + DataR2),                                             //add
-    "b000011".asUInt(32.W) -> (pc + Cat(Fill(44, io.Imm(19)), io.Imm(19,0))),                //auipc
-    "b000100".asUInt(32.W) -> (pc + "h4".U(64.W)),                                           //jal,jalr
-    "b000101".asUInt(32.W) -> (DataR1 === DataR2),                                           //beq
-    "b000110".asUInt(32.W) -> (DataR1 < Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //sltiu
-    "b000111".asUInt(32.W) -> (DataR1 =/= DataR2),                                           //bne
-    "b001000".asUInt(32.W) -> (DataR1 - DataR2),                                             //sub
-    "b001001".asUInt(32.W) -> (DataR1 << DataR2(5,0)),                                       //sll,slli
-    "b001010".asUInt(32.W) -> (DataR1 >> DataR2(5,0)),                                       //srl,srli
-    "b001011".asUInt(32.W) -> (DataR1.asSInt() >> DataR2(5,0)),                              //sra,srai
-    "b001100".asUInt(32.W) -> (io.Imm(31,12) << 12.U),                                       //lui
-    "b001101".asUInt(32.W) -> (DataR1 ^ DataR2),                                             //xor
-    "b001110".asUInt(32.W) -> (DataR1 ^ Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //xori
-    "b001111".asUInt(32.W) -> (DataR1 | DataR2),                                             //or
-    "b010000".asUInt(32.W) -> (DataR1 | Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),           //ori
+    "b00001".U -> (DataR1 + Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),            //addi,ld,sd
+    "b00010".U -> (DataR1 + DataR2).asUInt(),                                             //add
+    "b00011".U -> (pc + Cat(Fill(44, io.Imm(19)), io.Imm(19,0))).asUInt(),                //auipc
+    "b00100".U -> (pc + "h4".U(64.W)).asUInt(),                                           //jal,jalr
+    "b00101".U -> (DataR1 === DataR2).asUInt(),                                           //beq
+    "b00110".U -> (DataR1 < Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),            //sltiu
+    "b00111".U -> (DataR1 =/= DataR2).asUInt(),                                           //bne
+    "b01000".U -> (DataR1 - DataR2).asUInt(),                                             //sub
+    "b01001".U -> (DataR1 << DataR2(5,0)).asUInt(),                                       //sll,slli
+    "b01010".U -> (DataR1 >> DataR2(5,0)).asUInt(),                                       //srl,srli
+    "b01011".U -> (DataR1.asSInt() >> DataR2(5,0)).asUInt(),                              //sra,srai
+    "b01100".U -> (io.Imm(31,12) << 12.U).asUInt(),                                       //lui
+    "b01101".U -> (DataR1 ^ DataR2).asUInt(),                                             //xor
+    "b01110".U -> (DataR1 ^ Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),            //xori
+    "b01111".U -> (DataR1 | DataR2).asUInt(),                                             //or
+    "b10000".U -> (DataR1 | Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),           //ori
   ));
 
   io.PcVal := pc;
