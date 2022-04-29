@@ -191,16 +191,17 @@ int main(int argc, char **argv, char **env)
       size = ld(argv[1]);
     }
   }
+  puts("123");
 
-  // contextp = new VerilatedContext;
-  // contextp->commandArgs(argc, argv);
-  // top = new VMain{contextp};
+  contextp = new VerilatedContext;
+  contextp->commandArgs(argc, argv);
+  top = new VMain{contextp};
 
-  // Verilated::traceEverOn(true);
+  Verilated::traceEverOn(true);
 
-  // m_trace = new VerilatedVcdC;
-  // top->trace(m_trace, 5);
-  // m_trace->open("waveform.vcd");
+  m_trace = new VerilatedVcdC;
+  top->trace(m_trace, 5);
+  m_trace->open("waveform.vcd");
 
   init_npc();
 
