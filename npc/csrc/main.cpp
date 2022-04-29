@@ -96,7 +96,6 @@ void cpu_sim()
 {
   top->clock = 0, top->eval();
   // top->clock = 1, top->eval();
-
 }
 
 long ld(char *img_file)
@@ -177,11 +176,12 @@ void check_regs_npc(CPU_state ref_cpu)
 
 void init_npc()
 {
+  m_trace->dump(sim_time++);
   top->reset = 1;
   for (int i = 1; i <= 10; i++)
     cpu_sim();
   top->reset = 0;
-  
+
   m_trace->close();
   delete top;
   delete contextp;
