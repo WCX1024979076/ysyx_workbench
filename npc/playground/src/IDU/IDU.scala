@@ -18,7 +18,7 @@ class IDU extends Module {
     val PcSrc=Output(UInt(5.W))
     val RinCtl=Output(UInt(3.W))
     val MemMask=Output(UInt(8.W))
-    
+
     val Rdest=Output(UInt(5.W))
     val R1=Output(UInt(5.W))
     val R2=Output(UInt(5.W))
@@ -117,7 +117,8 @@ class IDU extends Module {
   
 
   //RegWrite 1 MemWrite 1 AluSrc1Op 5 AluSrc2Op 5 AluOp 5 PcSrc 5 RinCtl 3 MemMask 8
-  var contr_code := ListLookup(io.Inst,List(0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U),Array("b1_0_00001_00101_00001_00000_000_".U
+  var contr_code = List();
+   contr_code := ListLookup(io.Inst,List(0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U, 0.U),Array("b1_0_00001_00101_00001_00000_000_".U
     BitPat("b???????_?????_?????_???_?????_00101_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.pc,     AluOpcode.add, PcSrccode.add4,   RinCtlcode.aluout, "b00000000".U), //auipc
     BitPat("b???????_?????_?????_011_?????_00000_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,    AluOpcode.add, PcSrccode.add4,   RinCtlcode.memout, "b00000000".U), //ld
     BitPat("b???????_?????_?????_011_?????_01000_11") -> List(0.U, 1.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,    AluOpcode.add, PcSrccode.add4,   RinCtlcode.aluout, "b11111111".U), //sd
