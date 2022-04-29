@@ -81,15 +81,15 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     vlSelf->Main__DOT__exu__DOT__DataR1 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___GEN_62 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT__DataR2 = VL_RAND_RESET_Q(64);
-    vlSelf->Main__DOT__exu__DOT___AluOut_T_25 = VL_RAND_RESET_Q(64);
-    vlSelf->Main__DOT__exu__DOT___AluOut_T_17 = VL_RAND_RESET_Q(64);
-    vlSelf->Main__DOT__exu__DOT___AluOut_T_39 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___AluOut_T_21 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___AluOut_T_13 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___AluOut_T_35 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT__AluOut = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___DataIn_T_5 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___DataIn_T_11 = VL_RAND_RESET_Q(64);
-    vlSelf->Main__DOT__exu__DOT___pc_T_10 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___pc_T_8 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___pc_T_19 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___pc_T_23 = VL_RAND_RESET_Q(64);
-    vlSelf->Main__DOT__exu__DOT___pc_T_27 = VL_RAND_RESET_Q(64);
     for (int __Vi0=0; __Vi0<33; ++__Vi0) {
         vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[__Vi0] = VL_RAND_RESET_Q(64);
     }

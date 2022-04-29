@@ -3,9 +3,22 @@
 !*/
 !Makefile
 !*.mk
+!*.scala
 !*.[cSh]
 !*.v
-!*.cc
 !*.cpp
+!*.cc
 !.gitignore
+!.scalafmt.conf
+!build.sc
 !README.md
+build/
+
+# mill
+out/
+vsrc/
+obj_dir/
+.bsp/
+.idea/
+.idea_modules/
+test_run_dir/
