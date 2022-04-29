@@ -31,7 +31,7 @@ class IDU extends Module {
   var ImmU=Wire(UInt(64.W));
   var ImmB=Wire(UInt(64.W));
 
-  def SETX(a:UInt, b:Int):UInt = Cat(File(64,a(b-1)),a).(63,0);
+  def SETX(a:UInt, b:Int):UInt = Cat(File(64,a(b-1)),a)(63,0);
   
   def I() := SETX(io.Inst(31,20), 12);
   def S() := SETX(((io.Inst(31,25)<<5) | (io.Inst(11,7))), 12);
