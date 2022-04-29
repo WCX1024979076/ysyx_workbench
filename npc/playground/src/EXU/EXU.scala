@@ -61,28 +61,44 @@ class EXU extends Module {
       ))
   ));
 
+  var AluSrc1 := MuxLookup(io.AluSrc1Op,DataR1,Array(
+    "b00000".U -> DataR1,
+    "b00001".U -> pc,
+    "b00010".U -> io.Imm(31,12),
+  ))
+
+  var AluSrc2 := MuxLookup(io.AluSrc2Op,DataR2,Array(
+    "b00000".U -> DataR2,
+    "b00001".U -> DataR2(5,0),
+    "b00010".U -> io.Imm(5,0),
+    "b00011".U -> 12.U,
+    "b00100".U -> Cat(Fill(52, io.Imm(11)), io.Imm(11,0)),
+    "b00101".U -> Cat(Fill(44, io.Imm(19)), io.Imm(19,0)),
+    "b00110".U -> "h4".U(64.W),
+  ))
+
+
   AluOut := MuxLookup(io.AluOp,0.U, Array(
-    "b00001".U -> (DataR1 + Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),            //addi,ld,sd
-    "b00010".U -> (DataR1 + DataR2).asUInt(),                                             //add
-    "b00011".U -> (pc + Cat(Fill(44, io.Imm(19)), io.Imm(19,0))).asUInt(),                //auipc
-    "b00100".U -> (pc + "h4".U(64.W)).asUInt(),                                           //jal,jalr
-    "b00101".U -> (DataR1 === DataR2).asUInt(),                                           //beq
-    "b00110".U -> (DataR1 < Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),            //sltiu
-    "b00111".U -> (DataR1 =/= DataR2).asUInt(),                                           //bne
-    "b01000".U -> (DataR1 - DataR2).asUInt(),                                             //sub
-    "b01001".U -> (DataR1 << DataR2(5,0)).asUInt(),                                       //sll,slli  ///TODO : WRONG WRONG
-    "b01010".U -> (DataR1 >> DataR2(5,0)).asUInt(),                                       //srl,srli
-    "b01011".U -> (DataR1.asSInt() >> DataR2(5,0)).asUInt(),                              //sra,srai
-    "b01100".U -> (io.Imm(31,12) << 12.U).asUInt(),                                       //lui
-    "b01101".U -> (DataR1 ^ DataR2).asUInt(),                                             //xor
-    "b01110".U -> (DataR1 ^ Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),            //xori
-    "b01111".U -> (DataR1 | DataR2).asUInt(),                                             //or
-    "b10000".U -> (DataR1 | Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),            //ori
-    "b10001".U -> (DataR1 & DataR2).asUInt(),                                             //and
-    "b10010".U -> (DataR1 & Cat(Fill(52, io.Imm(11)), io.Imm(11,0))).asUInt(),            //andi
-    "b10011".U -> (DataR1.asSInt() < DataR2.asSInt()).asUInt(),                                             //slt
-    "b10100".U -> (DataR1.asSInt() < Cat(Fill(52, io.Imm(11)), io.Imm(11,0)).asSInt()).asUInt(),            //slti
-  ));
+    "b00001".U -> (AluSrc1 + AluSrc2).asUInt(),                   //addi,ld,sd,add,auipc,jal,jalr
+    "b00010".U -> (AluSrc1 - AluSrc2).asUInt(),                   //sub
+    "b00011".U -> (AluSrc1 * AluSrc2).asUInt(),                   //mul
+    "b00100".U -> (AluSrc1.asSInt() / AluSrc2.asSInt()).asUInt(), //div
+    "b00101".U -> (AluSrc1 / AluSrc2).asUInt(),                   //divu
+    "b00110".U -> (AluSrc1.asSInt() % AluSrc2.asSInt()).asUInt(), //rem
+    "b00111".U -> (AluSrc1 % AluSrc2).asUInt(),                   //remu
+    "b01000".U -> (AluSrc1 === AluSrc2).asUInt(),                 //beq
+    "b01001".U -> (AluSrc1 =/= AluSrc2).asUInt(),                 //bne
+    "b01010".U -> (AluSrc1 < AluSrc2).asUInt(),                   //sltiu,bltu
+    "b01011".U -> (AluSrc1 >= AluSrc2.asUInt(),                   //bgeu
+    "b01100".U -> (AluSrc1.asSint() < AluSrc2.asSInt()).asUInt(), //slt,sli,blt
+    "b01101".U -> (AluSrc1.asSint() >= AluSrc2.asSint()).asUInt(),//bge
+    "b01110".U -> (AluSrc1 << AluSrc2).asUInt(),                  //sll,slli,lui
+    "b01111".U -> (AluSrc1 >> AluSrc2).asUInt(),                  //srl,srli
+    "b10000".U -> (AluSrc1.asSInt() >> AluSrc2).asUInt(),         //sra,srai
+    "b10001".U -> (AluSrc1 ^ AluSrc2).asUInt(),                   //xor,xori
+    "b10010".U -> (AluSrc1 | AluSrc2).asUInt(),                   //or,ori
+    "b10011".U -> (AluSrc1 & AluSrc2).asUInt(),                   //and,andi
+  ))
 
   io.PcVal := pc;
   Regs(0) := 0.U(64.W);

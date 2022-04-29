@@ -1,6 +1,7 @@
 package riscv.IDU
 import chisel3._
 import chisel3.util._
+import chisel3.experimental.ChiselEnum
 
 /**
   * IDU
@@ -45,22 +46,53 @@ class IDU extends Module {
   var inst_type = Wire(UInt(3.W)); //0 -> R, 1 -> I, 2 -> S, 3 -> B, 4 -> U, 5 -> J
   var contr_code = Wire(UInt(23.W));
 
-  inst_type := MuxLookup(opcode,0.U,Array(
-    "b00101_11".U -> 4.U, //auipc
-    "b00000_11".U -> 1.U, //ld
-    "b01000_11".U -> 2.U, //sd
-    "b00100_11".U -> 1.U, //addi,slli,srli,srai,xori,ori,andi
-    "b01100_11".U -> 0.U, //add,sll,srl,sra,sub,xor,or,and
-    "b00110_11".U -> 1.U, //addiw
-    "b01110_11".U -> 0.U, //addw,subw
-    "b01101_11".U -> 4.U, //lui
+  object OpcodeType extends ChiselEnum{
+    val R = 0.U
+    val I = 1.U
+    val S = 2.U
+    val B = 3.U
+    val U = 4.U
+    val J = 5.U
+  }
 
-    "b11011_11".U -> 5.U, //jal
-    "b11001_11".U -> 1.U, //jalr
-    "b11000_11".U -> 3.U, //beq
-    "b00000_11".U -> 1.U, //lw
-    "b00100_11".U -> 1.U, //sltiu
-    "b11000_11".U -> 3.U, //bne
+  object AluOpcode extends ChiselEnum {
+      val add   = "b00001".U 
+      val sub   = "b00010".U 
+      val mul   = "b00011".U
+      val div   = "b00100".U
+      val divu  = "b00101".U
+      val rem   = "b00110".U 
+      val remu  = "b00111".U 
+      val beq   = "b01000".U 
+      val bne   = "b01001".U
+      val bltu  = "b01010".U 
+      val bgeu  = "b01011".U 
+      val blt   = "b01100".U 
+      val bge   = "b01101".U 
+      val sll   = "b01110".U 
+      val srl   = "b01111".U 
+      val sra   = "b10000".U 
+      val xor   = "b10001".U 
+      val or    = "b10010".U
+      val and   = "b10011".U 
+  }
+
+  inst_type := MuxLookup(opcode,0.U,Array(
+    "b00101_11".U -> OpcodeType.U //auipc
+    "b00000_11".U -> OpcodeType.I, //ld
+    "b01000_11".U -> OpcodeType.S, //sd
+    "b00100_11".U -> OpcodeType.I, //addi,slli,srli,srai,xori,ori,andi
+    "b01100_11".U -> OpcodeType.R, //add,sll,srl,sra,sub,xor,or,and
+    "b00110_11".U -> OpcodeType.I, //addiw
+    "b01110_11".U -> OpcodeType.R, //addw,subw
+    "b01101_11".U -> OpcodeType.U, //lui
+
+    "b11011_11".U -> OpcodeType.J, //jal
+    "b11001_11".U -> OpcodeType.I, //jalr
+    "b11000_11".U -> OpcodeType.B, //beq
+    "b00000_11".U -> OpcodeType.I, //lw
+    "b00100_11".U -> OpcodeType.I, //sltiu
+    "b11000_11".U -> OpcodeType.B, //bne
   ))
 
   io.Imm := MuxLookup(inst_type,0.U,Array(
@@ -70,10 +102,11 @@ class IDU extends Module {
     4.U -> ImmU,
     5.U -> ImmJ
   ))
+  
 
-  //RegWrite 1 MemWrite 1 AluOp 5 PcSrc 5 RinCtl 3 MemMask 8
+  //RegWrite 1 MemWrite 1 AluSrc1Op 5 AluSrc2Op 5 AluOp 5 PcSrc 5 RinCtl 3 MemMask 8
   contr_code := Lookup(io.Inst,0.U(23.W),Array(
-    BitPat("b???????_?????_?????_???_?????_00101_11") -> "b1_0_00011_00000_000_00000000".U, //auipc
+    BitPat("b???????_?????_?????_???_?????_00101_11") -> "b1_0_00001_00101_00001_00000_000_00000000".U, //auipc
     BitPat("b???????_?????_?????_011_?????_00000_11") -> "b1_0_00001_00000_001_00000000".U, //ld
     BitPat("b???????_?????_?????_011_?????_01000_11") -> "b0_1_00001_00000_000_11111111".U, //sd
     BitPat("b???????_?????_?????_000_?????_00100_11") -> "b1_0_00001_00000_000_00000000".U, //addi
