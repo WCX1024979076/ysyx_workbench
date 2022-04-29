@@ -196,7 +196,7 @@ int main(int argc, char **argv, char **env)
   contextp->commandArgs(argc, argv);
   top = new VMain{contextp};
 
-  Verilated::traceEverOn(true);
+  // Verilated::traceEverOn(true);
 
   // m_trace = new VerilatedVcdC;
   // top->trace(m_trace, 5);
