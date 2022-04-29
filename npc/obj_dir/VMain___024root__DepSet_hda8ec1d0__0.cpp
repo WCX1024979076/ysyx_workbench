@@ -1695,7 +1695,7 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                                                          : 0ULL)))))))));
     if ((0x3bU == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
         vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
+        Main__DOT__idu__DOT___contr_code_T_257 = 2U;
     } else if ((0x1033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
         vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
         Main__DOT__idu__DOT___contr_code_T_257 = 0U;
