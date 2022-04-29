@@ -24,8 +24,6 @@ module IFU(
   assign mem_MemWrite = 1'h0; // @[IFU.scala 18:19]
 endmodule
 module IDU(
-  input         clock,
-  input         reset,
   input  [31:0] io_Inst,
   output        io_RegWrite,
   output        io_MemWrite,
@@ -133,30 +131,17 @@ module IDU(
   Ebreak ebreak ( // @[IDU.scala 40:20]
     .ebreak_in(ebreak_ebreak_in)
   );
-  assign io_RegWrite = contr_code[22]; // @[IDU.scala 100:28]
-  assign io_MemWrite = contr_code[21]; // @[IDU.scala 101:28]
-  assign io_AluOp = contr_code[20:16]; // @[IDU.scala 102:25]
-  assign io_PcSrc = contr_code[15:11]; // @[IDU.scala 103:25]
-  assign io_RinCtl = contr_code[10:8]; // @[IDU.scala 104:26]
-  assign io_MemMask = contr_code[7:0]; // @[IDU.scala 105:27]
+  assign io_RegWrite = contr_code[22]; // @[IDU.scala 99:28]
+  assign io_MemWrite = contr_code[21]; // @[IDU.scala 100:28]
+  assign io_AluOp = contr_code[20:16]; // @[IDU.scala 101:25]
+  assign io_PcSrc = contr_code[15:11]; // @[IDU.scala 102:25]
+  assign io_RinCtl = contr_code[10:8]; // @[IDU.scala 103:26]
+  assign io_MemMask = contr_code[7:0]; // @[IDU.scala 104:27]
   assign io_Rdest = io_Inst[11:7]; // @[IDU.scala 23:22]
   assign io_R1 = io_Inst[19:15]; // @[IDU.scala 24:19]
   assign io_R2 = io_Inst[24:20]; // @[IDU.scala 25:19]
   assign io_Imm = 3'h5 == inst_type ? ImmJ : _io_Imm_T_7; // @[Mux.scala 80:57]
   assign ebreak_ebreak_in = 32'h100073 == io_Inst; // @[Mux.scala 80:60]
-  always @(posedge clock) begin
-    `ifndef SYNTHESIS
-    `ifdef PRINTF_COND
-      if (`PRINTF_COND) begin
-    `endif
-        if (~reset) begin
-          $fwrite(32'h80000002,"reg"); // @[IDU.scala 99:9]
-        end
-    `ifdef PRINTF_COND
-      end
-    `endif
-    `endif // SYNTHESIS
-  end
 endmodule
 module EXU(
   input         clock,
@@ -943,8 +928,6 @@ module Main(
 );
   wire [63:0] ifu_io_Pc; // @[Main.scala 25:17]
   wire [31:0] ifu_io_Inst; // @[Main.scala 25:17]
-  wire  idu_clock; // @[Main.scala 29:17]
-  wire  idu_reset; // @[Main.scala 29:17]
   wire [31:0] idu_io_Inst; // @[Main.scala 29:17]
   wire  idu_io_RegWrite; // @[Main.scala 29:17]
   wire  idu_io_MemWrite; // @[Main.scala 29:17]
@@ -974,8 +957,6 @@ module Main(
     .io_Inst(ifu_io_Inst)
   );
   IDU idu ( // @[Main.scala 29:17]
-    .clock(idu_clock),
-    .reset(idu_reset),
     .io_Inst(idu_io_Inst),
     .io_RegWrite(idu_io_RegWrite),
     .io_MemWrite(idu_io_MemWrite),
@@ -1004,8 +985,6 @@ module Main(
     .io_PcVal(exu_io_PcVal)
   );
   assign ifu_io_Pc = exu_io_PcVal; // @[Main.scala 12:14 Main.scala 53:6]
-  assign idu_clock = clock;
-  assign idu_reset = reset;
   assign idu_io_Inst = ifu_io_Inst; // @[Main.scala 13:16 Main.scala 27:8]
   assign exu_clock = clock;
   assign exu_reset = reset;

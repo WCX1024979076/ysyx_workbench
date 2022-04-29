@@ -75,6 +75,7 @@ void pmem_read(long long Raddr, long long *Rdata)
   if (Raddr < CONFIG_MBASE || Raddr >= CONFIG_MSIZE + CONFIG_MBASE)
     return;
   (*Rdata) = *((long long *)guest_to_host(Raddr));
+  printf("READ DATA %lx %lx", Raddr, Rdata);
   return;
 }
 
@@ -174,11 +175,8 @@ void check_regs_npc(CPU_state ref_cpu)
 void init_npc()
 {
   top->reset = 1;
-  puts("123");
   for (int i = 1; i <= 10; i++)
     cpu_sim();
-  puts("123");
-  
   top->reset = 0;
   // cpu_sim();
 }
