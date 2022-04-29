@@ -62,22 +62,22 @@ class EXU extends Module {
   ));
 
   AluOut := MuxLookup(io.AluOp,0.U, Array(
-    "h1".U(5.W)  -> (DataR1 + Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //addi,ld,sd
-    "h2".U(5.W) -> (DataR1 + DataR2),                                             //add
-    "h3".U(5.W)  -> (pc + Cat(Fill(44, io.Imm(19)), io.Imm(19,0))),                //auipc
-    "h4".U(5.W)  -> (pc + "h4".U(64.W)),                                           //jal,jalr
-    "h5".U(5.W)  -> (DataR1 === DataR2),                                           //beq
-    "h6".U(5.W)  -> (DataR1 < Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //sltiu
-    "h7".U(5.W)  -> (DataR1 =/= DataR2),                                           //bne
-    "h8".U(5.W)  -> (DataR1 - DataR2),                                             //sub
-    "h9".U(5.W)  -> (DataR1 << DataR2(5,0)),                                       //sll,slli
-    "ha".U(5.W)  -> (DataR1 >> DataR2(5,0)),                                       //srl,srli
-    "hb".U(5.W)  -> (DataR1.asSInt() >> DataR2(5,0)),                              //sra,srai
-    "hc".U(5.W)  -> (io.Imm(31,12) << 12.U),                                       //lui
-    "hd".U(5.W)  -> (DataR1 ^ DataR2),                                             //xor
-    "he".U(5.W)  -> (DataR1 ^ Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //xori
-    "hf".U(5.W) -> (DataR1 | DataR2),                                             //or
-    "h10".asUInt(5.W) -> (DataR1 | Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),           //ori
+    "h1".U(8.W)  -> (DataR1 + Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //addi,ld,sd
+    "h2".U(8.W) -> (DataR1 + DataR2),                                             //add
+    "h3".U(8.W)  -> (pc + Cat(Fill(44, io.Imm(19)), io.Imm(19,0))),                //auipc
+    "h4".U(8.W)  -> (pc + "h4".U(64.W)),                                           //jal,jalr
+    "h5".U(8.W)  -> (DataR1 === DataR2),                                           //beq
+    "h6".U(8.W)  -> (DataR1 < Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //sltiu
+    "h7".U(8.W)  -> (DataR1 =/= DataR2),                                           //bne
+    "h8".U(8.W)  -> (DataR1 - DataR2),                                             //sub
+    "h9".U(8.W)  -> (DataR1 << DataR2(5,0)),                                       //sll,slli
+    "ha".U(8.W)  -> (DataR1 >> DataR2(5,0)),                                       //srl,srli
+    "hb".U(8.W)  -> (DataR1.asSInt() >> DataR2(5,0)),                              //sra,srai
+    "hc".U(8.W)  -> (io.Imm(31,12) << 12.U),                                       //lui
+    "hd".U(8.W)  -> (DataR1 ^ DataR2),                                             //xor
+    "he".U(8.W)  -> (DataR1 ^ Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //xori
+    "hf".U(8.W) -> (DataR1 | DataR2),                                             //or
+    "h10".U(8.W) -> (DataR1 | Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),           //ori
   ));
 
   io.PcVal := pc;
