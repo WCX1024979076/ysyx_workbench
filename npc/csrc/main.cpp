@@ -181,6 +181,7 @@ void init_npc()
   for (int i = 1; i <= 10; i++)
     cpu_sim();
   top->reset = 0;
+  m_trace->dump(sim_time++);
 
   m_trace->close();
   delete top;
