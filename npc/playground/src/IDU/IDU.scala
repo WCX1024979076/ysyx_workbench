@@ -14,11 +14,9 @@ class IDU extends Module {
     val AluOp=Output(UInt(5.W))
     val AluSrc1Op=Output(UInt(5.W))
     val AluSrc2Op=Output(UInt(5.W))
-
     val PcSrc=Output(UInt(5.W))
     val RinCtl=Output(UInt(3.W))
     val MemMask=Output(UInt(8.W))
-
     val Rdest=Output(UInt(5.W))
     val R1=Output(UInt(5.W))
     val R2=Output(UInt(5.W))
