@@ -102,6 +102,7 @@ long ld(char *img_file)
     printf("No image is given. Use the default build-in image.");
     return 4096; // built-in image size
   }
+      puts("123");
 
   FILE *fp = fopen(img_file, "rb");
   assert(fp);
