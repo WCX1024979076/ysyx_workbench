@@ -313,46 +313,45 @@ module EXU(
   wire [31:0] DataIn_hi = MemOut[31] ? 32'hffffffff : 32'h0; // @[Bitwise.scala 72:12]
   wire [31:0] DataIn_lo = MemOut[31:0]; // @[EXU.scala 40:46]
   wire [63:0] _DataIn_T_2 = {DataIn_hi,DataIn_lo}; // @[Cat.scala 30:58]
-  wire [63:0] _AluOut_T_25 = DataR1 - DataR2; // @[EXU.scala 72:22]
-  wire  _AluOut_T_23 = DataR1 != DataR2; // @[EXU.scala 71:23]
-  wire [41:0] AluOut_hi = io_Imm[11] ? 42'h3ffffffffff : 42'h0; // @[Bitwise.scala 72:12]
-  wire [11:0] AluOut_lo = io_Imm[11:0]; // @[EXU.scala 70:57]
-  wire [53:0] _AluOut_T_21 = {AluOut_hi,AluOut_lo}; // @[Cat.scala 30:58]
-  wire [63:0] _GEN_128 = {{10'd0}, _AluOut_T_21}; // @[EXU.scala 70:23]
-  wire  _AluOut_T_22 = DataR1 < _GEN_128; // @[EXU.scala 70:23]
-  wire  _AluOut_T_18 = DataR1 == DataR2; // @[EXU.scala 69:23]
-  wire [63:0] _AluOut_T_17 = pc + 64'h4; // @[EXU.scala 68:18]
-  wire [19:0] _AluOut_T_11 = io_Imm[19:0]; // @[EXU.scala 67:48]
-  wire [63:0] _GEN_129 = {{44{_AluOut_T_11[19]}},_AluOut_T_11}; // @[EXU.scala 67:27]
-  wire [63:0] _AluOut_T_15 = $signed(pc) + $signed(_GEN_129); // @[EXU.scala 67:58]
-  wire [63:0] _AluOut_T_8 = DataR1 + DataR2; // @[EXU.scala 66:22]
-  wire [63:0] _AluOut_T = 5'h1f == io_R1 ? Regs_31 : _GEN_30; // @[EXU.scala 65:28]
-  wire [11:0] _AluOut_T_2 = io_Imm[11:0]; // @[EXU.scala 65:52]
-  wire [63:0] _GEN_130 = {{52{_AluOut_T_2[11]}},_AluOut_T_2}; // @[EXU.scala 65:31]
-  wire [63:0] _AluOut_T_6 = $signed(_AluOut_T) + $signed(_GEN_130); // @[EXU.scala 65:62]
-  wire [63:0] _AluOut_T_27 = 5'h1 == io_AluOp ? _AluOut_T_6 : 64'h0; // @[Mux.scala 80:57]
-  wire [63:0] _AluOut_T_29 = 5'h2 == io_AluOp ? _AluOut_T_8 : _AluOut_T_27; // @[Mux.scala 80:57]
-  wire [63:0] _AluOut_T_31 = 5'h3 == io_AluOp ? _AluOut_T_15 : _AluOut_T_29; // @[Mux.scala 80:57]
-  wire [63:0] _AluOut_T_33 = 5'h4 == io_AluOp ? _AluOut_T_17 : _AluOut_T_31; // @[Mux.scala 80:57]
-  wire [63:0] _AluOut_T_35 = 5'h5 == io_AluOp ? {{63'd0}, _AluOut_T_18} : _AluOut_T_33; // @[Mux.scala 80:57]
-  wire [63:0] _AluOut_T_37 = 5'h6 == io_AluOp ? {{63'd0}, _AluOut_T_22} : _AluOut_T_35; // @[Mux.scala 80:57]
-  wire [63:0] _AluOut_T_39 = 5'h7 == io_AluOp ? {{63'd0}, _AluOut_T_23} : _AluOut_T_37; // @[Mux.scala 80:57]
-  wire [63:0] AluOut = 5'h8 == io_AluOp ? _AluOut_T_25 : _AluOut_T_39; // @[Mux.scala 80:57]
+  wire [63:0] _AluOut_T_21 = DataR1 - DataR2; // @[EXU.scala 72:21]
+  wire  _AluOut_T_19 = DataR1 != DataR2; // @[EXU.scala 71:22]
+  wire [51:0] AluOut_hi_2 = io_Imm[11] ? 52'hfffffffffffff : 52'h0; // @[Bitwise.scala 72:12]
+  wire [11:0] AluOut_lo_2 = io_Imm[11:0]; // @[EXU.scala 70:56]
+  wire [63:0] _AluOut_T_17 = {AluOut_hi_2,AluOut_lo_2}; // @[Cat.scala 30:58]
+  wire  _AluOut_T_18 = DataR1 < _AluOut_T_17; // @[EXU.scala 70:22]
+  wire  _AluOut_T_14 = DataR1 == DataR2; // @[EXU.scala 69:22]
+  wire [63:0] _AluOut_T_13 = pc + 64'h4; // @[EXU.scala 68:18]
+  wire [43:0] AluOut_hi_1 = io_Imm[19] ? 44'hfffffffffff : 44'h0; // @[Bitwise.scala 72:12]
+  wire [19:0] AluOut_lo_1 = io_Imm[19:0]; // @[EXU.scala 67:52]
+  wire [63:0] _AluOut_T_9 = {AluOut_hi_1,AluOut_lo_1}; // @[Cat.scala 30:58]
+  wire [63:0] _AluOut_T_11 = pc + _AluOut_T_9; // @[EXU.scala 67:18]
+  wire [63:0] _AluOut_T_6 = DataR1 + DataR2; // @[EXU.scala 66:22]
+  wire [63:0] _AluOut_T_4 = DataR1 + _AluOut_T_17; // @[EXU.scala 65:22]
+  wire [63:0] _AluOut_T_23 = 5'h1 == io_AluOp ? _AluOut_T_4 : 64'h0; // @[Mux.scala 80:57]
+  wire [63:0] _AluOut_T_25 = 5'h2 == io_AluOp ? _AluOut_T_6 : _AluOut_T_23; // @[Mux.scala 80:57]
+  wire [63:0] _AluOut_T_27 = 5'h3 == io_AluOp ? _AluOut_T_11 : _AluOut_T_25; // @[Mux.scala 80:57]
+  wire [63:0] _AluOut_T_29 = 5'h4 == io_AluOp ? _AluOut_T_13 : _AluOut_T_27; // @[Mux.scala 80:57]
+  wire [63:0] _AluOut_T_31 = 5'h5 == io_AluOp ? {{63'd0}, _AluOut_T_14} : _AluOut_T_29; // @[Mux.scala 80:57]
+  wire [63:0] _AluOut_T_33 = 5'h6 == io_AluOp ? {{63'd0}, _AluOut_T_18} : _AluOut_T_31; // @[Mux.scala 80:57]
+  wire [63:0] _AluOut_T_35 = 5'h7 == io_AluOp ? {{63'd0}, _AluOut_T_19} : _AluOut_T_33; // @[Mux.scala 80:57]
+  wire [63:0] AluOut = 5'h8 == io_AluOp ? _AluOut_T_21 : _AluOut_T_35; // @[Mux.scala 80:57]
   wire [31:0] DataIn_hi_1 = AluOut[31] ? 32'hffffffff : 32'h0; // @[Bitwise.scala 72:12]
   wire [31:0] DataIn_lo_1 = AluOut[31:0]; // @[EXU.scala 41:46]
   wire [63:0] _DataIn_T_5 = {DataIn_hi_1,DataIn_lo_1}; // @[Cat.scala 30:58]
   wire [63:0] _DataIn_T_7 = 3'h0 == io_RinCtl ? AluOut : 64'h0; // @[Mux.scala 80:57]
   wire [63:0] _DataIn_T_9 = 3'h1 == io_RinCtl ? MemOut : _DataIn_T_7; // @[Mux.scala 80:57]
   wire [63:0] _DataIn_T_11 = 3'h2 == io_RinCtl ? _DataIn_T_2 : _DataIn_T_9; // @[Mux.scala 80:57]
-  wire [20:0] _pc_T_6 = io_Imm[20:0]; // @[EXU.scala 57:48]
-  wire [63:0] _GEN_131 = {{43{_pc_T_6[20]}},_pc_T_6}; // @[EXU.scala 57:27]
-  wire [63:0] _pc_T_10 = $signed(pc) + $signed(_GEN_131); // @[EXU.scala 57:58]
-  wire [63:0] _pc_T_12 = DataR1 + io_Imm; // @[EXU.scala 58:23]
-  wire [63:0] _pc_T_14 = _pc_T_12 & 64'hfffffffffffffffe; // @[EXU.scala 58:33]
-  wire [12:0] _pc_T_19 = io_Imm[12:0]; // @[EXU.scala 60:48]
-  wire [63:0] _GEN_132 = {{51{_pc_T_19[12]}},_pc_T_19}; // @[EXU.scala 60:27]
-  wire [63:0] _pc_T_23 = $signed(pc) + $signed(_GEN_132); // @[EXU.scala 60:58]
-  wire [63:0] _pc_T_27 = 5'h0 == io_PcSrc ? _AluOut_T_17 : _AluOut_T_17; // @[Mux.scala 80:57]
+  wire [42:0] pc_hi = io_Imm[20] ? 43'h7ffffffffff : 43'h0; // @[Bitwise.scala 72:12]
+  wire [20:0] pc_lo = io_Imm[20:0]; // @[EXU.scala 57:52]
+  wire [63:0] _pc_T_6 = {pc_hi,pc_lo}; // @[Cat.scala 30:58]
+  wire [63:0] _pc_T_8 = pc + _pc_T_6; // @[EXU.scala 57:18]
+  wire [63:0] _pc_T_10 = DataR1 + io_Imm; // @[EXU.scala 58:23]
+  wire [63:0] _pc_T_12 = _pc_T_10 & 64'hfffffffffffffffe; // @[EXU.scala 58:33]
+  wire [50:0] pc_hi_1 = io_Imm[12] ? 51'h7ffffffffffff : 51'h0; // @[Bitwise.scala 72:12]
+  wire [12:0] pc_lo_1 = io_Imm[12:0]; // @[EXU.scala 60:53]
+  wire [63:0] _pc_T_17 = {pc_hi_1,pc_lo_1}; // @[Cat.scala 30:58]
+  wire [63:0] _pc_T_19 = pc + _pc_T_17; // @[EXU.scala 60:18]
+  wire [63:0] _pc_T_23 = 5'h0 == io_PcSrc ? _AluOut_T_13 : _AluOut_T_13; // @[Mux.scala 80:57]
   Mem mem ( // @[EXU.scala 28:19]
     .Raddr(mem_Raddr),
     .Rdata(mem_Rdata),
@@ -397,8 +396,8 @@ module EXU(
     .PcVal(difftest_PcVal)
   );
   assign io_PcVal = pc; // @[EXU.scala 75:12]
-  assign mem_Raddr = 5'h8 == io_AluOp ? _AluOut_T_25 : _AluOut_T_39; // @[Mux.scala 80:57]
-  assign mem_Waddr = 5'h8 == io_AluOp ? _AluOut_T_25 : _AluOut_T_39; // @[Mux.scala 80:57]
+  assign mem_Raddr = 5'h8 == io_AluOp ? _AluOut_T_21 : _AluOut_T_35; // @[Mux.scala 80:57]
+  assign mem_Waddr = 5'h8 == io_AluOp ? _AluOut_T_21 : _AluOut_T_35; // @[Mux.scala 80:57]
   assign mem_Wdata = 5'h1f == io_R2 ? Regs_31 : _GEN_62; // @[EXU.scala 36:10 EXU.scala 36:10]
   assign mem_Wmask = io_MemMask; // @[EXU.scala 52:16]
   assign mem_MemWrite = io_MemWrite; // @[EXU.scala 53:19]
@@ -781,16 +780,16 @@ module EXU(
       pc <= 64'h80000000; // @[EXU.scala 30:19]
     end else if (5'h3 == io_PcSrc) begin // @[Mux.scala 80:57]
       if (64'h1 == AluOut) begin // @[Mux.scala 80:57]
-        pc <= _pc_T_23;
+        pc <= _pc_T_19;
       end else begin
-        pc <= _AluOut_T_17;
+        pc <= _AluOut_T_13;
       end
     end else if (5'h2 == io_PcSrc) begin // @[Mux.scala 80:57]
-      pc <= _pc_T_14;
+      pc <= _pc_T_12;
     end else if (5'h1 == io_PcSrc) begin // @[Mux.scala 80:57]
-      pc <= _pc_T_10;
+      pc <= _pc_T_8;
     end else begin
-      pc <= _pc_T_27;
+      pc <= _pc_T_23;
     end
   end
 // Register and memory initialization
