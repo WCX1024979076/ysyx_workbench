@@ -82,7 +82,7 @@ class IDU extends Module {
   ))
 
   //RegWrite 1 MemWrite 1 AluOp 5 PcSrc 5 RinCtl 3 MemMask 8
-  contr_code := ListLookup(inst_flag,0.U,Array(
+  contr_code := ListLookup(inst_flag,Array(
     BitPat("b0000000_000_01100_??".U) -> 1.U,
     "b0000000_000_00101_11".U -> "b1_0_00011_00000_000_00000000".U, //auipc
     "b0000000_011_00000_11".U -> "b1_0_00001_00000_001_00000000".U, //ld
