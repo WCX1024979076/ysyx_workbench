@@ -83,25 +83,25 @@ class EXU extends Module {
   ));
 
   AluOut := MuxLookup(io.AluOp,0.U, Array(
-    "b00001".U -> (AluSrc1 + AluSrc2).asUInt(),                   //addi,ld,sd,add,auipc,jal,jalr
-    "b00010".U -> (AluSrc1 - AluSrc2).asUInt(),                   //sub
-    "b00011".U -> (AluSrc1 * AluSrc2).asUInt(),                   //mul
-    //"b00100".U -> (AluSrc1.asSInt() / AluSrc2.asSInt()).asUInt(), //div
-    //"b00101".U -> (AluSrc1 / AluSrc2).asUInt(),                   //divu
-    "b00110".U -> (AluSrc1.asSInt() % AluSrc2.asSInt()).asUInt(), //rem
-    "b00111".U -> (AluSrc1 % AluSrc2).asUInt(),                   //remu
-    "b01000".U -> (AluSrc1 === AluSrc2).asUInt(),                 //beq
-    "b01001".U -> (AluSrc1 =/= AluSrc2).asUInt(),                 //bne
-    "b01010".U -> (AluSrc1 < AluSrc2).asUInt(),                   //sltiu,bltu
-    "b01011".U -> (AluSrc1 >= AluSrc2).asUInt(),                   //bgeu
-    "b01100".U -> (AluSrc1.asSInt() < AluSrc2.asSInt()).asUInt(), //slt,sli,blt
-    "b01101".U -> (AluSrc1.asSInt() >= AluSrc2.asSInt()).asUInt(),//bge
+    "b00001".U -> (AluSrc1 + AluSrc2).asUInt(),                        //addi,ld,sd,add,auipc,jal,jalr
+    "b00010".U -> (AluSrc1 - AluSrc2).asUInt(),                        //sub
+    "b00011".U -> (AluSrc1 * AluSrc2).asUInt(),                        //mul
+    //"b00100".U -> (AluSrc1.asSInt() / AluSrc2.asSInt()).asUInt(),    //div
+    //"b00101".U -> (AluSrc1 / AluSrc2).asUInt(),                      //divu
+    "b00110".U -> (AluSrc1.asSInt() % AluSrc2.asSInt()).asUInt(),      //rem
+    "b00111".U -> (AluSrc1 % AluSrc2).asUInt(),                        //remu
+    "b01000".U -> (AluSrc1 === AluSrc2).asUInt(),                      //beq
+    "b01001".U -> (AluSrc1 =/= AluSrc2).asUInt(),                      //bne
+    "b01010".U -> (AluSrc1 < AluSrc2).asUInt(),                        //sltiu,bltu
+    "b01011".U -> (AluSrc1 >= AluSrc2).asUInt(),                       //bgeu
+    "b01100".U -> (AluSrc1.asSInt() < AluSrc2.asSInt()).asUInt(),      //slt,sli,blt
+    "b01101".U -> (AluSrc1.asSInt() >= AluSrc2.asSInt()).asUInt(),     //bge
     "b01110".U -> (AluSrc1 << AluSrc2(5,0)).asUInt(),                  //sll,slli,lui
     "b01111".U -> (AluSrc1 >> AluSrc2(5,0)).asUInt(),                  //srl,srli
     "b10000".U -> (AluSrc1.asSInt() >> AluSrc2(5,0)).asUInt(),         //sra,srai
-    "b10001".U -> (AluSrc1 ^ AluSrc2).asUInt(),                   //xor,xori
-    "b10010".U -> (AluSrc1 | AluSrc2).asUInt(),                   //or,ori
-    "b10011".U -> (AluSrc1 & AluSrc2).asUInt(),                   //and,andi
+    "b10001".U -> (AluSrc1 ^ AluSrc2).asUInt(),                        //xor,xori
+    "b10010".U -> (AluSrc1 | AluSrc2).asUInt(),                        //or,ori
+    "b10011".U -> (AluSrc1 & AluSrc2).asUInt(),                        //and,andi
   ))
 
   io.PcVal := pc;
