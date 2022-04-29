@@ -74,7 +74,7 @@ class IDU extends Module {
   //RegWrite 1 MemWrite 1 AluOp 5 PcSrc 5 RinCtl 3 MemMask 8
 
   contr_code := Lookup(io.Inst,0.U(23.W),Array(
-    BitPat("b???????_?????_?????_000_?????_00100_11") -> "b1_0_00001_00000_000_00000000".U, //addi
+    BitPat("b0000000_00000_00000_000_01000_00100_11") -> "b1_0_00001_00000_000_00000000".U, //addi
   ))
   
   io.RegWrite := contr_code(22,22);
