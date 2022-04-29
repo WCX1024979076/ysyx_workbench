@@ -32,7 +32,9 @@ class EXU extends Module {
   var mem = Module(new Mem);
   var difftest = Module(new Difftest);
   var pc = RegInit("h80000000".U(64.W));
-
+  var AluSrc1 = Wire(UInt(64.W))
+  var AluSrc2 = Wire(UInt(64.W))
+  
   difftest.io.gpr := Regs;
   difftest.io.PcVal := pc;
 
@@ -66,14 +68,14 @@ class EXU extends Module {
       1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
       ))
   ));
-  var AluSrc1 = Wire(UInt(64.W))
+
   AluSrc1 := MuxLookup(io.AluSrc1Op,DataR1 ,Array(    
     "b00000".U -> DataR1,
     "b00001".U -> pc,
     "b00010".U -> io.Imm(31,12),
   ));
 
-  var AluSrc2 := MuxLookup(io.AluSrc2Op,DataR2,Array(
+  AluSrc2 := MuxLookup(io.AluSrc2Op,DataR2,Array(
     "b00000".U -> DataR2,
     "b00001".U -> DataR2(5,0),
     "b00010".U -> io.Imm(5,0),
