@@ -20,19 +20,21 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
     // Init
     VlWide<3>/*95:0*/ Main__DOT__idu__DOT___io_Imm_T_3;
     VlWide<3>/*75:0*/ Main__DOT__idu__DOT___io_Imm_T_7;
-    VlWide<3>/*76:0*/ Main__DOT__idu__DOT___io_Imm_T_59;
-    QData/*63:0*/ Main__DOT__idu__DOT___io_Imm_T_100;
-    CData/*0:0*/ Main__DOT__idu__DOT___contr_code_T_87;
-    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_133;
-    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_144;
-    CData/*2:0*/ Main__DOT__idu__DOT___contr_code_T_157;
-    CData/*2:0*/ Main__DOT__idu__DOT___contr_code_T_168;
-    CData/*3:0*/ Main__DOT__idu__DOT___contr_code_T_185;
-    CData/*4:0*/ Main__DOT__idu__DOT___contr_code_T_195;
-    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_206;
-    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_217;
-    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_246;
-    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_257;
+    QData/*63:0*/ Main__DOT__idu__DOT___io_Imm_T_78;
+    CData/*0:0*/ Main__DOT__idu__DOT___contr_code_T_105;
+    CData/*0:0*/ Main__DOT__idu__DOT___contr_code_T_155;
+    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_166;
+    CData/*2:0*/ Main__DOT__idu__DOT___contr_code_T_186;
+    CData/*2:0*/ Main__DOT__idu__DOT___contr_code_T_197;
+    CData/*2:0*/ Main__DOT__idu__DOT___contr_code_T_208;
+    CData/*3:0*/ Main__DOT__idu__DOT___contr_code_T_221;
+    CData/*4:0*/ Main__DOT__idu__DOT___contr_code_T_231;
+    CData/*4:0*/ Main__DOT__idu__DOT___contr_code_T_242;
+    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_258;
+    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_269;
+    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_292;
+    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_303;
+    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_314;
     QData/*63:0*/ Main__DOT__exu__DOT___GEN_13;
     QData/*63:0*/ Main__DOT__exu__DOT___GEN_26;
     QData/*63:0*/ Main__DOT__exu__DOT___GEN_45;
@@ -137,54 +139,54 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
     if ((0x100073U == (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) {
         VMain___024unit____Vdpiimwrap_ebreak_TOP____024unit();
     }
-    Main__DOT__idu__DOT___contr_code_T_87 = ((0x3023U 
-                                              != (0x707fU 
-                                                  & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                             & ((0x13U 
-                                                 == 
-                                                 (0x707fU 
-                                                  & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                | ((0x33U 
-                                                    == 
-                                                    (0xfe00707fU 
-                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                   | ((0x1bU 
-                                                       == 
-                                                       (0x707fU 
-                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                      | ((0x3bU 
-                                                          == 
-                                                          (0xfe00707fU 
-                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                         | ((0x1033U 
-                                                             == 
-                                                             (0xfe00707fU 
-                                                              & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                            | ((0x1013U 
-                                                                == 
-                                                                (0xfc00707fU 
-                                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                               | ((0x5033U 
-                                                                   == 
-                                                                   (0xfe00707fU 
-                                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                                  | ((0x5013U 
-                                                                      == 
-                                                                      (0xfc00707fU 
-                                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                                     | ((0x40005033U 
-                                                                         == 
-                                                                         (0xfe00707fU 
-                                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                                        | ((0x40005013U 
-                                                                            == 
-                                                                            (0xfc00707fU 
-                                                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                                           | ((0x40000033U 
-                                                                               == 
-                                                                               (0xfe00707fU 
+    Main__DOT__idu__DOT___contr_code_T_105 = ((0x3023U 
+                                               != (0x707fU 
+                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                              & ((0x13U 
+                                                  == 
+                                                  (0x707fU 
+                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                 | ((0x33U 
+                                                     == 
+                                                     (0xfe00707fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                    | ((0x1bU 
+                                                        == 
+                                                        (0x707fU 
+                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                       | ((0x3bU 
+                                                           == 
+                                                           (0xfe00707fU 
+                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                          | ((0x1033U 
+                                                              == 
+                                                              (0xfe00707fU 
+                                                               & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                             | ((0x1013U 
+                                                                 == 
+                                                                 (0xfc00707fU 
+                                                                  & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                | ((0x5033U 
+                                                                    == 
+                                                                    (0xfe00707fU 
+                                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                   | ((0x5013U 
+                                                                       == 
+                                                                       (0xfc00707fU 
+                                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                      | ((0x40005033U 
+                                                                          == 
+                                                                          (0xfe00707fU 
+                                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                         | ((0x40005013U 
+                                                                             == 
+                                                                             (0xfc00707fU 
+                                                                              & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                            | ((0x40000033U 
+                                                                                == 
+                                                                                (0xfe00707fU 
                                                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                                              | ((0x4000003bU 
+                                                                               | ((0x4000003bU 
                                                                                 == 
                                                                                 (0xfe00707fU 
                                                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
@@ -224,11 +226,11 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                                 == 
                                                                                 (0x707fU 
                                                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                                                | ((0x6fU 
+                                                                                | ((0x3033U 
                                                                                 == 
-                                                                                (0x7fU 
+                                                                                (0xfe00707fU 
                                                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                                                | ((0x67U 
+                                                                                | ((0x3013U 
                                                                                 == 
                                                                                 (0x707fU 
                                                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
@@ -236,82 +238,236 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                                 != 
                                                                                 (0x707fU 
                                                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                                                & ((0x2003U 
+                                                                                & ((0x1063U 
+                                                                                != 
+                                                                                (0x707fU 
+                                                                                & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                                & ((0x4063U 
+                                                                                != 
+                                                                                (0x707fU 
+                                                                                & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                                & ((0x5063U 
+                                                                                != 
+                                                                                (0x707fU 
+                                                                                & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                                & ((0x6063U 
+                                                                                != 
+                                                                                (0x707fU 
+                                                                                & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                                & ((0x7063U 
+                                                                                != 
+                                                                                (0x707fU 
+                                                                                & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                                & ((0x6fU 
+                                                                                == 
+                                                                                (0x7fU 
+                                                                                & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                                | ((0x67U 
+                                                                                == 
+                                                                                (0x707fU 
+                                                                                & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                                | ((0x2003U 
                                                                                 == 
                                                                                 (0x707fU 
                                                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
                                                                                 | (0x3013U 
                                                                                 == 
                                                                                 (0x707fU 
-                                                                                & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))))))))))))))))))))))))))));
-    Main__DOT__idu__DOT___contr_code_T_206 = ((0x3013U 
+                                                                                & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))))))))))))))))))))))))))))))))))));
+    Main__DOT__idu__DOT___contr_code_T_258 = ((0x3033U 
+                                               == (0xfe00707fU 
+                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                               ? 0U
+                                               : ((0x3013U 
+                                                   == 
+                                                   (0x707fU 
+                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                   ? 0U
+                                                   : 
+                                                  ((0x63U 
+                                                    == 
+                                                    (0x707fU 
+                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                    ? 3U
+                                                    : 
+                                                   ((0x1063U 
+                                                     == 
+                                                     (0x707fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                     ? 3U
+                                                     : 
+                                                    ((0x4063U 
+                                                      == 
+                                                      (0x707fU 
+                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                      ? 3U
+                                                      : 
+                                                     ((0x5063U 
+                                                       == 
+                                                       (0x707fU 
+                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                       ? 3U
+                                                       : 
+                                                      ((0x6063U 
+                                                        == 
+                                                        (0x707fU 
+                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                        ? 3U
+                                                        : 
+                                                       ((0x7063U 
+                                                         == 
+                                                         (0x707fU 
+                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                         ? 3U
+                                                         : 
+                                                        ((0x6fU 
+                                                          == 
+                                                          (0x7fU 
+                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                          ? 1U
+                                                          : 
+                                                         ((0x67U 
+                                                           == 
+                                                           (0x707fU 
+                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                           ? 2U
+                                                           : 0U))))))))));
+    Main__DOT__idu__DOT___contr_code_T_292 = ((0x3013U 
                                                == (0x707fU 
                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                ? 0U
+                                               : ((0x63U 
+                                                   == 
+                                                   (0x707fU 
+                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                   ? 0U
+                                                   : 
+                                                  ((0x1063U 
+                                                    == 
+                                                    (0x707fU 
+                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                    ? 3U
+                                                    : 
+                                                   ((0x4063U 
+                                                     == 
+                                                     (0x707fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                     ? 3U
+                                                     : 
+                                                    ((0x5063U 
+                                                      == 
+                                                      (0x707fU 
+                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                      ? 3U
+                                                      : 
+                                                     ((0x6063U 
+                                                       == 
+                                                       (0x707fU 
+                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                       ? 3U
+                                                       : 
+                                                      ((0x7063U 
+                                                        == 
+                                                        (0x707fU 
+                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                        ? 3U
+                                                        : 
+                                                       ((0x6fU 
+                                                         == 
+                                                         (0x7fU 
+                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                         ? 0U
+                                                         : 
+                                                        ((0x67U 
+                                                          == 
+                                                          (0x707fU 
+                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                          ? 0U
+                                                          : 
+                                                         ((0x2003U 
+                                                           == 
+                                                           (0x707fU 
+                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                           ? 3U
+                                                           : 0U))))))))));
+    Main__DOT__idu__DOT___contr_code_T_221 = ((0x63U 
+                                               == (0x707fU 
+                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                               ? 8U
                                                : ((0x1063U 
                                                    == 
                                                    (0x707fU 
                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                   ? 3U
-                                                   : 0U));
-    Main__DOT__idu__DOT___contr_code_T_185 = ((0x7033U 
-                                               == (0xfe00707fU 
-                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                               ? 1U
-                                               : ((0x7013U 
-                                                   == 
-                                                   (0x707fU 
-                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                   ? 1U
+                                                   ? 9U
                                                    : 
-                                                  ((0x2033U 
+                                                  ((0x4063U 
                                                     == 
-                                                    (0xfe00707fU 
+                                                    (0x707fU 
                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                     ? 0xcU
                                                     : 
-                                                   ((0x2013U 
+                                                   ((0x5063U 
                                                      == 
                                                      (0x707fU 
                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                     ? 0xcU
+                                                     ? 0xdU
                                                      : 
-                                                    ((0x6fU 
+                                                    ((0x6063U 
                                                       == 
-                                                      (0x7fU 
+                                                      (0x707fU 
                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                      ? 1U
+                                                      ? 0xaU
                                                       : 
-                                                     ((0x67U 
+                                                     ((0x7063U 
                                                        == 
                                                        (0x707fU 
                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                       ? 1U
+                                                       ? 0xbU
                                                        : 
-                                                      ((0x63U 
+                                                      ((0x6fU 
                                                         == 
-                                                        (0x707fU 
+                                                        (0x7fU 
                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                        ? 8U
+                                                        ? 1U
                                                         : 
-                                                       ((0x2003U 
+                                                       ((0x67U 
                                                          == 
                                                          (0x707fU 
                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                          ? 1U
                                                          : 
-                                                        ((0x3013U 
+                                                        ((0x2003U 
                                                           == 
                                                           (0x707fU 
                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                          ? 0xaU
+                                                          ? 1U
                                                           : 
-                                                         ((0x1063U 
+                                                         ((0x3013U 
                                                            == 
                                                            (0x707fU 
                                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                           ? 9U
+                                                           ? 0xaU
                                                            : 0U))))))))));
+    vlSelf->Main__DOT__idu__DOT__io_Imm_lo_8 = ((((0x1000U 
+                                                   & ((IData)(
+                                                              (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
+                                                               >> 0x1fU)) 
+                                                      << 0xcU)) 
+                                                  | (0x7e0U 
+                                                     & ((IData)(
+                                                                (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
+                                                                 >> 0x19U)) 
+                                                        << 5U))) 
+                                                 | (0x1eU 
+                                                    & ((IData)(
+                                                               (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
+                                                                >> 8U)) 
+                                                       << 1U))) 
+                                                | (0x800U 
+                                                   & ((IData)(
+                                                              (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
+                                                               >> 7U)) 
+                                                      << 0xbU)));
     Main__DOT__exu__DOT___GEN_13 = ((0xdU == (0x1fU 
                                               & (IData)(
                                                         (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
@@ -408,84 +564,6 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                       >> 0xfU))))
                                                           ? vlSelf->Main__DOT__exu__DOT__Regs_1
                                                           : 0ULL)))))))))))));
-    Main__DOT__idu__DOT___contr_code_T_157 = ((0x6013U 
-                                               == (0x707fU 
-                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                               ? 4U
-                                               : ((0x7033U 
-                                                   == 
-                                                   (0xfe00707fU 
-                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                   ? 0U
-                                                   : 
-                                                  ((0x7013U 
-                                                    == 
-                                                    (0x707fU 
-                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                    ? 4U
-                                                    : 
-                                                   ((0x2033U 
-                                                     == 
-                                                     (0xfe00707fU 
-                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                     ? 0U
-                                                     : 
-                                                    ((0x2013U 
-                                                      == 
-                                                      (0x707fU 
-                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                      ? 4U
-                                                      : 
-                                                     ((0x6fU 
-                                                       == 
-                                                       (0x7fU 
-                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                       ? 6U
-                                                       : 
-                                                      ((0x67U 
-                                                        == 
-                                                        (0x707fU 
-                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                        ? 6U
-                                                        : 
-                                                       ((0x63U 
-                                                         == 
-                                                         (0x707fU 
-                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                         ? 0U
-                                                         : 
-                                                        ((0x2003U 
-                                                          == 
-                                                          (0x707fU 
-                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                          ? 4U
-                                                          : 
-                                                         ((0x3013U 
-                                                           == 
-                                                           (0x707fU 
-                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                           ? 4U
-                                                           : 0U))))))))));
-    vlSelf->Main__DOT__idu__DOT__io_Imm_lo_8 = ((((0x1000U 
-                                                   & ((IData)(
-                                                              (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
-                                                               >> 0x1fU)) 
-                                                      << 0xcU)) 
-                                                  | (0x7e0U 
-                                                     & ((IData)(
-                                                                (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
-                                                                 >> 0x19U)) 
-                                                        << 5U))) 
-                                                 | (0x1eU 
-                                                    & ((IData)(
-                                                               (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
-                                                                >> 8U)) 
-                                                       << 1U))) 
-                                                | (0x800U 
-                                                   & ((IData)(
-                                                              (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
-                                                               >> 7U)) 
-                                                      << 0xbU)));
     Main__DOT__idu__DOT___io_Imm_T_3[0U] = ((IData)(
                                                     (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
                                                      >> 0xcU)) 
@@ -534,56 +612,53 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                               (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
                                                                >> 0xcU)) 
                                                       << 0xcU)));
-    Main__DOT__idu__DOT___contr_code_T_133 = ((0x4000003bU 
-                                               == (0xfe00707fU 
-                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                               ? 0U
-                                               : ((0x37U 
-                                                   == 
-                                                   (0x7fU 
-                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                   ? 2U
-                                                   : 
-                                                  ((0x4033U 
-                                                    != 
-                                                    (0xfe00707fU 
-                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                   & ((0x4013U 
-                                                       != 
-                                                       (0x707fU 
-                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                      & ((0x6033U 
-                                                          != 
-                                                          (0xfe00707fU 
-                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                         & ((0x6013U 
-                                                             != 
-                                                             (0x707fU 
-                                                              & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                            & ((0x7033U 
-                                                                != 
-                                                                (0xfe00707fU 
-                                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                               & ((0x7013U 
-                                                                   != 
-                                                                   (0x707fU 
-                                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                                  & ((0x2033U 
-                                                                      != 
-                                                                      (0xfe00707fU 
-                                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                                     & ((0x2013U 
-                                                                         != 
-                                                                         (0x707fU 
-                                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                                        & ((0x6fU 
-                                                                            == 
-                                                                            (0x7fU 
-                                                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                                                           | (0x67U 
-                                                                              == 
-                                                                              (0x707fU 
-                                                                               & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))))))))))))));
+    Main__DOT__idu__DOT___contr_code_T_155 = ((0x2033U 
+                                               != (0xfe00707fU 
+                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                              & ((0x2013U 
+                                                  != 
+                                                  (0x707fU 
+                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                 & ((0x3033U 
+                                                     != 
+                                                     (0xfe00707fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                    & ((0x3013U 
+                                                        != 
+                                                        (0x707fU 
+                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                       & ((0x63U 
+                                                           != 
+                                                           (0x707fU 
+                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                          & ((0x1063U 
+                                                              != 
+                                                              (0x707fU 
+                                                               & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                             & ((0x4063U 
+                                                                 != 
+                                                                 (0x707fU 
+                                                                  & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                & ((0x5063U 
+                                                                    != 
+                                                                    (0x707fU 
+                                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                   & ((0x6063U 
+                                                                       != 
+                                                                       (0x707fU 
+                                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                      & ((0x7063U 
+                                                                          != 
+                                                                          (0x707fU 
+                                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                         & ((0x6fU 
+                                                                             == 
+                                                                             (0x7fU 
+                                                                              & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                            | (0x67U 
+                                                                               == 
+                                                                               (0x707fU 
+                                                                                & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))))))))))))));
     Main__DOT__exu__DOT___GEN_45 = ((0xdU == (0x1fU 
                                               & (IData)(
                                                         (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
@@ -718,107 +793,256 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                        : 0ULL) 
                                                      >> 0x20U)) 
                                             >> 0x14U);
+    Main__DOT__idu__DOT___contr_code_T_186 = ((0x63U 
+                                               == (0x707fU 
+                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                               ? 0U
+                                               : ((0x1063U 
+                                                   == 
+                                                   (0x707fU 
+                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                   ? 0U
+                                                   : 
+                                                  ((0x4063U 
+                                                    == 
+                                                    (0x707fU 
+                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                    ? 0U
+                                                    : 
+                                                   ((0x5063U 
+                                                     == 
+                                                     (0x707fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                     ? 0U
+                                                     : 
+                                                    ((0x6063U 
+                                                      == 
+                                                      (0x707fU 
+                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                      ? 0U
+                                                      : 
+                                                     ((0x7063U 
+                                                       == 
+                                                       (0x707fU 
+                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                       ? 0U
+                                                       : 
+                                                      ((0x6fU 
+                                                        == 
+                                                        (0x7fU 
+                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                        ? 5U
+                                                        : 
+                                                       ((0x67U 
+                                                         == 
+                                                         (0x707fU 
+                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                         ? 5U
+                                                         : 
+                                                        ((0x2003U 
+                                                          == 
+                                                          (0x707fU 
+                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                          ? 4U
+                                                          : 
+                                                         ((0x3013U 
+                                                           == 
+                                                           (0x707fU 
+                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                           ? 4U
+                                                           : 0U))))))))));
     vlSelf->Main__DOT__idu_io_RegWrite = ((0x17U == 
                                            (0x7fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
                                           | ((0x3003U 
                                               == (0x707fU 
                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
-                                             | (IData)(Main__DOT__idu__DOT___contr_code_T_87)));
-    if ((0x4013U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
-    } else if ((0x6033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
-    } else if ((0x6013U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
-    } else if ((0x7033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
-    } else if ((0x7013U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
-    } else if ((0x2033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
-    } else if ((0x2013U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
-    } else if ((0x6fU == (0x7fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_217 = 1U;
-        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
-    } else if ((0x67U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_217 = 2U;
-        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
-    } else if ((0x63U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_217 = 3U;
-        Main__DOT__idu__DOT___contr_code_T_246 = 0U;
-    } else if ((0x2003U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        Main__DOT__idu__DOT___contr_code_T_217 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_246 = 3U;
-    } else {
-        Main__DOT__idu__DOT___contr_code_T_217 = Main__DOT__idu__DOT___contr_code_T_206;
-        Main__DOT__idu__DOT___contr_code_T_246 = Main__DOT__idu__DOT___contr_code_T_206;
-    }
-    Main__DOT__idu__DOT___contr_code_T_195 = ((0x5013U 
-                                               == (0xfc00707fU 
+                                             | (IData)(Main__DOT__idu__DOT___contr_code_T_105)));
+    Main__DOT__idu__DOT___contr_code_T_269 = ((0x40000033U 
+                                               == (0xfe00707fU 
                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                               ? 0xfU
-                                               : ((0x40005033U 
+                                               ? 0U
+                                               : ((0x4000003bU 
                                                    == 
                                                    (0xfe00707fU 
                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                   ? 0x10U
+                                                   ? 0U
                                                    : 
-                                                  ((0x40005013U 
+                                                  ((0x37U 
                                                     == 
-                                                    (0xfc00707fU 
+                                                    (0x7fU 
                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                    ? 0x10U
+                                                    ? 0U
                                                     : 
-                                                   ((0x40000033U 
+                                                   ((0x4033U 
                                                      == 
                                                      (0xfe00707fU 
                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                     ? 2U
+                                                     ? 0U
                                                      : 
-                                                    ((0x4000003bU 
+                                                    ((0x4013U 
+                                                      == 
+                                                      (0x707fU 
+                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                      ? 0U
+                                                      : 
+                                                     ((0x6033U 
+                                                       == 
+                                                       (0xfe00707fU 
+                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                       ? 0U
+                                                       : 
+                                                      ((0x6013U 
+                                                        == 
+                                                        (0x707fU 
+                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                        ? 0U
+                                                        : 
+                                                       ((0x7033U 
+                                                         == 
+                                                         (0xfe00707fU 
+                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                         ? 0U
+                                                         : 
+                                                        ((0x7013U 
+                                                          == 
+                                                          (0x707fU 
+                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                          ? 0U
+                                                          : 
+                                                         ((0x2033U 
+                                                           == 
+                                                           (0xfe00707fU 
+                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                           ? 0U
+                                                           : 
+                                                          ((0x2013U 
+                                                            == 
+                                                            (0x707fU 
+                                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                            ? 0U
+                                                            : (IData)(Main__DOT__idu__DOT___contr_code_T_258))))))))))));
+    Main__DOT__idu__DOT___contr_code_T_303 = ((0x4000003bU 
+                                               == (0xfe00707fU 
+                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                               ? 2U
+                                               : ((0x37U 
+                                                   == 
+                                                   (0x7fU 
+                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                   ? 2U
+                                                   : 
+                                                  ((0x4033U 
+                                                    == 
+                                                    (0xfe00707fU 
+                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                    ? 0U
+                                                    : 
+                                                   ((0x4013U 
+                                                     == 
+                                                     (0x707fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                     ? 0U
+                                                     : 
+                                                    ((0x6033U 
                                                       == 
                                                       (0xfe00707fU 
                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                      ? 2U
+                                                      ? 0U
                                                       : 
-                                                     ((0x37U 
+                                                     ((0x6013U 
                                                        == 
-                                                       (0x7fU 
+                                                       (0x707fU 
                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                       ? 0xeU
+                                                       ? 0U
                                                        : 
-                                                      ((0x4033U 
+                                                      ((0x7033U 
                                                         == 
                                                         (0xfe00707fU 
                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                        ? 0x11U
+                                                        ? 0U
                                                         : 
-                                                       ((0x4013U 
+                                                       ((0x7013U 
                                                          == 
                                                          (0x707fU 
                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                         ? 0x11U
+                                                         ? 0U
                                                          : 
-                                                        ((0x6033U 
+                                                        ((0x2033U 
                                                           == 
                                                           (0xfe00707fU 
                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                          ? 0x12U
+                                                          ? 0U
                                                           : 
-                                                         ((0x6013U 
+                                                         ((0x2013U 
                                                            == 
                                                            (0x707fU 
                                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                           ? 0x12U
-                                                           : (IData)(Main__DOT__idu__DOT___contr_code_T_185)))))))))));
+                                                           ? 0U
+                                                           : 
+                                                          ((0x3033U 
+                                                            == 
+                                                            (0xfe00707fU 
+                                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                            ? 0U
+                                                            : (IData)(Main__DOT__idu__DOT___contr_code_T_292))))))))))));
+    Main__DOT__idu__DOT___contr_code_T_231 = ((0x4033U 
+                                               == (0xfe00707fU 
+                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                               ? 0x11U
+                                               : ((0x4013U 
+                                                   == 
+                                                   (0x707fU 
+                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                   ? 0x11U
+                                                   : 
+                                                  ((0x6033U 
+                                                    == 
+                                                    (0xfe00707fU 
+                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                    ? 0x12U
+                                                    : 
+                                                   ((0x6013U 
+                                                     == 
+                                                     (0x707fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                     ? 0x12U
+                                                     : 
+                                                    ((0x7033U 
+                                                      == 
+                                                      (0xfe00707fU 
+                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                      ? 1U
+                                                      : 
+                                                     ((0x7013U 
+                                                       == 
+                                                       (0x707fU 
+                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                       ? 1U
+                                                       : 
+                                                      ((0x2033U 
+                                                        == 
+                                                        (0xfe00707fU 
+                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                        ? 0xcU
+                                                        : 
+                                                       ((0x2013U 
+                                                         == 
+                                                         (0x707fU 
+                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                         ? 0xcU
+                                                         : 
+                                                        ((0x3033U 
+                                                          == 
+                                                          (0xfe00707fU 
+                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                          ? 0xaU
+                                                          : 
+                                                         ((0x3013U 
+                                                           == 
+                                                           (0x707fU 
+                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                           ? 0xaU
+                                                           : (IData)(Main__DOT__idu__DOT___contr_code_T_221)))))))))));
     Main__DOT__exu__DOT___GEN_26 = ((0x1aU == (0x1fU 
                                                & (IData)(
                                                          (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
@@ -915,161 +1139,59 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                       >> 0xfU))))
                                                           ? vlSelf->Main__DOT__exu__DOT__Regs_14
                                                           : Main__DOT__exu__DOT___GEN_13)))))))))))));
-    Main__DOT__idu__DOT___contr_code_T_168 = ((0x1013U 
-                                               == (0xfc00707fU 
-                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                               ? 2U
-                                               : ((0x5033U 
-                                                   == 
-                                                   (0xfe00707fU 
-                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                   ? 1U
-                                                   : 
-                                                  ((0x5013U 
-                                                    == 
-                                                    (0xfc00707fU 
-                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                    ? 2U
-                                                    : 
-                                                   ((0x40005033U 
-                                                     == 
-                                                     (0xfe00707fU 
-                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                     ? 1U
-                                                     : 
-                                                    ((0x40005013U 
-                                                      == 
-                                                      (0xfc00707fU 
-                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                      ? 2U
-                                                      : 
-                                                     ((0x40000033U 
-                                                       == 
-                                                       (0xfe00707fU 
-                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                       ? 0U
-                                                       : 
-                                                      ((0x4000003bU 
-                                                        == 
-                                                        (0xfe00707fU 
-                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                        ? 0U
-                                                        : 
-                                                       ((0x37U 
-                                                         == 
-                                                         (0x7fU 
-                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                         ? 3U
-                                                         : 
-                                                        ((0x4033U 
-                                                          == 
-                                                          (0xfe00707fU 
-                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                          ? 0U
-                                                          : 
-                                                         ((0x4013U 
-                                                           == 
-                                                           (0x707fU 
-                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                           ? 4U
-                                                           : 
-                                                          ((0x6033U 
-                                                            == 
-                                                            (0xfe00707fU 
-                                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                            ? 0U
-                                                            : (IData)(Main__DOT__idu__DOT___contr_code_T_157))))))))))));
-    Main__DOT__idu__DOT___io_Imm_T_59[0U] = (((IData)(
-                                                      ((0x1000U 
-                                                        & (IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_8))
-                                                        ? 0xffffffffffffffffULL
-                                                        : 0ULL)) 
-                                              << 0xdU) 
-                                             | (IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_8));
-    Main__DOT__idu__DOT___io_Imm_T_59[1U] = (((IData)(
-                                                      ((0x1000U 
-                                                        & (IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_8))
-                                                        ? 0xffffffffffffffffULL
-                                                        : 0ULL)) 
-                                              >> 0x13U) 
-                                             | ((IData)(
-                                                        (((0x1000U 
-                                                           & (IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_8))
-                                                           ? 0xffffffffffffffffULL
-                                                           : 0ULL) 
-                                                         >> 0x20U)) 
-                                                << 0xdU));
-    Main__DOT__idu__DOT___io_Imm_T_59[2U] = ((IData)(
-                                                     (((0x1000U 
-                                                        & (IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_8))
-                                                        ? 0xffffffffffffffffULL
-                                                        : 0ULL) 
-                                                      >> 0x20U)) 
-                                             >> 0x13U);
-    Main__DOT__idu__DOT___contr_code_T_144 = ((0x13U 
-                                               == (0x707fU 
+    Main__DOT__idu__DOT___contr_code_T_166 = ((0x40005033U 
+                                               == (0xfe00707fU 
                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                ? 0U
-                                               : ((0x33U 
+                                               : ((0x40005013U 
                                                    == 
-                                                   (0xfe00707fU 
+                                                   (0xfc00707fU 
                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                    ? 0U
                                                    : 
-                                                  ((0x1bU 
+                                                  ((0x40000033U 
                                                     == 
-                                                    (0x707fU 
+                                                    (0xfe00707fU 
                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                     ? 0U
                                                     : 
-                                                   ((0x3bU 
+                                                   ((0x4000003bU 
                                                      == 
                                                      (0xfe00707fU 
                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                      ? 0U
                                                      : 
-                                                    ((0x1033U 
+                                                    ((0x37U 
                                                       == 
-                                                      (0xfe00707fU 
+                                                      (0x7fU 
                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                      ? 0U
+                                                      ? 2U
                                                       : 
-                                                     ((0x1013U 
-                                                       == 
-                                                       (0xfc00707fU 
-                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                       ? 0U
-                                                       : 
-                                                      ((0x5033U 
-                                                        == 
-                                                        (0xfe00707fU 
-                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                        ? 0U
-                                                        : 
-                                                       ((0x5013U 
-                                                         == 
-                                                         (0xfc00707fU 
-                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                         ? 0U
-                                                         : 
-                                                        ((0x40005033U 
-                                                          == 
-                                                          (0xfe00707fU 
-                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                          ? 0U
-                                                          : 
-                                                         ((0x40005013U 
-                                                           == 
-                                                           (0xfc00707fU 
-                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                           ? 0U
-                                                           : 
-                                                          ((0x40000033U 
-                                                            == 
-                                                            (0xfe00707fU 
-                                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                            ? 0U
-                                                            : (IData)(Main__DOT__idu__DOT___contr_code_T_133))))))))))));
+                                                     ((0x4033U 
+                                                       != 
+                                                       (0xfe00707fU 
+                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                      & ((0x4013U 
+                                                          != 
+                                                          (0x707fU 
+                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                         & ((0x6033U 
+                                                             != 
+                                                             (0xfe00707fU 
+                                                              & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                            & ((0x6013U 
+                                                                != 
+                                                                (0x707fU 
+                                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                               & ((0x7033U 
+                                                                   != 
+                                                                   (0xfe00707fU 
+                                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                  & ((0x7013U 
+                                                                      != 
+                                                                      (0x707fU 
+                                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata))) 
+                                                                     & (IData)(Main__DOT__idu__DOT___contr_code_T_155))))))))))));
     Main__DOT__exu__DOT___GEN_58 = ((0x1aU == (0x1fU 
                                                & (IData)(
                                                          (vlSelf->Main__DOT__ifu__DOT__mem_Rdata 
@@ -1166,184 +1288,331 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                       >> 0x14U))))
                                                           ? vlSelf->Main__DOT__exu__DOT__Regs_14
                                                           : Main__DOT__exu__DOT___GEN_45)))))))))))));
-    Main__DOT__idu__DOT___io_Imm_T_100 = ((0x6fU == 
-                                           (0x7fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                           ? ((((0x100000U 
-                                                 & vlSelf->Main__DOT__idu__DOT__io_Imm_lo_6)
-                                                 ? 0x7ffffffffffULL
-                                                 : 0ULL) 
-                                               << 0x15U) 
-                                              | (QData)((IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_6)))
-                                           : ((0x37U 
-                                               == (0x7fU 
+    Main__DOT__idu__DOT___io_Imm_T_78 = ((0x6fU == 
+                                          (0x7fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                          ? ((((0x100000U 
+                                                & vlSelf->Main__DOT__idu__DOT__io_Imm_lo_6)
+                                                ? 0x7ffffffffffULL
+                                                : 0ULL) 
+                                              << 0x15U) 
+                                             | (QData)((IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_6)))
+                                          : ((0x37U 
+                                              == (0x7fU 
+                                                  & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                              ? (((QData)((IData)(
+                                                                  Main__DOT__idu__DOT___io_Imm_T_3[1U])) 
+                                                  << 0x20U) 
+                                                 | (QData)((IData)(
+                                                                   Main__DOT__idu__DOT___io_Imm_T_3[0U])))
+                                              : ((0x3bU 
+                                                  == 
+                                                  (0x7fU 
                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                               ? (((QData)((IData)(
-                                                                   Main__DOT__idu__DOT___io_Imm_T_3[1U])) 
-                                                   << 0x20U) 
-                                                  | (QData)((IData)(
-                                                                    Main__DOT__idu__DOT___io_Imm_T_3[0U])))
-                                               : ((0x3bU 
+                                                  ? 0ULL
+                                                  : 
+                                                 ((0x1bU 
                                                    == 
                                                    (0x7fU 
                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                   ? 0ULL
+                                                   ? 
+                                                  (((QData)((IData)(
+                                                                    Main__DOT__idu__DOT___io_Imm_T_7[1U])) 
+                                                    << 0x20U) 
+                                                   | (QData)((IData)(
+                                                                     Main__DOT__idu__DOT___io_Imm_T_7[0U])))
                                                    : 
-                                                  ((0x1bU 
+                                                  ((0x33U 
                                                     == 
                                                     (0x7fU 
                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                    ? 
-                                                   (((QData)((IData)(
-                                                                     Main__DOT__idu__DOT___io_Imm_T_7[1U])) 
-                                                     << 0x20U) 
-                                                    | (QData)((IData)(
-                                                                      Main__DOT__idu__DOT___io_Imm_T_7[0U])))
+                                                    ? 0ULL
                                                     : 
-                                                   ((0x33U 
+                                                   ((0x13U 
                                                      == 
                                                      (0x7fU 
                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                     ? 0ULL
+                                                     ? 
+                                                    (((QData)((IData)(
+                                                                      Main__DOT__idu__DOT___io_Imm_T_7[1U])) 
+                                                      << 0x20U) 
+                                                     | (QData)((IData)(
+                                                                       Main__DOT__idu__DOT___io_Imm_T_7[0U])))
                                                      : 
-                                                    ((0x13U 
+                                                    ((0x23U 
                                                       == 
                                                       (0x7fU 
                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                       ? 
-                                                     (((QData)((IData)(
-                                                                       Main__DOT__idu__DOT___io_Imm_T_7[1U])) 
-                                                       << 0x20U) 
-                                                      | (QData)((IData)(
-                                                                        Main__DOT__idu__DOT___io_Imm_T_7[0U])))
+                                                     ((((0x800U 
+                                                         & (IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_2))
+                                                         ? 0xfffffffffffffULL
+                                                         : 0ULL) 
+                                                       << 0xcU) 
+                                                      | (QData)((IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_2)))
                                                       : 
-                                                     ((0x23U 
+                                                     ((3U 
                                                        == 
                                                        (0x7fU 
                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                        ? 
-                                                      ((((0x800U 
-                                                          & (IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_2))
-                                                          ? 0xfffffffffffffULL
-                                                          : 0ULL) 
-                                                        << 0xcU) 
-                                                       | (QData)((IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_2)))
+                                                      (((QData)((IData)(
+                                                                        Main__DOT__idu__DOT___io_Imm_T_7[1U])) 
+                                                        << 0x20U) 
+                                                       | (QData)((IData)(
+                                                                         Main__DOT__idu__DOT___io_Imm_T_7[0U])))
                                                        : 
-                                                      ((3U 
+                                                      ((0x17U 
                                                         == 
                                                         (0x7fU 
                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                         ? 
                                                        (((QData)((IData)(
-                                                                         Main__DOT__idu__DOT___io_Imm_T_7[1U])) 
+                                                                         Main__DOT__idu__DOT___io_Imm_T_3[1U])) 
                                                          << 0x20U) 
                                                         | (QData)((IData)(
-                                                                          Main__DOT__idu__DOT___io_Imm_T_7[0U])))
-                                                        : 
-                                                       ((0x17U 
-                                                         == 
-                                                         (0x7fU 
-                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                         ? 
-                                                        (((QData)((IData)(
-                                                                          Main__DOT__idu__DOT___io_Imm_T_3[1U])) 
-                                                          << 0x20U) 
-                                                         | (QData)((IData)(
-                                                                           Main__DOT__idu__DOT___io_Imm_T_3[0U])))
-                                                         : 0ULL)))))))));
-    if ((0x3bU == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_257 = 2U;
-    } else if ((0x1033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
-    } else if ((0x1013U == (0xfc00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
-    } else if ((0x5033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
-    } else if ((0x5013U == (0xfc00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
-    } else if ((0x40005033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
-    } else if ((0x40005013U == (0xfc00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
-    } else if ((0x40000033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
-    } else if ((0x4000003bU == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_257 = 2U;
-    } else if ((0x37U == (0x7fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_257 = 2U;
-    } else if ((0x4033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_257 = 0U;
-    } else {
-        vlSelf->Main__DOT__idu__DOT___contr_code_T_228 
-            = Main__DOT__idu__DOT___contr_code_T_217;
-        Main__DOT__idu__DOT___contr_code_T_257 = Main__DOT__idu__DOT___contr_code_T_246;
-    }
-    vlSelf->Main__DOT__idu_io_AluOp = ((0x17U == (0x7fU 
-                                                  & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                        ? 1U : ((0x3003U 
-                                                 == 
-                                                 (0x707fU 
-                                                  & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                 ? 1U
-                                                 : 
-                                                ((0x3023U 
-                                                  == 
-                                                  (0x707fU 
+                                                                          Main__DOT__idu__DOT___io_Imm_T_3[0U])))
+                                                        : 0ULL)))))))));
+    Main__DOT__idu__DOT___contr_code_T_197 = ((0x37U 
+                                               == (0x7fU 
                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                  ? 1U
-                                                  : 
-                                                 ((0x13U 
+                                               ? 3U
+                                               : ((0x4033U 
                                                    == 
-                                                   (0x707fU 
+                                                   (0xfe00707fU 
                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                   ? 1U
+                                                   ? 0U
                                                    : 
-                                                  ((0x33U 
+                                                  ((0x4013U 
                                                     == 
-                                                    (0xfe00707fU 
+                                                    (0x707fU 
                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                    ? 1U
+                                                    ? 4U
                                                     : 
-                                                   ((0x1bU 
+                                                   ((0x6033U 
                                                      == 
-                                                     (0x707fU 
+                                                     (0xfe00707fU 
                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                     ? 1U
+                                                     ? 0U
                                                      : 
-                                                    ((0x3bU 
+                                                    ((0x6013U 
                                                       == 
-                                                      (0xfe00707fU 
+                                                      (0x707fU 
                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                      ? 1U
+                                                      ? 4U
                                                       : 
-                                                     ((0x1033U 
+                                                     ((0x7033U 
                                                        == 
                                                        (0xfe00707fU 
                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                       ? 0xeU
+                                                       ? 0U
                                                        : 
-                                                      ((0x1013U 
+                                                      ((0x7013U 
                                                         == 
-                                                        (0xfc00707fU 
+                                                        (0x707fU 
                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                        ? 0xeU
+                                                        ? 4U
                                                         : 
-                                                       ((0x5033U 
+                                                       ((0x2033U 
                                                          == 
                                                          (0xfe00707fU 
                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                         ? 0xfU
-                                                         : (IData)(Main__DOT__idu__DOT___contr_code_T_195)))))))))));
+                                                         ? 0U
+                                                         : 
+                                                        ((0x2013U 
+                                                          == 
+                                                          (0x707fU 
+                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                          ? 4U
+                                                          : 
+                                                         ((0x3033U 
+                                                           == 
+                                                           (0xfe00707fU 
+                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                           ? 0U
+                                                           : 
+                                                          ((0x3013U 
+                                                            == 
+                                                            (0x707fU 
+                                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                            ? 4U
+                                                            : (IData)(Main__DOT__idu__DOT___contr_code_T_186))))))))))));
+    vlSelf->Main__DOT__idu__DOT___contr_code_T_280 
+        = ((0x3023U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+            ? 0U : ((0x13U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                     ? 0U : ((0x33U == (0xfe00707fU 
+                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                              ? 0U : ((0x1bU == (0x707fU 
+                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                       ? 0U : ((0x3bU 
+                                                == 
+                                                (0xfe00707fU 
+                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                ? 0U
+                                                : (
+                                                   (0x1033U 
+                                                    == 
+                                                    (0xfe00707fU 
+                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                    ? 0U
+                                                    : 
+                                                   ((0x1013U 
+                                                     == 
+                                                     (0xfc00707fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                     ? 0U
+                                                     : 
+                                                    ((0x5033U 
+                                                      == 
+                                                      (0xfe00707fU 
+                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                      ? 0U
+                                                      : 
+                                                     ((0x5013U 
+                                                       == 
+                                                       (0xfc00707fU 
+                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                       ? 0U
+                                                       : 
+                                                      ((0x40005033U 
+                                                        == 
+                                                        (0xfe00707fU 
+                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                        ? 0U
+                                                        : 
+                                                       ((0x40005013U 
+                                                         == 
+                                                         (0xfc00707fU 
+                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                         ? 0U
+                                                         : (IData)(Main__DOT__idu__DOT___contr_code_T_269))))))))))));
+    Main__DOT__idu__DOT___contr_code_T_314 = ((0x13U 
+                                               == (0x707fU 
+                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                               ? 0U
+                                               : ((0x33U 
+                                                   == 
+                                                   (0xfe00707fU 
+                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                   ? 0U
+                                                   : 
+                                                  ((0x1bU 
+                                                    == 
+                                                    (0x707fU 
+                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                    ? 2U
+                                                    : 
+                                                   ((0x3bU 
+                                                     == 
+                                                     (0xfe00707fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                     ? 2U
+                                                     : 
+                                                    ((0x1033U 
+                                                      == 
+                                                      (0xfe00707fU 
+                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                      ? 0U
+                                                      : 
+                                                     ((0x1013U 
+                                                       == 
+                                                       (0xfc00707fU 
+                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                       ? 0U
+                                                       : 
+                                                      ((0x5033U 
+                                                        == 
+                                                        (0xfe00707fU 
+                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                        ? 0U
+                                                        : 
+                                                       ((0x5013U 
+                                                         == 
+                                                         (0xfc00707fU 
+                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                         ? 0U
+                                                         : 
+                                                        ((0x40005033U 
+                                                          == 
+                                                          (0xfe00707fU 
+                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                          ? 0U
+                                                          : 
+                                                         ((0x40005013U 
+                                                           == 
+                                                           (0xfc00707fU 
+                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                           ? 0U
+                                                           : 
+                                                          ((0x40000033U 
+                                                            == 
+                                                            (0xfe00707fU 
+                                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                            ? 0U
+                                                            : (IData)(Main__DOT__idu__DOT___contr_code_T_303))))))))))));
+    Main__DOT__idu__DOT___contr_code_T_242 = ((0x1bU 
+                                               == (0x707fU 
+                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                               ? 1U
+                                               : ((0x3bU 
+                                                   == 
+                                                   (0xfe00707fU 
+                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                   ? 1U
+                                                   : 
+                                                  ((0x1033U 
+                                                    == 
+                                                    (0xfe00707fU 
+                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                    ? 0xeU
+                                                    : 
+                                                   ((0x1013U 
+                                                     == 
+                                                     (0xfc00707fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                     ? 0xeU
+                                                     : 
+                                                    ((0x5033U 
+                                                      == 
+                                                      (0xfe00707fU 
+                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                      ? 0xfU
+                                                      : 
+                                                     ((0x5013U 
+                                                       == 
+                                                       (0xfc00707fU 
+                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                       ? 0xfU
+                                                       : 
+                                                      ((0x40005033U 
+                                                        == 
+                                                        (0xfe00707fU 
+                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                        ? 0x10U
+                                                        : 
+                                                       ((0x40005013U 
+                                                         == 
+                                                         (0xfc00707fU 
+                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                         ? 0x10U
+                                                         : 
+                                                        ((0x40000033U 
+                                                          == 
+                                                          (0xfe00707fU 
+                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                          ? 2U
+                                                          : 
+                                                         ((0x4000003bU 
+                                                           == 
+                                                           (0xfe00707fU 
+                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                           ? 2U
+                                                           : 
+                                                          ((0x37U 
+                                                            == 
+                                                            (0x7fU 
+                                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                            ? 0xeU
+                                                            : (IData)(Main__DOT__idu__DOT___contr_code_T_231))))))))))));
     vlSelf->Main__DOT__exu__DOT__DataR1 = ((0x1fU == 
                                             (0x1fU 
                                              & (IData)(
@@ -1382,30 +1651,72 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                   >> 0xfU))))
                                                       ? vlSelf->Main__DOT__exu__DOT__Regs_27
                                                       : Main__DOT__exu__DOT___GEN_26)))));
-    if ((0x17U == (0x7fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT__contr_code_3 = 4U;
-        vlSelf->Main__DOT__idu__DOT__contr_code_2 = 1U;
-    } else if ((0x3003U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT__contr_code_3 = 4U;
-        vlSelf->Main__DOT__idu__DOT__contr_code_2 = 0U;
-    } else if ((0x3023U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
-        vlSelf->Main__DOT__idu__DOT__contr_code_3 = 4U;
-        vlSelf->Main__DOT__idu__DOT__contr_code_2 = 0U;
-    } else {
-        vlSelf->Main__DOT__idu__DOT__contr_code_3 = 
-            ((0x13U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-              ? 4U : ((0x33U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                       ? 0U : ((0x1bU == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                ? 4U : ((0x3bU == (0xfe00707fU 
-                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                         ? 0U : ((0x1033U 
+    vlSelf->Main__DOT__idu__DOT__contr_code_2 = ((0x17U 
                                                   == 
-                                                  (0xfe00707fU 
+                                                  (0x7fU 
                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                   ? 1U
-                                                  : (IData)(Main__DOT__idu__DOT___contr_code_T_168))))));
-        vlSelf->Main__DOT__idu__DOT__contr_code_2 = Main__DOT__idu__DOT___contr_code_T_144;
-    }
+                                                  : 
+                                                 ((0x3003U 
+                                                   == 
+                                                   (0x707fU 
+                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                   ? 0U
+                                                   : 
+                                                  ((0x3023U 
+                                                    == 
+                                                    (0x707fU 
+                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                    ? 0U
+                                                    : 
+                                                   ((0x13U 
+                                                     == 
+                                                     (0x707fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                     ? 0U
+                                                     : 
+                                                    ((0x33U 
+                                                      == 
+                                                      (0xfe00707fU 
+                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                      ? 0U
+                                                      : 
+                                                     ((0x1bU 
+                                                       == 
+                                                       (0x707fU 
+                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                       ? 0U
+                                                       : 
+                                                      ((0x3bU 
+                                                        == 
+                                                        (0xfe00707fU 
+                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                        ? 0U
+                                                        : 
+                                                       ((0x1033U 
+                                                         == 
+                                                         (0xfe00707fU 
+                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                         ? 0U
+                                                         : 
+                                                        ((0x1013U 
+                                                          == 
+                                                          (0xfc00707fU 
+                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                          ? 0U
+                                                          : 
+                                                         ((0x5033U 
+                                                           == 
+                                                           (0xfe00707fU 
+                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                           ? 0U
+                                                           : 
+                                                          ((0x5013U 
+                                                            == 
+                                                            (0xfc00707fU 
+                                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                            ? 0U
+                                                            : (IData)(Main__DOT__idu__DOT___contr_code_T_166))))))))))));
     vlSelf->Main__DOT__exu__DOT___GEN_62 = ((0x1eU 
                                              == (0x1fU 
                                                  & (IData)(
@@ -1438,84 +1749,104 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                    : Main__DOT__exu__DOT___GEN_58))));
     vlSelf->Main__DOT__idu_io_Imm = ((0x63U == (0x7fU 
                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                      ? (((QData)((IData)(
-                                                          Main__DOT__idu__DOT___io_Imm_T_59[1U])) 
-                                          << 0x20U) 
-                                         | (QData)((IData)(
-                                                           Main__DOT__idu__DOT___io_Imm_T_59[0U])))
-                                      : ((0x13U == 
+                                      ? ((((0x1000U 
+                                            & (IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_8))
+                                            ? 0x7ffffffffffffULL
+                                            : 0ULL) 
+                                          << 0xdU) 
+                                         | (QData)((IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_8)))
+                                      : ((0x67U == 
                                           (0x7fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                           ? (((QData)((IData)(
                                                               Main__DOT__idu__DOT___io_Imm_T_7[1U])) 
                                               << 0x20U) 
                                              | (QData)((IData)(
                                                                Main__DOT__idu__DOT___io_Imm_T_7[0U])))
-                                          : ((3U == 
-                                              (0x7fU 
-                                               & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                              ? (((QData)((IData)(
-                                                                  Main__DOT__idu__DOT___io_Imm_T_7[1U])) 
-                                                  << 0x20U) 
-                                                 | (QData)((IData)(
-                                                                   Main__DOT__idu__DOT___io_Imm_T_7[0U])))
-                                              : ((0x63U 
-                                                  == 
-                                                  (0x7fU 
+                                          : Main__DOT__idu__DOT___io_Imm_T_78));
+    Main__DOT__idu__DOT___contr_code_T_208 = ((0x33U 
+                                               == (0xfe00707fU 
                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                  ? 
-                                                 (((QData)((IData)(
-                                                                   Main__DOT__idu__DOT___io_Imm_T_59[1U])) 
-                                                   << 0x20U) 
-                                                  | (QData)((IData)(
-                                                                    Main__DOT__idu__DOT___io_Imm_T_59[0U])))
-                                                  : 
-                                                 ((0x67U 
-                                                   == 
-                                                   (0x7fU 
-                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                   ? 
-                                                  (((QData)((IData)(
-                                                                    Main__DOT__idu__DOT___io_Imm_T_7[1U])) 
-                                                    << 0x20U) 
-                                                   | (QData)((IData)(
-                                                                     Main__DOT__idu__DOT___io_Imm_T_7[0U])))
-                                                   : Main__DOT__idu__DOT___io_Imm_T_100)))));
-    vlSelf->Main__DOT__idu__DOT__contr_code_6 = ((0x17U 
-                                                  == 
-                                                  (0x7fU 
-                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                  ? 0U
-                                                  : 
-                                                 ((0x3003U 
+                                               ? 0U
+                                               : ((0x1bU 
                                                    == 
                                                    (0x707fU 
                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                   ? 1U
+                                                   ? 4U
                                                    : 
-                                                  ((0x3023U 
+                                                  ((0x3bU 
                                                     == 
-                                                    (0x707fU 
+                                                    (0xfe00707fU 
                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
                                                     ? 0U
                                                     : 
-                                                   ((0x13U 
+                                                   ((0x1033U 
                                                      == 
-                                                     (0x707fU 
+                                                     (0xfe00707fU 
                                                       & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                     ? 0U
+                                                     ? 1U
                                                      : 
-                                                    ((0x33U 
+                                                    ((0x1013U 
                                                       == 
-                                                      (0xfe00707fU 
+                                                      (0xfc00707fU 
                                                        & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                      ? 0U
+                                                      ? 2U
                                                       : 
-                                                     ((0x1bU 
+                                                     ((0x5033U 
                                                        == 
-                                                       (0x707fU 
+                                                       (0xfe00707fU 
                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                       ? 2U
-                                                       : (IData)(Main__DOT__idu__DOT___contr_code_T_257)))))));
+                                                       ? 1U
+                                                       : 
+                                                      ((0x5013U 
+                                                        == 
+                                                        (0xfc00707fU 
+                                                         & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                        ? 2U
+                                                        : 
+                                                       ((0x40005033U 
+                                                         == 
+                                                         (0xfe00707fU 
+                                                          & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                         ? 1U
+                                                         : 
+                                                        ((0x40005013U 
+                                                          == 
+                                                          (0xfc00707fU 
+                                                           & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                          ? 2U
+                                                          : 
+                                                         ((0x40000033U 
+                                                           == 
+                                                           (0xfe00707fU 
+                                                            & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                           ? 0U
+                                                           : 
+                                                          ((0x4000003bU 
+                                                            == 
+                                                            (0xfe00707fU 
+                                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                            ? 0U
+                                                            : (IData)(Main__DOT__idu__DOT___contr_code_T_197))))))))))));
+    if ((0x17U == (0x7fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
+        vlSelf->Main__DOT__idu__DOT__contr_code_6 = 0U;
+        vlSelf->Main__DOT__idu_io_AluOp = 1U;
+    } else if ((0x3003U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
+        vlSelf->Main__DOT__idu__DOT__contr_code_6 = 1U;
+        vlSelf->Main__DOT__idu_io_AluOp = 1U;
+    } else if ((0x3023U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
+        vlSelf->Main__DOT__idu__DOT__contr_code_6 = 0U;
+        vlSelf->Main__DOT__idu_io_AluOp = 1U;
+    } else {
+        vlSelf->Main__DOT__idu__DOT__contr_code_6 = Main__DOT__idu__DOT___contr_code_T_314;
+        vlSelf->Main__DOT__idu_io_AluOp = ((0x13U == 
+                                            (0x707fU 
+                                             & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                            ? 1U : 
+                                           ((0x33U 
+                                             == (0xfe00707fU 
+                                                 & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                             ? 1U : (IData)(Main__DOT__idu__DOT___contr_code_T_242)));
+    }
     Main__DOT__exu__DOT___AluSrc1_T_4 = ((1U == (IData)(vlSelf->Main__DOT__idu__DOT__contr_code_2))
                                           ? vlSelf->Main__DOT__exu__DOT__pc
                                           : vlSelf->Main__DOT__exu__DOT__DataR1);
@@ -1548,6 +1879,30 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                 | (QData)((IData)(
                                                                   (0x1fffU 
                                                                    & (IData)(vlSelf->Main__DOT__idu_io_Imm))))));
+    vlSelf->Main__DOT__idu__DOT__contr_code_3 = ((0x17U 
+                                                  == 
+                                                  (0x7fU 
+                                                   & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                  ? 4U
+                                                  : 
+                                                 ((0x3003U 
+                                                   == 
+                                                   (0x707fU 
+                                                    & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                   ? 4U
+                                                   : 
+                                                  ((0x3023U 
+                                                    == 
+                                                    (0x707fU 
+                                                     & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                    ? 4U
+                                                    : 
+                                                   ((0x13U 
+                                                     == 
+                                                     (0x707fU 
+                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
+                                                     ? 4U
+                                                     : (IData)(Main__DOT__idu__DOT___contr_code_T_208)))));
     if ((2U == (IData)(vlSelf->Main__DOT__idu__DOT__contr_code_2))) {
         vlSelf->Main__DOT__exu__DOT__AluSrc1 = (QData)((IData)(
                                                                (0xfffffU 
@@ -1579,7 +1934,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                       (0x3fU 
                                                                        & (IData)(vlSelf->Main__DOT__exu__DOT__DataR2))))
                                                     : vlSelf->Main__DOT__exu__DOT__DataR2))));
-    if ((6U == (IData)(vlSelf->Main__DOT__idu__DOT__contr_code_3))) {
+    if ((5U == (IData)(vlSelf->Main__DOT__idu__DOT__contr_code_3))) {
         Main__DOT__exu__DOT___AluOut_T_18 = 4ULL;
         vlSelf->Main__DOT__exu__DOT__AluSrc2 = 4ULL;
     } else {
