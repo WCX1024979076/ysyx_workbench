@@ -528,7 +528,7 @@ module EXU(
   wire [63:0] _AluOut_T_28 = AluSrc1 ^ AluSrc2; // @[EXU.scala 102:28]
   wire [63:0] _AluOut_T_24 = 5'h2 == io_AluSrc1Op ? {{44'd0}, io_Imm[31:12]} : _AluSrc1_T_4; // @[EXU.scala 101:34]
   wire [63:0] _AluOut_T_27 = $signed(_AluOut_T_24) >>> AluSrc2[5:0]; // @[EXU.scala 101:60]
-  wire [63:0] _AluOut_T_23 = AluSrc1 >> AluSrc2[6:0]; // @[EXU.scala 100:28]
+  wire [63:0] _AluOut_T_23 = AluSrc1 >> AluSrc2[6:0]; // @[EXU.scala 100:37]
   wire [190:0] _GEN_128 = {{127'd0}, AluSrc1}; // @[EXU.scala 99:28]
   wire [190:0] _AluOut_T_21 = _GEN_128 << AluSrc2[6:0]; // @[EXU.scala 99:28]
   wire [63:0] _AluOut_T_18 = 5'h5 == io_AluSrc2Op ? 64'h4 : _AluSrc2_T_11; // @[EXU.scala 98:54]
