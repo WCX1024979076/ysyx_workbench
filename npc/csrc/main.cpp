@@ -217,8 +217,8 @@ int main(int argc, char **argv, char **env)
 
   while (1)
   {
-    m_trace->dump(sim_time++);
     cpu_sim();
+    m_trace->dump(sim_time++);
 
 #ifdef CONFIG_DIFFTEST
     ref_difftest_exec(1);
