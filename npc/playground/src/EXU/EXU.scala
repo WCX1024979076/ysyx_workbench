@@ -67,11 +67,11 @@ class EXU extends Module {
       ))
   ));
 
-  var AluSrc1 := MuxLookup(io.AluSrc1Op,DataR2,Array(    
+  var AluSrc1 := Array(    
     0x0.U -> DataR1,
     0x1.U -> pc,
     0x2.U -> io.Imm(31,12),
-  ));
+  );
 
   var AluSrc2 := MuxLookup(io.AluSrc2Op,DataR2,Array(
     "b00000".U -> DataR2,
