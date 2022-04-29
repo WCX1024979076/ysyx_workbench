@@ -72,6 +72,7 @@ extern "C" void set_gpr_ptr(const svOpenArrayHandle r)
 
 void pmem_read(long long Raddr, long long *Rdata)
 {
+  puts("123");
   printf("READ DATA %lx", Raddr);
   if (Raddr < CONFIG_MBASE || Raddr >= CONFIG_MSIZE + CONFIG_MBASE)
     return;
