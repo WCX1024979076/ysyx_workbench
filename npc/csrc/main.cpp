@@ -105,13 +105,13 @@ long ld(char *img_file)
 
   FILE *fp = fopen(img_file, "rb");
   assert(fp);
+
   fseek(fp, 0, SEEK_END);
   long size = ftell(fp);
 
-  printf("The image is %s, size = %ld\n", img_file, size);
+  printf("The image is %s, size = %ld", img_file, size);
 
   fseek(fp, 0, SEEK_SET);
-
   int ret = fread(pmem, size, 1, fp);
   assert(ret == 1);
 
@@ -191,7 +191,6 @@ int main(int argc, char **argv, char **env)
       size = ld(argv[1]);
     }
   }
-  puts("123");
 
   contextp = new VerilatedContext;
   contextp->commandArgs(argc, argv);
@@ -202,8 +201,10 @@ int main(int argc, char **argv, char **env)
   m_trace = new VerilatedVcdC;
   top->trace(m_trace, 5);
   m_trace->open("waveform.vcd");
+  puts("123");
 
   init_npc();
+
 #ifdef CONFIG_DIFFTEST
   init_so("/home/wcx/Desktop/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so", size);
 #endif
