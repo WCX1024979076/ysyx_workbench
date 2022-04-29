@@ -24,6 +24,8 @@ module IFU(
   assign mem_MemWrite = 1'h0; // @[IFU.scala 18:19]
 endmodule
 module IDU(
+  input         clock,
+  input         reset,
   input  [31:0] io_Inst,
   output        io_RegWrite,
   output        io_MemWrite,
@@ -108,41 +110,53 @@ module IDU(
   wire  _contr_code_T_35 = 32'h3013 == _contr_code_T; // @[Lookup.scala 31:38]
   wire  _contr_code_T_37 = 32'h1063 == _contr_code_T; // @[Lookup.scala 31:38]
   wire  _contr_code_T_39 = 32'h40000033 == _contr_code_T_8; // @[Lookup.scala 31:38]
-  wire [63:0] _contr_code_T_40 = _contr_code_T_39 ? 64'h480000 : 64'h0; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_41 = _contr_code_T_37 ? 64'h71800 : _contr_code_T_40; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_42 = _contr_code_T_35 ? 64'h460000 : _contr_code_T_41; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_43 = _contr_code_T_33 ? 64'h410200 : _contr_code_T_42; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_44 = _contr_code_T_31 ? 64'h51800 : _contr_code_T_43; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_45 = _contr_code_T_29 ? 64'h441000 : _contr_code_T_44; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_46 = _contr_code_T_27 ? 64'h440800 : _contr_code_T_45; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_47 = _contr_code_T_25 ? 64'h4b0000 : _contr_code_T_46; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_48 = _contr_code_T_23 ? 64'h4b0000 : _contr_code_T_47; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_49 = _contr_code_T_21 ? 64'h4a0000 : _contr_code_T_48; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_50 = _contr_code_T_19 ? 64'h4a0000 : _contr_code_T_49; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_51 = _contr_code_T_17 ? 64'h490000 : _contr_code_T_50; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_52 = _contr_code_T_15 ? 64'h490000 : _contr_code_T_51; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_53 = _contr_code_T_13 ? 64'h420300 : _contr_code_T_52; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_54 = _contr_code_T_11 ? 64'h410300 : _contr_code_T_53; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_55 = _contr_code_T_9 ? 64'h420000 : _contr_code_T_54; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_56 = _contr_code_T_5 ? 64'h410000 : _contr_code_T_55; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_57 = _contr_code_T_5 ? 64'h2100ff : _contr_code_T_56; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_58 = _contr_code_T_3 ? 64'h410100 : _contr_code_T_57; // @[Lookup.scala 33:37]
-  wire [63:0] _contr_code_T_59 = _contr_code_T_1 ? 64'h430000 : _contr_code_T_58; // @[Lookup.scala 33:37]
-  wire [22:0] contr_code = _contr_code_T_59[22:0]; // @[IDU.scala 46:24 IDU.scala 75:14]
+  wire [22:0] _contr_code_T_40 = _contr_code_T_39 ? 23'h480000 : 23'h0; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_41 = _contr_code_T_37 ? 23'h71800 : _contr_code_T_40; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_42 = _contr_code_T_35 ? 23'h460000 : _contr_code_T_41; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_43 = _contr_code_T_33 ? 23'h410200 : _contr_code_T_42; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_44 = _contr_code_T_31 ? 23'h51800 : _contr_code_T_43; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_45 = _contr_code_T_29 ? 23'h441000 : _contr_code_T_44; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_46 = _contr_code_T_27 ? 23'h440800 : _contr_code_T_45; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_47 = _contr_code_T_25 ? 23'h4b0000 : _contr_code_T_46; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_48 = _contr_code_T_23 ? 23'h4b0000 : _contr_code_T_47; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_49 = _contr_code_T_21 ? 23'h4a0000 : _contr_code_T_48; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_50 = _contr_code_T_19 ? 23'h4a0000 : _contr_code_T_49; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_51 = _contr_code_T_17 ? 23'h490000 : _contr_code_T_50; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_52 = _contr_code_T_15 ? 23'h490000 : _contr_code_T_51; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_53 = _contr_code_T_13 ? 23'h420300 : _contr_code_T_52; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_54 = _contr_code_T_11 ? 23'h410300 : _contr_code_T_53; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_55 = _contr_code_T_9 ? 23'h420000 : _contr_code_T_54; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_56 = _contr_code_T_5 ? 23'h410000 : _contr_code_T_55; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_57 = _contr_code_T_5 ? 23'h2100ff : _contr_code_T_56; // @[Lookup.scala 33:37]
+  wire [22:0] _contr_code_T_58 = _contr_code_T_3 ? 23'h410100 : _contr_code_T_57; // @[Lookup.scala 33:37]
+  wire [22:0] contr_code = _contr_code_T_1 ? 23'h430000 : _contr_code_T_58; // @[Lookup.scala 33:37]
   Ebreak ebreak ( // @[IDU.scala 40:20]
     .ebreak_in(ebreak_ebreak_in)
   );
-  assign io_RegWrite = contr_code[22]; // @[IDU.scala 99:28]
-  assign io_MemWrite = contr_code[21]; // @[IDU.scala 100:28]
-  assign io_AluOp = contr_code[20:16]; // @[IDU.scala 101:25]
-  assign io_PcSrc = contr_code[15:11]; // @[IDU.scala 102:25]
-  assign io_RinCtl = contr_code[10:8]; // @[IDU.scala 103:26]
-  assign io_MemMask = contr_code[7:0]; // @[IDU.scala 104:27]
+  assign io_RegWrite = contr_code[22]; // @[IDU.scala 100:28]
+  assign io_MemWrite = contr_code[21]; // @[IDU.scala 101:28]
+  assign io_AluOp = contr_code[20:16]; // @[IDU.scala 102:25]
+  assign io_PcSrc = contr_code[15:11]; // @[IDU.scala 103:25]
+  assign io_RinCtl = contr_code[10:8]; // @[IDU.scala 104:26]
+  assign io_MemMask = contr_code[7:0]; // @[IDU.scala 105:27]
   assign io_Rdest = io_Inst[11:7]; // @[IDU.scala 23:22]
   assign io_R1 = io_Inst[19:15]; // @[IDU.scala 24:19]
   assign io_R2 = io_Inst[24:20]; // @[IDU.scala 25:19]
   assign io_Imm = 3'h5 == inst_type ? ImmJ : _io_Imm_T_7; // @[Mux.scala 80:57]
   assign ebreak_ebreak_in = 32'h100073 == io_Inst; // @[Mux.scala 80:60]
+  always @(posedge clock) begin
+    `ifndef SYNTHESIS
+    `ifdef PRINTF_COND
+      if (`PRINTF_COND) begin
+    `endif
+        if (~reset) begin
+          $fwrite(32'h80000002,"reg"); // @[IDU.scala 99:9]
+        end
+    `ifdef PRINTF_COND
+      end
+    `endif
+    `endif // SYNTHESIS
+  end
 endmodule
 module EXU(
   input         clock,
@@ -929,6 +943,8 @@ module Main(
 );
   wire [63:0] ifu_io_Pc; // @[Main.scala 25:17]
   wire [31:0] ifu_io_Inst; // @[Main.scala 25:17]
+  wire  idu_clock; // @[Main.scala 29:17]
+  wire  idu_reset; // @[Main.scala 29:17]
   wire [31:0] idu_io_Inst; // @[Main.scala 29:17]
   wire  idu_io_RegWrite; // @[Main.scala 29:17]
   wire  idu_io_MemWrite; // @[Main.scala 29:17]
@@ -958,6 +974,8 @@ module Main(
     .io_Inst(ifu_io_Inst)
   );
   IDU idu ( // @[Main.scala 29:17]
+    .clock(idu_clock),
+    .reset(idu_reset),
     .io_Inst(idu_io_Inst),
     .io_RegWrite(idu_io_RegWrite),
     .io_MemWrite(idu_io_MemWrite),
@@ -986,6 +1004,8 @@ module Main(
     .io_PcVal(exu_io_PcVal)
   );
   assign ifu_io_Pc = exu_io_PcVal; // @[Main.scala 12:14 Main.scala 53:6]
+  assign idu_clock = clock;
+  assign idu_reset = reset;
   assign idu_io_Inst = ifu_io_Inst; // @[Main.scala 13:16 Main.scala 27:8]
   assign exu_clock = clock;
   assign exu_reset = reset;
