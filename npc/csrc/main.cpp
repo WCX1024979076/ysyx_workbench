@@ -174,6 +174,7 @@ void check_regs_npc(CPU_state ref_cpu)
 void init_npc()
 {
   top->reset = 1;
+  puts("123");
   for (int i = 1; i <= 10; i++)
     cpu_sim();
   top->reset = 0;
@@ -191,7 +192,6 @@ int main(int argc, char **argv, char **env)
       size = ld(argv[1]);
     }
   }
-  puts("123");
 
   contextp = new VerilatedContext;
   contextp->commandArgs(argc, argv);
