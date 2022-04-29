@@ -79,7 +79,7 @@ class EXU extends Module {
     "b00010".U -> io.Imm(5,0),
     "b00011".U -> 12.U,
     "b00100".U -> io.Imm,
-    "b00110".U -> "h4".U(64.W),
+    "b00101".U -> "h4".U(64.W),
   ));
 
   AluOut := MuxLookup(io.AluOp,0.U, Array(
