@@ -21,7 +21,7 @@ VL_MODULE(VMain___024root) {
     CData/*2:0*/ Main__DOT__idu__DOT__inst_type;
     CData/*0:0*/ __Vclklast__TOP__clock;
     IData/*22:0*/ Main__DOT__idu__DOT__contr_code;
-    VlWide<4>/*126:0*/ Main__DOT__exu__DOT___AluOut_T_45;
+    VlWide<4>/*126:0*/ Main__DOT__exu__DOT___AluOut_T_73;
     QData/*63:0*/ Main__DOT__idu_io_Imm;
     QData/*63:0*/ Main__DOT__ifu__DOT__mem_Rdata;
     QData/*63:0*/ Main__DOT__exu__DOT__mem_Rdata;
