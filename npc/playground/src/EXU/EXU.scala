@@ -38,7 +38,7 @@ class EXU extends Module {
   difftest.io.gpr := Regs;
   difftest.io.PcVal := pc;
 
-  def SETX(a:UInt, b:Int):UInt = Cat(File(64,a(b-1)) ,a)(63,0);
+  def SETX(a:UInt, b:Int):UInt = Cat(Fill(64,a(b-1)) ,a)(63,0);
 
   DataR1 := Regs(io.R1);
   DataR2 := Regs(io.R2);
