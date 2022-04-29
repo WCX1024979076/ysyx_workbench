@@ -96,6 +96,7 @@ void cpu_sim()
   top->clock = 0, top->eval();
   puts("123");
   top->clock = 1, top->eval();
+  puts("123");
 }
 
 long ld(char *img_file)
