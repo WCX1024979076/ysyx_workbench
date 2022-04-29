@@ -66,9 +66,9 @@ class EXU extends Module {
       1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
       ))
   ));
-
-  var AluSrc1 := MuxLookup(io.AluSrc1Op,DataR1 ,Array(    
-    "b00000".U(64.W) -> DataR1,
+  var AluSrc1 = Wire(UInt(64.W))
+  AluSrc1 := MuxLookup(io.AluSrc1Op,DataR1 ,Array(    
+    "b00000".U -> DataR1,
     "b00001".U -> pc,
     "b00010".U -> io.Imm(31,12),
   ));
