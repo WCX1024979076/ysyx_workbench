@@ -34,7 +34,7 @@ class EXU extends Module {
   var pc = RegInit("h80000000".U(64.W));
   var AluSrc1 = Wire(UInt(64.W))
   var AluSrc2 = Wire(UInt(64.W))
-  
+
   difftest.io.gpr := Regs;
   difftest.io.PcVal := pc;
 
@@ -96,7 +96,7 @@ class EXU extends Module {
     "b01000".U -> (AluSrc1 === AluSrc2).asUInt(),                 //beq
     "b01001".U -> (AluSrc1 =/= AluSrc2).asUInt(),                 //bne
     "b01010".U -> (AluSrc1 < AluSrc2).asUInt(),                   //sltiu,bltu
-    "b01011".U -> (AluSrc1 >= AluSrc2.asUInt(),                   //bgeu
+    "b01011".U -> (AluSrc1 >= AluSrc2).asUInt(),                   //bgeu
     "b01100".U -> (AluSrc1.asSint() < AluSrc2.asSInt()).asUInt(), //slt,sli,blt
     "b01101".U -> (AluSrc1.asSint() >= AluSrc2.asSint()).asUInt(),//bge
     "b01110".U -> (AluSrc1 << AluSrc2).asUInt(),                  //sll,slli,lui
