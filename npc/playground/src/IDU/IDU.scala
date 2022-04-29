@@ -83,10 +83,10 @@ class IDU extends Module {
   }
 
   object PcSrccode extends ChiselEnum{
-    val add4        = 0.U
-    val jal         = 1.U
-    val jalr        = 2.U
-    val branch      = 3.U
+    val add4      = 0.U
+    val jal       = 1.U
+    val jalr      = 2.U
+    val branch    = 3.U
   }
 
   object RinCtlcode extends ChiselEnum{
