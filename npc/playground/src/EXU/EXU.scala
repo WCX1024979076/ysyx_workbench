@@ -77,7 +77,7 @@ class EXU extends Module {
     0xd.U -> (DataR1 ^ DataR2),                                             //xor
     0xe.U -> (DataR1 ^ Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),            //xori
     0xf.U -> (DataR1 | DataR2),                                             //or
-    0x010.U -> (DataR1 | Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),           //ori
+    "h10".U(5.W) -> (DataR1 | Cat(Fill(52, io.Imm(11)), io.Imm(11,0))),           //ori
   ));
 
   io.PcVal := pc;
