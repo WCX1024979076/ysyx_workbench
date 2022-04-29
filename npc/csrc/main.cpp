@@ -92,11 +92,8 @@ void pmem_write(long long Waddr, long long Wdata, char Wmask)
 
 void cpu_sim()
 {
-  puts("123");
   top->clock = 0, top->eval();
-  puts("123");
   top->clock = 1, top->eval();
-  puts("123");
 }
 
 long ld(char *img_file)
