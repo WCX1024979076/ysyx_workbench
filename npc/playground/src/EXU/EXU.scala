@@ -68,8 +68,8 @@ class EXU extends Module {
   pc := MuxLookup(io.PcSrc, pc + "h4".U, Array(
     0x0.U -> (pc + "h4".U),
     0x1.U -> (pc + Cat(Fill(43, io.Imm(20)), io.Imm(20,0))), //jal
-    0x2.U -> ((DataR1 + io.Imm) & (~(1.U(64.W)))), //jalr
-    0x3.U -> MuxLookup(AluOut, pc+"h4".U, Array(            //bne,beq
+    0x2.U -> ((DataR1 + io.Imm) & (~(1.U(64.W)))),           //jalr
+    0x3.U -> MuxLookup(AluOut, pc+"h4".U, Array(             //bne,beq
       1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
       ))
   ));
