@@ -94,8 +94,8 @@ class EXU extends Module {
     "b00010".U -> (AluSrc1 - AluSrc2).asUInt(),                        //sub
     "b00011".U -> (AluSrc1 * AluSrc2).asUInt(),                        //mul
     "b00100".U -> (AluSrc1.asSInt() / AluSrc2.asSInt()).asUInt(),    //div
-    "b00101".U -> (AluSrc1(62,0) / AluSrc2(62,0) ).asUInt(),                      //divu
-    "b00110".U -> (AluSrc1(62,0) .asSInt() % AluSrc2(62,0) .asSInt()).asUInt(),      //rem
+    "b00101".U -> (AluSrc1 / AluSrc2).asUInt(),                      //divu
+    "b00110".U -> (AluSrc1.asSInt() % AluSrc2.asSInt()).asUInt(),      //rem
     "b00111".U -> (AluSrc1 % AluSrc2).asUInt(),                        //remu
     "b01000".U -> (AluSrc1 === AluSrc2).asUInt(),                      //beq
     "b01001".U -> (AluSrc1 =/= AluSrc2).asUInt(),                      //bne
