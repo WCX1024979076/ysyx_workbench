@@ -71,7 +71,7 @@ VL_MODULE(VMain___024root) {
     QData/*63:0*/ Main__DOT__exu__DOT__DataR2;
     QData/*63:0*/ Main__DOT__exu__DOT__AluSrc1;
     QData/*63:0*/ Main__DOT__exu__DOT__AluSrc2;
-    QData/*63:0*/ Main__DOT__exu__DOT___DataIn_T_41;
+    QData/*63:0*/ Main__DOT__exu__DOT___DataIn_T_46;
     QData/*63:0*/ Main__DOT__exu__DOT___pc_T_1;
     QData/*63:0*/ Main__DOT__exu__DOT___pc_T_8;
     QData/*63:0*/ Main__DOT__exu__DOT___pc_T_19;

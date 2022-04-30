@@ -53,7 +53,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
     QData/*63:0*/ Main__DOT__exu__DOT___AluOut_T_29;
     QData/*63:0*/ Main__DOT__exu__DOT___AluOut_T_23;
     VlWide<4>/*127:0*/ Main__DOT__exu__DOT___AluOut_T_61;
-    QData/*63:0*/ Main__DOT__exu__DOT___DataIn_T_39;
+    QData/*63:0*/ Main__DOT__exu__DOT___DataIn_T_44;
     VlWide<4>/*127:0*/ __Vtemp_h86bb3482__0;
     VlWide<4>/*127:0*/ __Vtemp_h8c2fe0d2__0;
     VlWide<4>/*127:0*/ __Vtemp_heab21533__0;
@@ -2792,7 +2792,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                   ? 0U
                                                                   : (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_501)));
     }
-    Main__DOT__exu__DOT___DataIn_T_39 = ((6U == (7U 
+    Main__DOT__exu__DOT___DataIn_T_44 = ((6U == (7U 
                                                  & (IData)(vlSelf->Main__DOT__idu_io_RinCtl)))
                                           ? (((QData)((IData)(
                                                               ((vlSelf->Main__DOT__exu__DOT___AluOut_T_73[0U] 
@@ -2870,12 +2870,19 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                       << 0x20U) 
                                                      | (QData)((IData)(
                                                                        vlSelf->Main__DOT__exu__DOT___AluOut_T_73[0U])))))))));
-    vlSelf->Main__DOT__exu__DOT___DataIn_T_41 = ((7U 
+    vlSelf->Main__DOT__exu__DOT___DataIn_T_46 = ((7U 
                                                   == 
                                                   (7U 
                                                    & (IData)(vlSelf->Main__DOT__idu_io_RinCtl)))
-                                                  ? (QData)((IData)(
-                                                                    (0xffU 
-                                                                     & (IData)(vlSelf->Main__DOT__exu__DOT__mem_Rdata))))
-                                                  : Main__DOT__exu__DOT___DataIn_T_39);
+                                                  ? 
+                                                 (((QData)((IData)(
+                                                                   ((1U 
+                                                                     & (IData)(
+                                                                               (vlSelf->Main__DOT__exu__DOT__mem_Rdata 
+                                                                                >> 0x1fU)))
+                                                                     ? 0xffffffffU
+                                                                     : 0U))) 
+                                                   << 0x20U) 
+                                                  | (QData)((IData)(vlSelf->Main__DOT__exu__DOT__mem_Rdata)))
+                                                  : Main__DOT__exu__DOT___DataIn_T_44);
 }
