@@ -31,48 +31,48 @@ module IDU(
   output [4:0]  io_AluSrc1Op,
   output [4:0]  io_AluSrc2Op,
   output [4:0]  io_PcSrc,
-  output [2:0]  io_RinCtl,
+  output [3:0]  io_RinCtl,
   output [7:0]  io_MemMask,
   output [4:0]  io_Rdest,
   output [4:0]  io_R1,
   output [4:0]  io_R2,
   output [63:0] io_Imm
 );
-  wire  ebreak_ebreak_in; // @[IDU.scala 41:20]
-  wire [6:0] opcode = io_Inst[6:0]; // @[IDU.scala 45:23]
-  wire [31:0] io_Imm_lo = {io_Inst[31:12], 12'h0}; // @[IDU.scala 37:39]
+  wire  ebreak_ebreak_in; // @[IDU.scala 39:20]
+  wire [6:0] opcode = io_Inst[6:0]; // @[IDU.scala 43:23]
+  wire [31:0] io_Imm_lo = {io_Inst[31:12], 12'h0}; // @[IDU.scala 35:39]
   wire [31:0] io_Imm_hi = io_Imm_lo[31] ? 32'hffffffff : 32'h0; // @[Bitwise.scala 72:12]
   wire [63:0] _io_Imm_T_4 = {io_Imm_hi,io_Imm_lo}; // @[Cat.scala 30:58]
-  wire [11:0] io_Imm_lo_1 = io_Inst[31:20]; // @[IDU.scala 34:31]
+  wire [11:0] io_Imm_lo_1 = io_Inst[31:20]; // @[IDU.scala 32:31]
   wire [51:0] io_Imm_hi_1 = io_Imm_lo_1[11] ? 52'hfffffffffffff : 52'h0; // @[Bitwise.scala 72:12]
   wire [63:0] _io_Imm_T_9 = {io_Imm_hi_1,io_Imm_lo_1}; // @[Cat.scala 30:58]
-  wire [11:0] _io_Imm_T_12 = {io_Inst[31:25], 5'h0}; // @[IDU.scala 35:40]
-  wire [11:0] _GEN_0 = {{7'd0}, io_Inst[11:7]}; // @[IDU.scala 35:45]
-  wire [11:0] io_Imm_lo_2 = _io_Imm_T_12 | _GEN_0; // @[IDU.scala 35:45]
+  wire [11:0] _io_Imm_T_12 = {io_Inst[31:25], 5'h0}; // @[IDU.scala 33:40]
+  wire [11:0] _GEN_0 = {{7'd0}, io_Inst[11:7]}; // @[IDU.scala 33:45]
+  wire [11:0] io_Imm_lo_2 = _io_Imm_T_12 | _GEN_0; // @[IDU.scala 33:45]
   wire [51:0] io_Imm_hi_2 = io_Imm_lo_2[11] ? 52'hfffffffffffff : 52'h0; // @[Bitwise.scala 72:12]
   wire [63:0] _io_Imm_T_17 = {io_Imm_hi_2,io_Imm_lo_2}; // @[Cat.scala 30:58]
-  wire [20:0] _io_Imm_T_36 = {io_Inst[31], 20'h0}; // @[IDU.scala 38:40]
-  wire [10:0] _io_Imm_T_38 = {io_Inst[30:21], 1'h0}; // @[IDU.scala 38:63]
-  wire [20:0] _GEN_1 = {{10'd0}, _io_Imm_T_38}; // @[IDU.scala 38:46]
-  wire [20:0] _io_Imm_T_39 = _io_Imm_T_36 | _GEN_1; // @[IDU.scala 38:46]
-  wire [11:0] _io_Imm_T_41 = {io_Inst[20], 11'h0}; // @[IDU.scala 38:85]
-  wire [20:0] _GEN_2 = {{9'd0}, _io_Imm_T_41}; // @[IDU.scala 38:68]
-  wire [20:0] _io_Imm_T_42 = _io_Imm_T_39 | _GEN_2; // @[IDU.scala 38:68]
-  wire [19:0] _io_Imm_T_44 = {io_Inst[19:12], 12'h0}; // @[IDU.scala 38:108]
-  wire [20:0] _GEN_3 = {{1'd0}, _io_Imm_T_44}; // @[IDU.scala 38:91]
-  wire [20:0] io_Imm_lo_6 = _io_Imm_T_42 | _GEN_3; // @[IDU.scala 38:91]
+  wire [20:0] _io_Imm_T_36 = {io_Inst[31], 20'h0}; // @[IDU.scala 36:40]
+  wire [10:0] _io_Imm_T_38 = {io_Inst[30:21], 1'h0}; // @[IDU.scala 36:63]
+  wire [20:0] _GEN_1 = {{10'd0}, _io_Imm_T_38}; // @[IDU.scala 36:46]
+  wire [20:0] _io_Imm_T_39 = _io_Imm_T_36 | _GEN_1; // @[IDU.scala 36:46]
+  wire [11:0] _io_Imm_T_41 = {io_Inst[20], 11'h0}; // @[IDU.scala 36:85]
+  wire [20:0] _GEN_2 = {{9'd0}, _io_Imm_T_41}; // @[IDU.scala 36:68]
+  wire [20:0] _io_Imm_T_42 = _io_Imm_T_39 | _GEN_2; // @[IDU.scala 36:68]
+  wire [19:0] _io_Imm_T_44 = {io_Inst[19:12], 12'h0}; // @[IDU.scala 36:108]
+  wire [20:0] _GEN_3 = {{1'd0}, _io_Imm_T_44}; // @[IDU.scala 36:91]
+  wire [20:0] io_Imm_lo_6 = _io_Imm_T_42 | _GEN_3; // @[IDU.scala 36:91]
   wire [42:0] io_Imm_hi_6 = io_Imm_lo_6[20] ? 43'h7ffffffffff : 43'h0; // @[Bitwise.scala 72:12]
   wire [63:0] _io_Imm_T_48 = {io_Imm_hi_6,io_Imm_lo_6}; // @[Cat.scala 30:58]
-  wire [12:0] _io_Imm_T_56 = {io_Inst[31], 12'h0}; // @[IDU.scala 36:40]
-  wire [10:0] _io_Imm_T_58 = {io_Inst[30:25], 5'h0}; // @[IDU.scala 36:63]
-  wire [12:0] _GEN_4 = {{2'd0}, _io_Imm_T_58}; // @[IDU.scala 36:46]
-  wire [12:0] _io_Imm_T_59 = _io_Imm_T_56 | _GEN_4; // @[IDU.scala 36:46]
-  wire [4:0] _io_Imm_T_61 = {io_Inst[11:8], 1'h0}; // @[IDU.scala 36:84]
-  wire [12:0] _GEN_5 = {{8'd0}, _io_Imm_T_61}; // @[IDU.scala 36:68]
-  wire [12:0] _io_Imm_T_62 = _io_Imm_T_59 | _GEN_5; // @[IDU.scala 36:68]
-  wire [11:0] _io_Imm_T_64 = {io_Inst[7], 11'h0}; // @[IDU.scala 36:104]
-  wire [12:0] _GEN_6 = {{1'd0}, _io_Imm_T_64}; // @[IDU.scala 36:89]
-  wire [12:0] io_Imm_lo_8 = _io_Imm_T_62 | _GEN_6; // @[IDU.scala 36:89]
+  wire [12:0] _io_Imm_T_56 = {io_Inst[31], 12'h0}; // @[IDU.scala 34:40]
+  wire [10:0] _io_Imm_T_58 = {io_Inst[30:25], 5'h0}; // @[IDU.scala 34:63]
+  wire [12:0] _GEN_4 = {{2'd0}, _io_Imm_T_58}; // @[IDU.scala 34:46]
+  wire [12:0] _io_Imm_T_59 = _io_Imm_T_56 | _GEN_4; // @[IDU.scala 34:46]
+  wire [4:0] _io_Imm_T_61 = {io_Inst[11:8], 1'h0}; // @[IDU.scala 34:84]
+  wire [12:0] _GEN_5 = {{8'd0}, _io_Imm_T_61}; // @[IDU.scala 34:68]
+  wire [12:0] _io_Imm_T_62 = _io_Imm_T_59 | _GEN_5; // @[IDU.scala 34:68]
+  wire [11:0] _io_Imm_T_64 = {io_Inst[7], 11'h0}; // @[IDU.scala 34:104]
+  wire [12:0] _GEN_6 = {{1'd0}, _io_Imm_T_64}; // @[IDU.scala 34:89]
+  wire [12:0] io_Imm_lo_8 = _io_Imm_T_62 | _GEN_6; // @[IDU.scala 34:89]
   wire [50:0] io_Imm_hi_8 = io_Imm_lo_8[12] ? 51'h7ffffffffffff : 51'h0; // @[Bitwise.scala 72:12]
   wire [63:0] _io_Imm_T_68 = {io_Imm_hi_8,io_Imm_lo_8}; // @[Cat.scala 30:58]
   wire [63:0] _io_Imm_T_71 = 7'h17 == opcode ? _io_Imm_T_4 : 64'h0; // @[Mux.scala 80:57]
@@ -124,214 +124,345 @@ module IDU(
   wire  _contr_code_T_65 = 32'h6f == _contr_code_T; // @[Lookup.scala 31:38]
   wire  _contr_code_T_67 = 32'h67 == _contr_code_T_2; // @[Lookup.scala 31:38]
   wire  _contr_code_T_69 = 32'h501b == _contr_code_T_16; // @[Lookup.scala 31:38]
-  wire  _contr_code_T_71 = 32'h2003 == _contr_code_T_2; // @[Lookup.scala 31:38]
-  wire  _contr_code_T_79 = _contr_code_T_63 ? 1'h0 : _contr_code_T_65 | (_contr_code_T_67 | (_contr_code_T_69 | (
-    _contr_code_T_71 | _contr_code_T_51))); // @[Lookup.scala 33:37]
-  wire  _contr_code_T_80 = _contr_code_T_61 ? 1'h0 : _contr_code_T_79; // @[Lookup.scala 33:37]
-  wire  _contr_code_T_81 = _contr_code_T_59 ? 1'h0 : _contr_code_T_80; // @[Lookup.scala 33:37]
-  wire  _contr_code_T_82 = _contr_code_T_57 ? 1'h0 : _contr_code_T_81; // @[Lookup.scala 33:37]
-  wire  _contr_code_T_83 = _contr_code_T_55 ? 1'h0 : _contr_code_T_82; // @[Lookup.scala 33:37]
-  wire  _contr_code_T_84 = _contr_code_T_53 ? 1'h0 : _contr_code_T_83; // @[Lookup.scala 33:37]
-  wire  _contr_code_T_108 = _contr_code_T_5 ? 1'h0 : _contr_code_T_7 | (_contr_code_T_9 | (_contr_code_T_11 | (
+  wire  _contr_code_T_71 = 32'h3 == _contr_code_T_2; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_73 = 32'h1003 == _contr_code_T_2; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_75 = 32'h4003 == _contr_code_T_2; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_77 = 32'h5003 == _contr_code_T_2; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_79 = 32'h2003 == _contr_code_T_2; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_81 = 32'h23 == _contr_code_T_2; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_83 = 32'h1023 == _contr_code_T_2; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_85 = 32'h2023 == _contr_code_T_2; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_87 = 32'h2000033 == _contr_code_T_8; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_89 = 32'h2006033 == _contr_code_T_8; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_91 = 32'h200603b == _contr_code_T_8; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_95 = 32'h200003b == _contr_code_T_8; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_107 = _contr_code_T_85 ? 1'h0 : _contr_code_T_87 | (_contr_code_T_89 | (_contr_code_T_91 | (
+    _contr_code_T_91 | (_contr_code_T_95 | (_contr_code_T_79 | _contr_code_T_51))))); // @[Lookup.scala 33:37]
+  wire  _contr_code_T_108 = _contr_code_T_83 ? 1'h0 : _contr_code_T_107; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_109 = _contr_code_T_81 ? 1'h0 : _contr_code_T_108; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_118 = _contr_code_T_63 ? 1'h0 : _contr_code_T_65 | (_contr_code_T_67 | (_contr_code_T_69 | (
+    _contr_code_T_71 | (_contr_code_T_73 | (_contr_code_T_75 | (_contr_code_T_77 | (_contr_code_T_79 | _contr_code_T_109
+    ))))))); // @[Lookup.scala 33:37]
+  wire  _contr_code_T_119 = _contr_code_T_61 ? 1'h0 : _contr_code_T_118; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_120 = _contr_code_T_59 ? 1'h0 : _contr_code_T_119; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_121 = _contr_code_T_57 ? 1'h0 : _contr_code_T_120; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_122 = _contr_code_T_55 ? 1'h0 : _contr_code_T_121; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_123 = _contr_code_T_53 ? 1'h0 : _contr_code_T_122; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_147 = _contr_code_T_5 ? 1'h0 : _contr_code_T_7 | (_contr_code_T_9 | (_contr_code_T_11 | (
     _contr_code_T_13 | (_contr_code_T_15 | (_contr_code_T_17 | (_contr_code_T_19 | (_contr_code_T_21 | (_contr_code_T_23
      | (_contr_code_T_25 | (_contr_code_T_27 | (_contr_code_T_29 | (_contr_code_T_31 | (_contr_code_T_33 | (
     _contr_code_T_35 | (_contr_code_T_37 | (_contr_code_T_39 | (_contr_code_T_41 | (_contr_code_T_43 | (_contr_code_T_45
-     | (_contr_code_T_47 | (_contr_code_T_49 | (_contr_code_T_51 | _contr_code_T_84)))))))))))))))))))))); // @[Lookup.scala 33:37]
-  wire  _contr_code_T_145 = _contr_code_T_3 ? 1'h0 : _contr_code_T_5; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_148 = _contr_code_T_69 ? 2'h3 : 2'h0; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_149 = _contr_code_T_67 ? 2'h1 : _contr_code_T_148; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_150 = _contr_code_T_65 ? 2'h1 : _contr_code_T_149; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_151 = _contr_code_T_63 ? 2'h0 : _contr_code_T_150; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_152 = _contr_code_T_61 ? 2'h0 : _contr_code_T_151; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_153 = _contr_code_T_59 ? 2'h0 : _contr_code_T_152; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_154 = _contr_code_T_57 ? 2'h0 : _contr_code_T_153; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_155 = _contr_code_T_55 ? 2'h0 : _contr_code_T_154; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_156 = _contr_code_T_53 ? 2'h0 : _contr_code_T_155; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_157 = _contr_code_T_51 ? 2'h0 : _contr_code_T_156; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_158 = _contr_code_T_49 ? 2'h0 : _contr_code_T_157; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_159 = _contr_code_T_47 ? 2'h0 : _contr_code_T_158; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_160 = _contr_code_T_45 ? 2'h0 : _contr_code_T_159; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_161 = _contr_code_T_43 ? 2'h0 : _contr_code_T_160; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_162 = _contr_code_T_41 ? 2'h0 : _contr_code_T_161; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_163 = _contr_code_T_39 ? 2'h0 : _contr_code_T_162; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_164 = _contr_code_T_37 ? 2'h0 : _contr_code_T_163; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_165 = _contr_code_T_35 ? 2'h0 : _contr_code_T_164; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_166 = _contr_code_T_33 ? 2'h0 : _contr_code_T_165; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_167 = _contr_code_T_31 ? 2'h2 : _contr_code_T_166; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_168 = _contr_code_T_29 ? 2'h0 : _contr_code_T_167; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_169 = _contr_code_T_27 ? 2'h0 : _contr_code_T_168; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_170 = _contr_code_T_25 ? 2'h0 : _contr_code_T_169; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_171 = _contr_code_T_23 ? 2'h0 : _contr_code_T_170; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_172 = _contr_code_T_21 ? 2'h0 : _contr_code_T_171; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_173 = _contr_code_T_19 ? 2'h0 : _contr_code_T_172; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_174 = _contr_code_T_17 ? 2'h0 : _contr_code_T_173; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_175 = _contr_code_T_15 ? 2'h0 : _contr_code_T_174; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_176 = _contr_code_T_13 ? 2'h0 : _contr_code_T_175; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_177 = _contr_code_T_11 ? 2'h0 : _contr_code_T_176; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_178 = _contr_code_T_9 ? 2'h0 : _contr_code_T_177; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_179 = _contr_code_T_7 ? 2'h0 : _contr_code_T_178; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_180 = _contr_code_T_5 ? 2'h0 : _contr_code_T_179; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_181 = _contr_code_T_3 ? 2'h0 : _contr_code_T_180; // @[Lookup.scala 33:37]
-  wire [1:0] contr_code_2 = _contr_code_T_1 ? 2'h1 : _contr_code_T_181; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_182 = _contr_code_T_51 ? 3'h4 : 3'h0; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_183 = _contr_code_T_71 ? 3'h4 : _contr_code_T_182; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_184 = _contr_code_T_69 ? 3'h2 : _contr_code_T_183; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_185 = _contr_code_T_67 ? 3'h5 : _contr_code_T_184; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_186 = _contr_code_T_65 ? 3'h5 : _contr_code_T_185; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_187 = _contr_code_T_63 ? 3'h0 : _contr_code_T_186; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_188 = _contr_code_T_61 ? 3'h0 : _contr_code_T_187; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_189 = _contr_code_T_59 ? 3'h0 : _contr_code_T_188; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_190 = _contr_code_T_57 ? 3'h0 : _contr_code_T_189; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_191 = _contr_code_T_55 ? 3'h0 : _contr_code_T_190; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_192 = _contr_code_T_53 ? 3'h0 : _contr_code_T_191; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_193 = _contr_code_T_51 ? 3'h4 : _contr_code_T_192; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_194 = _contr_code_T_49 ? 3'h0 : _contr_code_T_193; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_195 = _contr_code_T_47 ? 3'h4 : _contr_code_T_194; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_196 = _contr_code_T_45 ? 3'h0 : _contr_code_T_195; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_197 = _contr_code_T_43 ? 3'h4 : _contr_code_T_196; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_198 = _contr_code_T_41 ? 3'h0 : _contr_code_T_197; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_199 = _contr_code_T_39 ? 3'h4 : _contr_code_T_198; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_200 = _contr_code_T_37 ? 3'h0 : _contr_code_T_199; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_201 = _contr_code_T_35 ? 3'h4 : _contr_code_T_200; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_202 = _contr_code_T_33 ? 3'h0 : _contr_code_T_201; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_203 = _contr_code_T_31 ? 3'h3 : _contr_code_T_202; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_204 = _contr_code_T_29 ? 3'h0 : _contr_code_T_203; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_205 = _contr_code_T_27 ? 3'h0 : _contr_code_T_204; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_206 = _contr_code_T_25 ? 3'h2 : _contr_code_T_205; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_207 = _contr_code_T_23 ? 3'h1 : _contr_code_T_206; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_208 = _contr_code_T_21 ? 3'h2 : _contr_code_T_207; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_209 = _contr_code_T_19 ? 3'h1 : _contr_code_T_208; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_210 = _contr_code_T_17 ? 3'h2 : _contr_code_T_209; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_211 = _contr_code_T_15 ? 3'h1 : _contr_code_T_210; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_212 = _contr_code_T_13 ? 3'h0 : _contr_code_T_211; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_213 = _contr_code_T_11 ? 3'h4 : _contr_code_T_212; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_214 = _contr_code_T_9 ? 3'h0 : _contr_code_T_213; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_215 = _contr_code_T_7 ? 3'h4 : _contr_code_T_214; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_216 = _contr_code_T_5 ? 3'h4 : _contr_code_T_215; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_217 = _contr_code_T_3 ? 3'h4 : _contr_code_T_216; // @[Lookup.scala 33:37]
-  wire [2:0] contr_code_3 = _contr_code_T_1 ? 3'h4 : _contr_code_T_217; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_218 = _contr_code_T_51 ? 4'ha : 4'h0; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_219 = _contr_code_T_71 ? 4'h1 : _contr_code_T_218; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_220 = _contr_code_T_69 ? 4'hf : _contr_code_T_219; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_221 = _contr_code_T_67 ? 4'h1 : _contr_code_T_220; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_222 = _contr_code_T_65 ? 4'h1 : _contr_code_T_221; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_223 = _contr_code_T_63 ? 4'hb : _contr_code_T_222; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_224 = _contr_code_T_61 ? 4'ha : _contr_code_T_223; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_225 = _contr_code_T_59 ? 4'hd : _contr_code_T_224; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_226 = _contr_code_T_57 ? 4'hc : _contr_code_T_225; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_227 = _contr_code_T_55 ? 4'h9 : _contr_code_T_226; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_228 = _contr_code_T_53 ? 4'h8 : _contr_code_T_227; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_229 = _contr_code_T_51 ? 4'ha : _contr_code_T_228; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_230 = _contr_code_T_49 ? 4'ha : _contr_code_T_229; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_231 = _contr_code_T_47 ? 4'hc : _contr_code_T_230; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_232 = _contr_code_T_45 ? 4'hc : _contr_code_T_231; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_233 = _contr_code_T_43 ? 4'h1 : _contr_code_T_232; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_234 = _contr_code_T_41 ? 4'h1 : _contr_code_T_233; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_235 = _contr_code_T_39 ? 5'h12 : {{1'd0}, _contr_code_T_234}; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_236 = _contr_code_T_37 ? 5'h12 : _contr_code_T_235; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_237 = _contr_code_T_35 ? 5'h11 : _contr_code_T_236; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_238 = _contr_code_T_33 ? 5'h11 : _contr_code_T_237; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_239 = _contr_code_T_31 ? 5'he : _contr_code_T_238; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_240 = _contr_code_T_29 ? 5'h2 : _contr_code_T_239; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_241 = _contr_code_T_27 ? 5'h2 : _contr_code_T_240; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_242 = _contr_code_T_25 ? 5'h10 : _contr_code_T_241; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_243 = _contr_code_T_23 ? 5'h10 : _contr_code_T_242; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_244 = _contr_code_T_21 ? 5'hf : _contr_code_T_243; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_245 = _contr_code_T_19 ? 5'hf : _contr_code_T_244; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_246 = _contr_code_T_17 ? 5'he : _contr_code_T_245; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_247 = _contr_code_T_15 ? 5'he : _contr_code_T_246; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_248 = _contr_code_T_13 ? 5'h1 : _contr_code_T_247; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_249 = _contr_code_T_11 ? 5'h1 : _contr_code_T_248; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_250 = _contr_code_T_9 ? 5'h1 : _contr_code_T_249; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_251 = _contr_code_T_7 ? 5'h1 : _contr_code_T_250; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_252 = _contr_code_T_5 ? 5'h1 : _contr_code_T_251; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_253 = _contr_code_T_3 ? 5'h1 : _contr_code_T_252; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_257 = _contr_code_T_67 ? 2'h2 : 2'h0; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_258 = _contr_code_T_65 ? 2'h1 : _contr_code_T_257; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_259 = _contr_code_T_63 ? 2'h3 : _contr_code_T_258; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_260 = _contr_code_T_61 ? 2'h3 : _contr_code_T_259; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_261 = _contr_code_T_59 ? 2'h3 : _contr_code_T_260; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_262 = _contr_code_T_57 ? 2'h3 : _contr_code_T_261; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_263 = _contr_code_T_55 ? 2'h3 : _contr_code_T_262; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_264 = _contr_code_T_53 ? 2'h3 : _contr_code_T_263; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_265 = _contr_code_T_51 ? 2'h0 : _contr_code_T_264; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_266 = _contr_code_T_49 ? 2'h0 : _contr_code_T_265; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_267 = _contr_code_T_47 ? 2'h0 : _contr_code_T_266; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_268 = _contr_code_T_45 ? 2'h0 : _contr_code_T_267; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_269 = _contr_code_T_43 ? 2'h0 : _contr_code_T_268; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_270 = _contr_code_T_41 ? 2'h0 : _contr_code_T_269; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_271 = _contr_code_T_39 ? 2'h0 : _contr_code_T_270; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_272 = _contr_code_T_37 ? 2'h0 : _contr_code_T_271; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_273 = _contr_code_T_35 ? 2'h0 : _contr_code_T_272; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_274 = _contr_code_T_33 ? 2'h0 : _contr_code_T_273; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_275 = _contr_code_T_31 ? 2'h0 : _contr_code_T_274; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_276 = _contr_code_T_29 ? 2'h0 : _contr_code_T_275; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_277 = _contr_code_T_27 ? 2'h0 : _contr_code_T_276; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_278 = _contr_code_T_25 ? 2'h0 : _contr_code_T_277; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_279 = _contr_code_T_23 ? 2'h0 : _contr_code_T_278; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_280 = _contr_code_T_21 ? 2'h0 : _contr_code_T_279; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_281 = _contr_code_T_19 ? 2'h0 : _contr_code_T_280; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_282 = _contr_code_T_17 ? 2'h0 : _contr_code_T_281; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_283 = _contr_code_T_15 ? 2'h0 : _contr_code_T_282; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_284 = _contr_code_T_13 ? 2'h0 : _contr_code_T_283; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_285 = _contr_code_T_11 ? 2'h0 : _contr_code_T_284; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_286 = _contr_code_T_9 ? 2'h0 : _contr_code_T_285; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_287 = _contr_code_T_7 ? 2'h0 : _contr_code_T_286; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_288 = _contr_code_T_5 ? 2'h0 : _contr_code_T_287; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_289 = _contr_code_T_3 ? 2'h0 : _contr_code_T_288; // @[Lookup.scala 33:37]
-  wire [1:0] contr_code_5 = _contr_code_T_1 ? 2'h0 : _contr_code_T_289; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_291 = _contr_code_T_71 ? 2'h3 : 2'h0; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_292 = _contr_code_T_69 ? 2'h2 : _contr_code_T_291; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_293 = _contr_code_T_67 ? 2'h0 : _contr_code_T_292; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_294 = _contr_code_T_65 ? 2'h0 : _contr_code_T_293; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_295 = _contr_code_T_63 ? 2'h3 : _contr_code_T_294; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_296 = _contr_code_T_61 ? 2'h3 : _contr_code_T_295; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_297 = _contr_code_T_59 ? 2'h3 : _contr_code_T_296; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_298 = _contr_code_T_57 ? 2'h3 : _contr_code_T_297; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_299 = _contr_code_T_55 ? 2'h3 : _contr_code_T_298; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_300 = _contr_code_T_53 ? 2'h0 : _contr_code_T_299; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_301 = _contr_code_T_51 ? 2'h0 : _contr_code_T_300; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_302 = _contr_code_T_49 ? 2'h0 : _contr_code_T_301; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_303 = _contr_code_T_47 ? 2'h0 : _contr_code_T_302; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_304 = _contr_code_T_45 ? 2'h0 : _contr_code_T_303; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_305 = _contr_code_T_43 ? 2'h0 : _contr_code_T_304; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_306 = _contr_code_T_41 ? 2'h0 : _contr_code_T_305; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_307 = _contr_code_T_39 ? 2'h0 : _contr_code_T_306; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_308 = _contr_code_T_37 ? 2'h0 : _contr_code_T_307; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_309 = _contr_code_T_35 ? 2'h0 : _contr_code_T_308; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_310 = _contr_code_T_33 ? 2'h0 : _contr_code_T_309; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_311 = _contr_code_T_31 ? 2'h2 : _contr_code_T_310; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_312 = _contr_code_T_29 ? 2'h2 : _contr_code_T_311; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_313 = _contr_code_T_27 ? 2'h0 : _contr_code_T_312; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_314 = _contr_code_T_25 ? 2'h0 : _contr_code_T_313; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_315 = _contr_code_T_23 ? 2'h0 : _contr_code_T_314; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_316 = _contr_code_T_21 ? 2'h0 : _contr_code_T_315; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_317 = _contr_code_T_19 ? 2'h0 : _contr_code_T_316; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_318 = _contr_code_T_17 ? 2'h0 : _contr_code_T_317; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_319 = _contr_code_T_15 ? 2'h0 : _contr_code_T_318; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_320 = _contr_code_T_13 ? 2'h2 : _contr_code_T_319; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_321 = _contr_code_T_11 ? 2'h2 : _contr_code_T_320; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_322 = _contr_code_T_9 ? 2'h0 : _contr_code_T_321; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_323 = _contr_code_T_7 ? 2'h0 : _contr_code_T_322; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_324 = _contr_code_T_5 ? 2'h0 : _contr_code_T_323; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_325 = _contr_code_T_3 ? 2'h1 : _contr_code_T_324; // @[Lookup.scala 33:37]
-  wire [1:0] contr_code_6 = _contr_code_T_1 ? 2'h0 : _contr_code_T_325; // @[Lookup.scala 33:37]
-  wire [7:0] _contr_code_T_360 = _contr_code_T_5 ? 8'hff : 8'h0; // @[Lookup.scala 33:37]
-  wire [7:0] _contr_code_T_361 = _contr_code_T_3 ? 8'h0 : _contr_code_T_360; // @[Lookup.scala 33:37]
-  Ebreak ebreak ( // @[IDU.scala 41:20]
+     | (_contr_code_T_47 | (_contr_code_T_49 | (_contr_code_T_51 | _contr_code_T_123)))))))))))))))))))))); // @[Lookup.scala 33:37]
+  wire  _contr_code_T_159 = _contr_code_T_79 ? 1'h0 : _contr_code_T_81 | (_contr_code_T_83 | _contr_code_T_85); // @[Lookup.scala 33:37]
+  wire  _contr_code_T_160 = _contr_code_T_77 ? 1'h0 : _contr_code_T_159; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_161 = _contr_code_T_75 ? 1'h0 : _contr_code_T_160; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_162 = _contr_code_T_73 ? 1'h0 : _contr_code_T_161; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_163 = _contr_code_T_71 ? 1'h0 : _contr_code_T_162; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_164 = _contr_code_T_69 ? 1'h0 : _contr_code_T_163; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_165 = _contr_code_T_67 ? 1'h0 : _contr_code_T_164; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_166 = _contr_code_T_65 ? 1'h0 : _contr_code_T_165; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_167 = _contr_code_T_63 ? 1'h0 : _contr_code_T_166; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_168 = _contr_code_T_61 ? 1'h0 : _contr_code_T_167; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_169 = _contr_code_T_59 ? 1'h0 : _contr_code_T_168; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_170 = _contr_code_T_57 ? 1'h0 : _contr_code_T_169; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_171 = _contr_code_T_55 ? 1'h0 : _contr_code_T_170; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_172 = _contr_code_T_53 ? 1'h0 : _contr_code_T_171; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_173 = _contr_code_T_51 ? 1'h0 : _contr_code_T_172; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_174 = _contr_code_T_49 ? 1'h0 : _contr_code_T_173; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_175 = _contr_code_T_47 ? 1'h0 : _contr_code_T_174; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_176 = _contr_code_T_45 ? 1'h0 : _contr_code_T_175; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_177 = _contr_code_T_43 ? 1'h0 : _contr_code_T_176; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_178 = _contr_code_T_41 ? 1'h0 : _contr_code_T_177; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_179 = _contr_code_T_39 ? 1'h0 : _contr_code_T_178; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_180 = _contr_code_T_37 ? 1'h0 : _contr_code_T_179; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_181 = _contr_code_T_35 ? 1'h0 : _contr_code_T_180; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_182 = _contr_code_T_33 ? 1'h0 : _contr_code_T_181; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_183 = _contr_code_T_31 ? 1'h0 : _contr_code_T_182; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_184 = _contr_code_T_29 ? 1'h0 : _contr_code_T_183; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_185 = _contr_code_T_27 ? 1'h0 : _contr_code_T_184; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_186 = _contr_code_T_25 ? 1'h0 : _contr_code_T_185; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_187 = _contr_code_T_23 ? 1'h0 : _contr_code_T_186; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_188 = _contr_code_T_21 ? 1'h0 : _contr_code_T_187; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_189 = _contr_code_T_19 ? 1'h0 : _contr_code_T_188; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_190 = _contr_code_T_17 ? 1'h0 : _contr_code_T_189; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_191 = _contr_code_T_15 ? 1'h0 : _contr_code_T_190; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_192 = _contr_code_T_13 ? 1'h0 : _contr_code_T_191; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_193 = _contr_code_T_11 ? 1'h0 : _contr_code_T_192; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_194 = _contr_code_T_9 ? 1'h0 : _contr_code_T_193; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_195 = _contr_code_T_7 ? 1'h0 : _contr_code_T_194; // @[Lookup.scala 33:37]
+  wire  _contr_code_T_197 = _contr_code_T_3 ? 1'h0 : _contr_code_T_5 | _contr_code_T_195; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_213 = _contr_code_T_69 ? 2'h3 : 2'h0; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_214 = _contr_code_T_67 ? 2'h1 : _contr_code_T_213; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_215 = _contr_code_T_65 ? 2'h1 : _contr_code_T_214; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_216 = _contr_code_T_63 ? 2'h0 : _contr_code_T_215; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_217 = _contr_code_T_61 ? 2'h0 : _contr_code_T_216; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_218 = _contr_code_T_59 ? 2'h0 : _contr_code_T_217; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_219 = _contr_code_T_57 ? 2'h0 : _contr_code_T_218; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_220 = _contr_code_T_55 ? 2'h0 : _contr_code_T_219; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_221 = _contr_code_T_53 ? 2'h0 : _contr_code_T_220; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_222 = _contr_code_T_51 ? 2'h0 : _contr_code_T_221; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_223 = _contr_code_T_49 ? 2'h0 : _contr_code_T_222; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_224 = _contr_code_T_47 ? 2'h0 : _contr_code_T_223; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_225 = _contr_code_T_45 ? 2'h0 : _contr_code_T_224; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_226 = _contr_code_T_43 ? 2'h0 : _contr_code_T_225; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_227 = _contr_code_T_41 ? 2'h0 : _contr_code_T_226; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_228 = _contr_code_T_39 ? 2'h0 : _contr_code_T_227; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_229 = _contr_code_T_37 ? 2'h0 : _contr_code_T_228; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_230 = _contr_code_T_35 ? 2'h0 : _contr_code_T_229; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_231 = _contr_code_T_33 ? 2'h0 : _contr_code_T_230; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_232 = _contr_code_T_31 ? 2'h2 : _contr_code_T_231; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_233 = _contr_code_T_29 ? 2'h3 : _contr_code_T_232; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_234 = _contr_code_T_27 ? 2'h0 : _contr_code_T_233; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_235 = _contr_code_T_25 ? 2'h0 : _contr_code_T_234; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_236 = _contr_code_T_23 ? 2'h0 : _contr_code_T_235; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_237 = _contr_code_T_21 ? 2'h0 : _contr_code_T_236; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_238 = _contr_code_T_19 ? 2'h0 : _contr_code_T_237; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_239 = _contr_code_T_17 ? 2'h0 : _contr_code_T_238; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_240 = _contr_code_T_15 ? 2'h0 : _contr_code_T_239; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_241 = _contr_code_T_13 ? 2'h3 : _contr_code_T_240; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_242 = _contr_code_T_11 ? 2'h3 : _contr_code_T_241; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_243 = _contr_code_T_9 ? 2'h0 : _contr_code_T_242; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_244 = _contr_code_T_7 ? 2'h0 : _contr_code_T_243; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_245 = _contr_code_T_5 ? 2'h0 : _contr_code_T_244; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_246 = _contr_code_T_3 ? 2'h0 : _contr_code_T_245; // @[Lookup.scala 33:37]
+  wire [1:0] contr_code_2 = _contr_code_T_1 ? 2'h1 : _contr_code_T_246; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_247 = _contr_code_T_51 ? 3'h4 : 3'h0; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_248 = _contr_code_T_79 ? 3'h4 : _contr_code_T_247; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_249 = _contr_code_T_95 ? 3'h0 : _contr_code_T_248; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_250 = _contr_code_T_91 ? 3'h0 : _contr_code_T_249; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_251 = _contr_code_T_91 ? 3'h0 : _contr_code_T_250; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_252 = _contr_code_T_89 ? 3'h0 : _contr_code_T_251; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_253 = _contr_code_T_87 ? 3'h0 : _contr_code_T_252; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_254 = _contr_code_T_85 ? 3'h4 : _contr_code_T_253; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_255 = _contr_code_T_83 ? 3'h4 : _contr_code_T_254; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_256 = _contr_code_T_81 ? 3'h4 : _contr_code_T_255; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_257 = _contr_code_T_79 ? 3'h4 : _contr_code_T_256; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_258 = _contr_code_T_77 ? 3'h4 : _contr_code_T_257; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_259 = _contr_code_T_75 ? 3'h4 : _contr_code_T_258; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_260 = _contr_code_T_73 ? 3'h4 : _contr_code_T_259; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_261 = _contr_code_T_71 ? 3'h4 : _contr_code_T_260; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_262 = _contr_code_T_69 ? 3'h2 : _contr_code_T_261; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_263 = _contr_code_T_67 ? 3'h5 : _contr_code_T_262; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_264 = _contr_code_T_65 ? 3'h5 : _contr_code_T_263; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_265 = _contr_code_T_63 ? 3'h0 : _contr_code_T_264; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_266 = _contr_code_T_61 ? 3'h0 : _contr_code_T_265; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_267 = _contr_code_T_59 ? 3'h0 : _contr_code_T_266; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_268 = _contr_code_T_57 ? 3'h0 : _contr_code_T_267; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_269 = _contr_code_T_55 ? 3'h0 : _contr_code_T_268; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_270 = _contr_code_T_53 ? 3'h0 : _contr_code_T_269; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_271 = _contr_code_T_51 ? 3'h4 : _contr_code_T_270; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_272 = _contr_code_T_49 ? 3'h0 : _contr_code_T_271; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_273 = _contr_code_T_47 ? 3'h4 : _contr_code_T_272; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_274 = _contr_code_T_45 ? 3'h0 : _contr_code_T_273; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_275 = _contr_code_T_43 ? 3'h4 : _contr_code_T_274; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_276 = _contr_code_T_41 ? 3'h0 : _contr_code_T_275; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_277 = _contr_code_T_39 ? 3'h4 : _contr_code_T_276; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_278 = _contr_code_T_37 ? 3'h0 : _contr_code_T_277; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_279 = _contr_code_T_35 ? 3'h4 : _contr_code_T_278; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_280 = _contr_code_T_33 ? 3'h0 : _contr_code_T_279; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_281 = _contr_code_T_31 ? 3'h3 : _contr_code_T_280; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_282 = _contr_code_T_29 ? 3'h0 : _contr_code_T_281; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_283 = _contr_code_T_27 ? 3'h0 : _contr_code_T_282; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_284 = _contr_code_T_25 ? 3'h2 : _contr_code_T_283; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_285 = _contr_code_T_23 ? 3'h1 : _contr_code_T_284; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_286 = _contr_code_T_21 ? 3'h2 : _contr_code_T_285; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_287 = _contr_code_T_19 ? 3'h1 : _contr_code_T_286; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_288 = _contr_code_T_17 ? 3'h2 : _contr_code_T_287; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_289 = _contr_code_T_15 ? 3'h1 : _contr_code_T_288; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_290 = _contr_code_T_13 ? 3'h0 : _contr_code_T_289; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_291 = _contr_code_T_11 ? 3'h4 : _contr_code_T_290; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_292 = _contr_code_T_9 ? 3'h0 : _contr_code_T_291; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_293 = _contr_code_T_7 ? 3'h4 : _contr_code_T_292; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_294 = _contr_code_T_5 ? 3'h4 : _contr_code_T_293; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_295 = _contr_code_T_3 ? 3'h4 : _contr_code_T_294; // @[Lookup.scala 33:37]
+  wire [2:0] contr_code_3 = _contr_code_T_1 ? 3'h4 : _contr_code_T_295; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_296 = _contr_code_T_51 ? 4'ha : 4'h0; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_297 = _contr_code_T_79 ? 4'h1 : _contr_code_T_296; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_298 = _contr_code_T_95 ? 4'h3 : _contr_code_T_297; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_299 = _contr_code_T_91 ? 4'h7 : _contr_code_T_298; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_300 = _contr_code_T_91 ? 4'h6 : _contr_code_T_299; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_301 = _contr_code_T_89 ? 4'h6 : _contr_code_T_300; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_302 = _contr_code_T_87 ? 4'h3 : _contr_code_T_301; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_303 = _contr_code_T_85 ? 4'h1 : _contr_code_T_302; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_304 = _contr_code_T_83 ? 4'h1 : _contr_code_T_303; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_305 = _contr_code_T_81 ? 4'h1 : _contr_code_T_304; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_306 = _contr_code_T_79 ? 4'h1 : _contr_code_T_305; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_307 = _contr_code_T_77 ? 4'h1 : _contr_code_T_306; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_308 = _contr_code_T_75 ? 4'h1 : _contr_code_T_307; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_309 = _contr_code_T_73 ? 4'h1 : _contr_code_T_308; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_310 = _contr_code_T_71 ? 4'h1 : _contr_code_T_309; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_311 = _contr_code_T_69 ? 4'hf : _contr_code_T_310; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_312 = _contr_code_T_67 ? 4'h1 : _contr_code_T_311; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_313 = _contr_code_T_65 ? 4'h1 : _contr_code_T_312; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_314 = _contr_code_T_63 ? 4'hb : _contr_code_T_313; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_315 = _contr_code_T_61 ? 4'ha : _contr_code_T_314; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_316 = _contr_code_T_59 ? 4'hd : _contr_code_T_315; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_317 = _contr_code_T_57 ? 4'hc : _contr_code_T_316; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_318 = _contr_code_T_55 ? 4'h9 : _contr_code_T_317; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_319 = _contr_code_T_53 ? 4'h8 : _contr_code_T_318; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_320 = _contr_code_T_51 ? 4'ha : _contr_code_T_319; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_321 = _contr_code_T_49 ? 4'ha : _contr_code_T_320; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_322 = _contr_code_T_47 ? 4'hc : _contr_code_T_321; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_323 = _contr_code_T_45 ? 4'hc : _contr_code_T_322; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_324 = _contr_code_T_43 ? 4'h1 : _contr_code_T_323; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_325 = _contr_code_T_41 ? 4'h1 : _contr_code_T_324; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_326 = _contr_code_T_39 ? 5'h12 : {{1'd0}, _contr_code_T_325}; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_327 = _contr_code_T_37 ? 5'h12 : _contr_code_T_326; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_328 = _contr_code_T_35 ? 5'h11 : _contr_code_T_327; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_329 = _contr_code_T_33 ? 5'h11 : _contr_code_T_328; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_330 = _contr_code_T_31 ? 5'he : _contr_code_T_329; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_331 = _contr_code_T_29 ? 5'h2 : _contr_code_T_330; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_332 = _contr_code_T_27 ? 5'h2 : _contr_code_T_331; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_333 = _contr_code_T_25 ? 5'h10 : _contr_code_T_332; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_334 = _contr_code_T_23 ? 5'h10 : _contr_code_T_333; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_335 = _contr_code_T_21 ? 5'hf : _contr_code_T_334; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_336 = _contr_code_T_19 ? 5'hf : _contr_code_T_335; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_337 = _contr_code_T_17 ? 5'he : _contr_code_T_336; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_338 = _contr_code_T_15 ? 5'he : _contr_code_T_337; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_339 = _contr_code_T_13 ? 5'h1 : _contr_code_T_338; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_340 = _contr_code_T_11 ? 5'h1 : _contr_code_T_339; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_341 = _contr_code_T_9 ? 5'h1 : _contr_code_T_340; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_342 = _contr_code_T_7 ? 5'h1 : _contr_code_T_341; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_343 = _contr_code_T_5 ? 5'h1 : _contr_code_T_342; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_344 = _contr_code_T_3 ? 5'h1 : _contr_code_T_343; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_361 = _contr_code_T_67 ? 2'h2 : 2'h0; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_362 = _contr_code_T_65 ? 2'h1 : _contr_code_T_361; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_363 = _contr_code_T_63 ? 2'h3 : _contr_code_T_362; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_364 = _contr_code_T_61 ? 2'h3 : _contr_code_T_363; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_365 = _contr_code_T_59 ? 2'h3 : _contr_code_T_364; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_366 = _contr_code_T_57 ? 2'h3 : _contr_code_T_365; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_367 = _contr_code_T_55 ? 2'h3 : _contr_code_T_366; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_368 = _contr_code_T_53 ? 2'h3 : _contr_code_T_367; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_369 = _contr_code_T_51 ? 2'h0 : _contr_code_T_368; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_370 = _contr_code_T_49 ? 2'h0 : _contr_code_T_369; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_371 = _contr_code_T_47 ? 2'h0 : _contr_code_T_370; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_372 = _contr_code_T_45 ? 2'h0 : _contr_code_T_371; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_373 = _contr_code_T_43 ? 2'h0 : _contr_code_T_372; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_374 = _contr_code_T_41 ? 2'h0 : _contr_code_T_373; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_375 = _contr_code_T_39 ? 2'h0 : _contr_code_T_374; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_376 = _contr_code_T_37 ? 2'h0 : _contr_code_T_375; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_377 = _contr_code_T_35 ? 2'h0 : _contr_code_T_376; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_378 = _contr_code_T_33 ? 2'h0 : _contr_code_T_377; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_379 = _contr_code_T_31 ? 2'h0 : _contr_code_T_378; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_380 = _contr_code_T_29 ? 2'h0 : _contr_code_T_379; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_381 = _contr_code_T_27 ? 2'h0 : _contr_code_T_380; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_382 = _contr_code_T_25 ? 2'h0 : _contr_code_T_381; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_383 = _contr_code_T_23 ? 2'h0 : _contr_code_T_382; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_384 = _contr_code_T_21 ? 2'h0 : _contr_code_T_383; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_385 = _contr_code_T_19 ? 2'h0 : _contr_code_T_384; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_386 = _contr_code_T_17 ? 2'h0 : _contr_code_T_385; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_387 = _contr_code_T_15 ? 2'h0 : _contr_code_T_386; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_388 = _contr_code_T_13 ? 2'h0 : _contr_code_T_387; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_389 = _contr_code_T_11 ? 2'h0 : _contr_code_T_388; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_390 = _contr_code_T_9 ? 2'h0 : _contr_code_T_389; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_391 = _contr_code_T_7 ? 2'h0 : _contr_code_T_390; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_392 = _contr_code_T_5 ? 2'h0 : _contr_code_T_391; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_393 = _contr_code_T_3 ? 2'h0 : _contr_code_T_392; // @[Lookup.scala 33:37]
+  wire [1:0] contr_code_5 = _contr_code_T_1 ? 2'h0 : _contr_code_T_393; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_395 = _contr_code_T_79 ? 3'h7 : 3'h0; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_396 = _contr_code_T_95 ? 3'h6 : _contr_code_T_395; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_397 = _contr_code_T_91 ? 3'h0 : _contr_code_T_396; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_398 = _contr_code_T_91 ? 3'h6 : _contr_code_T_397; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_399 = _contr_code_T_89 ? 3'h0 : _contr_code_T_398; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_400 = _contr_code_T_87 ? 3'h0 : _contr_code_T_399; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_401 = _contr_code_T_85 ? 3'h0 : _contr_code_T_400; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_402 = _contr_code_T_83 ? 3'h0 : _contr_code_T_401; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_403 = _contr_code_T_81 ? 3'h0 : _contr_code_T_402; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_404 = _contr_code_T_79 ? 3'h7 : _contr_code_T_403; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_405 = _contr_code_T_77 ? 4'h9 : {{1'd0}, _contr_code_T_404}; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_406 = _contr_code_T_75 ? 4'h8 : _contr_code_T_405; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_407 = _contr_code_T_73 ? 4'h5 : _contr_code_T_406; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_408 = _contr_code_T_71 ? 4'h3 : _contr_code_T_407; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_409 = _contr_code_T_69 ? 4'h6 : _contr_code_T_408; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_410 = _contr_code_T_67 ? 4'h0 : _contr_code_T_409; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_411 = _contr_code_T_65 ? 4'h0 : _contr_code_T_410; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_412 = _contr_code_T_63 ? 4'h7 : _contr_code_T_411; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_413 = _contr_code_T_61 ? 4'h7 : _contr_code_T_412; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_414 = _contr_code_T_59 ? 4'h7 : _contr_code_T_413; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_415 = _contr_code_T_57 ? 4'h7 : _contr_code_T_414; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_416 = _contr_code_T_55 ? 4'h7 : _contr_code_T_415; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_417 = _contr_code_T_53 ? 4'h0 : _contr_code_T_416; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_418 = _contr_code_T_51 ? 4'h0 : _contr_code_T_417; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_419 = _contr_code_T_49 ? 4'h0 : _contr_code_T_418; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_420 = _contr_code_T_47 ? 4'h0 : _contr_code_T_419; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_421 = _contr_code_T_45 ? 4'h0 : _contr_code_T_420; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_422 = _contr_code_T_43 ? 4'h0 : _contr_code_T_421; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_423 = _contr_code_T_41 ? 4'h0 : _contr_code_T_422; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_424 = _contr_code_T_39 ? 4'h0 : _contr_code_T_423; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_425 = _contr_code_T_37 ? 4'h0 : _contr_code_T_424; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_426 = _contr_code_T_35 ? 4'h0 : _contr_code_T_425; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_427 = _contr_code_T_33 ? 4'h0 : _contr_code_T_426; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_428 = _contr_code_T_31 ? 4'h6 : _contr_code_T_427; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_429 = _contr_code_T_29 ? 4'h6 : _contr_code_T_428; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_430 = _contr_code_T_27 ? 4'h0 : _contr_code_T_429; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_431 = _contr_code_T_25 ? 4'h0 : _contr_code_T_430; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_432 = _contr_code_T_23 ? 4'h0 : _contr_code_T_431; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_433 = _contr_code_T_21 ? 4'h0 : _contr_code_T_432; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_434 = _contr_code_T_19 ? 4'h0 : _contr_code_T_433; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_435 = _contr_code_T_17 ? 4'h0 : _contr_code_T_434; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_436 = _contr_code_T_15 ? 4'h0 : _contr_code_T_435; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_437 = _contr_code_T_13 ? 4'h6 : _contr_code_T_436; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_438 = _contr_code_T_11 ? 4'h6 : _contr_code_T_437; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_439 = _contr_code_T_9 ? 4'h0 : _contr_code_T_438; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_440 = _contr_code_T_7 ? 4'h0 : _contr_code_T_439; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_441 = _contr_code_T_5 ? 4'h0 : _contr_code_T_440; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_442 = _contr_code_T_3 ? 4'h7 : _contr_code_T_441; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_450 = _contr_code_T_85 ? 4'hf : 4'h0; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_451 = _contr_code_T_83 ? 4'h3 : _contr_code_T_450; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_452 = _contr_code_T_81 ? 4'h1 : _contr_code_T_451; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_453 = _contr_code_T_79 ? 4'h0 : _contr_code_T_452; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_454 = _contr_code_T_77 ? 4'h0 : _contr_code_T_453; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_455 = _contr_code_T_75 ? 4'h0 : _contr_code_T_454; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_456 = _contr_code_T_73 ? 4'h0 : _contr_code_T_455; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_457 = _contr_code_T_71 ? 4'h0 : _contr_code_T_456; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_458 = _contr_code_T_69 ? 4'h0 : _contr_code_T_457; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_459 = _contr_code_T_67 ? 4'h0 : _contr_code_T_458; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_460 = _contr_code_T_65 ? 4'h0 : _contr_code_T_459; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_461 = _contr_code_T_63 ? 4'h0 : _contr_code_T_460; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_462 = _contr_code_T_61 ? 4'h0 : _contr_code_T_461; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_463 = _contr_code_T_59 ? 4'h0 : _contr_code_T_462; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_464 = _contr_code_T_57 ? 4'h0 : _contr_code_T_463; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_465 = _contr_code_T_55 ? 4'h0 : _contr_code_T_464; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_466 = _contr_code_T_53 ? 4'h0 : _contr_code_T_465; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_467 = _contr_code_T_51 ? 4'h0 : _contr_code_T_466; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_468 = _contr_code_T_49 ? 4'h0 : _contr_code_T_467; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_469 = _contr_code_T_47 ? 4'h0 : _contr_code_T_468; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_470 = _contr_code_T_45 ? 4'h0 : _contr_code_T_469; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_471 = _contr_code_T_43 ? 4'h0 : _contr_code_T_470; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_472 = _contr_code_T_41 ? 4'h0 : _contr_code_T_471; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_473 = _contr_code_T_39 ? 4'h0 : _contr_code_T_472; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_474 = _contr_code_T_37 ? 4'h0 : _contr_code_T_473; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_475 = _contr_code_T_35 ? 4'h0 : _contr_code_T_474; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_476 = _contr_code_T_33 ? 4'h0 : _contr_code_T_475; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_477 = _contr_code_T_31 ? 4'h0 : _contr_code_T_476; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_478 = _contr_code_T_29 ? 4'h0 : _contr_code_T_477; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_479 = _contr_code_T_27 ? 4'h0 : _contr_code_T_478; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_480 = _contr_code_T_25 ? 4'h0 : _contr_code_T_479; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_481 = _contr_code_T_23 ? 4'h0 : _contr_code_T_480; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_482 = _contr_code_T_21 ? 4'h0 : _contr_code_T_481; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_483 = _contr_code_T_19 ? 4'h0 : _contr_code_T_482; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_484 = _contr_code_T_17 ? 4'h0 : _contr_code_T_483; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_485 = _contr_code_T_15 ? 4'h0 : _contr_code_T_484; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_486 = _contr_code_T_13 ? 4'h0 : _contr_code_T_485; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_487 = _contr_code_T_11 ? 4'h0 : _contr_code_T_486; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_488 = _contr_code_T_9 ? 4'h0 : _contr_code_T_487; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_489 = _contr_code_T_7 ? 4'h0 : _contr_code_T_488; // @[Lookup.scala 33:37]
+  wire [7:0] _contr_code_T_490 = _contr_code_T_5 ? 8'hff : {{4'd0}, _contr_code_T_489}; // @[Lookup.scala 33:37]
+  wire [7:0] _contr_code_T_491 = _contr_code_T_3 ? 8'h0 : _contr_code_T_490; // @[Lookup.scala 33:37]
+  Ebreak ebreak ( // @[IDU.scala 39:20]
     .ebreak_in(ebreak_ebreak_in)
   );
-  assign io_RegWrite = _contr_code_T_1 | (_contr_code_T_3 | _contr_code_T_108); // @[Lookup.scala 33:37]
-  assign io_MemWrite = _contr_code_T_1 ? 1'h0 : _contr_code_T_145; // @[Lookup.scala 33:37]
-  assign io_AluOp = _contr_code_T_1 ? 5'h1 : _contr_code_T_253; // @[Lookup.scala 33:37]
+  assign io_RegWrite = _contr_code_T_1 | (_contr_code_T_3 | _contr_code_T_147); // @[Lookup.scala 33:37]
+  assign io_MemWrite = _contr_code_T_1 ? 1'h0 : _contr_code_T_197; // @[Lookup.scala 33:37]
+  assign io_AluOp = _contr_code_T_1 ? 5'h1 : _contr_code_T_344; // @[Lookup.scala 33:37]
   assign io_AluSrc1Op = {{3'd0}, contr_code_2}; // @[Lookup.scala 33:37]
   assign io_AluSrc2Op = {{2'd0}, contr_code_3}; // @[Lookup.scala 33:37]
   assign io_PcSrc = {{3'd0}, contr_code_5}; // @[Lookup.scala 33:37]
-  assign io_RinCtl = {{1'd0}, contr_code_6}; // @[Lookup.scala 33:37]
-  assign io_MemMask = _contr_code_T_1 ? 8'h0 : _contr_code_T_361; // @[Lookup.scala 33:37]
-  assign io_Rdest = io_Inst[11:7]; // @[IDU.scala 27:22]
-  assign io_R1 = io_Inst[19:15]; // @[IDU.scala 28:19]
-  assign io_R2 = io_Inst[24:20]; // @[IDU.scala 29:19]
+  assign io_RinCtl = _contr_code_T_1 ? 4'h0 : _contr_code_T_442; // @[Lookup.scala 33:37]
+  assign io_MemMask = _contr_code_T_1 ? 8'h0 : _contr_code_T_491; // @[Lookup.scala 33:37]
+  assign io_Rdest = io_Inst[11:7]; // @[IDU.scala 25:22]
+  assign io_R1 = io_Inst[19:15]; // @[IDU.scala 26:19]
+  assign io_R2 = io_Inst[24:20]; // @[IDU.scala 27:19]
   assign io_Imm = 7'h63 == opcode ? _io_Imm_T_68 : _io_Imm_T_89; // @[Mux.scala 80:57]
   assign ebreak_ebreak_in = 32'h100073 == io_Inst; // @[Mux.scala 80:60]
 endmodule
@@ -527,27 +658,27 @@ module EXU(
   wire [63:0] _AluSrc2_T_9 = 5'h3 == io_AluSrc2Op ? 64'hc : _AluSrc2_T_7; // @[Mux.scala 80:57]
   wire [63:0] _AluSrc2_T_11 = 5'h4 == io_AluSrc2Op ? io_Imm : _AluSrc2_T_9; // @[Mux.scala 80:57]
   wire [63:0] AluSrc2 = 5'h5 == io_AluSrc2Op ? 64'h4 : _AluSrc2_T_11; // @[Mux.scala 80:57]
-  wire [63:0] _AluOut_T_30 = AluSrc1 & AluSrc2; // @[EXU.scala 105:28]
-  wire [63:0] _AluOut_T_29 = AluSrc1 | AluSrc2; // @[EXU.scala 104:28]
-  wire [63:0] _AluOut_T_28 = AluSrc1 ^ AluSrc2; // @[EXU.scala 103:28]
-  wire [63:0] _AluOut_T_24 = 5'h3 == io_AluSrc1Op ? {{32'd0}, DataR1[31:0]} : _AluSrc1_T_7; // @[EXU.scala 102:34]
-  wire [63:0] _AluOut_T_27 = $signed(_AluOut_T_24) >>> AluSrc2[5:0]; // @[EXU.scala 102:60]
-  wire [63:0] _AluOut_T_23 = AluSrc1 >> AluSrc2[5:0]; // @[EXU.scala 101:28]
-  wire [126:0] _GEN_128 = {{63'd0}, AluSrc1}; // @[EXU.scala 100:28]
-  wire [126:0] _AluOut_T_21 = _GEN_128 << AluSrc2[5:0]; // @[EXU.scala 100:28]
-  wire [63:0] _AluOut_T_18 = 5'h5 == io_AluSrc2Op ? 64'h4 : _AluSrc2_T_11; // @[EXU.scala 99:54]
-  wire  _AluOut_T_19 = $signed(_AluOut_T_24) >= $signed(_AluOut_T_18); // @[EXU.scala 99:37]
-  wire  _AluOut_T_16 = $signed(_AluOut_T_24) < $signed(_AluOut_T_18); // @[EXU.scala 98:37]
-  wire  _AluOut_T_13 = AluSrc1 >= AluSrc2; // @[EXU.scala 97:28]
-  wire  _AluOut_T_12 = AluSrc1 < AluSrc2; // @[EXU.scala 96:28]
-  wire  _AluOut_T_11 = AluSrc1 != AluSrc2; // @[EXU.scala 95:28]
-  wire  _AluOut_T_10 = AluSrc1 == AluSrc2; // @[EXU.scala 94:28]
-  wire [63:0] _GEN_0 = AluSrc1 % AluSrc2; // @[EXU.scala 93:28]
-  wire [63:0] _AluOut_T_9 = _GEN_0[63:0]; // @[EXU.scala 93:28]
-  wire [63:0] _AluOut_T_8 = $signed(_AluOut_T_24) % $signed(_AluOut_T_18); // @[EXU.scala 92:63]
-  wire [127:0] _AluOut_T_4 = AluSrc1 * AluSrc2; // @[EXU.scala 89:28]
-  wire [63:0] _AluOut_T_3 = AluSrc1 - AluSrc2; // @[EXU.scala 88:28]
-  wire [63:0] _AluOut_T_1 = AluSrc1 + AluSrc2; // @[EXU.scala 87:28]
+  wire [63:0] _AluOut_T_30 = AluSrc1 & AluSrc2; // @[EXU.scala 111:28]
+  wire [63:0] _AluOut_T_29 = AluSrc1 | AluSrc2; // @[EXU.scala 110:28]
+  wire [63:0] _AluOut_T_28 = AluSrc1 ^ AluSrc2; // @[EXU.scala 109:28]
+  wire [63:0] _AluOut_T_24 = 5'h3 == io_AluSrc1Op ? {{32'd0}, DataR1[31:0]} : _AluSrc1_T_7; // @[EXU.scala 108:34]
+  wire [63:0] _AluOut_T_27 = $signed(_AluOut_T_24) >>> AluSrc2[5:0]; // @[EXU.scala 108:60]
+  wire [63:0] _AluOut_T_23 = AluSrc1 >> AluSrc2[5:0]; // @[EXU.scala 107:28]
+  wire [126:0] _GEN_128 = {{63'd0}, AluSrc1}; // @[EXU.scala 106:28]
+  wire [126:0] _AluOut_T_21 = _GEN_128 << AluSrc2[5:0]; // @[EXU.scala 106:28]
+  wire [63:0] _AluOut_T_18 = 5'h5 == io_AluSrc2Op ? 64'h4 : _AluSrc2_T_11; // @[EXU.scala 105:54]
+  wire  _AluOut_T_19 = $signed(_AluOut_T_24) >= $signed(_AluOut_T_18); // @[EXU.scala 105:37]
+  wire  _AluOut_T_16 = $signed(_AluOut_T_24) < $signed(_AluOut_T_18); // @[EXU.scala 104:37]
+  wire  _AluOut_T_13 = AluSrc1 >= AluSrc2; // @[EXU.scala 103:28]
+  wire  _AluOut_T_12 = AluSrc1 < AluSrc2; // @[EXU.scala 102:28]
+  wire  _AluOut_T_11 = AluSrc1 != AluSrc2; // @[EXU.scala 101:28]
+  wire  _AluOut_T_10 = AluSrc1 == AluSrc2; // @[EXU.scala 100:28]
+  wire [63:0] _GEN_0 = AluSrc1 % AluSrc2; // @[EXU.scala 99:28]
+  wire [63:0] _AluOut_T_9 = _GEN_0[63:0]; // @[EXU.scala 99:28]
+  wire [63:0] _AluOut_T_8 = $signed(_AluOut_T_24) % $signed(_AluOut_T_18); // @[EXU.scala 98:63]
+  wire [127:0] _AluOut_T_4 = AluSrc1 * AluSrc2; // @[EXU.scala 95:28]
+  wire [63:0] _AluOut_T_3 = AluSrc1 - AluSrc2; // @[EXU.scala 94:28]
+  wire [63:0] _AluOut_T_1 = AluSrc1 + AluSrc2; // @[EXU.scala 93:28]
   wire [63:0] _AluOut_T_32 = 5'h1 == io_AluOp ? _AluOut_T_1 : 64'h0; // @[Mux.scala 80:57]
   wire [63:0] _AluOut_T_34 = 5'h2 == io_AluOp ? _AluOut_T_3 : _AluOut_T_32; // @[Mux.scala 80:57]
   wire [127:0] _AluOut_T_36 = 5'h3 == io_AluOp ? _AluOut_T_4 : {{64'd0}, _AluOut_T_34}; // @[Mux.scala 80:57]
@@ -565,28 +696,43 @@ module EXU(
   wire [127:0] _AluOut_T_60 = 5'h11 == io_AluOp ? {{64'd0}, _AluOut_T_28} : _AluOut_T_58; // @[Mux.scala 80:57]
   wire [127:0] _AluOut_T_62 = 5'h12 == io_AluOp ? {{64'd0}, _AluOut_T_29} : _AluOut_T_60; // @[Mux.scala 80:57]
   wire [127:0] _AluOut_T_64 = 5'h13 == io_AluOp ? {{64'd0}, _AluOut_T_30} : _AluOut_T_62; // @[Mux.scala 80:57]
-  wire [63:0] AluOut = _AluOut_T_64[63:0]; // @[EXU.scala 24:20 EXU.scala 86:10]
-  wire [31:0] DataIn_lo = AluOut[31:0]; // @[EXU.scala 46:25]
-  wire [31:0] DataIn_hi = DataIn_lo[31] ? 32'hffffffff : 32'h0; // @[Bitwise.scala 72:12]
+  wire [63:0] AluOut = _AluOut_T_64[63:0]; // @[EXU.scala 24:20 EXU.scala 92:10]
+  wire [7:0] DataIn_lo = AluOut[7:0]; // @[EXU.scala 46:25]
+  wire [55:0] DataIn_hi = DataIn_lo[7] ? 56'hffffffffffffff : 56'h0; // @[Bitwise.scala 72:12]
   wire [63:0] _DataIn_T_3 = {DataIn_hi,DataIn_lo}; // @[Cat.scala 30:58]
-  wire [63:0] MemOut = mem_Rdata; // @[EXU.scala 25:20 EXU.scala 54:10]
-  wire [31:0] DataIn_lo_1 = MemOut[31:0]; // @[EXU.scala 47:25]
-  wire [31:0] DataIn_hi_1 = DataIn_lo_1[31] ? 32'hffffffff : 32'h0; // @[Bitwise.scala 72:12]
+  wire [63:0] MemOut = mem_Rdata; // @[EXU.scala 25:20 EXU.scala 60:10]
+  wire [7:0] DataIn_lo_1 = MemOut[7:0]; // @[EXU.scala 47:25]
+  wire [55:0] DataIn_hi_1 = DataIn_lo_1[7] ? 56'hffffffffffffff : 56'h0; // @[Bitwise.scala 72:12]
   wire [63:0] _DataIn_T_8 = {DataIn_hi_1,DataIn_lo_1}; // @[Cat.scala 30:58]
-  wire [63:0] _DataIn_T_11 = 3'h0 == io_RinCtl ? AluOut : 64'h0; // @[Mux.scala 80:57]
-  wire [63:0] _DataIn_T_13 = 3'h1 == io_RinCtl ? MemOut : _DataIn_T_11; // @[Mux.scala 80:57]
-  wire [63:0] _DataIn_T_15 = 3'h2 == io_RinCtl ? _DataIn_T_3 : _DataIn_T_13; // @[Mux.scala 80:57]
-  wire [63:0] _pc_T_1 = pc + 64'h4; // @[EXU.scala 61:32]
+  wire [48:0] DataIn_hi_2 = AluOut[14] ? 49'h1ffffffffffff : 49'h0; // @[Bitwise.scala 72:12]
+  wire [14:0] DataIn_lo_2 = AluOut[14:0]; // @[EXU.scala 39:59]
+  wire [63:0] _DataIn_T_13 = {DataIn_hi_2,DataIn_lo_2}; // @[Cat.scala 30:58]
+  wire [48:0] DataIn_hi_3 = MemOut[14] ? 49'h1ffffffffffff : 49'h0; // @[Bitwise.scala 72:12]
+  wire [14:0] DataIn_lo_3 = MemOut[14:0]; // @[EXU.scala 39:59]
+  wire [63:0] _DataIn_T_18 = {DataIn_hi_3,DataIn_lo_3}; // @[Cat.scala 30:58]
+  wire [31:0] DataIn_lo_4 = AluOut[31:0]; // @[EXU.scala 50:25]
+  wire [31:0] DataIn_hi_4 = DataIn_lo_4[31] ? 32'hffffffff : 32'h0; // @[Bitwise.scala 72:12]
+  wire [63:0] _DataIn_T_23 = {DataIn_hi_4,DataIn_lo_4}; // @[Cat.scala 30:58]
+  wire [63:0] _DataIn_T_29 = 3'h1 == io_RinCtl ? MemOut : AluOut; // @[Mux.scala 80:57]
+  wire [63:0] _DataIn_T_31 = 3'h2 == io_RinCtl ? _DataIn_T_3 : _DataIn_T_29; // @[Mux.scala 80:57]
+  wire [63:0] _DataIn_T_33 = 3'h3 == io_RinCtl ? _DataIn_T_8 : _DataIn_T_31; // @[Mux.scala 80:57]
+  wire [63:0] _DataIn_T_35 = 3'h4 == io_RinCtl ? _DataIn_T_13 : _DataIn_T_33; // @[Mux.scala 80:57]
+  wire [63:0] _DataIn_T_37 = 3'h5 == io_RinCtl ? _DataIn_T_18 : _DataIn_T_35; // @[Mux.scala 80:57]
+  wire [63:0] _DataIn_T_39 = 3'h6 == io_RinCtl ? _DataIn_T_23 : _DataIn_T_37; // @[Mux.scala 80:57]
+  wire [63:0] _DataIn_T_41 = 3'h7 == io_RinCtl ? {{56'd0}, DataIn_lo_1} : _DataIn_T_39; // @[Mux.scala 80:57]
+  wire [3:0] _GEN_129 = {{1'd0}, io_RinCtl}; // @[Mux.scala 80:60]
+  wire [63:0] _DataIn_T_43 = 4'h8 == _GEN_129 ? {{48'd0}, MemOut[15:0]} : _DataIn_T_41; // @[Mux.scala 80:57]
+  wire [63:0] _pc_T_1 = pc + 64'h4; // @[EXU.scala 67:32]
   wire [42:0] pc_hi = io_Imm[20] ? 43'h7ffffffffff : 43'h0; // @[Bitwise.scala 72:12]
-  wire [20:0] pc_lo = io_Imm[20:0]; // @[EXU.scala 63:52]
+  wire [20:0] pc_lo = io_Imm[20:0]; // @[EXU.scala 69:52]
   wire [63:0] _pc_T_6 = {pc_hi,pc_lo}; // @[Cat.scala 30:58]
-  wire [63:0] _pc_T_8 = pc + _pc_T_6; // @[EXU.scala 63:18]
-  wire [63:0] _pc_T_10 = DataR1 + io_Imm; // @[EXU.scala 64:23]
-  wire [63:0] _pc_T_12 = _pc_T_10 & 64'hfffffffffffffffe; // @[EXU.scala 64:33]
+  wire [63:0] _pc_T_8 = pc + _pc_T_6; // @[EXU.scala 69:18]
+  wire [63:0] _pc_T_10 = DataR1 + io_Imm; // @[EXU.scala 70:23]
+  wire [63:0] _pc_T_12 = _pc_T_10 & 64'hfffffffffffffffe; // @[EXU.scala 70:33]
   wire [50:0] pc_hi_1 = io_Imm[12] ? 51'h7ffffffffffff : 51'h0; // @[Bitwise.scala 72:12]
-  wire [12:0] pc_lo_1 = io_Imm[12:0]; // @[EXU.scala 66:53]
+  wire [12:0] pc_lo_1 = io_Imm[12:0]; // @[EXU.scala 72:53]
   wire [63:0] _pc_T_17 = {pc_hi_1,pc_lo_1}; // @[Cat.scala 30:58]
-  wire [63:0] _pc_T_19 = pc + _pc_T_17; // @[EXU.scala 66:18]
+  wire [63:0] _pc_T_19 = pc + _pc_T_17; // @[EXU.scala 72:18]
   wire [63:0] _pc_T_23 = 5'h0 == io_PcSrc ? _pc_T_1 : _pc_T_1; // @[Mux.scala 80:57]
   Mem mem ( // @[EXU.scala 30:19]
     .Raddr(mem_Raddr),
@@ -631,12 +777,12 @@ module EXU(
     .gpr_31(difftest_gpr_31),
     .PcVal(difftest_PcVal)
   );
-  assign io_PcVal = pc; // @[EXU.scala 108:12]
-  assign mem_Raddr = _AluOut_T_64[63:0]; // @[EXU.scala 24:20 EXU.scala 86:10]
-  assign mem_Waddr = _AluOut_T_64[63:0]; // @[EXU.scala 24:20 EXU.scala 86:10]
+  assign io_PcVal = pc; // @[EXU.scala 114:12]
+  assign mem_Raddr = _AluOut_T_64[63:0]; // @[EXU.scala 24:20 EXU.scala 92:10]
+  assign mem_Waddr = _AluOut_T_64[63:0]; // @[EXU.scala 24:20 EXU.scala 92:10]
   assign mem_Wdata = 5'h1f == io_R2 ? Regs_31 : _GEN_62; // @[EXU.scala 42:10 EXU.scala 42:10]
-  assign mem_Wmask = io_MemMask; // @[EXU.scala 58:16]
-  assign mem_MemWrite = io_MemWrite; // @[EXU.scala 59:19]
+  assign mem_Wmask = io_MemMask; // @[EXU.scala 64:16]
+  assign mem_MemWrite = io_MemWrite; // @[EXU.scala 65:19]
   assign difftest_gpr_0 = 64'h0; // @[EXU.scala 36:19]
   assign difftest_gpr_1 = Regs_1; // @[EXU.scala 36:19]
   assign difftest_gpr_2 = Regs_2; // @[EXU.scala 36:19]
@@ -673,342 +819,342 @@ module EXU(
   always @(posedge clock) begin
     if (reset) begin // @[EXU.scala 29:21]
       Regs_1 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h1 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_1 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h1 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_1 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_1 <= _DataIn_T_15;
+          Regs_1 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_2 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h2 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_2 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h2 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_2 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_2 <= _DataIn_T_15;
+          Regs_2 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_3 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h3 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_3 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h3 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_3 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_3 <= _DataIn_T_15;
+          Regs_3 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_4 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h4 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_4 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h4 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_4 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_4 <= _DataIn_T_15;
+          Regs_4 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_5 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h5 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_5 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h5 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_5 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_5 <= _DataIn_T_15;
+          Regs_5 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_6 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h6 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_6 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h6 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_6 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_6 <= _DataIn_T_15;
+          Regs_6 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_7 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h7 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_7 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h7 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_7 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_7 <= _DataIn_T_15;
+          Regs_7 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_8 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h8 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_8 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h8 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_8 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_8 <= _DataIn_T_15;
+          Regs_8 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_9 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h9 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_9 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h9 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_9 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_9 <= _DataIn_T_15;
+          Regs_9 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_10 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'ha == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_10 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'ha == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_10 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_10 <= _DataIn_T_15;
+          Regs_10 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_11 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'hb == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_11 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'hb == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_11 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_11 <= _DataIn_T_15;
+          Regs_11 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_12 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'hc == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_12 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'hc == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_12 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_12 <= _DataIn_T_15;
+          Regs_12 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_13 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'hd == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_13 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'hd == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_13 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_13 <= _DataIn_T_15;
+          Regs_13 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_14 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'he == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_14 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'he == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_14 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_14 <= _DataIn_T_15;
+          Regs_14 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_15 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'hf == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_15 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'hf == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_15 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_15 <= _DataIn_T_15;
+          Regs_15 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_16 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h10 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_16 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h10 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_16 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_16 <= _DataIn_T_15;
+          Regs_16 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_17 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h11 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_17 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h11 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_17 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_17 <= _DataIn_T_15;
+          Regs_17 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_18 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h12 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_18 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h12 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_18 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_18 <= _DataIn_T_15;
+          Regs_18 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_19 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h13 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_19 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h13 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_19 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_19 <= _DataIn_T_15;
+          Regs_19 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_20 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h14 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_20 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h14 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_20 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_20 <= _DataIn_T_15;
+          Regs_20 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_21 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h15 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_21 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h15 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_21 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_21 <= _DataIn_T_15;
+          Regs_21 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_22 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h16 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_22 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h16 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_22 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_22 <= _DataIn_T_15;
+          Regs_22 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_23 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h17 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_23 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h17 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_23 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_23 <= _DataIn_T_15;
+          Regs_23 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_24 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h18 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_24 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h18 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_24 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_24 <= _DataIn_T_15;
+          Regs_24 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_25 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h19 == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_25 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h19 == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_25 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_25 <= _DataIn_T_15;
+          Regs_25 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_26 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h1a == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_26 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h1a == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_26 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_26 <= _DataIn_T_15;
+          Regs_26 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_27 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h1b == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_27 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h1b == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_27 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_27 <= _DataIn_T_15;
+          Regs_27 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_28 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h1c == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_28 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h1c == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_28 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_28 <= _DataIn_T_15;
+          Regs_28 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_29 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h1d == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_29 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h1d == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_29 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_29 <= _DataIn_T_15;
+          Regs_29 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_30 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h1e == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_30 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h1e == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_30 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_30 <= _DataIn_T_15;
+          Regs_30 <= _DataIn_T_43;
         end
       end
     end
     if (reset) begin // @[EXU.scala 29:21]
       Regs_31 <= 64'h0; // @[EXU.scala 29:21]
-    end else if (io_RegWrite) begin // @[EXU.scala 50:3]
-      if (5'h1f == io_Rdest) begin // @[EXU.scala 51:20]
-        if (3'h3 == io_RinCtl) begin // @[Mux.scala 80:57]
-          Regs_31 <= _DataIn_T_8;
+    end else if (io_RegWrite) begin // @[EXU.scala 56:3]
+      if (5'h1f == io_Rdest) begin // @[EXU.scala 57:20]
+        if (4'h9 == _GEN_129) begin // @[Mux.scala 80:57]
+          Regs_31 <= {{32'd0}, MemOut[31:0]};
         end else begin
-          Regs_31 <= _DataIn_T_15;
+          Regs_31 <= _DataIn_T_43;
         end
       end
     end
@@ -1149,7 +1295,7 @@ module Main(
   wire [4:0] idu_io_AluSrc1Op; // @[Main.scala 31:17]
   wire [4:0] idu_io_AluSrc2Op; // @[Main.scala 31:17]
   wire [4:0] idu_io_PcSrc; // @[Main.scala 31:17]
-  wire [2:0] idu_io_RinCtl; // @[Main.scala 31:17]
+  wire [3:0] idu_io_RinCtl; // @[Main.scala 31:17]
   wire [7:0] idu_io_MemMask; // @[Main.scala 31:17]
   wire [4:0] idu_io_Rdest; // @[Main.scala 31:17]
   wire [4:0] idu_io_R1; // @[Main.scala 31:17]
@@ -1220,6 +1366,6 @@ module Main(
   assign exu_io_AluSrc1Op = idu_io_AluSrc1Op; // @[Main.scala 17:21 Main.scala 43:13]
   assign exu_io_AluSrc2Op = idu_io_AluSrc2Op; // @[Main.scala 18:21 Main.scala 44:13]
   assign exu_io_PcSrc = idu_io_PcSrc; // @[Main.scala 19:17 Main.scala 35:9]
-  assign exu_io_RinCtl = idu_io_RinCtl; // @[Main.scala 20:18 Main.scala 36:10]
+  assign exu_io_RinCtl = idu_io_RinCtl[2:0]; // @[Main.scala 20:18 Main.scala 36:10]
   assign exu_io_MemMask = idu_io_MemMask; // @[Main.scala 21:19 Main.scala 37:11]
 endmodule
