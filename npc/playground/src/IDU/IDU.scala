@@ -168,8 +168,6 @@ class IDU extends Module {
     BitPat("b0000001_?????_?????_000_?????_01110_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.div,  PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //div
     BitPat("b0000001_?????_?????_101_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.divu, PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //divu
 
-
-    BitPat("b???????_?????_?????_010_?????_00000_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.add,  PcSrccode.add4,   RinCtlcode.memout32,"b00000000".U), //lw
     BitPat("b???????_?????_?????_011_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.bltu, PcSrccode.add4,   RinCtlcode.aluout,  "b00000000".U), //sltiu
   ))
 
