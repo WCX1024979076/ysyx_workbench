@@ -44,7 +44,7 @@ class EXU extends Module {
     0x0.U -> AluOut,
     0x1.U -> MemOut,
     0x2.U -> SETX(AluOut(7,0),8),
-    0x3.U -> SETX(MemOut(7,0),8)
+    0x3.U -> SETX(MemOut(7,0),8),
     0x4.U -> SETX(AluOut(15,0),15),
     0x5.U -> SETX(MemOut(15,0),15)
     0x6.U -> SETX(AluOut(31,0),32),
