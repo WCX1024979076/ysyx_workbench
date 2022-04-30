@@ -298,7 +298,7 @@ module IDU(
   wire [2:0] _contr_code_T_307 = _contr_code_T_3 ? 3'h4 : _contr_code_T_306; // @[Lookup.scala 33:37]
   wire [2:0] contr_code_3 = _contr_code_T_1 ? 3'h4 : _contr_code_T_307; // @[Lookup.scala 33:37]
   wire [3:0] _contr_code_T_308 = _contr_code_T_51 ? 4'ha : 4'h0; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_309 = _contr_code_T_101 ? 5'h10 : {{1'd0}, _contr_code_T_308}; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_309 = _contr_code_T_101 ? 5'h16 : {{1'd0}, _contr_code_T_308}; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_310 = _contr_code_T_99 ? 5'h5 : _contr_code_T_309; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_311 = _contr_code_T_95 ? 5'h4 : _contr_code_T_310; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_312 = _contr_code_T_95 ? 5'h3 : _contr_code_T_311; // @[Lookup.scala 33:37]
@@ -314,7 +314,7 @@ module IDU(
   wire [4:0] _contr_code_T_322 = _contr_code_T_75 ? 5'h1 : _contr_code_T_321; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_323 = _contr_code_T_73 ? 5'h1 : _contr_code_T_322; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_324 = _contr_code_T_71 ? 5'h1 : _contr_code_T_323; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_325 = _contr_code_T_69 ? 5'hf : _contr_code_T_324; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_325 = _contr_code_T_69 ? 5'h15 : _contr_code_T_324; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_326 = _contr_code_T_67 ? 5'h1 : _contr_code_T_325; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_327 = _contr_code_T_65 ? 5'h1 : _contr_code_T_326; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_328 = _contr_code_T_63 ? 5'hb : _contr_code_T_327; // @[Lookup.scala 33:37]
@@ -675,25 +675,27 @@ module EXU(
   wire [63:0] _GEN_61 = 5'h1d == io_R2 ? Regs_29 : _GEN_60; // @[EXU.scala 42:10 EXU.scala 42:10]
   wire [63:0] _GEN_62 = 5'h1e == io_R2 ? Regs_30 : _GEN_61; // @[EXU.scala 42:10 EXU.scala 42:10]
   wire [63:0] DataR2 = 5'h1f == io_R2 ? Regs_31 : _GEN_62; // @[EXU.scala 42:10 EXU.scala 42:10]
-  wire [31:0] AluSrc1_lo = DataR1[31:0]; // @[EXU.scala 81:30]
-  wire [31:0] AluSrc1_hi = AluSrc1_lo[31] ? 32'hffffffff : 32'h0; // @[Bitwise.scala 72:12]
-  wire [63:0] _AluSrc1_T_4 = {AluSrc1_hi,AluSrc1_lo}; // @[Cat.scala 30:58]
-  wire [63:0] _AluSrc1_T_9 = 5'h1 == io_AluSrc1Op ? pc : DataR1; // @[Mux.scala 80:57]
-  wire [63:0] _AluSrc1_T_11 = 5'h2 == io_AluSrc1Op ? {{44'd0}, io_Imm[31:12]} : _AluSrc1_T_9; // @[Mux.scala 80:57]
-  wire [63:0] AluSrc1 = 5'h3 == io_AluSrc1Op ? _AluSrc1_T_4 : _AluSrc1_T_11; // @[Mux.scala 80:57]
+  wire [63:0] _AluSrc1_T_5 = 5'h1 == io_AluSrc1Op ? pc : DataR1; // @[Mux.scala 80:57]
+  wire [63:0] _AluSrc1_T_7 = 5'h2 == io_AluSrc1Op ? {{44'd0}, io_Imm[31:12]} : _AluSrc1_T_5; // @[Mux.scala 80:57]
+  wire [63:0] AluSrc1 = 5'h3 == io_AluSrc1Op ? {{32'd0}, DataR1[31:0]} : _AluSrc1_T_7; // @[Mux.scala 80:57]
+  wire [31:0] _AluOut_T_43 = AluSrc1[31:0]; // @[EXU.scala 115:40]
   wire [63:0] _AluSrc2_T_5 = 5'h1 == io_AluSrc2Op ? {{58'd0}, DataR2[5:0]} : DataR2; // @[Mux.scala 80:57]
   wire [63:0] _AluSrc2_T_7 = 5'h2 == io_AluSrc2Op ? {{58'd0}, io_Imm[5:0]} : _AluSrc2_T_5; // @[Mux.scala 80:57]
   wire [63:0] _AluSrc2_T_9 = 5'h3 == io_AluSrc2Op ? 64'hc : _AluSrc2_T_7; // @[Mux.scala 80:57]
   wire [63:0] _AluSrc2_T_11 = 5'h4 == io_AluSrc2Op ? io_Imm : _AluSrc2_T_9; // @[Mux.scala 80:57]
   wire [63:0] AluSrc2 = 5'h5 == io_AluSrc2Op ? 64'h4 : _AluSrc2_T_11; // @[Mux.scala 80:57]
+  wire [31:0] _AluOut_T_46 = $signed(_AluOut_T_43) >>> AluSrc2[5:0]; // @[EXU.scala 115:66]
+  wire [31:0] _AluOut_T_41 = AluSrc1[31:0] >> AluSrc2[5:0]; // @[EXU.scala 114:34]
+  wire [94:0] _GEN_128 = {{63'd0}, AluSrc1[31:0]}; // @[EXU.scala 113:34]
+  wire [94:0] _AluOut_T_38 = _GEN_128 << AluSrc2[5:0]; // @[EXU.scala 113:34]
   wire [63:0] _AluOut_T_35 = AluSrc1 & AluSrc2; // @[EXU.scala 112:28]
   wire [63:0] _AluOut_T_34 = AluSrc1 | AluSrc2; // @[EXU.scala 111:28]
   wire [63:0] _AluOut_T_33 = AluSrc1 ^ AluSrc2; // @[EXU.scala 110:28]
-  wire [63:0] _AluOut_T_29 = 5'h3 == io_AluSrc1Op ? _AluSrc1_T_4 : _AluSrc1_T_11; // @[EXU.scala 109:34]
+  wire [63:0] _AluOut_T_29 = 5'h3 == io_AluSrc1Op ? {{32'd0}, DataR1[31:0]} : _AluSrc1_T_7; // @[EXU.scala 109:34]
   wire [63:0] _AluOut_T_32 = $signed(_AluOut_T_29) >>> AluSrc2[5:0]; // @[EXU.scala 109:60]
   wire [63:0] _AluOut_T_28 = AluSrc1 >> AluSrc2[5:0]; // @[EXU.scala 108:28]
-  wire [126:0] _GEN_128 = {{63'd0}, AluSrc1}; // @[EXU.scala 107:28]
-  wire [126:0] _AluOut_T_26 = _GEN_128 << AluSrc2[5:0]; // @[EXU.scala 107:28]
+  wire [126:0] _GEN_129 = {{63'd0}, AluSrc1}; // @[EXU.scala 107:28]
+  wire [126:0] _AluOut_T_26 = _GEN_129 << AluSrc2[5:0]; // @[EXU.scala 107:28]
   wire [63:0] _AluOut_T_23 = 5'h5 == io_AluSrc2Op ? 64'h4 : _AluSrc2_T_11; // @[EXU.scala 106:54]
   wire  _AluOut_T_24 = $signed(_AluOut_T_29) >= $signed(_AluOut_T_23); // @[EXU.scala 106:37]
   wire  _AluOut_T_21 = $signed(_AluOut_T_29) < $signed(_AluOut_T_23); // @[EXU.scala 105:37]
@@ -709,26 +711,29 @@ module EXU(
   wire [127:0] _AluOut_T_4 = AluSrc1 * AluSrc2; // @[EXU.scala 96:28]
   wire [63:0] _AluOut_T_3 = AluSrc1 - AluSrc2; // @[EXU.scala 95:28]
   wire [63:0] _AluOut_T_1 = AluSrc1 + AluSrc2; // @[EXU.scala 94:28]
-  wire [63:0] _AluOut_T_37 = 5'h1 == io_AluOp ? _AluOut_T_1 : 64'h0; // @[Mux.scala 80:57]
-  wire [63:0] _AluOut_T_39 = 5'h2 == io_AluOp ? _AluOut_T_3 : _AluOut_T_37; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_41 = 5'h3 == io_AluOp ? _AluOut_T_4 : {{64'd0}, _AluOut_T_39}; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_43 = 5'h4 == io_AluOp ? {{63'd0}, _AluOut_T_8} : _AluOut_T_41; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_45 = 5'h5 == io_AluOp ? {{64'd0}, _AluOut_T_9} : _AluOut_T_43; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_47 = 5'h6 == io_AluOp ? {{64'd0}, _AluOut_T_13} : _AluOut_T_45; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_49 = 5'h7 == io_AluOp ? {{64'd0}, _AluOut_T_14} : _AluOut_T_47; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_51 = 5'h8 == io_AluOp ? {{127'd0}, _AluOut_T_15} : _AluOut_T_49; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_53 = 5'h9 == io_AluOp ? {{127'd0}, _AluOut_T_16} : _AluOut_T_51; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_55 = 5'ha == io_AluOp ? {{127'd0}, _AluOut_T_17} : _AluOut_T_53; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_57 = 5'hb == io_AluOp ? {{127'd0}, _AluOut_T_18} : _AluOut_T_55; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_59 = 5'hc == io_AluOp ? {{127'd0}, _AluOut_T_21} : _AluOut_T_57; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_61 = 5'hd == io_AluOp ? {{127'd0}, _AluOut_T_24} : _AluOut_T_59; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_63 = 5'he == io_AluOp ? {{1'd0}, _AluOut_T_26} : _AluOut_T_61; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_65 = 5'hf == io_AluOp ? {{64'd0}, _AluOut_T_28} : _AluOut_T_63; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_67 = 5'h10 == io_AluOp ? {{64'd0}, _AluOut_T_32} : _AluOut_T_65; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_69 = 5'h11 == io_AluOp ? {{64'd0}, _AluOut_T_33} : _AluOut_T_67; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_71 = 5'h12 == io_AluOp ? {{64'd0}, _AluOut_T_34} : _AluOut_T_69; // @[Mux.scala 80:57]
-  wire [127:0] _AluOut_T_73 = 5'h13 == io_AluOp ? {{64'd0}, _AluOut_T_35} : _AluOut_T_71; // @[Mux.scala 80:57]
-  wire [63:0] AluOut = _AluOut_T_73[63:0]; // @[EXU.scala 24:20 EXU.scala 93:10]
+  wire [63:0] _AluOut_T_48 = 5'h1 == io_AluOp ? _AluOut_T_1 : 64'h0; // @[Mux.scala 80:57]
+  wire [63:0] _AluOut_T_50 = 5'h2 == io_AluOp ? _AluOut_T_3 : _AluOut_T_48; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_52 = 5'h3 == io_AluOp ? _AluOut_T_4 : {{64'd0}, _AluOut_T_50}; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_54 = 5'h4 == io_AluOp ? {{63'd0}, _AluOut_T_8} : _AluOut_T_52; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_56 = 5'h5 == io_AluOp ? {{64'd0}, _AluOut_T_9} : _AluOut_T_54; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_58 = 5'h6 == io_AluOp ? {{64'd0}, _AluOut_T_13} : _AluOut_T_56; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_60 = 5'h7 == io_AluOp ? {{64'd0}, _AluOut_T_14} : _AluOut_T_58; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_62 = 5'h8 == io_AluOp ? {{127'd0}, _AluOut_T_15} : _AluOut_T_60; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_64 = 5'h9 == io_AluOp ? {{127'd0}, _AluOut_T_16} : _AluOut_T_62; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_66 = 5'ha == io_AluOp ? {{127'd0}, _AluOut_T_17} : _AluOut_T_64; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_68 = 5'hb == io_AluOp ? {{127'd0}, _AluOut_T_18} : _AluOut_T_66; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_70 = 5'hc == io_AluOp ? {{127'd0}, _AluOut_T_21} : _AluOut_T_68; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_72 = 5'hd == io_AluOp ? {{127'd0}, _AluOut_T_24} : _AluOut_T_70; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_74 = 5'he == io_AluOp ? {{1'd0}, _AluOut_T_26} : _AluOut_T_72; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_76 = 5'hf == io_AluOp ? {{64'd0}, _AluOut_T_28} : _AluOut_T_74; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_78 = 5'h10 == io_AluOp ? {{64'd0}, _AluOut_T_32} : _AluOut_T_76; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_80 = 5'h11 == io_AluOp ? {{64'd0}, _AluOut_T_33} : _AluOut_T_78; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_82 = 5'h12 == io_AluOp ? {{64'd0}, _AluOut_T_34} : _AluOut_T_80; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_84 = 5'h13 == io_AluOp ? {{64'd0}, _AluOut_T_35} : _AluOut_T_82; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_86 = 5'h14 == io_AluOp ? {{33'd0}, _AluOut_T_38} : _AluOut_T_84; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_88 = 5'h15 == io_AluOp ? {{96'd0}, _AluOut_T_41} : _AluOut_T_86; // @[Mux.scala 80:57]
+  wire [127:0] _AluOut_T_90 = 5'h16 == io_AluOp ? {{96'd0}, _AluOut_T_46} : _AluOut_T_88; // @[Mux.scala 80:57]
+  wire [63:0] AluOut = _AluOut_T_90[63:0]; // @[EXU.scala 24:20 EXU.scala 93:10]
   wire [7:0] DataIn_lo = AluOut[7:0]; // @[EXU.scala 46:25]
   wire [55:0] DataIn_hi = DataIn_lo[7] ? 56'hffffffffffffff : 56'h0; // @[Bitwise.scala 72:12]
   wire [63:0] _DataIn_T_3 = {DataIn_hi,DataIn_lo}; // @[Cat.scala 30:58]
@@ -755,10 +760,10 @@ module EXU(
   wire [63:0] _DataIn_T_42 = 3'h5 == io_RinCtl ? _DataIn_T_18 : _DataIn_T_40; // @[Mux.scala 80:57]
   wire [63:0] _DataIn_T_44 = 3'h6 == io_RinCtl ? _DataIn_T_23 : _DataIn_T_42; // @[Mux.scala 80:57]
   wire [63:0] _DataIn_T_46 = 3'h7 == io_RinCtl ? _DataIn_T_28 : _DataIn_T_44; // @[Mux.scala 80:57]
-  wire [3:0] _GEN_129 = {{1'd0}, io_RinCtl}; // @[Mux.scala 80:60]
-  wire [63:0] _DataIn_T_48 = 4'h8 == _GEN_129 ? {{56'd0}, DataIn_lo_1} : _DataIn_T_46; // @[Mux.scala 80:57]
-  wire [63:0] _DataIn_T_50 = 4'h9 == _GEN_129 ? {{48'd0}, MemOut[15:0]} : _DataIn_T_48; // @[Mux.scala 80:57]
-  wire [4:0] _GEN_131 = {{2'd0}, io_RinCtl}; // @[Mux.scala 80:60]
+  wire [3:0] _GEN_130 = {{1'd0}, io_RinCtl}; // @[Mux.scala 80:60]
+  wire [63:0] _DataIn_T_48 = 4'h8 == _GEN_130 ? {{56'd0}, DataIn_lo_1} : _DataIn_T_46; // @[Mux.scala 80:57]
+  wire [63:0] _DataIn_T_50 = 4'h9 == _GEN_130 ? {{48'd0}, MemOut[15:0]} : _DataIn_T_48; // @[Mux.scala 80:57]
+  wire [4:0] _GEN_132 = {{2'd0}, io_RinCtl}; // @[Mux.scala 80:60]
   wire [63:0] _pc_T_1 = pc + 64'h4; // @[EXU.scala 68:32]
   wire [42:0] pc_hi = io_Imm[20] ? 43'h7ffffffffff : 43'h0; // @[Bitwise.scala 72:12]
   wire [20:0] pc_lo = io_Imm[20:0]; // @[EXU.scala 70:52]
@@ -814,9 +819,9 @@ module EXU(
     .gpr_31(difftest_gpr_31),
     .PcVal(difftest_PcVal)
   );
-  assign io_PcVal = pc; // @[EXU.scala 115:12]
-  assign mem_Raddr = _AluOut_T_73[63:0]; // @[EXU.scala 24:20 EXU.scala 93:10]
-  assign mem_Waddr = _AluOut_T_73[63:0]; // @[EXU.scala 24:20 EXU.scala 93:10]
+  assign io_PcVal = pc; // @[EXU.scala 118:12]
+  assign mem_Raddr = _AluOut_T_90[63:0]; // @[EXU.scala 24:20 EXU.scala 93:10]
+  assign mem_Waddr = _AluOut_T_90[63:0]; // @[EXU.scala 24:20 EXU.scala 93:10]
   assign mem_Wdata = 5'h1f == io_R2 ? Regs_31 : _GEN_62; // @[EXU.scala 42:10 EXU.scala 42:10]
   assign mem_Wmask = io_MemMask; // @[EXU.scala 65:16]
   assign mem_MemWrite = io_MemWrite; // @[EXU.scala 66:19]
@@ -858,7 +863,7 @@ module EXU(
       Regs_1 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h1 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_1 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_1 <= _DataIn_T_50;
@@ -869,7 +874,7 @@ module EXU(
       Regs_2 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h2 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_2 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_2 <= _DataIn_T_50;
@@ -880,7 +885,7 @@ module EXU(
       Regs_3 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h3 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_3 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_3 <= _DataIn_T_50;
@@ -891,7 +896,7 @@ module EXU(
       Regs_4 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h4 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_4 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_4 <= _DataIn_T_50;
@@ -902,7 +907,7 @@ module EXU(
       Regs_5 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h5 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_5 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_5 <= _DataIn_T_50;
@@ -913,7 +918,7 @@ module EXU(
       Regs_6 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h6 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_6 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_6 <= _DataIn_T_50;
@@ -924,7 +929,7 @@ module EXU(
       Regs_7 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h7 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_7 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_7 <= _DataIn_T_50;
@@ -935,7 +940,7 @@ module EXU(
       Regs_8 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h8 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_8 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_8 <= _DataIn_T_50;
@@ -946,7 +951,7 @@ module EXU(
       Regs_9 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h9 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_9 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_9 <= _DataIn_T_50;
@@ -957,7 +962,7 @@ module EXU(
       Regs_10 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'ha == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_10 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_10 <= _DataIn_T_50;
@@ -968,7 +973,7 @@ module EXU(
       Regs_11 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'hb == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_11 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_11 <= _DataIn_T_50;
@@ -979,7 +984,7 @@ module EXU(
       Regs_12 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'hc == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_12 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_12 <= _DataIn_T_50;
@@ -990,7 +995,7 @@ module EXU(
       Regs_13 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'hd == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_13 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_13 <= _DataIn_T_50;
@@ -1001,7 +1006,7 @@ module EXU(
       Regs_14 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'he == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_14 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_14 <= _DataIn_T_50;
@@ -1012,7 +1017,7 @@ module EXU(
       Regs_15 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'hf == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_15 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_15 <= _DataIn_T_50;
@@ -1023,7 +1028,7 @@ module EXU(
       Regs_16 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h10 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_16 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_16 <= _DataIn_T_50;
@@ -1034,7 +1039,7 @@ module EXU(
       Regs_17 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h11 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_17 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_17 <= _DataIn_T_50;
@@ -1045,7 +1050,7 @@ module EXU(
       Regs_18 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h12 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_18 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_18 <= _DataIn_T_50;
@@ -1056,7 +1061,7 @@ module EXU(
       Regs_19 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h13 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_19 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_19 <= _DataIn_T_50;
@@ -1067,7 +1072,7 @@ module EXU(
       Regs_20 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h14 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_20 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_20 <= _DataIn_T_50;
@@ -1078,7 +1083,7 @@ module EXU(
       Regs_21 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h15 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_21 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_21 <= _DataIn_T_50;
@@ -1089,7 +1094,7 @@ module EXU(
       Regs_22 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h16 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_22 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_22 <= _DataIn_T_50;
@@ -1100,7 +1105,7 @@ module EXU(
       Regs_23 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h17 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_23 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_23 <= _DataIn_T_50;
@@ -1111,7 +1116,7 @@ module EXU(
       Regs_24 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h18 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_24 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_24 <= _DataIn_T_50;
@@ -1122,7 +1127,7 @@ module EXU(
       Regs_25 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h19 == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_25 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_25 <= _DataIn_T_50;
@@ -1133,7 +1138,7 @@ module EXU(
       Regs_26 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h1a == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_26 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_26 <= _DataIn_T_50;
@@ -1144,7 +1149,7 @@ module EXU(
       Regs_27 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h1b == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_27 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_27 <= _DataIn_T_50;
@@ -1155,7 +1160,7 @@ module EXU(
       Regs_28 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h1c == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_28 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_28 <= _DataIn_T_50;
@@ -1166,7 +1171,7 @@ module EXU(
       Regs_29 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h1d == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_29 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_29 <= _DataIn_T_50;
@@ -1177,7 +1182,7 @@ module EXU(
       Regs_30 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h1e == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_30 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_30 <= _DataIn_T_50;
@@ -1188,7 +1193,7 @@ module EXU(
       Regs_31 <= 64'h0; // @[EXU.scala 29:21]
     end else if (io_RegWrite) begin // @[EXU.scala 57:3]
       if (5'h1f == io_Rdest) begin // @[EXU.scala 58:20]
-        if (5'h10 == _GEN_131) begin // @[Mux.scala 80:57]
+        if (5'h10 == _GEN_132) begin // @[Mux.scala 80:57]
           Regs_31 <= {{32'd0}, DataIn_lo_5};
         end else begin
           Regs_31 <= _DataIn_T_50;
