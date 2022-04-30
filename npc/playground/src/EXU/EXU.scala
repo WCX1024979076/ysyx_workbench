@@ -114,7 +114,7 @@ class EXU extends Module {
     "b10100".U -> (AluSrc1(31,0) << AluSrc2(5,0)).asUInt(),            //sll32
     "b10101".U -> (AluSrc1(31,0) >> AluSrc2(5,0)).asUInt(),            //srl32
     "b10110".U -> (AluSrc1(31,0).asSInt() >> AluSrc2(5,0)).asUInt(),   //sra32
-    "b10111".U -> (AluSrc1(31,0).asSInt() >> AluSrc2(31,0)).asUInt(),  //div32
+    "b10111".U -> (AluSrc1(31,0).asSInt() / AluSrc2(31,0)).asUInt(),  //div32
   ))
 
   io.PcVal := pc;
