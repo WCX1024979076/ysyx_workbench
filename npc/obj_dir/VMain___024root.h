@@ -21,11 +21,11 @@ VL_MODULE(VMain___024root) {
     CData/*0:0*/ Main__DOT__idu_io_RegWrite;
     CData/*4:0*/ Main__DOT__idu_io_AluOp;
     CData/*3:0*/ Main__DOT__idu_io_RinCtl;
-    CData/*0:0*/ Main__DOT__idu__DOT___contr_code_T_215;
+    CData/*0:0*/ Main__DOT__idu__DOT___contr_code_T_219;
     CData/*1:0*/ Main__DOT__idu__DOT__contr_code_2;
     CData/*2:0*/ Main__DOT__idu__DOT__contr_code_3;
-    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_440;
-    CData/*7:0*/ Main__DOT__idu__DOT___contr_code_T_551;
+    CData/*1:0*/ Main__DOT__idu__DOT___contr_code_T_448;
+    CData/*7:0*/ Main__DOT__idu__DOT___contr_code_T_561;
     CData/*0:0*/ __Vclklast__TOP__clock;
     SData/*11:0*/ Main__DOT__idu__DOT__io_Imm_lo_2;
     SData/*12:0*/ Main__DOT__idu__DOT__io_Imm_lo_8;
