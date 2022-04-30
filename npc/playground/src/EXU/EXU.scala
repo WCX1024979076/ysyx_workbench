@@ -16,7 +16,7 @@ class EXU extends Module {
     val AluSrc1Op=Input(UInt(5.W))
     val AluSrc2Op=Input(UInt(5.W))
     val PcSrc=Input(UInt(5.W))
-    val RinCtl=Input(UInt(3.W))
+    val RinCtl=Input(UInt(4.W))
     val MemMask=Input(UInt(8.W))
 
     val PcVal=Output(UInt(64.W))

@@ -17,7 +17,7 @@ class Main extends Module {
   val AluSrc1Op=Wire(UInt(5.W))
   val AluSrc2Op=Wire(UInt(5.W))
   val PcSrc=Wire(UInt(5.W))
-  val RinCtl=Wire(UInt(3.W))
+  val RinCtl=Wire(UInt(4.W))
   val MemMask=Wire(UInt(8.W))
   val Rdest=Wire(UInt(5.W))
   val R1=Wire(UInt(5.W))
