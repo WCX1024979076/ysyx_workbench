@@ -250,7 +250,7 @@ module IDU(
   wire [1:0] _contr_code_T_266 = _contr_code_T_3 ? 2'h0 : _contr_code_T_265; // @[Lookup.scala 33:37]
   wire [1:0] contr_code_2 = _contr_code_T_1 ? 2'h1 : _contr_code_T_266; // @[Lookup.scala 33:37]
   wire [2:0] _contr_code_T_267 = _contr_code_T_51 ? 3'h4 : 3'h0; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_268 = _contr_code_T_105 ? 3'h0 : _contr_code_T_267; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_268 = _contr_code_T_105 ? 3'h2 : _contr_code_T_267; // @[Lookup.scala 33:37]
   wire [2:0] _contr_code_T_269 = _contr_code_T_103 ? 3'h0 : _contr_code_T_268; // @[Lookup.scala 33:37]
   wire [2:0] _contr_code_T_270 = _contr_code_T_101 ? 3'h0 : _contr_code_T_269; // @[Lookup.scala 33:37]
   wire [2:0] _contr_code_T_271 = _contr_code_T_99 ? 3'h0 : _contr_code_T_270; // @[Lookup.scala 33:37]
