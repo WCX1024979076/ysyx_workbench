@@ -143,7 +143,7 @@ class IDU extends Module {
     BitPat("b???????_?????_?????_100_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.xor,    PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //xor
     BitPat("b0000000_?????_?????_110_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.or,     PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //or
     BitPat("b???????_?????_?????_110_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.or,     PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //ori
-    BitPat("b0000000_?????_?????_111_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.add,    PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //and
+    BitPat("b0000000_?????_?????_111_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.and,    PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //and
     BitPat("b???????_?????_?????_111_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.and,    PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //andi
     BitPat("b0000000_?????_?????_010_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.blt,    PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //slt
     BitPat("b???????_?????_?????_010_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.blt,    PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //slti
