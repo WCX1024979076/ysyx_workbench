@@ -143,10 +143,10 @@ VL_ATTR_COLD void VMain___024root__trace_init_sub__TOP__0(VMain___024root* vlSel
     tracep->declQuad(c+19,"MemOut", false,-1, 63,0);
     tracep->declBus(c+96,"DataIn_lo_1", false,-1, 7,0);
     tracep->declQuad(c+97,"DataIn_hi_1", false,-1, 55,0);
-    tracep->declQuad(c+99,"DataIn_hi_2", false,-1, 48,0);
-    tracep->declBus(c+101,"DataIn_lo_2", false,-1, 14,0);
-    tracep->declQuad(c+102,"DataIn_hi_3", false,-1, 48,0);
-    tracep->declBus(c+104,"DataIn_lo_3", false,-1, 14,0);
+    tracep->declBus(c+99,"DataIn_lo_2", false,-1, 15,0);
+    tracep->declQuad(c+100,"DataIn_hi_2", false,-1, 47,0);
+    tracep->declBus(c+102,"DataIn_lo_3", false,-1, 15,0);
+    tracep->declQuad(c+103,"DataIn_hi_3", false,-1, 47,0);
     tracep->declBus(c+105,"DataIn_lo_4", false,-1, 31,0);
     tracep->declBus(c+106,"DataIn_hi_4", false,-1, 31,0);
     tracep->declBus(c+107,"DataIn_lo_5", false,-1, 31,0);
@@ -380,15 +380,15 @@ VL_ATTR_COLD void VMain___024root__trace_full_sub_0(VMain___024root* vlSelf, Ver
                                                >> 7U)))
                                  ? 0xffffffffffffffULL
                                  : 0ULL)),56);
-    tracep->fullQData(oldp+99,(((0x4000U & vlSelf->Main__DOT__exu__DOT___AluOut_T_98[0U])
-                                 ? 0x1ffffffffffffULL
-                                 : 0ULL)),49);
-    tracep->fullSData(oldp+101,((0x7fffU & vlSelf->Main__DOT__exu__DOT___AluOut_T_98[0U])),15);
-    tracep->fullQData(oldp+102,(((1U & (IData)((vlSelf->Main__DOT__exu__DOT__mem_Rdata 
-                                                >> 0xeU)))
-                                  ? 0x1ffffffffffffULL
-                                  : 0ULL)),49);
-    tracep->fullSData(oldp+104,((0x7fffU & (IData)(vlSelf->Main__DOT__exu__DOT__mem_Rdata))),15);
+    tracep->fullSData(oldp+99,((0xffffU & vlSelf->Main__DOT__exu__DOT___AluOut_T_98[0U])),16);
+    tracep->fullQData(oldp+100,(((0x8000U & vlSelf->Main__DOT__exu__DOT___AluOut_T_98[0U])
+                                  ? 0xffffffffffffULL
+                                  : 0ULL)),48);
+    tracep->fullSData(oldp+102,((0xffffU & (IData)(vlSelf->Main__DOT__exu__DOT__mem_Rdata))),16);
+    tracep->fullQData(oldp+103,(((1U & (IData)((vlSelf->Main__DOT__exu__DOT__mem_Rdata 
+                                                >> 0xfU)))
+                                  ? 0xffffffffffffULL
+                                  : 0ULL)),48);
     tracep->fullIData(oldp+105,(vlSelf->Main__DOT__exu__DOT___AluOut_T_98[0U]),32);
     tracep->fullIData(oldp+106,(((vlSelf->Main__DOT__exu__DOT___AluOut_T_98[0U] 
                                   >> 0x1fU) ? 0xffffffffU

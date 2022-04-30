@@ -3142,24 +3142,24 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                                                  ((((1U 
                                                      & (IData)(
                                                                (vlSelf->Main__DOT__exu__DOT__mem_Rdata 
-                                                                >> 0xeU)))
-                                                     ? 0x1ffffffffffffULL
+                                                                >> 0xfU)))
+                                                     ? 0xffffffffffffULL
                                                      : 0ULL) 
-                                                   << 0xfU) 
+                                                   << 0x10U) 
                                                   | (QData)((IData)(
-                                                                    (0x7fffU 
+                                                                    (0xffffU 
                                                                      & (IData)(vlSelf->Main__DOT__exu__DOT__mem_Rdata)))))
                                                   : 
                                                  ((4U 
                                                    == (IData)(vlSelf->Main__DOT__idu_io_RinCtl))
                                                    ? 
-                                                  ((((0x4000U 
+                                                  ((((0x8000U 
                                                       & vlSelf->Main__DOT__exu__DOT___AluOut_T_98[0U])
-                                                      ? 0x1ffffffffffffULL
+                                                      ? 0xffffffffffffULL
                                                       : 0ULL) 
-                                                    << 0xfU) 
+                                                    << 0x10U) 
                                                    | (QData)((IData)(
-                                                                     (0x7fffU 
+                                                                     (0xffffU 
                                                                       & vlSelf->Main__DOT__exu__DOT___AluOut_T_98[0U]))))
                                                    : 
                                                   ((3U 
