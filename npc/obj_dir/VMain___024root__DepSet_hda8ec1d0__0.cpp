@@ -2156,7 +2156,7 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                                                     == 
                                                     (0x707fU 
                                                      & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))
-                                                    ? 1U
+                                                    ? 0x13U
                                                     : 
                                                    ((0x2033U 
                                                      == 
