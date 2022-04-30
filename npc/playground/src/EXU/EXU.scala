@@ -89,7 +89,7 @@ class EXU extends Module {
     "b00101".U -> "h4".U(64.W),
   ));
 
-  var AluOut = MuxLookup(io.AluOp,0.U, Array(
+  var AluOut = MuxLookup(io.AluOp,0.U(64.W), Array(
     "b00001".U -> (AluSrc1 + AluSrc2).asUInt(),                        //addi,ld,sd,add,auipc,jal,jalr
     "b00010".U -> (AluSrc1 - AluSrc2).asUInt(),                        //sub
     "b00011".U -> (AluSrc1 * AluSrc2).asUInt(),                        //mul
