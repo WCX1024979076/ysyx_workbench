@@ -65,6 +65,7 @@ class IDU extends Module {
       val sll32 = "b10100".U 
       val srl32 = "b10101".U 
       val sra32 = "b10110".U 
+      val div32 = "b10111".U 
   }
 
   object AluSrc1Opcode extends ChiselEnum{
@@ -81,6 +82,7 @@ class IDU extends Module {
     val imm_12    = 3.U
     val imm       = 4.U
     val imm_4     = 5.U
+    val r2_31_0   = 6.U
   }
 
   object PcSrccode extends ChiselEnum{
@@ -175,6 +177,7 @@ class IDU extends Module {
     BitPat("b000000?_?????_?????_101_?????_01110_11") -> List(1.U, 0.U, AluSrc1Opcode.r1_31_0,   AluSrc2Opcode.r2,      AluOpcode.srl32,  PcSrccode.add4,   RinCtlcode.aluout32, "b00000000".U), //srlw
     BitPat("b000000?_?????_?????_001_?????_00110_11") -> List(1.U, 0.U, AluSrc1Opcode.r1_31_0,   AluSrc2Opcode.imm_5_0, AluOpcode.sll32,  PcSrccode.add4,   RinCtlcode.aluout32, "b00000000".U), //slliw
     BitPat("b010000?_?????_?????_101_?????_00110_11") -> List(1.U, 0.U, AluSrc1Opcode.r1_31_0,   AluSrc2Opcode.imm_5_0, AluOpcode.sra32,  PcSrccode.add4,   RinCtlcode.aluout32, "b00000000".U), //sraiw
+    BitPat("b0000001_?????_?????_100_?????_01110_11") -> List(1.U, 0.U, AluSrc1Opcode.r1_31_0,   AluSrc2Opcode.r2_31_0, AluOpcode.div32,  PcSrccode.add4,   RinCtlcode.aluout32, "b00000000".U), //divw
 
     BitPat("b???????_?????_?????_011_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.bltu,   PcSrccode.add4,   RinCtlcode.aluout,  "b00000000".U), //sltiu
   ))
