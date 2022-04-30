@@ -98,6 +98,7 @@ class IDU extends Module {
     val memout32  = 7.U
     val memout8u  = 8.U
     val memout16u = 9.U
+    val memout32u = 10.U
   }
 
   io.Imm := MuxLookup(opcode,0.U,Array(
