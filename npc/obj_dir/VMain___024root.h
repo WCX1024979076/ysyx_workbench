@@ -30,7 +30,7 @@ VL_MODULE(VMain___024root) {
     SData/*11:0*/ Main__DOT__idu__DOT__io_Imm_lo_2;
     SData/*12:0*/ Main__DOT__idu__DOT__io_Imm_lo_8;
     IData/*20:0*/ Main__DOT__idu__DOT__io_Imm_lo_6;
-    VlWide<4>/*127:0*/ Main__DOT__exu__DOT___AluOut_T_73;
+    VlWide<4>/*127:0*/ Main__DOT__exu__DOT___AluOut_T_77;
     QData/*63:0*/ Main__DOT__idu_io_Imm;
     QData/*63:0*/ Main__DOT__ifu__DOT__mem_Rdata;
     QData/*63:0*/ Main__DOT__exu__DOT__mem_Rdata;

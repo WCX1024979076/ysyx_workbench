@@ -21,7 +21,7 @@ class EXU extends Module {
 
     val PcVal=Output(UInt(64.W))
   })
-  var AluOut = Wire(UInt(64.W));
+  //var AluOut = Wire(UInt(64.W));
   var MemOut = Wire(UInt(64.W));
   var DataR1 = Wire(UInt(64.W));
   var DataR2 = Wire(UInt(64.W));
@@ -89,12 +89,12 @@ class EXU extends Module {
     "b00101".U -> "h4".U(64.W),
   ));
 
-  AluOut := MuxLookup(io.AluOp,0.U, Array(
+  var AluOut = MuxLookup(io.AluOp,0.U, Array(
     "b00001".U -> (AluSrc1 + AluSrc2).asUInt(),                        //addi,ld,sd,add,auipc,jal,jalr
     "b00010".U -> (AluSrc1 - AluSrc2).asUInt(),                        //sub
     "b00011".U -> (AluSrc1 * AluSrc2).asUInt(),                        //mul
-    "b00100".U -> (AluSrc1(31,0).asSInt() / AluSrc2(31,0).asSInt()).asUInt(),    //div
-    "b00101".U -> (AluSrc1(31,0) / AluSrc2(31,0)).asUInt(),                      //divu
+    "b00100".U -> (AluSrc1.asSInt() / AluSrc2.asSInt()).asUInt(),    //div
+    "b00101".U -> (AluSrc1 / AluSrc2).asUInt(),                      //divu
     "b00110".U -> (AluSrc1.asSInt() % AluSrc2.asSInt()).asUInt(),      //rem
     "b00111".U -> (AluSrc1 % AluSrc2).asUInt(),                        //remu
     "b01000".U -> (AluSrc1 === AluSrc2).asUInt(),                      //beq
