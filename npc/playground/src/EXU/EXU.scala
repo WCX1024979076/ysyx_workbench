@@ -93,7 +93,7 @@ class EXU extends Module {
     "b00001".U -> (AluSrc1 + AluSrc2).asUInt(),                        //addi,ld,sd,add,auipc,jal,jalr
     "b00010".U -> (AluSrc1 - AluSrc2).asUInt(),                        //sub
     "b00011".U -> (AluSrc1 * AluSrc2).asUInt(),                        //mul
-    //"b00100".U -> (AluSrc1.asSInt() / AluSrc2.asSInt()).asUInt(),    //div
+    "b00100".U -> (AluSrc1.S / AluSrc2.S).asUInt(),    //div
     "b00101".U -> (AluSrc1 / AluSrc2).asUInt(),                      //divu
     "b00110".U -> (AluSrc1.asSInt() % AluSrc2.asSInt()).asUInt(),      //rem
     "b00111".U -> (AluSrc1 % AluSrc2).asUInt(),                        //remu
