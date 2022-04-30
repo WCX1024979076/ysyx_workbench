@@ -406,7 +406,7 @@ module IDU(
   wire [3:0] _contr_code_T_439 = _contr_code_T_9 ? 4'h0 : _contr_code_T_438; // @[Lookup.scala 33:37]
   wire [3:0] _contr_code_T_440 = _contr_code_T_7 ? 4'h0 : _contr_code_T_439; // @[Lookup.scala 33:37]
   wire [3:0] _contr_code_T_441 = _contr_code_T_5 ? 4'h0 : _contr_code_T_440; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_442 = _contr_code_T_3 ? 4'h7 : _contr_code_T_441; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_442 = _contr_code_T_3 ? 4'h1 : _contr_code_T_441; // @[Lookup.scala 33:37]
   wire [3:0] _contr_code_T_450 = _contr_code_T_85 ? 4'hf : 4'h0; // @[Lookup.scala 33:37]
   wire [3:0] _contr_code_T_451 = _contr_code_T_83 ? 4'h3 : _contr_code_T_450; // @[Lookup.scala 33:37]
   wire [3:0] _contr_code_T_452 = _contr_code_T_81 ? 4'h1 : _contr_code_T_451; // @[Lookup.scala 33:37]
