@@ -349,7 +349,7 @@ module IDU(
   wire [4:0] _contr_code_T_371 = _contr_code_T_47 ? 5'hc : _contr_code_T_370; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_372 = _contr_code_T_45 ? 5'hc : _contr_code_T_371; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_373 = _contr_code_T_43 ? 5'h13 : _contr_code_T_372; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_374 = _contr_code_T_41 ? 5'h1 : _contr_code_T_373; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_374 = _contr_code_T_41 ? 5'h13 : _contr_code_T_373; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_375 = _contr_code_T_39 ? 5'h12 : _contr_code_T_374; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_376 = _contr_code_T_37 ? 5'h12 : _contr_code_T_375; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_377 = _contr_code_T_35 ? 5'h11 : _contr_code_T_376; // @[Lookup.scala 33:37]
