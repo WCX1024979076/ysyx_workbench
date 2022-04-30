@@ -2287,7 +2287,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
         Main__DOT__idu__DOT___contr_code_T_380 = 0x12U;
     } else if ((0x7033U == (0xfe00707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
         Main__DOT__idu__DOT___contr_code_T_492 = 0U;
-        Main__DOT__idu__DOT___contr_code_T_380 = 1U;
+        Main__DOT__idu__DOT___contr_code_T_380 = 0x13U;
     } else if ((0x7013U == (0x707fU & (IData)(vlSelf->Main__DOT__ifu__DOT__mem_Rdata)))) {
         Main__DOT__idu__DOT___contr_code_T_492 = 0U;
         Main__DOT__idu__DOT___contr_code_T_380 = 0x13U;
