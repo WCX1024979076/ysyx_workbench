@@ -2,14 +2,12 @@ BUILD_DIR = ./vsrc
 OBJ_DIR = ./obj_dir
 mill = ./mill/mill
 TOPNAME = Main
-CSRCNAME = main
 VSRCNAME = Main
 IMG = ""
 CSRCDIRS = ./csrc
 VSRCDIRS = ./vsrc
 CSRC = $(foreach dir, $(CSRCDIRS), $(wildcard $(dir)/*.cpp))
 VSRC = $(filter-out %/$(VSRCNAME).v, $(foreach dir, $(VSRCDIRS), $(wildcard $(dir)/*.v)))
-
 
 test:
 	$(mill) -i __.test
