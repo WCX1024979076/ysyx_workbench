@@ -35,3 +35,5 @@ void (*ref_difftest_exec)(uint64_t n) = NULL;
 void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
 void (*ref_difftest_init)() = NULL;
 #endif
+
+static uint8_t pmem[CONFIG_MSIZE] = {0};
