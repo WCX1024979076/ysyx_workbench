@@ -106,7 +106,7 @@ int main(int argc, char **argv, char **env)
   init_npc();
 
 #ifdef CONFIG_DIFFTEST
-  init_so(&cpu_npc,"/home/wcx/Desktop/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so", size);
+  init_so("/home/wcx/Desktop/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so", size);
 #endif
   while (1)
   {
@@ -120,7 +120,7 @@ int main(int argc, char **argv, char **env)
     CPU_state ref_cpu;
     ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
     printf("check at nemu_pc=%lx, npc_pc=%lx\n", cpu_npc.pc, ref_cpu.pc);
-    if (!check_regs_npc(cpu_npc,ref_cpu))
+    if (!check_regs_npc(ref_cpu))
       exit_npc(-1);
 #endif
   }

@@ -7,7 +7,7 @@ void (*ref_difftest_exec)(uint64_t n) = NULL;
 void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
 void (*ref_difftest_init)() = NULL;
 
-void init_so(CPU_state *cpu_npc, char *ref_so_file, long img_size)
+void init_so(char *ref_so_file, long img_size)
 {
   assert(ref_so_file != NULL);
 
@@ -40,7 +40,7 @@ void init_so(CPU_state *cpu_npc, char *ref_so_file, long img_size)
   ref_difftest_regcpy(cpu_npc, DIFFTEST_TO_REF);
 }
 
-int check_regs_npc(CPU_state cpu_npc,CPU_state ref_cpu)
+int check_regs_npc(CPU_state ref_cpu)
 {
   for (int i = 0; i < 32; i++)
   {
