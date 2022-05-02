@@ -6,6 +6,7 @@ void (*ref_difftest_regcpy)(void *dut, bool direction) = NULL;
 void (*ref_difftest_exec)(uint64_t n) = NULL;
 void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
 void (*ref_difftest_init)() = NULL;
+
 void init_so(char *ref_so_file, long img_size)
 {
   assert(ref_so_file != NULL);
@@ -34,6 +35,7 @@ void init_so(char *ref_so_file, long img_size)
          "If it is not necessary, you can turn it off in menuconfig.\n",
          ref_so_file);
   ref_difftest_init();
+  puts("123");
   ref_difftest_memcpy(RESET_VECTOR, pmem, img_size, DIFFTEST_TO_REF);
   ref_difftest_regcpy(&cpu_npc, DIFFTEST_TO_REF);
 }
