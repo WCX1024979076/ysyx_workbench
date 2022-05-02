@@ -87,7 +87,6 @@ int main(int argc, char **argv, char **env)
       size = ld(argv[1]);
     }
   }
-  puts("123");
 
   contextp = new VerilatedContext;
   contextp->commandArgs(argc, argv);
@@ -105,7 +104,7 @@ int main(int argc, char **argv, char **env)
 #ifdef CONFIG_DIFFTEST
   init_so("/home/wcx/Desktop/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so", size);
 #endif
-  printf("123");
+  puts("123");
   while (1)
   {
     cpu_sim();
