@@ -33,7 +33,7 @@ void init_so(char *ref_so_file, long img_size)
   ref_difftest_regcpy(&cpu_npc, DIFFTEST_TO_REF);
 }
 
-int check_regs_npc(CPU_state cpu_npc,CPU_state ref_cpu)
+int check_regs_npc(CPU_state ref_cpu)
 {
   for (int i = 0; i < 32; i++)
   {
@@ -48,5 +48,6 @@ int check_regs_npc(CPU_state cpu_npc,CPU_state ref_cpu)
     printf("Missing match at pc, npc_val=%lx,nemu_val=%lx\n", cpu_npc.pc, ref_cpu.pc);
     return 0;
   }
+  return 1;
 }
 #endif
