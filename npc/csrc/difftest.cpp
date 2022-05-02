@@ -35,12 +35,9 @@ void init_so(char *ref_so_file, long img_size)
          "If it is not necessary, you can turn it off in menuconfig.\n",
          ref_so_file);
   ref_difftest_init();
-  puts("123");
-
   ref_difftest_memcpy(RESET_VECTOR, pmem, img_size, DIFFTEST_TO_REF);
   ref_difftest_regcpy(&cpu_npc, DIFFTEST_TO_REF);
-  puts("123");
-
+  puts(cpu_npc.pc);
 }
 
 int check_regs_npc(CPU_state ref_cpu)
