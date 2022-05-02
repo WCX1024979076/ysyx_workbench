@@ -39,7 +39,7 @@ clean:
 
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
-	verilator --trace --cc --exe $(CSRC) $(VSRC)  -CFLAGS -fpermissive  -CFLAGS -I -CFLAGS $$NPC_HOME/csrc/ -LDFLAGS -ldl -Wno-fatal
+	verilator --trace --cc --exe $(CSRC) ./vsrc/$(VSRCNAME).v -I ./vsrc/Mem.v ./vsrc/Difftest.v ./vsrc/Ebreak.v   -CFLAGS -fpermissive  -CFLAGS -I -CFLAGS $$NPC_HOME/csrc/ -LDFLAGS -ldl -Wno-fatal
 	make -j -C ./obj_dir/ -f V$(TOPNAME).mk V$(TOPNAME) 
 	./obj_dir/V$(TOPNAME)	$(IMG)
 	# gtkwave waveform.vcd
