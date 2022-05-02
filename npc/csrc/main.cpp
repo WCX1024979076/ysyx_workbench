@@ -90,7 +90,6 @@ int main(int argc, char **argv, char **env)
       size = ld(argv[1]);
     }
   }
-  puts("run");
   contextp = new VerilatedContext;
   contextp->commandArgs(argc, argv);
   top = new VMain{contextp};
