@@ -4,14 +4,7 @@ TOPNAME = Main
 CSRCNAME = main
 VSRCNAME = Main
 IMG = ""
-CSRCDIR = ./csrc
-VSRCDIR = ./csrc
-CSRC = $(foreach dir, $(CSRCDIR), $(wildcard $(dir)/*.cpp))
-VSRC = $(foreach dir, $(VSRCDIR), $(wildcard $(dir)/*.v))
 
-all:
-	echo $(CSRC)
-	echo $(VSRC)
 
 test:
 	$(mill) -i __.test
