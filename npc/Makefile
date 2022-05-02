@@ -8,7 +8,7 @@ IMG = ""
 CSRCDIRS = ./csrc
 VSRCDIRS = ./vsrc
 CSRC = $(foreach dir, $(CSRCDIRS), $(wildcard $(dir)/*.cpp))
-VSRC = $(foreach dir, $(VSRCDIRS), $(wildcard $(dir)/*.v))
+VSRC = $(filter-out %/$(VSRCNAME).v, $(foreach dir, $(VSRCDIRS), $(wildcard $(dir)/*.v)))
 
 
 test:
