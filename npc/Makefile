@@ -7,7 +7,7 @@ IMG = ""
 CSRCDIRS = ./csrc
 VSRCDIRS = ./vsrc
 CSRC = $(foreach dir, $(CSRCDIRS), $(wildcard $(dir)/*.c))
-VSRC = $(foreach dir, $(VSRCDIRS), $(wildcard $(dir)/*.c))
+VSRC = $(foreach dir, $(VSRCDIRS), $(wildcard $(dir)/*.v))
 
 
 test:
