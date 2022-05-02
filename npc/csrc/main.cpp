@@ -11,7 +11,7 @@ VerilatedContext *contextp = nullptr;
 VerilatedVcdC *m_trace = nullptr;
 #endif
 
-void check_regs_npc(CPU_state ref_cpu);
+int check_regs_npc(CPU_state cpu_npc, CPU_state ref_cpu);
 void init_so(char *ref_so_file, long img_size);
 
 void exit_npc(int flag)
@@ -31,7 +31,7 @@ void ebreak()
   int flag = 0;
   if (cpu_npc.gpr[10] == 1)
     flag = -1;
-  
+
   exit_npc(flag);
 }
 
@@ -121,7 +121,7 @@ int main(int argc, char **argv, char **env)
     CPU_state ref_cpu;
     ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
     printf("check at nemu_pc=%lx, npc_pc=%lx\n", cpu_npc.pc, ref_cpu.pc);
-    if (!check_regs_npc(ref_cpu))
+    if (!check_regs_npc(cpu_npc, ref_cpu))
       exit_npc(-1);
 #endif
   }
