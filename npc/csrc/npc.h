@@ -1,15 +1,20 @@
-#include <stdio.h>
 #include "VMain.h"
 #include "verilated.h"
+#include "verilated_dpi.h"
+#include "VMain__Dpi.h"
+#include <stdio.h>
 #include <verilated_vcd_c.h>
 #include <assert.h>
 #include <stdlib.h>
-#include "VMain__Dpi.h"
-#include "verilated_dpi.h"
 #include <dlfcn.h>
 typedef uint64_t word_t;
 typedef word_t vaddr_t;
 typedef uint32_t paddr_t;
+typedef struct
+{
+  word_t gpr[32];
+  vaddr_t pc;
+} CPU_state;
 
 #define CONFIG_MSIZE 0x0020000
 #define CONFIG_MBASE 0x80000000
@@ -17,12 +22,6 @@ typedef uint32_t paddr_t;
 #define RESET_VECTOR (CONFIG_MBASE + CONFIG_PC_RESET_OFFSET)
 // #define CONFIG_DIFFTEST 1
 // #define CONFIG_VCD 1
-
-typedef struct
-{
-  word_t gpr[32];
-  vaddr_t pc;
-} CPU_state;
 
 #ifdef CONFIG_DIFFTEST
 enum
@@ -38,5 +37,4 @@ extern void (*ref_difftest_init)();
 #endif
 
 extern uint8_t pmem[CONFIG_MSIZE];
-
 extern CPU_state cpu_npc;

@@ -17,7 +17,6 @@ void exit_npc(int flag)
 #ifdef CONFIG_VCD
   m_trace->close();
 #endif
-
   delete top;
   delete contextp;
   exit(flag);
