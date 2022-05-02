@@ -10,7 +10,7 @@ VerilatedVcdC *m_trace = nullptr;
 #endif
 
 int check_regs_npc(CPU_state ref_cpu);
-void init_so(CPU_state *cpu_npc, char *ref_so_file, long img_size);
+void init_so(char *ref_so_file, long img_size);
 
 void exit_npc(int flag)
 {
