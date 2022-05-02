@@ -1,4 +1,5 @@
 BUILD_DIR = ./vsrc
+OBJ_DIR = ./obj_dir
 mill = ./mill/mill
 TOPNAME = Main
 CSRCNAME = main
@@ -6,7 +7,7 @@ VSRCNAME = Main
 IMG = ""
 CSRCDIRS = ./csrc
 VSRCDIRS = ./vsrc
-CSRC = $(foreach dir, $(CSRCDIRS), $(wildcard $(dir)/*.c))
+CSRC = $(foreach dir, $(CSRCDIRS), $(wildcard $(dir)/*.cpp))
 VSRC = $(foreach dir, $(VSRCDIRS), $(wildcard $(dir)/*.v))
 
 
@@ -33,10 +34,11 @@ reformat:
 checkformat:
 	$(mill)  -i __.checkFormat
 
-clean:
+clean_vsrc:
 	-rm -rf $(BUILD_DIR)
 
-.PHONY: test verilog help compile bsp reformat checkformat clean
+clean_obj:
+	-rm -rf $(OBJ_DIR)
 
 sim:
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
@@ -47,5 +49,7 @@ sim:
 
 run:
 	./obj_dir/V$(TOPNAME) $(IMG)
+
+.PHONY: test verilog help compile bsp reformat checkformat clean_vsrc clean_obj sim run
 
 include ../Makefile
