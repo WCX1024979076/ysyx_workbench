@@ -28,8 +28,6 @@ void init_so(char *ref_so_file, long img_size)
          "This will help you a lot for debugging, but also significantly reduce the performance. "
          "If it is not necessary, you can turn it off in menuconfig.\n",
          ref_so_file);
-    assert(ref_difftest_exec);
-  
   ref_difftest_init();
   ref_difftest_memcpy(RESET_VECTOR, pmem, img_size, DIFFTEST_TO_REF);
   ref_difftest_regcpy(&cpu_npc, DIFFTEST_TO_REF);
