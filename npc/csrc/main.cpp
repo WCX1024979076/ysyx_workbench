@@ -115,9 +115,10 @@ int main(int argc, char **argv, char **env)
     m_trace->dump(sim_time++);
 #endif
 #ifdef CONFIG_DIFFTEST
-  puts("123");
 
     ref_difftest_exec(1);
+  puts("123");
+
     CPU_state ref_cpu;
     ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
     printf("check at nemu_pc=%lx, npc_pc=%lx\n", cpu_npc.pc, ref_cpu.pc);
