@@ -29,12 +29,13 @@ void init_so(char *ref_so_file, long img_size)
 
   void (*ref_difftest_init)() = dlsym(handle, "difftest_init");
   assert(ref_difftest_init);
-  printf("%lx\n",cpu_npc.pc);
 
   printf("The result of every instruction will be compared with %s. "
          "This will help you a lot for debugging, but also significantly reduce the performance. "
          "If it is not necessary, you can turn it off in menuconfig.\n",
          ref_so_file);
+  printf("pc:%lx\n",cpu_npc.pc);
+  
   ref_difftest_init();
   ref_difftest_memcpy(RESET_VECTOR, pmem, img_size, DIFFTEST_TO_REF);
   ref_difftest_regcpy(&cpu_npc, DIFFTEST_TO_REF);
