@@ -29,11 +29,11 @@ enum
   DIFFTEST_TO_REF
 };
 typedef uint32_t paddr_t;
-extern void (*ref_difftest_memcpy)(paddr_t addr, void *buf, size_t n, bool direction) = NULL;
-extern void (*ref_difftest_regcpy)(void *dut, bool direction) = NULL;
-extern void (*ref_difftest_exec)(uint64_t n) = NULL;
-extern void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
-extern void (*ref_difftest_init)() = NULL;
+extern void (*ref_difftest_memcpy)(paddr_t addr, void *buf, size_t n, bool direction);
+extern void (*ref_difftest_regcpy)(void *dut, bool direction);
+extern void (*ref_difftest_exec)(uint64_t n);
+extern void (*ref_difftest_raise_intr)(uint64_t NO);
+extern void (*ref_difftest_init)();
 #endif
 
 static uint8_t pmem[CONFIG_MSIZE] = {0};
