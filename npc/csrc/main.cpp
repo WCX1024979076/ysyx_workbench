@@ -87,7 +87,7 @@ int main(int argc, char **argv, char **env)
       size = ld(argv[1]);
     }
   }
-  printf("123");
+  puts("123");
 
   contextp = new VerilatedContext;
   contextp->commandArgs(argc, argv);
