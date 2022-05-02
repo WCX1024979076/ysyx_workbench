@@ -115,7 +115,6 @@ int main(int argc, char **argv, char **env)
     m_trace->dump(sim_time++);
 #endif
 #ifdef CONFIG_DIFFTEST
-    assert(ref_difftest_exec);
     ref_difftest_exec(1);
     CPU_state ref_cpu;
     ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
