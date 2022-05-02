@@ -29,6 +29,7 @@ void init_so(char *ref_so_file, long img_size)
 
   void (*ref_difftest_init)() = dlsym(handle, "difftest_init");
   assert(ref_difftest_init);
+  printf("%lx\n",cpu_npc.pc);
 
   printf("The result of every instruction will be compared with %s. "
          "This will help you a lot for debugging, but also significantly reduce the performance. "
