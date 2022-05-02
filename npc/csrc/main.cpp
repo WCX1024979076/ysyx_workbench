@@ -1,16 +1,5 @@
 #include "npc.h"
 
-CPU_state cpu_npc;
-
-uint64_t *cpu_gpr = NULL;
-
-vluint64_t sim_time = 0;
-VMain *top = nullptr;
-VerilatedContext *contextp = nullptr;
-#ifdef CONFIG_VCD
-VerilatedVcdC *m_trace = nullptr;
-#endif
-
 void ebreak()
 {
   puts("Meet ebreak;");
