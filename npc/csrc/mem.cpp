@@ -1,4 +1,5 @@
 #include "npc.h"
+
 uint8_t pmem[CONFIG_MSIZE] = {0};
 
 uint8_t *guest_to_host(long long paddr) { return pmem + paddr - CONFIG_MBASE; }
