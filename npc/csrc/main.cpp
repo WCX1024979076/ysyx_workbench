@@ -1,4 +1,6 @@
 #include "npc.h"
+void check_regs_npc(CPU_state ref_cpu);
+void init_so(char *ref_so_file, long img_size);
 
 void ebreak()
 {
