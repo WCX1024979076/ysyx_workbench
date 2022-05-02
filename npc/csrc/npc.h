@@ -13,8 +13,8 @@ typedef word_t vaddr_t;
 #define CONFIG_MBASE 0x80000000
 #define CONFIG_PC_RESET_OFFSET 0x0
 #define RESET_VECTOR (CONFIG_MBASE + CONFIG_PC_RESET_OFFSET)
-// #define CONFIG_DIFFTEST 1
-// #define CONFIG_VCD 1
+#define CONFIG_DIFFTEST 1
+#define CONFIG_VCD 1
 
 typedef struct
 {

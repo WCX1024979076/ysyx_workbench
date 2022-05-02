@@ -107,8 +107,6 @@ int main(int argc, char **argv, char **env)
   while (1)
   {
     cpu_sim();
-  puts("123");
-
 #ifdef CONFIG_VCD
     m_trace->dump(sim_time++);
 #endif
