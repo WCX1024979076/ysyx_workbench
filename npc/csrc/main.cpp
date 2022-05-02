@@ -1,7 +1,7 @@
 #include "npc.h"
 
+CPU_state cpu_npc;
 uint64_t *cpu_gpr = NULL;
-
 vluint64_t sim_time = 0;
 VMain *top = nullptr;
 VerilatedContext *contextp = nullptr;
@@ -10,7 +10,7 @@ VerilatedVcdC *m_trace = nullptr;
 #endif
 
 int check_regs_npc(CPU_state ref_cpu);
-void init_so(char *ref_so_file, long img_size);
+void init_so(CPU_state *cpu_npc, char *ref_so_file, long img_size);
 
 void exit_npc(int flag)
 {
@@ -106,7 +106,7 @@ int main(int argc, char **argv, char **env)
   init_npc();
 
 #ifdef CONFIG_DIFFTEST
-  init_so("/home/wcx/Desktop/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so", size);
+  init_so(&cpu_npc,"/home/wcx/Desktop/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so", size);
 #endif
   while (1)
   {

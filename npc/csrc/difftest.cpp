@@ -7,10 +7,8 @@ void (*ref_difftest_exec)(uint64_t n) = NULL;
 void (*ref_difftest_raise_intr)(uint64_t NO) = NULL;
 void (*ref_difftest_init)() = NULL;
 
-void init_so(char *ref_so_file, long img_size)
+void init_so(CPU_state *cpu_npc, char *ref_so_file, long img_size)
 {
-  printf("pc:%lx\n",cpu_npc.pc);
-
   assert(ref_so_file != NULL);
 
   void *handle;
@@ -36,10 +34,10 @@ void init_so(char *ref_so_file, long img_size)
          "This will help you a lot for debugging, but also significantly reduce the performance. "
          "If it is not necessary, you can turn it off in menuconfig.\n",
          ref_so_file);
-  
+
   ref_difftest_init();
   ref_difftest_memcpy(RESET_VECTOR, pmem, img_size, DIFFTEST_TO_REF);
-  ref_difftest_regcpy(&cpu_npc, DIFFTEST_TO_REF);
+  ref_difftest_regcpy(cpu_npc, DIFFTEST_TO_REF);
 }
 
 int check_regs_npc(CPU_state ref_cpu)

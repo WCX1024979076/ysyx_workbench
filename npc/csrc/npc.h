@@ -37,5 +37,3 @@ extern void (*ref_difftest_init)();
 #endif
 
 static uint8_t pmem[CONFIG_MSIZE] = {0};
-
-static CPU_state cpu_npc;
