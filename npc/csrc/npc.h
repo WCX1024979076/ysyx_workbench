@@ -36,4 +36,4 @@ extern void (*ref_difftest_raise_intr)(uint64_t NO);
 extern void (*ref_difftest_init)();
 #endif
 
-static uint8_t pmem[CONFIG_MSIZE] = {0};
+extern uint8_t pmem[CONFIG_MSIZE] = {0};
