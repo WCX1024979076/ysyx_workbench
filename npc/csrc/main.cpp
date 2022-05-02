@@ -104,6 +104,7 @@ int main(int argc, char **argv, char **env)
 #endif
 
   init_npc();
+  printf("%lx\n",cpu_npc.pc);
 
 #ifdef CONFIG_DIFFTEST
   init_so("/home/wcx/Desktop/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so", size);
