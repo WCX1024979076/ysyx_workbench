@@ -104,7 +104,7 @@ int main(int argc, char **argv, char **env)
 #ifdef CONFIG_DIFFTEST
   init_so("/home/wcx/Desktop/ysyx-workbench/nemu/build/riscv64-nemu-interpreter-so", size);
 #endif
-
+  printf("123");
   while (1)
   {
     cpu_sim();
