@@ -38,13 +38,3 @@ void (*ref_difftest_init)() = NULL;
 
 static uint8_t pmem[CONFIG_MSIZE] = {0};
 
-CPU_state cpu_npc;
-
-uint64_t *cpu_gpr = NULL;
-
-vluint64_t sim_time = 0;
-VMain *top = nullptr;
-VerilatedContext *contextp = nullptr;
-#ifdef CONFIG_VCD
-VerilatedVcdC *m_trace = nullptr;
-#endif

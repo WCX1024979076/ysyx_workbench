@@ -1,15 +1,21 @@
 #include "npc.h"
+
+CPU_state cpu_npc;
+
+uint64_t *cpu_gpr = NULL;
+
+vluint64_t sim_time = 0;
+VMain *top = nullptr;
+VerilatedContext *contextp = nullptr;
+#ifdef CONFIG_VCD
+VerilatedVcdC *m_trace = nullptr;
+#endif
+
 void check_regs_npc(CPU_state ref_cpu);
 void init_so(char *ref_so_file, long img_size);
 
-void ebreak()
+void exit_npc(int flag)
 {
-  puts("Meet ebreak;");
-  printf("%lx\n", cpu_npc.gpr[10]);
-  int flag = 0;
-  if (cpu_npc.gpr[10] == 1)
-    flag = -1;
-
 #ifdef CONFIG_VCD
   m_trace->close();
 #endif
@@ -17,6 +23,16 @@ void ebreak()
   delete top;
   delete contextp;
   exit(flag);
+}
+void ebreak()
+{
+  puts("Meet ebreak;");
+  printf("%lx\n", cpu_npc.gpr[10]);
+  int flag = 0;
+  if (cpu_npc.gpr[10] == 1)
+    flag = -1;
+  
+  exit_npc(flag);
 }
 
 extern "C" void set_gpr_ptr(const svOpenArrayHandle r)
@@ -64,7 +80,6 @@ void init_npc()
   for (int i = 1; i <= 10; i++)
     cpu_sim();
   top->reset = 0;
-  // cpu_sim();
 }
 
 int main(int argc, char **argv, char **env)
@@ -106,15 +121,11 @@ int main(int argc, char **argv, char **env)
     CPU_state ref_cpu;
     ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
     printf("check at nemu_pc=%lx, npc_pc=%lx\n", cpu_npc.pc, ref_cpu.pc);
-    check_regs_npc(ref_cpu);
+    if (!check_regs_npc(ref_cpu))
+      exit_npc(-1);
 #endif
   }
 
-#ifdef CONFIG_VCD
-  m_trace->close();
-#endif
-
-  delete top;
-  delete contextp;
+  exit_npc(0);
   return 0;
 }

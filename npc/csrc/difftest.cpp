@@ -33,30 +33,20 @@ void init_so(char *ref_so_file, long img_size)
   ref_difftest_regcpy(&cpu_npc, DIFFTEST_TO_REF);
 }
 
-void check_regs_npc(CPU_state ref_cpu)
+int check_regs_npc(CPU_state ref_cpu)
 {
   for (int i = 0; i < 32; i++)
   {
     if (cpu_npc.gpr[i] != ref_cpu.gpr[i])
     {
       printf("Missing match reg%d, npc_val=%lx, nemu_val=%lx\n", i, cpu_npc.gpr[i], ref_cpu.gpr[i]);
-#ifdef CONFIG_VCD
-      m_trace->close();
-#endif
-      delete top;
-      delete contextp;
-      exit(-1);
+      return 0;
     }
   }
   if (cpu_npc.pc != ref_cpu.pc)
   {
     printf("Missing match at pc, npc_val=%lx,nemu_val=%lx\n", cpu_npc.pc, ref_cpu.pc);
-#ifdef CONFIG_VCD
-    m_trace->close();
-#endif
-    delete top;
-    delete contextp;
-    exit(-1);
+    return 0;
   }
 }
 #endif
