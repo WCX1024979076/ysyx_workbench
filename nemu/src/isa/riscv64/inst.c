@@ -4,6 +4,7 @@
 #include <cpu/decode.h>
 
 #define R(i) gpr(i)
+#define CSR(i) csr(i)
 #define Mr vaddr_read
 #define Mw vaddr_write
 
@@ -132,6 +133,10 @@ static int decode_exec(Decode *s) {
   INSTPAT("000000? ????? ????? 001 ????? 00110 11", slliw  , I, R(dest) = SEXT(BITS(src1,31,0) << src2,32));
   INSTPAT("0000001 ????? ????? 100 ????? 01110 11", divw   , R, R(dest) = SEXT((int)BITS(src1,31,0) / (int)BITS(src2,31,0),32));
   INSTPAT("0000001 ????? ????? 101 ????? 01110 11", divuw  , R, R(dest) = SEXT(BITS(src1,31,0) / BITS(src2,31,0),32));
+  INSTPAT("??????? ????? ????? 001 ????? 11100 11", csrrw  , I, word_t tmp = CSR(BITS(src2,11,0)); CSR(BITS(src2,11,0)) = src1; R(dest) = tmp);
+  INSTPAT("0000000 00000 00000 000 00000 11100 11", ecall  , I, s->dnpc = isa_raise_intr(R(17), s->pc));
+  INSTPAT("??????? ????? ????? 010 ????? 11100 11", csrrs  , I, word_t tmp = CSR(BITS(src2,11,0)); CSR(BITS(src2,11,0)) = tmp | src1; R(dest) = tmp);
+  INSTPAT("0011000 00010 00000 000 00000 11100 11", mret   , I, s->dnpc = CSR(0x341));
 
   INSTPAT("0000000 00001 00000 000 00000 11100 11", ebreak , N, NEMUTRAP(s->pc, R(10))); // R(10) is $a0
   INSTPAT("??????? ????? ????? ??? ????? ????? ??", inv    , N, INV(s->pc));
