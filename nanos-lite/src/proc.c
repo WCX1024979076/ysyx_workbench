@@ -23,9 +23,9 @@ void init_proc() {
   switch_boot_pcb();
 
   Log("Initializing processes...");
-
+  void naive_uload(PCB *pcb, const char *filename);
   // load program here
-
+  naive_uload(NULL, NULL);
 }
 
 Context* schedule(Context *prev) {
