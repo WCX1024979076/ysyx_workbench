@@ -20,14 +20,23 @@
 #endif
 size_t ramdisk_write(const void *buf, size_t offset, size_t len);
 size_t ramdisk_read(void *buf, size_t offset, size_t len);
+int fs_open(const char *pathname, int flags, int mode);
+size_t fs_read(int fd, void *buf, size_t len);
+size_t fs_write(int fd, const void *buf, size_t len);
+size_t fs_lseek(int fd, size_t offset, int whence);
+int fs_close(int fd);
+
 extern uint8_t ramdisk_start;
 extern uint8_t ramdisk_end;
 #define RAMDISK_SIZE ((&ramdisk_end) - (&ramdisk_start))
 
+uint64_t program_break = 0;
 static uintptr_t loader(PCB *pcb, const char *filename)
 {
   unsigned char buffer[RAMDISK_SIZE + 5];
-  ramdisk_read(buffer, 0, RAMDISK_SIZE);
+  int fd = fs_open(filename, 0, 0);
+  fs_read(fd, buffer, RAMDISK_SIZE);
+  fs_close(fd);
 
   Elf_Ehdr *ehdr = (Elf_Ehdr *)buffer;
   Elf_Phdr *phdr = (Elf64_Phdr *)(buffer + ehdr->e_phoff);
@@ -35,12 +44,15 @@ static uintptr_t loader(PCB *pcb, const char *filename)
   assert(ehdr->e_machine == EXPECT_TYPE);
   uint16_t num = ehdr->e_phnum;
   unsigned char *mem_pos;
+
   for (uint16_t i = 0; i < num; i++)
   {
     if (phdr[i].p_type == PT_LOAD)
     {
       mem_pos = (unsigned char *)phdr[i].p_paddr;
       memcpy(mem_pos, buffer + phdr[i].p_offset, phdr[i].p_filesz);
+
+      program_break = program_break > (uint64_t)((phdr[i].p_paddr + phdr[i].p_memsz)) ? program_break : (uint64_t)((phdr[i].p_paddr + phdr[i].p_memsz));
       mem_pos = (unsigned char *)(phdr[i].p_paddr + phdr[i].p_filesz);
       memset(mem_pos, 0, phdr[i].p_memsz - phdr[i].p_filesz);
     }
@@ -50,7 +62,7 @@ static uintptr_t loader(PCB *pcb, const char *filename)
 
 void naive_uload(PCB *pcb, const char *filename)
 {
-  uintptr_t entry = loader(pcb, filename);
+  uintptr_t entry = loader(pcb, "/bin/file-test");
   Log("Jump to entry = 0x%lx", entry);
   ((void (*)())entry)();
 }

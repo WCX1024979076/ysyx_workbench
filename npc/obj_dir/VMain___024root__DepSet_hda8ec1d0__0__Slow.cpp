@@ -307,6 +307,10 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                                 == 
                                                                                 (0xfe00707fU 
                                                                                 & vlSelf->io_Inst)) 
+                                                                                | ((0x2004033U 
+                                                                                == 
+                                                                                (0xfe00707fU 
+                                                                                & vlSelf->io_Inst)) 
                                                                                 | ((0x2005033U 
                                                                                 == 
                                                                                 (0xfe00707fU 
@@ -338,7 +342,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                                 | (0x3013U 
                                                                                 == 
                                                                                 (0x707fU 
-                                                                                & vlSelf->io_Inst)))))))))))))))))))))))));
+                                                                                & vlSelf->io_Inst))))))))))))))))))))))))));
     Main__DOT__idu__DOT___contr_code_T_201 = ((0x3013U 
                                                != (0x707fU 
                                                    & vlSelf->io_Inst)) 
@@ -538,7 +542,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                          & vlSelf->io_Inst))
                                                         ? 6U
                                                         : 
-                                                       ((0x200003bU 
+                                                       ((0x2004033U 
                                                          == 
                                                          (0xfe00707fU 
                                                           & vlSelf->io_Inst))
@@ -620,7 +624,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                         & vlSelf->io_Inst))
                                                        ? 3U
                                                        : 
-                                                      ((0x200003bU 
+                                                      ((0x2004033U 
                                                         == 
                                                         (0xfe00707fU 
                                                          & vlSelf->io_Inst))
@@ -836,7 +840,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                         & vlSelf->io_Inst))
                                                        ? 0U
                                                        : 
-                                                      ((0x200003bU 
+                                                      ((0x2004033U 
                                                         == 
                                                         (0xfe00707fU 
                                                          & vlSelf->io_Inst))
@@ -930,7 +934,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                          & vlSelf->io_Inst))
                                                         ? 0U
                                                         : 
-                                                       ((0x200003bU 
+                                                       ((0x2004033U 
                                                          == 
                                                          (0xfe00707fU 
                                                           & vlSelf->io_Inst))
@@ -2426,7 +2430,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
         vlSelf->Main__DOT__idu_io_RinCtl = 6U;
         vlSelf->Main__DOT__idu_io_AluOp = 1U;
         vlSelf->Main__DOT__idu__DOT__contr_code_3 = 4U;
-        vlSelf->Main__DOT__idu__DOT__contr_code_2 = 3U;
+        vlSelf->Main__DOT__idu__DOT__contr_code_2 = 0U;
     } else if ((0x3bU == (0xfe00707fU & vlSelf->io_Inst))) {
         vlSelf->Main__DOT__idu_io_RinCtl = 6U;
         vlSelf->Main__DOT__idu_io_AluOp = 1U;

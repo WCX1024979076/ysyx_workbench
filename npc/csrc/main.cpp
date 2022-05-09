@@ -17,7 +17,7 @@ void disassemble(char *str, int size, uint64_t pc, uint8_t *code, int nbyte);
 void init_disasm(const char *triple);
 void print_itrace();
 void print_mtrace();
-
+void print_ftrace();
 #ifdef CONFIG_ITRACE
 char itrace_buf[16][100] = {0};
 int itrace_buf_cnt = 0;
@@ -33,6 +33,9 @@ void exit_npc(int flag)
 #endif
 #ifdef CONFIG_MTRACE
   print_mtrace();
+#endif
+#ifdef CONFIG_FTRACE
+  print_ftrace();
 #endif
   delete top;
   delete contextp;

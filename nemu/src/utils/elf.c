@@ -72,9 +72,16 @@ void read_elf(char *elf_name)
     stream = fopen(elf_name, "rb");
     Assert(stream, "Can not open '%s'", elf_name);
 
+    fseek(stream, 0, SEEK_END);
+    long size = ftell(stream);
+
+    Log("The elf is %s, size = %ld", elf_name, size);
+
+    fseek(stream, 0, SEEK_SET);
+
     unsigned char *buffer;
-    buffer = (unsigned char *)malloc(100500 * sizeof(unsigned char));
-    int ret = fread(buffer, sizeof(unsigned char), 100500, stream);
+    buffer = (unsigned char *)malloc((size + 5) * sizeof(unsigned char));
+    int ret = fread(buffer, sizeof(unsigned char), size, stream);
     Assert(ret != 0, "Can not open '%s'", elf_name);
 
     Elf64_Ehdr *ehdr = (Elf64_Ehdr *)buffer;
@@ -94,7 +101,6 @@ void read_elf(char *elf_name)
             break;
         }
     }
-
     Elf64_Sym *table_sym = (Elf64_Sym *)(buffer + shdr_symtab->sh_offset);
 
     for (int i = 0; i <= shdr_symtab->sh_size / shdr_symtab->sh_entsize; i++)
@@ -108,7 +114,7 @@ void read_elf(char *elf_name)
         }
     }
 
-    //for (int i = 0; i < elf_cnt; i++)
+    // for (int i = 0; i < elf_cnt; i++)
     //    Log("%lx %lx %s", elf_func[i].fun_addr, elf_func[i].fun_size, elf_func[i].fun_name);
     return;
 }

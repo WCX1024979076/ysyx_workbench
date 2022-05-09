@@ -13,7 +13,7 @@ class EXU extends Module {
     val RegWrite=Input(UInt(1.W))
     val MemWrite=Input(UInt(1.W))
     val AluOp=Input(UInt(5.W))
-    val AluSrc1Op=Input(UInt(5.W))
+    val AluSrc1Op=Input(UInt(5.W)) 
     val AluSrc2Op=Input(UInt(5.W))
     val PcSrc=Input(UInt(5.W))
     val RinCtl=Input(UInt(4.W))
@@ -74,7 +74,7 @@ class EXU extends Module {
       ))
   ));
 
-  AluSrc1 := MuxLookup(io.AluSrc1Op,DataR1 ,Array(    
+  AluSrc1 := MuxLookup(io.AluSrc1Op,DataR1 ,Array(
     "b00000".U -> DataR1,
     "b00001".U -> pc,
     "b00010".U -> io.Imm(31,12),
@@ -91,7 +91,7 @@ class EXU extends Module {
     "b00110".U -> DataR2(31,0)
   ));
 
-  AluOut := MuxLookup(io.AluOp,0.U, Array(        
+  AluOut := MuxLookup(io.AluOp,0.U, Array(
     "b00001".U -> (AluSrc1 + AluSrc2).asUInt(),                                //add
     "b00010".U -> (AluSrc1 - AluSrc2).asUInt(),                                //sub
     "b00011".U -> (AluSrc1 * AluSrc2).asUInt(),                                //mul
