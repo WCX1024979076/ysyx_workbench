@@ -160,8 +160,8 @@ VL_ATTR_COLD void VMain___024root__trace_init_sub__TOP__0(VMain___024root* vlSel
     tracep->declBit(c+106,"Zero", false,-1);
     tracep->declQuad(c+107,"pc_hi", false,-1, 42,0);
     tracep->declBus(c+109,"pc_lo", false,-1, 20,0);
-    tracep->declQuad(c+110,"pc_hi_1", false,-1, 50,0);
-    tracep->declBus(c+112,"pc_lo_1", false,-1, 12,0);
+    tracep->declBus(c+110,"pc_lo_1", false,-1, 12,0);
+    tracep->declQuad(c+111,"pc_hi_1", false,-1, 50,0);
     tracep->pushNamePrefix("difftest ");
     tracep->declQuad(c+144,"gpr_0", false,-1, 63,0);
     tracep->declQuad(c+16,"gpr_1", false,-1, 63,0);
@@ -386,11 +386,11 @@ VL_ATTR_COLD void VMain___024root__trace_full_sub_0(VMain___024root* vlSelf, Ver
                                   ? 0x7ffffffffffULL
                                   : 0ULL)),43);
     tracep->fullIData(oldp+109,((0x1fffffU & (IData)(vlSelf->Main__DOT__idu_io_Imm))),21);
-    tracep->fullQData(oldp+110,(((1U & (IData)((vlSelf->Main__DOT__idu_io_Imm 
+    tracep->fullSData(oldp+110,((0x1fffU & (IData)(vlSelf->Main__DOT__idu_io_Imm))),13);
+    tracep->fullQData(oldp+111,(((1U & (IData)((vlSelf->Main__DOT__idu_io_Imm 
                                                 >> 0xcU)))
                                   ? 0x7ffffffffffffULL
                                   : 0ULL)),51);
-    tracep->fullSData(oldp+112,((0x1fffU & (IData)(vlSelf->Main__DOT__idu_io_Imm))),13);
     tracep->fullSData(oldp+113,(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_2),12);
     tracep->fullQData(oldp+114,(((0x800U & (IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_2))
                                   ? 0xfffffffffffffULL

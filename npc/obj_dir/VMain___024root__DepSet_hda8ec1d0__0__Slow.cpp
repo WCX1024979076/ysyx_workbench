@@ -2172,7 +2172,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                  & vlSelf->io_Inst))
                                                                 ? 2U
                                                                 : (IData)(Main__DOT__idu__DOT___contr_code_T_366))))))))))))))));
-    vlSelf->Main__DOT__exu__DOT___pc_T_20 = (vlSelf->Main__DOT__exu__DOT__pc 
+    vlSelf->Main__DOT__exu__DOT___pc_T_22 = (vlSelf->Main__DOT__exu__DOT__pc 
                                              + ((((1U 
                                                    & (IData)(
                                                              (vlSelf->Main__DOT__idu_io_Imm 
@@ -2890,16 +2890,16 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                                               ? 0U
                                                                               : (IData)(vlSelf->Main__DOT__idu__DOT___contr_code_T_549)))))))))))))));
     }
-    vlSelf->Main__DOT__exu__DOT___pc_T_50 = ((IData)(vlSelf->Main__DOT__exu__DOT__SignS)
-                                              ? vlSelf->Main__DOT__exu__DOT___pc_T_20
+    vlSelf->Main__DOT__exu__DOT___pc_T_58 = ((IData)(vlSelf->Main__DOT__exu__DOT__SignS)
+                                              ? vlSelf->Main__DOT__exu__DOT___pc_T_22
                                               : (4ULL 
                                                  + vlSelf->Main__DOT__exu__DOT__pc));
-    vlSelf->Main__DOT__exu__DOT___pc_T_81 = ((5U == (IData)(vlSelf->Main__DOT__idu__DOT__contr_code_5))
+    vlSelf->Main__DOT__exu__DOT___pc_T_93 = ((5U == (IData)(vlSelf->Main__DOT__idu__DOT__contr_code_5))
                                               ? ((IData)(vlSelf->Main__DOT__exu__DOT__SignS)
                                                   ? 
                                                  (4ULL 
                                                   + vlSelf->Main__DOT__exu__DOT__pc)
-                                                  : vlSelf->Main__DOT__exu__DOT___pc_T_20)
+                                                  : vlSelf->Main__DOT__exu__DOT___pc_T_22)
                                               : ((4U 
                                                   == (IData)(vlSelf->Main__DOT__idu__DOT__contr_code_5))
                                                   ? 
@@ -2910,7 +2910,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                      << 0x20U) 
                                                     | (QData)((IData)(
                                                                       vlSelf->Main__DOT__exu__DOT___AluOut_T_76[0U]))))
-                                                   ? vlSelf->Main__DOT__exu__DOT___pc_T_20
+                                                   ? vlSelf->Main__DOT__exu__DOT___pc_T_22
                                                    : 
                                                   (4ULL 
                                                    + vlSelf->Main__DOT__exu__DOT__pc))
@@ -2925,7 +2925,7 @@ VL_ATTR_COLD void VMain___024root___settle__TOP__0(VMain___024root* vlSelf) {
                                                       << 0x20U) 
                                                      | (QData)((IData)(
                                                                        vlSelf->Main__DOT__exu__DOT___AluOut_T_76[0U]))))
-                                                    ? vlSelf->Main__DOT__exu__DOT___pc_T_20
+                                                    ? vlSelf->Main__DOT__exu__DOT___pc_T_22
                                                     : 
                                                    (4ULL 
                                                     + vlSelf->Main__DOT__exu__DOT__pc))

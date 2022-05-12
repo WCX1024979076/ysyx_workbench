@@ -26,14 +26,14 @@ class IDU extends Module {
   io.R1 := io.Inst(19,15);
   io.R2 := io.Inst(24,20);
 
-  def SETX(a:UInt, b:Int):UInt = Cat(Fill(64-b, a(b-1)) ,a(b-1,0))(63,0);
+  def SEXT(a:UInt, b:Int):UInt = Cat(Fill(64-b, a(b-1)) ,a(b-1,0))(63,0);
 
   def R(): UInt = "h0".U(64.W);
-  def I(): UInt = SETX(io.Inst(31,20), 12);
-  def S(): UInt = SETX(((io.Inst(31,25)<<5) | (io.Inst(11,7))), 12);
-  def B(): UInt = SETX(((io.Inst(31,31)<<12) | (io.Inst(30,25)<<5) | (io.Inst(11,8)<<1) | (io.Inst(7,7)<<11)), 13);
-  def U(): UInt = SETX((io.Inst(31,12)<<12), 32);
-  def J(): UInt = SETX(((io.Inst(31,31)<<20) | (io.Inst(30,21)<<1) | (io.Inst(20,20)<<11) | (io.Inst(19,12)<<12)), 21);
+  def I(): UInt = SEXT(io.Inst(31,20), 12);
+  def S(): UInt = SEXT(((io.Inst(31,25)<<5) | (io.Inst(11,7))), 12);
+  def B(): UInt = SEXT(((io.Inst(31,31)<<12) | (io.Inst(30,25)<<5) | (io.Inst(11,8)<<1) | (io.Inst(7,7)<<11)), 13);
+  def U(): UInt = SEXT((io.Inst(31,12)<<12), 32);
+  def J(): UInt = SEXT(((io.Inst(31,31)<<20) | (io.Inst(30,21)<<1) | (io.Inst(20,20)<<11) | (io.Inst(19,12)<<12)), 21);
 
   val ebreak_in=Wire(UInt(1.W));
   var ebreak=Module(new Ebreak);

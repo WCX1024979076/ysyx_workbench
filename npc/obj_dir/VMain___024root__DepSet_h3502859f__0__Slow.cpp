@@ -97,9 +97,9 @@ VL_ATTR_COLD void VMain___024root___ctor_var_reset(VMain___024root* vlSelf) {
     vlSelf->Main__DOT__exu__DOT__SignS = VL_RAND_RESET_I(1);
     vlSelf->Main__DOT__exu__DOT___DataIn_T_62 = VL_RAND_RESET_Q(64);
     vlSelf->Main__DOT__exu__DOT___pc_T_1 = VL_RAND_RESET_Q(64);
-    vlSelf->Main__DOT__exu__DOT___pc_T_20 = VL_RAND_RESET_Q(64);
-    vlSelf->Main__DOT__exu__DOT___pc_T_50 = VL_RAND_RESET_Q(64);
-    vlSelf->Main__DOT__exu__DOT___pc_T_81 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___pc_T_22 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___pc_T_58 = VL_RAND_RESET_Q(64);
+    vlSelf->Main__DOT__exu__DOT___pc_T_93 = VL_RAND_RESET_Q(64);
     for (int __Vi0=0; __Vi0<33; ++__Vi0) {
         vlSelf->Main__DOT__exu__DOT__difftest__DOT__rf[__Vi0] = VL_RAND_RESET_Q(64);
     }

@@ -115,11 +115,11 @@ void VMain___024root__trace_chg_sub_0(VMain___024root* vlSelf, VerilatedVcd* tra
                                      ? 0x7ffffffffffULL
                                      : 0ULL)),43);
         tracep->chgIData(oldp+108,((0x1fffffU & (IData)(vlSelf->Main__DOT__idu_io_Imm))),21);
-        tracep->chgQData(oldp+109,(((1U & (IData)((vlSelf->Main__DOT__idu_io_Imm 
+        tracep->chgSData(oldp+109,((0x1fffU & (IData)(vlSelf->Main__DOT__idu_io_Imm))),13);
+        tracep->chgQData(oldp+110,(((1U & (IData)((vlSelf->Main__DOT__idu_io_Imm 
                                                    >> 0xcU)))
                                      ? 0x7ffffffffffffULL
                                      : 0ULL)),51);
-        tracep->chgSData(oldp+111,((0x1fffU & (IData)(vlSelf->Main__DOT__idu_io_Imm))),13);
         tracep->chgSData(oldp+112,(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_2),12);
         tracep->chgQData(oldp+113,(((0x800U & (IData)(vlSelf->Main__DOT__idu__DOT__io_Imm_lo_2))
                                      ? 0xfffffffffffffULL

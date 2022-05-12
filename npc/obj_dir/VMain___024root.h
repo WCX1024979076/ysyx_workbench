@@ -78,9 +78,9 @@ VL_MODULE(VMain___024root) {
         QData/*63:0*/ Main__DOT__exu__DOT___AluOut_T_19;
         QData/*63:0*/ Main__DOT__exu__DOT___DataIn_T_62;
         QData/*63:0*/ Main__DOT__exu__DOT___pc_T_1;
-        QData/*63:0*/ Main__DOT__exu__DOT___pc_T_20;
-        QData/*63:0*/ Main__DOT__exu__DOT___pc_T_50;
-        QData/*63:0*/ Main__DOT__exu__DOT___pc_T_81;
+        QData/*63:0*/ Main__DOT__exu__DOT___pc_T_22;
+        QData/*63:0*/ Main__DOT__exu__DOT___pc_T_58;
+        QData/*63:0*/ Main__DOT__exu__DOT___pc_T_93;
         QData/*63:0*/ __Vtask_pmem_read__0__Rdata;
     };
     struct {

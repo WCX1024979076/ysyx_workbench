@@ -32,7 +32,6 @@ class EXU extends Module {
   var difftest = Module(new Difftest);
   var AluSrc1 = Wire(UInt(64.W));
   var AluSrc2 = Wire(UInt(64.W));
-
   var Zero = Wire(UInt(1.W));
   var SignU = Wire(UInt(1.W));
   var SignS = Wire(UInt(1.W));
@@ -41,19 +40,19 @@ class EXU extends Module {
   difftest.io.gpr := Regs;
   difftest.io.PcVal := pc;
 
-  def SETX(a:UInt, b:Int):UInt = Cat(Fill(64-b, a(b-1)) ,a(b-1,0))(63,0);
+  def SEXT(a:UInt, b:Int):UInt = Cat(Fill(64-b, a(b-1)) ,a(b-1,0))(63,0);
 
   DataR1 := Regs(io.R1);
   DataR2 := Regs(io.R2);
   DataIn := MuxLookup(io.RinCtl,0.U,Array(
     0x0.U -> AluOut,
     0x1.U -> MemOut,
-    0x2.U -> SETX(AluOut(7,0),8),
-    0x3.U -> SETX(MemOut(7,0),8),
-    0x4.U -> SETX(AluOut(15,0),16),
-    0x5.U -> SETX(MemOut(15,0),16),
-    0x6.U -> SETX(AluOut(31,0),32),
-    0x7.U -> SETX(MemOut(31,0),32),
+    0x2.U -> SEXT(AluOut(7,0),8),
+    0x3.U -> SEXT(MemOut(7,0),8),
+    0x4.U -> SEXT(AluOut(15,0),16),
+    0x5.U -> SEXT(MemOut(15,0),16),
+    0x6.U -> SEXT(AluOut(31,0),32),
+    0x7.U -> SEXT(MemOut(31,0),32),
     0x8.U -> MemOut(7,0),
     0x9.U -> MemOut(15,0),
     0xa.U -> MemOut(31,0),
@@ -80,22 +79,22 @@ class EXU extends Module {
     0x1.U -> (pc + Cat(Fill(43, io.Imm(20)), io.Imm(20,0))), //jal
     0x2.U -> ((DataR1 + io.Imm) & (~(1.U(64.W)))),           //jalr
     0x3.U -> MuxLookup(~Zero, pc+"h4".U, Array(              //bne
-      1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
+      1.U -> (pc +  SEXT(io.Imm(12,0),13))
       )),
     0x4.U -> MuxLookup(Zero, pc+"h4".U, Array(               //beq
-      1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
+      1.U -> (pc +  SEXT(io.Imm(12,0),13))
       )),
     0x5.U -> MuxLookup(~SignS, pc+"h4".U, Array(             //blt
-      1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
+      1.U -> (pc +  SEXT(io.Imm(12,0),13))
       )),
     0x6.U -> MuxLookup(SignS, pc+"h4".U, Array(              //bge
-      1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
+      1.U -> (pc +  SEXT(io.Imm(12,0),13))
       )),
     0x7.U -> MuxLookup(~SignU, pc+"h4".U, Array(             //bltu
-      1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
+      1.U -> (pc +  SEXT(io.Imm(12,0),13))
       )),
     0x8.U -> MuxLookup(SignU, pc+"h4".U, Array(              //bgeu
-      1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
+      1.U -> (pc +  SEXT(io.Imm(12,0),13))
       )),
   ));
 
