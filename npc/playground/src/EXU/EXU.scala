@@ -27,11 +27,16 @@ class EXU extends Module {
   var DataR2 = Wire(UInt(64.W));
   var DataIn = Wire(UInt(64.W));
   var Regs = RegInit(VecInit(Seq.fill(32)(0.U(64.W))));
+  var pc = RegInit("h80000000".U(64.W));
   var mem = Module(new Mem);
   var difftest = Module(new Difftest);
-  var pc = RegInit("h80000000".U(64.W));
-  var AluSrc1 = Wire(UInt(64.W))
-  var AluSrc2 = Wire(UInt(64.W))
+  var AluSrc1 = Wire(UInt(64.W));
+  var AluSrc2 = Wire(UInt(64.W));
+
+  var Zero = Wire(UInt(1.W));
+  var SignU = Wire(UInt(1.W));
+  var SignS = Wire(UInt(1.W));
+
 
   difftest.io.gpr := Regs;
   difftest.io.PcVal := pc;
@@ -51,7 +56,12 @@ class EXU extends Module {
     0x7.U -> SETX(MemOut(31,0),32),
     0x8.U -> MemOut(7,0),
     0x9.U -> MemOut(15,0),
-    0x10.U -> MemOut(31,0),
+    0xa.U -> MemOut(31,0),
+    0xb.U -> Zero,
+    0xc.U -> SignU,
+    0xd.U -> SignS,
+    0xe.U -> (~SignU),
+    0xf.U -> (~SignS),
   ));
   when(io.RegWrite.asBool)
   {
@@ -68,10 +78,25 @@ class EXU extends Module {
   pc := MuxLookup(io.PcSrc, pc + "h4".U, Array(
     0x0.U -> (pc + "h4".U),
     0x1.U -> (pc + Cat(Fill(43, io.Imm(20)), io.Imm(20,0))), //jal
-    0x2.U -> ((DataR1 + io.Imm) & (~(1.U(64.W)))), //jalr
-    0x3.U -> MuxLookup(AluOut, pc+"h4".U, Array(            //bne,beq
+    0x2.U -> ((DataR1 + io.Imm) & (~(1.U(64.W)))),           //jalr
+    0x3.U -> MuxLookup(~Zero, pc+"h4".U, Array(              //bne
       1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
-      ))
+      )),
+    0x4.U -> MuxLookup(Zero, pc+"h4".U, Array(               //beq
+      1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
+      )),
+    0x5.U -> MuxLookup(~SignS, pc+"h4".U, Array(             //blt
+      1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
+      )),
+    0x6.U -> MuxLookup(SignS, pc+"h4".U, Array(              //bge
+      1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
+      )),
+    0x7.U -> MuxLookup(~SignU, pc+"h4".U, Array(             //bltu
+      1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
+      )),
+    0x8.U -> MuxLookup(SignU, pc+"h4".U, Array(              //bgeu
+      1.U -> (pc +  Cat(Fill(51, io.Imm(12)), io.Imm(12,0)))
+      )),
   ));
 
   AluSrc1 := MuxLookup(io.AluSrc1Op,DataR1 ,Array(
@@ -99,24 +124,34 @@ class EXU extends Module {
     "b00101".U -> (AluSrc1 / AluSrc2).asUInt(),                                //divu
     "b00110".U -> (AluSrc1.asSInt() % AluSrc2.asSInt()).asUInt(),              //rem
     "b00111".U -> (AluSrc1 % AluSrc2).asUInt(),                                //remu
-    "b01000".U -> (AluSrc1 === AluSrc2).asUInt(),                              //beq
-    "b01001".U -> (AluSrc1 =/= AluSrc2).asUInt(),                              //bne
-    "b01010".U -> (AluSrc1 < AluSrc2).asUInt(),                                //bltu
-    "b01011".U -> (AluSrc1 >= AluSrc2).asUInt(),                               //bgeu
-    "b01100".U -> (AluSrc1.asSInt() < AluSrc2.asSInt()).asUInt(),              //blt
-    "b01101".U -> (AluSrc1.asSInt() >= AluSrc2.asSInt()).asUInt(),             //bge
-    "b01110".U -> (AluSrc1 << AluSrc2(5,0)).asUInt(),                          //sll
-    "b01111".U -> (AluSrc1 >> AluSrc2(5,0)).asUInt(),                          //srl
-    "b10000".U -> (AluSrc1.asSInt() >> AluSrc2(5,0)).asUInt(),                 //sra
-    "b10001".U -> (AluSrc1 ^ AluSrc2).asUInt(),                                //xor
-    "b10010".U -> (AluSrc1 | AluSrc2).asUInt(),                                //or
-    "b10011".U -> (AluSrc1 & AluSrc2).asUInt(),                                //and
-    "b10100".U -> (AluSrc1(31,0) << AluSrc2(5,0)).asUInt(),                    //sll32
-    "b10101".U -> (AluSrc1(31,0) >> AluSrc2(5,0)).asUInt(),                    //srl32
-    "b10110".U -> (AluSrc1(31,0).asSInt() >> AluSrc2(5,0)).asUInt(),           //sra32
-    "b10111".U -> (AluSrc1(31,0).asSInt() / AluSrc2(31,0).asSInt()).asUInt(),  //div32
+    "b01000".U -> (AluSrc1 << AluSrc2(5,0)).asUInt(),                          //sll
+    "b01001".U -> (AluSrc1 >> AluSrc2(5,0)).asUInt(),                          //srl
+    "b01010".U -> (AluSrc1.asSInt() >> AluSrc2(5,0)).asUInt(),                 //sra
+    "b01011".U -> (AluSrc1 ^ AluSrc2).asUInt(),                                //xor
+    "b01100".U -> (AluSrc1 | AluSrc2).asUInt(),                                //or
+    "b01101".U -> (AluSrc1 & AluSrc2).asUInt(),                                //and
+    "b01110".U -> (AluSrc1(31,0) << AluSrc2(5,0)).asUInt(),                    //sll32
+    "b01111".U -> (AluSrc1(31,0) >> AluSrc2(5,0)).asUInt(),                    //srl32
+    "b10000".U -> (AluSrc1(31,0).asSInt() >> AluSrc2(5,0)).asUInt(),           //sra32
+    "b10001".U -> (AluSrc1(31,0).asSInt() / AluSrc2(31,0).asSInt()).asUInt(),  //div32
   ))
 
+  Zero := (AluOut === 0.U);
+
+  SignS := MuxLookup(Cat(AluSrc1(63),AluSrc2(63)), 0.U, Array(
+    "b10".U -> 0.U,
+    "b01".U -> 1.U,
+    "b00".U -> ~AluOut(63),
+    "b11".U -> ~AluOut(63),
+  ));
+
+  SignU := MuxLookup(Cat(AluSrc1(63),AluSrc2(63)), 0.U, Array(
+    "b10".U -> 1.U,
+    "b01".U -> 0.U,
+    "b00".U -> ~AluOut(63),
+    "b11".U -> ~AluOut(63),
+  ));
+  
   io.PcVal := pc;
   Regs(0) := 0.U(64.W);
 }

@@ -50,22 +50,16 @@ class IDU extends Module {
       val divu  = "b00101".U
       val rem   = "b00110".U 
       val remu  = "b00111".U 
-      val beq   = "b01000".U 
-      val bne   = "b01001".U
-      val bltu  = "b01010".U 
-      val bgeu  = "b01011".U 
-      val blt   = "b01100".U 
-      val bge   = "b01101".U 
-      val sll   = "b01110".U 
-      val srl   = "b01111".U 
-      val sra   = "b10000".U 
-      val xor   = "b10001".U 
-      val or    = "b10010".U
-      val and   = "b10011".U 
-      val sll32 = "b10100".U 
-      val srl32 = "b10101".U 
-      val sra32 = "b10110".U 
-      val div32 = "b10111".U 
+      val sll   = "b01000".U 
+      val srl   = "b01001".U 
+      val sra   = "b01010".U 
+      val xor   = "b01011".U 
+      val or    = "b01100".U
+      val and   = "b01101".U 
+      val sll32 = "b01110".U 
+      val srl32 = "b01111".U 
+      val sra32 = "b10000".U 
+      val div32 = "b10001".U 
   }
 
   object AluSrc1Opcode extends ChiselEnum{
@@ -89,7 +83,12 @@ class IDU extends Module {
     val add4      = 0.U
     val jal       = 1.U
     val jalr      = 2.U
-    val branch    = 3.U
+    val bne       = 3.U
+    val beq       = 4.U
+    val blt       = 5.U
+    val bge       = 6.U
+    val bltu      = 7.U
+    val bgeu      = 8.U
   }
 
   object RinCtlcode extends ChiselEnum{
@@ -104,6 +103,11 @@ class IDU extends Module {
     val memout8u  = 8.U
     val memout16u = 9.U
     val memout32u = 10.U
+    val Zero      = 11.U
+    val SignU     = 12.U
+    val SignS     = 13.U
+    val NSignU    = 14.U
+    val NSignS    = 15.U
   }
 
   io.Imm := MuxLookup(opcode,0.U,Array(
@@ -145,16 +149,16 @@ class IDU extends Module {
     BitPat("b???????_?????_?????_110_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.or,    PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //ori
     BitPat("b0000000_?????_?????_111_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.and,   PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //and
     BitPat("b???????_?????_?????_111_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.and,   PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //andi
-    BitPat("b0000000_?????_?????_010_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.blt,   PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //slt
-    BitPat("b???????_?????_?????_010_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.blt,   PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //slti
-    BitPat("b0000000_?????_?????_011_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.bltu,  PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //sltu
-    BitPat("b???????_?????_?????_011_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.bltu,  PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //sltui
-    BitPat("b???????_?????_?????_000_?????_11000_11") -> List(0.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.beq,   PcSrccode.branch, RinCtlcode.aluout,   "b00000000".U), //beq
-    BitPat("b???????_?????_?????_001_?????_11000_11") -> List(0.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.bne,   PcSrccode.branch, RinCtlcode.memout32, "b00000000".U), //bne
-    BitPat("b???????_?????_?????_100_?????_11000_11") -> List(0.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.blt,   PcSrccode.branch, RinCtlcode.memout32, "b00000000".U), //blt
-    BitPat("b???????_?????_?????_101_?????_11000_11") -> List(0.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.bge,   PcSrccode.branch, RinCtlcode.memout32, "b00000000".U), //bge
-    BitPat("b???????_?????_?????_110_?????_11000_11") -> List(0.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.bltu,  PcSrccode.branch, RinCtlcode.memout32, "b00000000".U), //bltu
-    BitPat("b???????_?????_?????_111_?????_11000_11") -> List(0.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.bgeu,  PcSrccode.branch, RinCtlcode.memout32, "b00000000".U), //bltu
+    BitPat("b0000000_?????_?????_010_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.sub,   PcSrccode.add4,   RinCtlcode.NSignS,   "b00000000".U), //slt
+    BitPat("b???????_?????_?????_010_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.sub,   PcSrccode.add4,   RinCtlcode.NSignS,   "b00000000".U), //slti
+    BitPat("b0000000_?????_?????_011_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.sub,   PcSrccode.add4,   RinCtlcode.NSignU,   "b00000000".U), //sltu
+    BitPat("b???????_?????_?????_011_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.sub,   PcSrccode.add4,   RinCtlcode.NSignU,   "b00000000".U), //sltui
+    BitPat("b???????_?????_?????_000_?????_11000_11") -> List(0.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.sub,   PcSrccode.beq,    RinCtlcode.aluout,   "b00000000".U), //beq
+    BitPat("b???????_?????_?????_001_?????_11000_11") -> List(0.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.sub,   PcSrccode.bne,    RinCtlcode.aluout,   "b00000000".U), //bne
+    BitPat("b???????_?????_?????_100_?????_11000_11") -> List(0.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.sub,   PcSrccode.blt,    RinCtlcode.aluout,   "b00000000".U), //blt
+    BitPat("b???????_?????_?????_101_?????_11000_11") -> List(0.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.sub,   PcSrccode.bge,    RinCtlcode.aluout,   "b00000000".U), //bge
+    BitPat("b???????_?????_?????_110_?????_11000_11") -> List(0.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.sub,   PcSrccode.bltu,   RinCtlcode.aluout,   "b00000000".U), //bltu
+    BitPat("b???????_?????_?????_111_?????_11000_11") -> List(0.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.sub,   PcSrccode.bgeu,   RinCtlcode.aluout,   "b00000000".U), //bgeu
     BitPat("b???????_?????_?????_???_?????_11011_11") -> List(1.U, 0.U, AluSrc1Opcode.pc,        AluSrc2Opcode.imm_4,   AluOpcode.add,   PcSrccode.jal,    RinCtlcode.aluout,   "b00000000".U), //jal
     BitPat("b???????_?????_?????_000_?????_11001_11") -> List(1.U, 0.U, AluSrc1Opcode.pc,        AluSrc2Opcode.imm_4,   AluOpcode.add,   PcSrccode.jalr,   RinCtlcode.aluout,   "b00000000".U), //jalr
     BitPat("b000000?_?????_?????_101_?????_00110_11") -> List(1.U, 0.U, AluSrc1Opcode.r1_31_0,   AluSrc2Opcode.imm_5_0, AluOpcode.srl32, PcSrccode.add4,   RinCtlcode.aluout32, "b00000000".U), //srliw
@@ -179,8 +183,8 @@ class IDU extends Module {
     BitPat("b010000?_?????_?????_101_?????_00110_11") -> List(1.U, 0.U, AluSrc1Opcode.r1_31_0,   AluSrc2Opcode.imm_5_0, AluOpcode.sra32, PcSrccode.add4,   RinCtlcode.aluout32, "b00000000".U), //sraiw
     BitPat("b0000001_?????_?????_100_?????_01110_11") -> List(1.U, 0.U, AluSrc1Opcode.r1_31_0,   AluSrc2Opcode.r2_31_0, AluOpcode.div32, PcSrccode.add4,   RinCtlcode.aluout32, "b00000000".U), //divw
     BitPat("b000000?_?????_?????_001_?????_01110_11") -> List(1.U, 0.U, AluSrc1Opcode.r1_31_0,   AluSrc2Opcode.r2,      AluOpcode.sll32, PcSrccode.add4,   RinCtlcode.aluout32, "b00000000".U), //sllw
-    BitPat("b???????_?????_?????_011_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.bltu,  PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //sltiu
-  ) 
+    BitPat("b???????_?????_?????_011_?????_00100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.imm,     AluOpcode.sub,   PcSrccode.add4,   RinCtlcode.NSignU,   "b00000000".U), //sltiu
+  ))
   io.RegWrite := contr_code(0);
   io.MemWrite := contr_code(1);
   io.AluSrc1Op := contr_code(2);
