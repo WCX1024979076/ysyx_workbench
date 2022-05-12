@@ -135,6 +135,7 @@ module IDU(
   wire  _contr_code_T_87 = 32'h2000033 == _contr_code_T_8; // @[Lookup.scala 31:38]
   wire  _contr_code_T_89 = 32'h2006033 == _contr_code_T_8; // @[Lookup.scala 31:38]
   wire  _contr_code_T_91 = 32'h200603b == _contr_code_T_8; // @[Lookup.scala 31:38]
+  wire  _contr_code_T_93 = 32'h2007033 == _contr_code_T_8; // @[Lookup.scala 31:38]
   wire  _contr_code_T_95 = 32'h200003b == _contr_code_T_8; // @[Lookup.scala 31:38]
   wire  _contr_code_T_97 = 32'h2004033 == _contr_code_T_8; // @[Lookup.scala 31:38]
   wire  _contr_code_T_99 = 32'h2005033 == _contr_code_T_8; // @[Lookup.scala 31:38]
@@ -145,7 +146,7 @@ module IDU(
   wire  _contr_code_T_109 = 32'h200403b == _contr_code_T_8; // @[Lookup.scala 31:38]
   wire  _contr_code_T_111 = 32'h103b == _contr_code_T_16; // @[Lookup.scala 31:38]
   wire  _contr_code_T_128 = _contr_code_T_85 ? 1'h0 : _contr_code_T_87 | (_contr_code_T_89 | (_contr_code_T_91 | (
-    _contr_code_T_91 | (_contr_code_T_95 | (_contr_code_T_97 | (_contr_code_T_99 | (_contr_code_T_101 | (
+    _contr_code_T_93 | (_contr_code_T_95 | (_contr_code_T_97 | (_contr_code_T_99 | (_contr_code_T_101 | (
     _contr_code_T_103 | (_contr_code_T_105 | (_contr_code_T_107 | (_contr_code_T_109 | (_contr_code_T_111 |
     _contr_code_T_51)))))))))))); // @[Lookup.scala 33:37]
   wire  _contr_code_T_129 = _contr_code_T_83 ? 1'h0 : _contr_code_T_128; // @[Lookup.scala 33:37]
@@ -210,7 +211,7 @@ module IDU(
   wire [1:0] _contr_code_T_233 = _contr_code_T_99 ? 2'h0 : _contr_code_T_232; // @[Lookup.scala 33:37]
   wire [1:0] _contr_code_T_234 = _contr_code_T_97 ? 2'h0 : _contr_code_T_233; // @[Lookup.scala 33:37]
   wire [1:0] _contr_code_T_235 = _contr_code_T_95 ? 2'h0 : _contr_code_T_234; // @[Lookup.scala 33:37]
-  wire [1:0] _contr_code_T_236 = _contr_code_T_91 ? 2'h0 : _contr_code_T_235; // @[Lookup.scala 33:37]
+  wire [1:0] _contr_code_T_236 = _contr_code_T_93 ? 2'h0 : _contr_code_T_235; // @[Lookup.scala 33:37]
   wire [1:0] _contr_code_T_237 = _contr_code_T_91 ? 2'h0 : _contr_code_T_236; // @[Lookup.scala 33:37]
   wire [1:0] _contr_code_T_238 = _contr_code_T_89 ? 2'h0 : _contr_code_T_237; // @[Lookup.scala 33:37]
   wire [1:0] _contr_code_T_239 = _contr_code_T_87 ? 2'h0 : _contr_code_T_238; // @[Lookup.scala 33:37]
@@ -267,7 +268,7 @@ module IDU(
   wire [2:0] _contr_code_T_289 = _contr_code_T_99 ? 3'h0 : _contr_code_T_288; // @[Lookup.scala 33:37]
   wire [2:0] _contr_code_T_290 = _contr_code_T_97 ? 3'h0 : _contr_code_T_289; // @[Lookup.scala 33:37]
   wire [2:0] _contr_code_T_291 = _contr_code_T_95 ? 3'h0 : _contr_code_T_290; // @[Lookup.scala 33:37]
-  wire [2:0] _contr_code_T_292 = _contr_code_T_91 ? 3'h0 : _contr_code_T_291; // @[Lookup.scala 33:37]
+  wire [2:0] _contr_code_T_292 = _contr_code_T_93 ? 3'h0 : _contr_code_T_291; // @[Lookup.scala 33:37]
   wire [2:0] _contr_code_T_293 = _contr_code_T_91 ? 3'h0 : _contr_code_T_292; // @[Lookup.scala 33:37]
   wire [2:0] _contr_code_T_294 = _contr_code_T_89 ? 3'h0 : _contr_code_T_293; // @[Lookup.scala 33:37]
   wire [2:0] _contr_code_T_295 = _contr_code_T_87 ? 3'h0 : _contr_code_T_294; // @[Lookup.scala 33:37]
@@ -324,7 +325,7 @@ module IDU(
   wire [4:0] _contr_code_T_345 = _contr_code_T_99 ? 5'h5 : _contr_code_T_344; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_346 = _contr_code_T_97 ? 5'h4 : _contr_code_T_345; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_347 = _contr_code_T_95 ? 5'h3 : _contr_code_T_346; // @[Lookup.scala 33:37]
-  wire [4:0] _contr_code_T_348 = _contr_code_T_91 ? 5'h7 : _contr_code_T_347; // @[Lookup.scala 33:37]
+  wire [4:0] _contr_code_T_348 = _contr_code_T_93 ? 5'h7 : _contr_code_T_347; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_349 = _contr_code_T_91 ? 5'h6 : _contr_code_T_348; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_350 = _contr_code_T_89 ? 5'h6 : _contr_code_T_349; // @[Lookup.scala 33:37]
   wire [4:0] _contr_code_T_351 = _contr_code_T_87 ? 5'h3 : _contr_code_T_350; // @[Lookup.scala 33:37]
@@ -414,7 +415,7 @@ module IDU(
   wire [3:0] _contr_code_T_457 = _contr_code_T_99 ? 4'h0 : _contr_code_T_456; // @[Lookup.scala 33:37]
   wire [3:0] _contr_code_T_458 = _contr_code_T_97 ? 4'h0 : _contr_code_T_457; // @[Lookup.scala 33:37]
   wire [3:0] _contr_code_T_459 = _contr_code_T_95 ? 4'h6 : _contr_code_T_458; // @[Lookup.scala 33:37]
-  wire [3:0] _contr_code_T_460 = _contr_code_T_91 ? 4'h0 : _contr_code_T_459; // @[Lookup.scala 33:37]
+  wire [3:0] _contr_code_T_460 = _contr_code_T_93 ? 4'h0 : _contr_code_T_459; // @[Lookup.scala 33:37]
   wire [3:0] _contr_code_T_461 = _contr_code_T_91 ? 4'h6 : _contr_code_T_460; // @[Lookup.scala 33:37]
   wire [3:0] _contr_code_T_462 = _contr_code_T_89 ? 4'h0 : _contr_code_T_461; // @[Lookup.scala 33:37]
   wire [3:0] _contr_code_T_463 = _contr_code_T_87 ? 4'h0 : _contr_code_T_462; // @[Lookup.scala 33:37]

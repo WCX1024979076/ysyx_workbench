@@ -31,7 +31,7 @@ void pmem_read(long long Raddr, long long *Rdata)
 {
   if (Raddr < CONFIG_MBASE || Raddr >= CONFIG_MSIZE + CONFIG_MBASE)
     return;
-  (*Rdata) = *((long long *)guest_to_host(Raddr));
+  (*Rdata) = *((uint64_t *)guest_to_host(Raddr));
   // printf("READ DATA %lx %lx\n", Raddr, Rdata);
 #ifdef CONFIG_MTRACE
   sprintf(mtrace_buf[mtrace_count],"read:  addr:%016x content:%016lx",Raddr,(*Rdata));
@@ -42,14 +42,15 @@ void pmem_read(long long Raddr, long long *Rdata)
 
 void pmem_write(long long Waddr, long long Wdata, char Wmask)
 {
-  for (int i = 0; i < 7; i++)
+  uint8_t Wmask1 = Wmask;
+  for (int i = 0; i < 8; i++)
   {
     uint8_t *Vaddr = guest_to_host(Waddr);
-    if ((Wmask >> i) & 1)
+    if ((Wmask1 >> i) & 1)
       *((uint8_t *)(Vaddr + i)) = ((Wdata) >> (i * 8)) & (0xFF);
   }
 #ifdef CONFIG_MTRACE
-  sprintf(mtrace_buf[mtrace_count],"write: addr:%016x Wmask:%08d content:%016lx",Waddr,Wmask,Wdata);
+  sprintf(mtrace_buf[mtrace_count],"write: addr:%016x Wmask:%08u content:%016lx",Waddr,Wmask1,Wdata);
   mtrace_count=(mtrace_count+1)%16;
 #endif
   return;

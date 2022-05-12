@@ -173,7 +173,7 @@ class IDU extends Module {
     BitPat("b0000001_?????_?????_000_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.mul,   PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //mul
     BitPat("b0000001_?????_?????_110_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.rem,   PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //rem
     BitPat("b0000001_?????_?????_110_?????_01110_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.rem,   PcSrccode.add4,   RinCtlcode.aluout32, "b00000000".U), //remw
-    BitPat("b0000001_?????_?????_110_?????_01110_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.remu,  PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //remu
+    BitPat("b0000001_?????_?????_111_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.remu,  PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //remu
     BitPat("b0000001_?????_?????_000_?????_01110_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.mul,   PcSrccode.add4,   RinCtlcode.aluout32, "b00000000".U), //mulw
     BitPat("b0000001_?????_?????_100_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.div,   PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //div
     BitPat("b0000001_?????_?????_101_?????_01100_11") -> List(1.U, 0.U, AluSrc1Opcode.r1,        AluSrc2Opcode.r2,      AluOpcode.divu,  PcSrccode.add4,   RinCtlcode.aluout,   "b00000000".U), //divu

@@ -468,6 +468,10 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                                                                                 == 
                                                                                 (0xfe00707fU 
                                                                                 & vlSelf->io_Inst)) 
+                                                                                | ((0x2007033U 
+                                                                                == 
+                                                                                (0xfe00707fU 
+                                                                                & vlSelf->io_Inst)) 
                                                                                 | ((0x200003bU 
                                                                                 == 
                                                                                 (0xfe00707fU 
@@ -507,7 +511,7 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                                                                                 | (0x3013U 
                                                                                 == 
                                                                                 (0x707fU 
-                                                                                & vlSelf->io_Inst))))))))))))))))))))))))));
+                                                                                & vlSelf->io_Inst)))))))))))))))))))))))))));
     Main__DOT__idu__DOT___contr_code_T_431 = ((0x6013U 
                                                == (0x707fU 
                                                    & vlSelf->io_Inst))
@@ -777,7 +781,7 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                                                       & vlSelf->io_Inst))
                                                      ? 6U
                                                      : 
-                                                    ((0x200603bU 
+                                                    ((0x2007033U 
                                                       == 
                                                       (0xfe00707fU 
                                                        & vlSelf->io_Inst))
@@ -859,7 +863,7 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                                                      & vlSelf->io_Inst))
                                                     ? 6U
                                                     : 
-                                                   ((0x200603bU 
+                                                   ((0x2007033U 
                                                      == 
                                                      (0xfe00707fU 
                                                       & vlSelf->io_Inst))
@@ -1075,7 +1079,7 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                                                       & vlSelf->io_Inst))
                                                      ? 0U
                                                      : 
-                                                    ((0x200603bU 
+                                                    ((0x2007033U 
                                                       == 
                                                       (0xfe00707fU 
                                                        & vlSelf->io_Inst))
@@ -1169,7 +1173,7 @@ VL_INLINE_OPT void VMain___024root___sequent__TOP__0(VMain___024root* vlSelf) {
                                                        & vlSelf->io_Inst))
                                                       ? 0U
                                                       : 
-                                                     ((0x200603bU 
+                                                     ((0x2007033U 
                                                        == 
                                                        (0xfe00707fU 
                                                         & vlSelf->io_Inst))
