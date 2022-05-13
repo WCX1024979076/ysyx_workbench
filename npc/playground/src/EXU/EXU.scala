@@ -79,22 +79,22 @@ class EXU extends Module {
     0x1.U -> (pc + Cat(Fill(43, io.Imm(20)), io.Imm(20,0))), //jal
     0x2.U -> ((DataR1 + io.Imm) & (~(1.U(64.W)))),           //jalr
     0x3.U -> MuxLookup(~Zero, pc+"h4".U, Array(              //bne
-      1.U -> (pc +  SEXT(io.Imm(12,0),13))
+      1.U -> (pc + SEXT(io.Imm(12,0),13))
       )),
     0x4.U -> MuxLookup(Zero, pc+"h4".U, Array(               //beq
-      1.U -> (pc +  SEXT(io.Imm(12,0),13))
+      1.U -> (pc + SEXT(io.Imm(12,0),13))
       )),
     0x5.U -> MuxLookup(~SignS, pc+"h4".U, Array(             //blt
-      1.U -> (pc +  SEXT(io.Imm(12,0),13))
+      1.U -> (pc + SEXT(io.Imm(12,0),13))
       )),
     0x6.U -> MuxLookup(SignS, pc+"h4".U, Array(              //bge
-      1.U -> (pc +  SEXT(io.Imm(12,0),13))
+      1.U -> (pc + SEXT(io.Imm(12,0),13))
       )),
     0x7.U -> MuxLookup(~SignU, pc+"h4".U, Array(             //bltu
-      1.U -> (pc +  SEXT(io.Imm(12,0),13))
+      1.U -> (pc + SEXT(io.Imm(12,0),13))
       )),
     0x8.U -> MuxLookup(SignU, pc+"h4".U, Array(              //bgeu
-      1.U -> (pc +  SEXT(io.Imm(12,0),13))
+      1.U -> (pc + SEXT(io.Imm(12,0),13))
       )),
   ));
 
