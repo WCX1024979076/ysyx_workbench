@@ -1,6 +1,7 @@
 #include "npc.h"
 
 CPU_state cpu_npc;
+
 vluint64_t sim_time = 0;
 VMain *top = nullptr;
 VerilatedContext *contextp = nullptr;
@@ -42,17 +43,23 @@ void exit_npc(int flag)
   exit(flag);
 }
 
-void cpu_sim_once()
+void cpu_sim_clock()
 {
   top->clock = 0, top->eval();
+#ifdef CONFIG_VCD
+  m_trace->dump(sim_time++);
+#endif
   top->clock = 1, top->eval();
+#ifdef CONFIG_VCD
+  m_trace->dump(sim_time++);
+#endif
 }
 
 void init_npc()
 {
   top->reset = 1;
   for (int i = 1; i <= 10; i++)
-    cpu_sim_once();
+    cpu_sim_clock();
   top->reset = 0;
 }
 
@@ -73,6 +80,21 @@ void print_itrace()
 }
 #endif
 
+void cpu_sim_once()
+{
+  int t = 10;
+  uint64_t last_pc = cpu_npc.pc;
+  while (cpu_npc.pc == last_pc && t >= 0)
+  {
+    t--;
+    cpu_sim_clock();
+  }
+  if (t == -1)
+  {
+    exit_npc(1);
+  }
+}
+
 void exec_once()
 {
   cpu_sim_once();
@@ -84,9 +106,7 @@ void exec_once()
   itrace_buf_cnt++;
   itrace_buf_cnt %= 16;
 #endif
-#ifdef CONFIG_VCD
-  m_trace->dump(sim_time++);
-#endif
+
 #ifdef CONFIG_DIFFTEST
   ref_difftest_exec(1);
   CPU_state ref_cpu;

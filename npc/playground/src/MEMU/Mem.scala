@@ -1,4 +1,4 @@
-package riscv.EXU
+package riscv.MEMU
 import chisel3._
 import chisel3.util._
 /**
