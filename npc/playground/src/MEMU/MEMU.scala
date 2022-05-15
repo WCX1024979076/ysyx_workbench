@@ -76,4 +76,3 @@ class MEMU extends Module {
   io.RdestOut := RdestOutReg;
   io.PcVal := PcValReg;
 }
-
