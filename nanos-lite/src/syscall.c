@@ -9,7 +9,7 @@ void do_syscall(Context *c)
   a[2] = c->GPR3;
   a[3] = c->GPR4;
   char *filename = (char *)a[1];
-
+  Log("meeting syscall %d",a[0]);
   switch (a[0])
   {
   case (SYS_yield):
@@ -34,6 +34,7 @@ void do_syscall(Context *c)
     }
     break;
   case (SYS_brk):
+    printf("brk %x\n",a[1]);
     c->GPRx = 0;
     break;
   case (SYS_open):

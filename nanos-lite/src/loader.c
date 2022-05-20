@@ -30,7 +30,7 @@ extern uint8_t ramdisk_start;
 extern uint8_t ramdisk_end;
 #define RAMDISK_SIZE ((&ramdisk_end) - (&ramdisk_start))
 
-uint64_t program_break = 0;
+//uint64_t program_break = 0;
 static uintptr_t loader(PCB *pcb, const char *filename)
 {
   unsigned char buffer[RAMDISK_SIZE + 5];
@@ -50,11 +50,14 @@ static uintptr_t loader(PCB *pcb, const char *filename)
     if (phdr[i].p_type == PT_LOAD)
     {
       mem_pos = (unsigned char *)phdr[i].p_paddr;
+      memset(mem_pos, 0, phdr[i].p_memsz);
       memcpy(mem_pos, buffer + phdr[i].p_offset, phdr[i].p_filesz);
+      Log("%lx %lx %lx %lx",phdr[i].p_paddr, phdr[i].p_memsz, phdr[i].p_filesz, phdr[i].p_offset);
+      // memcpy(mem_pos, buffer + phdr[i].p_offset, phdr[i].p_filesz);
 
-      program_break = program_break > (uint64_t)((phdr[i].p_paddr + phdr[i].p_memsz)) ? program_break : (uint64_t)((phdr[i].p_paddr + phdr[i].p_memsz));
-      mem_pos = (unsigned char *)(phdr[i].p_paddr + phdr[i].p_filesz);
-      memset(mem_pos, 0, phdr[i].p_memsz - phdr[i].p_filesz);
+      // //program_break = program_break > (uint64_t)((phdr[i].p_paddr + phdr[i].p_memsz)) ? program_break : (uint64_t)((phdr[i].p_paddr + phdr[i].p_memsz));
+      // mem_pos = (unsigned char *)(phdr[i].p_paddr + phdr[i].p_filesz);
+      // memset(mem_pos, 0, phdr[i].p_memsz - phdr[i].p_filesz);
     }
   }
   return ehdr->e_entry;
@@ -62,7 +65,7 @@ static uintptr_t loader(PCB *pcb, const char *filename)
 
 void naive_uload(PCB *pcb, const char *filename)
 {
-  uintptr_t entry = loader(pcb, "/bin/file-test");
+  uintptr_t entry = loader(pcb, "/bin/hello");
   Log("Jump to entry = 0x%lx", entry);
   ((void (*)())entry)();
 }
