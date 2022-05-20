@@ -29,43 +29,43 @@ int fs_close(int fd);
 extern uint8_t ramdisk_start;
 extern uint8_t ramdisk_end;
 #define RAMDISK_SIZE ((&ramdisk_end) - (&ramdisk_start))
-
-//uint64_t program_break = 0;
+unsigned char buffer_tmp[100500];
+// uint64_t program_break = 0;
 static uintptr_t loader(PCB *pcb, const char *filename)
 {
-  unsigned char buffer[RAMDISK_SIZE + 5];
   int fd = fs_open(filename, 0, 0);
-  fs_read(fd, buffer, RAMDISK_SIZE);
-  fs_close(fd);
-
-  Elf_Ehdr *ehdr = (Elf_Ehdr *)buffer;
-  Elf_Phdr *phdr = (Elf64_Phdr *)(buffer + ehdr->e_phoff);
+  fs_lseek(fd, 0, SEEK_SET);
+  fs_read(fd, buffer_tmp, RAMDISK_SIZE);
+  Elf_Ehdr *ehdr = (Elf_Ehdr *)buffer_tmp;
+  Elf_Phdr *phdr = (Elf64_Phdr *)(buffer_tmp + ehdr->e_phoff);
   assert(*(uint32_t *)ehdr->e_ident == 0x464c457f);
   assert(ehdr->e_machine == EXPECT_TYPE);
   uint16_t num = ehdr->e_phnum;
   unsigned char *mem_pos;
-
   for (uint16_t i = 0; i < num; i++)
   {
     if (phdr[i].p_type == PT_LOAD)
     {
       mem_pos = (unsigned char *)phdr[i].p_paddr;
       memset(mem_pos, 0, phdr[i].p_memsz);
-      memcpy(mem_pos, buffer + phdr[i].p_offset, phdr[i].p_filesz);
-      Log("%lx %lx %lx %lx",phdr[i].p_paddr, phdr[i].p_memsz, phdr[i].p_filesz, phdr[i].p_offset);
-      // memcpy(mem_pos, buffer + phdr[i].p_offset, phdr[i].p_filesz);
+      fs_lseek(fd, phdr[i].p_offset, SEEK_SET);
+      fs_read(fd, mem_pos, phdr[i].p_filesz);
+      // memcpy(mem_pos, buffer_tmp + phdr[i].p_offset, phdr[i].p_filesz);
+      // Log("%lx %lx %lx %lx", phdr[i].p_paddr, phdr[i].p_memsz, phdr[i].p_filesz, phdr[i].p_offset);
+      // memcpy(mem_pos, buffer_tmp + phdr[i].p_offset, phdr[i].p_filesz);
 
       // //program_break = program_break > (uint64_t)((phdr[i].p_paddr + phdr[i].p_memsz)) ? program_break : (uint64_t)((phdr[i].p_paddr + phdr[i].p_memsz));
       // mem_pos = (unsigned char *)(phdr[i].p_paddr + phdr[i].p_filesz);
       // memset(mem_pos, 0, phdr[i].p_memsz - phdr[i].p_filesz);
     }
   }
+  fs_close(fd);
   return ehdr->e_entry;
 }
 
 void naive_uload(PCB *pcb, const char *filename)
 {
-  uintptr_t entry = loader(pcb, "/bin/hello");
+  uintptr_t entry = loader(pcb, "/bin/file-test");
   Log("Jump to entry = 0x%lx", entry);
   ((void (*)())entry)();
 }

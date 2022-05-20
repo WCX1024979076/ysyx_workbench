@@ -70,7 +70,7 @@ void *memset(void *s, int c, size_t n)
     return NULL;
 
   void *tmp = s;
-  char *str = s;
+  uint8_t *str = s;
   for (int i = 0; i < n; i++)
     str[i] = c;
   return tmp;
@@ -81,8 +81,8 @@ void *memmove(void *dst, const void *src, size_t n)
   if (dst == NULL || n < 0 || src == NULL)
     return NULL;
 
-  char *str_dst = dst;
-  const char *str_src = src;
+  uint8_t *str_dst = dst;
+  const uint8_t *str_src = src;
   if (str_dst > str_src && str_src + n > str_dst)
   {
     for (int i = n - 1; i >= 0; i--)
@@ -101,8 +101,8 @@ void *memcpy(void *out, const void *in, size_t n)
   if (out == NULL || n < 0 || in == NULL)
     return NULL;
 
-  char *str_out = out;
-  const char *str_in = in;
+  uint8_t *str_out = out;
+  const uint8_t *str_in = in;
   for (int i = 0; i < n; i++)
     str_out[i] = str_in[i];
   return out;
@@ -112,8 +112,8 @@ int memcmp(const void *s1, const void *s2, size_t n)
 {
   if (s1 == NULL || n < 0 || s2 == NULL)
     return -1;
-  const char *str_s1 = s1;
-  const char *str_s2 = s2;
+  const uint8_t *str_s1 = s1;
+  const uint8_t *str_s2 = s2;
 
   for (int i = 0; i < n; i++)
   {

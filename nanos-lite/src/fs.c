@@ -1,5 +1,9 @@
 #include <fs.h>
 
+extern uint8_t ramdisk_start;
+extern uint8_t ramdisk_end;
+#define RAMDISK_SIZE ((&ramdisk_end) - (&ramdisk_start))
+
 typedef size_t (*ReadFn)(void *buf, size_t offset, size_t len);
 typedef size_t (*WriteFn)(const void *buf, size_t offset, size_t len);
 size_t ramdisk_read(void *buf, size_t offset, size_t len);
@@ -64,6 +68,7 @@ int fs_open(const char *pathname, int flags, int mode)
 
 size_t fs_read(int fd, void *buf, size_t len)
 {
+  // Log("fs_read: %d %d %d\n", file_table[fd].disk_offset, file_table[fd].open_offset, len < file_table[fd].size ? len : file_table[fd].size);
   size_t read_len = ramdisk_read(buf, file_table[fd].disk_offset + file_table[fd].open_offset, len < file_table[fd].size ? len : file_table[fd].size);
   file_table[fd].open_offset += read_len;
   return fd;
