@@ -53,6 +53,7 @@ VM_USER_CLASSES = \
 	mem \
 	disasm \
 	elf \
+	timer \
 	util \
 
 # User .cpp directories (from .cpp's on Verilator command line)
@@ -81,6 +82,8 @@ mem.o: ./csrc/mem/mem.cpp
 disasm.o: ./csrc/util/disasm.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 elf.o: ./csrc/util/elf.cpp
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+timer.o: ./csrc/util/timer.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 util.o: ./csrc/util/util.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<

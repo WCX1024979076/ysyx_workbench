@@ -6,8 +6,8 @@
 #include <time.h>
 #include "syscall.h"
 
-extern char end;
-char *last = &end;
+extern char _end;
+intptr_t program_break = (intptr_t)&_end;
 // helper macros
 #define _concat(x, y) x##y
 #define concat(x, y) _concat(x, y)
@@ -75,12 +75,11 @@ int _write(int fd, void *buf, size_t count)
 void *_sbrk(intptr_t increment)
 {
   // return (void *)(-1);
-  char *tmp = last + increment;
-  int ret = _syscall_(SYS_brk, (intptr_t)tmp, 0, 0);
-  if (ret == -1)
-    return (void *)(-1);
-  last = tmp;
-  return tmp;
+  intptr_t old_program_break = program_break;
+  int ret = _syscall_(SYS_brk, (intptr_t)(old_program_break+increment), 0, 0);
+  assert(ret != -1);
+  program_break += increment;
+  return old_program_break;
 }
 
 int _read(int fd, void *buf, size_t count)

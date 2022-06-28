@@ -16,6 +16,9 @@ static const char mainargs[] = MAINARGS;
 
 void putch(char ch)
 {
+   char *p = (char *)0x7FFE0000;//0x7FFE0000
+   *p = ch;
+   return ;
 }
 
 void halt(int code)

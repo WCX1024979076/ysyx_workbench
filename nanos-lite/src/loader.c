@@ -30,7 +30,7 @@ extern uint8_t ramdisk_start;
 extern uint8_t ramdisk_end;
 #define RAMDISK_SIZE ((&ramdisk_end) - (&ramdisk_start))
 unsigned char buffer_tmp[100500];
-// uint64_t program_break = 0;
+
 static uintptr_t loader(PCB *pcb, const char *filename)
 {
   int fd = fs_open(filename, 0, 0);
@@ -54,7 +54,6 @@ static uintptr_t loader(PCB *pcb, const char *filename)
       // Log("%lx %lx %lx %lx", phdr[i].p_paddr, phdr[i].p_memsz, phdr[i].p_filesz, phdr[i].p_offset);
       // memcpy(mem_pos, buffer_tmp + phdr[i].p_offset, phdr[i].p_filesz);
 
-      // //program_break = program_break > (uint64_t)((phdr[i].p_paddr + phdr[i].p_memsz)) ? program_break : (uint64_t)((phdr[i].p_paddr + phdr[i].p_memsz));
       // mem_pos = (unsigned char *)(phdr[i].p_paddr + phdr[i].p_filesz);
       // memset(mem_pos, 0, phdr[i].p_memsz - phdr[i].p_filesz);
     }

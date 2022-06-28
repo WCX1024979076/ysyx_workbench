@@ -11,14 +11,6 @@ char *img_file = nullptr;
 VerilatedVcdC *m_trace = nullptr;
 #endif
 
-int check_regs_npc(CPU_state ref_cpu);
-void init_so(char *ref_so_file, long img_size);
-long ld(char *img_file);
-void disassemble(char *str, int size, uint64_t pc, uint8_t *code, int nbyte);
-void init_disasm(const char *triple);
-void print_itrace();
-void print_mtrace();
-void print_ftrace();
 #ifdef CONFIG_ITRACE
 char itrace_buf[16][100] = {0};
 int itrace_buf_cnt = 0;
@@ -82,7 +74,7 @@ void print_itrace()
 
 void cpu_sim_once()
 {
-  int t = 10;
+  int t = 20;
   uint64_t last_pc = cpu_npc.pc;
   while (cpu_npc.pc == last_pc && t >= 0)
   {
@@ -91,6 +83,7 @@ void cpu_sim_once()
   }
   if (t == -1)
   {
+    printf("Water flow cannot stop\n");
     exit_npc(1);
   }
 }
@@ -111,7 +104,7 @@ void exec_once()
   ref_difftest_exec(1);
   CPU_state ref_cpu;
   ref_difftest_regcpy(&ref_cpu, DIFFTEST_TO_DUT);
-  printf("check at nemu_pc=%lx, npc_pc=%lx\n", cpu_npc.pc, ref_cpu.pc);
+  // printf("check at nemu_pc=%lx, npc_pc=%lx\n", cpu_npc.pc, ref_cpu.pc);
   if (!check_regs_npc(ref_cpu))
     exit_npc(-1);
 #endif
@@ -160,5 +153,5 @@ int main(int argc, char **argv, char **env)
     exec_once();
   }
 
-  return 0;
+  return 0; 
 }

@@ -17,7 +17,7 @@ typedef struct
   vaddr_t pc;
 } CPU_state;
 
-#define CONFIG_MSIZE 0x0020000
+#define CONFIG_MSIZE 0x08000000
 #define CONFIG_MBASE 0x80000000
 #define CONFIG_PC_RESET_OFFSET 0x0
 #define RESET_VECTOR (CONFIG_MBASE + CONFIG_PC_RESET_OFFSET)
@@ -42,3 +42,14 @@ extern void (*ref_difftest_init)();
 
 extern uint8_t pmem[CONFIG_MSIZE];
 extern CPU_state cpu_npc;
+
+int check_regs_npc(CPU_state ref_cpu);
+void init_so(char *ref_so_file, long img_size);
+long ld(char *img_file);
+void disassemble(char *str, int size, uint64_t pc, uint8_t *code, int nbyte);
+void init_disasm(const char *triple);
+void print_itrace();
+void print_mtrace();
+void print_ftrace();
+void exit_npc(int flag);
+uint64_t get_time();

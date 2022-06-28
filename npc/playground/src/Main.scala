@@ -1,4 +1,5 @@
 package riscv
+import riscv.Common._
 import chisel3._
 import riscv.IFU._
 import riscv.IDU._
@@ -23,72 +24,46 @@ class Main extends Module {
   var regs=Module(new Regs);
   val IDUWait = Wire(UInt(1.W));
 
-  io.Inst := ifu.io.Inst;
-  ifu.io.Pc := pc;
-  ifu.io.EXUClear := exu.io.EXUClear;
-  ifu.io.IDUWait := IDUWait;
+  io.Inst := ifu.io.ifu_data_out.Inst;
+  ifu.io.ifu_data_in.Pc := pc;
+  ifu.io.ifu_data_in.EXUClear := exu.io.exu_ctrl_out.EXUClear;
+  ifu.io.ifu_data_in.IDUWait := IDUWait;
+  
+  idu.io.ifu_data_in := ifu.io.ifu_data_out
+  idu.io.idu_data_in.EXUClear := exu.io.exu_ctrl_out.EXUClear;
+  idu.io.idu_data_in.IDUWait := IDUWait;
 
-  idu.io.Pc := ifu.io.PcVal;
-  idu.io.Inst := ifu.io.Inst;
-  idu.io.IFUFlag := ifu.io.IFUFlag;
-  idu.io.EXUClear := exu.io.EXUClear;
-  idu.io.IDUWait := IDUWait;
+  regs.io.R1 := idu.io.idu_data_out.R1;
+  regs.io.R2 := idu.io.idu_data_out.R2;
+  exu.io.ifu_data_in := idu.io.ifu_data_out
+  exu.io.idu_data_in := idu.io.idu_data_out
+  exu.io.idu_ctrl_in := idu.io.idu_ctrl_out
+  exu.io.exu_data_in.IDUWait := IDUWait;
+  exu.io.exu_data_in.DataR1 := regs.io.DataR1;
+  exu.io.exu_data_in.DataR2 := regs.io.DataR2;
 
-  exu.io.Pc := idu.io.PcVal;
-  exu.io.RegWrite := idu.io.RegWrite;
-  exu.io.MemWrite := idu.io.MemWrite;
-  exu.io.AluOp := idu.io.AluOp;
-  exu.io.AluSrc1Op := idu.io.AluSrc1Op;
-  exu.io.AluSrc2Op := idu.io.AluSrc2Op;
-  exu.io.PcSrc := idu.io.PcSrc;
-  exu.io.RinCtl := idu.io.RinCtl;
-  regs.io.R1 := idu.io.R1;
-  regs.io.R2 := idu.io.R2;
-  exu.io.DataR1 := regs.io.DataR1;
-  exu.io.DataR2 := regs.io.DataR2;
-  exu.io.Imm := idu.io.Imm;
-  exu.io.EbreakIn := idu.io.EbreakIn;
-  exu.io.Rdest := idu.io.Rdest;
-  exu.io.MemMask := idu.io.MemMask;
-  exu.io.IDUFlag := (idu.io.IDUFlag & (~IDUWait));
+  memu.io.ifu_data_in := exu.io.ifu_data_out
+  memu.io.idu_data_in := exu.io.idu_data_out
+  memu.io.idu_ctrl_in := exu.io.idu_ctrl_out
+  memu.io.exu_data_in := exu.io.exu_data_out
 
-  memu.io.Pc := exu.io.PcVal;
-  memu.io.MemMask := exu.io.MemMaskOut;
-  memu.io.Rdest := exu.io.RdestOut;
-  memu.io.DataR2 := exu.io.DataR2Out;
-  memu.io.MemWrite := exu.io.MemWriteOut;
-  memu.io.Zero := exu.io.Zero;
-  memu.io.SignU := exu.io.SignU;
-  memu.io.SignS := exu.io.SignS;
-  memu.io.AluOut := exu.io.AluOut;
-  memu.io.RegWrite := exu.io.RegWriteOut;
-  memu.io.RinCtl := exu.io.RinCtlOut;
-  memu.io.EXUFlag := exu.io.EXUFlag;
-  memu.io.EbreakIn := exu.io.EbreakInOut;
+  wbu.io.ifu_data_in := memu.io.ifu_data_out
+  wbu.io.idu_data_in := memu.io.idu_data_out
+  wbu.io.idu_ctrl_in := memu.io.idu_ctrl_out
+  wbu.io.exu_data_in := memu.io.exu_data_out
+  wbu.io.memu_data_in := memu.io.memu_data_out
 
-  wbu.io.Pc := memu.io.PcVal;
-  wbu.io.MemOut := memu.io.MemOut;
-  wbu.io.Zero := memu.io.ZeroOut;
-  wbu.io.SignU := memu.io.SignUOut;
-  wbu.io.SignS := memu.io.SignSOut;
-  wbu.io.AluOut := memu.io.AluOutOut;
-  wbu.io.RegWrite := memu.io.RegWriteOut;
-  wbu.io.RinCtl := memu.io.RinCtlOut;
-  wbu.io.MEMUFlag := memu.io.MEMUFlag;
-  wbu.io.EbreakIn := memu.io.EbreakInOut;
-  wbu.io.Rdest := memu.io.RdestOut;
+  regs.io.DataIn := wbu.io.wbu_data_out.DataIn;
+  regs.io.Rdest := wbu.io.wbu_data_out.RdestOut;
+  regs.io.RegWrite := wbu.io.wbu_data_out.RegWriteOut;
+  regs.io.Pc := wbu.io.wbu_data_out.PcVal;
 
-  regs.io.DataIn := wbu.io.DataIn;
-  regs.io.Rdest := wbu.io.RdestOut;
-  regs.io.RegWrite := wbu.io.RegWriteOut;
-  regs.io.Pc := wbu.io.PcVal;
+  IDUWait := (((idu.io.idu_data_out.R1 === exu.io.idu_data_out.Rdest).asUInt() & exu.io.exu_data_out.EXUFlag) | ((idu.io.idu_data_out.R2 === exu.io.idu_data_out.Rdest).asUInt() & exu.io.exu_data_out.EXUFlag) | ((idu.io.idu_data_out.R1 === memu.io.idu_data_out.Rdest).asUInt() & memu.io.memu_data_out.MEMUFlag) | ((idu.io.idu_data_out.R2 === memu.io.idu_data_out.Rdest).asUInt() & memu.io.memu_data_out.MEMUFlag)) & idu.io.idu_ctrl_out.IDUFlag;
 
-  IDUWait := (((idu.io.R1 === exu.io.RdestOut).asUInt() & exu.io.EXUFlag) | ((idu.io.R2 === exu.io.RdestOut).asUInt() & exu.io.EXUFlag) | ((idu.io.R1 === memu.io.RdestOut).asUInt()&memu.io.MEMUFlag) | ((idu.io.R2 === memu.io.RdestOut).asUInt() & memu.io.MEMUFlag)) & idu.io.IDUFlag;
-
-  pc := MuxLookup(Cat(IDUWait,exu.io.EXUClear), pc + "h4".U, Array(
+  pc := MuxLookup(Cat(IDUWait,exu.io.exu_ctrl_out.EXUClear), pc + "h4".U, Array(
     0x0.U -> (pc + "h4".U),
-    0x1.U -> exu.io.EXUPc,
+    0x1.U -> exu.io.exu_ctrl_out.EXUPc,
     0x2.U -> pc,
-    0x3.U -> exu.io.EXUPc,
+    0x3.U -> exu.io.exu_ctrl_out.EXUPc,
   ));
 }

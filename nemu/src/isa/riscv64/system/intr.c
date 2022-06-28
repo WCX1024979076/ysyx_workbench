@@ -7,7 +7,7 @@ word_t isa_raise_intr(word_t NO, vaddr_t epc)
    */
   /// csr[0] == mtvec csr[1] == mepc csr[2] == mstatus csr[3] == mcause
   cpu.csr[1] = epc;
-  cpu.csr[3] = NO;
+  // cpu.csr[3] = NO;
   return cpu.csr[0];
 }
 

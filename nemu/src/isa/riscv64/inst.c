@@ -134,7 +134,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000001 ????? ????? 100 ????? 01110 11", divw   , R, R(dest) = SEXT((int)BITS(src1,31,0) / (int)BITS(src2,31,0),32));
   INSTPAT("0000001 ????? ????? 101 ????? 01110 11", divuw  , R, R(dest) = SEXT(BITS(src1,31,0) / BITS(src2,31,0),32));
   INSTPAT("??????? ????? ????? 001 ????? 11100 11", csrrw  , I, word_t tmp = CSR(BITS(src2,11,0)); CSR(BITS(src2,11,0)) = src1; R(dest) = tmp);
-  INSTPAT("0000000 00000 00000 000 00000 11100 11", ecall  , I, s->dnpc = isa_raise_intr(R(17), s->pc));
+  INSTPAT("0000000 00000 00000 000 00000 11100 11", ecall  , I, s->dnpc = isa_raise_intr(CSR(0x342), s->pc)); //mcause
   INSTPAT("??????? ????? ????? 010 ????? 11100 11", csrrs  , I, word_t tmp = CSR(BITS(src2,11,0)); CSR(BITS(src2,11,0)) = tmp | src1; R(dest) = tmp);
   INSTPAT("0011000 00010 00000 000 00000 11100 11", mret   , I, s->dnpc = CSR(0x341));
 

@@ -1,6 +1,5 @@
 #include "npc.h"
 
-void exit_npc(int flag);
 void ebreak()
 {
     puts("Meet ebreak;");
